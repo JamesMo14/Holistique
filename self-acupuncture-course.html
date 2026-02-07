@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Self-Acupuncture — Holistique UK</title>
+    <meta name="description" content="Empower yourself with the skills to practice acupuncture safely and effectively. Group and private courses in Kensington, London.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-teal: #226663;
+            --color-teal-dark: #0A2E2C;
+            --color-purple-dark: #1A0A3E;
+            --color-gold: #D4A853;
+            --color-sage: #7AB89B;
+            --color-lavender: #C8B8E8;
+            --color-offwhite: #F8F6F3;
+            --color-white: #FFFFFF;
+            --font-heading: 'Marcellus', Georgia, serif;
+            --font-body: 'Inter', -apple-system, sans-serif;
+            --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+            --max-width: 1200px;
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-full: 9999px;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { font-size: 16px; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+        body { font-family: var(--font-body); background: var(--color-white); color: #444; line-height: 1.6; overflow-x: hidden; }
+
+        /* ============================================
+           HEADER
+           ============================================ */
+        .header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            padding: 0.75rem 2rem;
+            display: flex; align-items: center; justify-content: space-between;
+            background: rgba(255,255,255,0.85);
+            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+            transition: all 0.4s var(--ease-out-expo);
+        }
+        .header__logo {
+            font-family: var(--font-heading); font-size: 1.5rem;
+            color: var(--color-teal); text-decoration: none; letter-spacing: 0.02em;
+        }
+        .header__nav { display: flex; align-items: center; gap: 2rem; }
+        .header__link {
+            font-family: var(--font-body); font-size: 0.875rem; font-weight: 500;
+            color: #555; text-decoration: none; letter-spacing: 0.01em;
+            position: relative; transition: color 0.25s ease;
+        }
+        .header__link::after {
+            content: ''; position: absolute; bottom: -4px; left: 0;
+            width: 0; height: 1.5px; background: var(--color-gold);
+            transition: width 0.3s var(--ease-out-expo);
+        }
+        .header__link:hover { color: var(--color-teal); }
+        .header__link:hover::after { width: 100%; }
+        .header__link.is-active { color: var(--color-teal); }
+        .header__link.is-active::after { width: 100%; }
+        .header__cta {
+            font-family: var(--font-body); font-size: 0.875rem; font-weight: 500;
+            color: var(--color-teal); text-decoration: none;
+            padding: 0.5rem 1.25rem; border: 1.5px solid var(--color-teal);
+            border-radius: var(--radius-full); transition: all 0.25s ease;
+        }
+        .header__cta:hover { background: var(--color-teal); color: #fff; }
+
+        /* Hamburger */
+        .hamburger {
+            display: none; width: 28px; height: 20px; position: relative;
+            cursor: pointer; background: none; border: none; z-index: 1001;
+        }
+        .hamburger__line {
+            position: absolute; left: 0; width: 100%; height: 2px;
+            background: #333; transition: all 0.3s var(--ease-out-expo);
+        }
+        .hamburger__line:nth-child(1) { top: 0; }
+        .hamburger__line:nth-child(2) { top: 50%; transform: translateY(-50%); }
+        .hamburger__line:nth-child(3) { bottom: 0; }
+        .hamburger.is-open .hamburger__line:nth-child(1) { top: 50%; transform: translateY(-50%) rotate(45deg); }
+        .hamburger.is-open .hamburger__line:nth-child(2) { opacity: 0; transform: translateX(-10px); }
+        .hamburger.is-open .hamburger__line:nth-child(3) { bottom: 50%; transform: translateY(50%) rotate(-45deg); }
+
+        /* Mobile menu */
+        .mobile-menu {
+            position: fixed; inset: 0; background: rgba(10,46,44,0.97);
+            backdrop-filter: blur(20px); z-index: 999;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 2rem;
+            opacity: 0; visibility: hidden; transition: all 0.4s var(--ease-out-expo);
+        }
+        .mobile-menu.is-open { opacity: 1; visibility: visible; }
+        .mobile-menu__link {
+            font-family: var(--font-heading); font-size: 2rem; color: #fff;
+            text-decoration: none; opacity: 0; transform: translateY(20px);
+            transition: all 0.3s var(--ease-out-expo);
+        }
+        .mobile-menu.is-open .mobile-menu__link { opacity: 1; transform: translateY(0); }
+        .mobile-menu.is-open .mobile-menu__link:nth-child(1) { transition-delay: 0.1s; }
+        .mobile-menu.is-open .mobile-menu__link:nth-child(2) { transition-delay: 0.15s; }
+        .mobile-menu.is-open .mobile-menu__link:nth-child(3) { transition-delay: 0.2s; }
+        .mobile-menu.is-open .mobile-menu__link:nth-child(4) { transition-delay: 0.25s; }
+        .mobile-menu.is-open .mobile-menu__link:nth-child(5) { transition-delay: 0.3s; }
+        .mobile-menu.is-open .mobile-menu__link:nth-child(6) { transition-delay: 0.35s; }
+
+        /* ============================================
+           HERO
+           ============================================ */
+        .page-hero {
+            padding: 140px 2rem 80px;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(34,102,99,0.04) 0%, rgba(248,246,243,0.5) 60%, #fff 100%);
+        }
+        .section-label {
+            font-family: var(--font-mono); font-size: 0.6875rem; font-weight: 400;
+            text-transform: uppercase; letter-spacing: 0.15em;
+            color: var(--color-teal); margin-bottom: 1rem;
+        }
+        .page-hero__title {
+            font-family: var(--font-heading); font-size: clamp(2.5rem, 6vw, 3.5rem);
+            color: #1a1a1a; margin-bottom: 1.25rem; line-height: 1.15;
+        }
+        .page-hero__subtitle {
+            font-size: 1.0625rem; color: #666; line-height: 1.75;
+            max-width: 640px; margin: 0 auto 2rem;
+        }
+        .enrollment-badge {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            font-family: var(--font-mono); font-size: 0.75rem;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            color: var(--color-gold); background: rgba(212,168,83,0.1);
+            border: 1px solid rgba(212,168,83,0.25);
+            padding: 0.5rem 1.25rem; border-radius: var(--radius-full);
+            animation: badge-pulse 2.5s ease-in-out infinite;
+        }
+        @keyframes badge-pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(212,168,83,0.2); }
+            50% { box-shadow: 0 0 0 8px rgba(212,168,83,0); }
+        }
+
+        /* ============================================
+           SECTION HEADERS
+           ============================================ */
+        .section-header {
+            text-align: center; margin-bottom: 3rem;
+        }
+        .section-title {
+            font-family: var(--font-heading); font-size: clamp(1.75rem, 4vw, 2.25rem);
+            color: #1a1a1a; line-height: 1.2;
+        }
+
+        /* ============================================
+           WHAT YOU'LL GET — Benefit Cards
+           ============================================ */
+        .benefits {
+            padding: 5rem 2rem; background: var(--color-offwhite);
+        }
+        .benefits__grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem; max-width: var(--max-width); margin: 0 auto;
+        }
+        .benefit-card {
+            background: #fff; border: 1px solid rgba(0,0,0,0.06);
+            border-radius: var(--radius-lg); padding: 2rem 1.75rem;
+            transition: all 0.35s var(--ease-out-expo);
+        }
+        .benefit-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.07);
+            border-color: rgba(34,102,99,0.15);
+        }
+        .benefit-card__icon {
+            width: 48px; height: 48px; border-radius: var(--radius-md);
+            background: rgba(34,102,99,0.08);
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 1.25rem; color: var(--color-teal);
+        }
+        .benefit-card__title {
+            font-family: var(--font-heading); font-size: 1.25rem;
+            color: #1a1a1a; margin-bottom: 0.625rem;
+        }
+        .benefit-card__text {
+            font-size: 0.9375rem; color: #666; line-height: 1.7;
+        }
+
+        /* ============================================
+           FAQ ACCORDION
+           ============================================ */
+        .faq { padding: 5rem 2rem; max-width: var(--max-width); margin: 0 auto; }
+        .faq__grid {
+            display: grid; grid-template-columns: 1fr; gap: 1rem;
+            max-width: 780px; margin: 0 auto;
+        }
+        .faq__item {
+            border: 1px solid rgba(0,0,0,0.08); border-radius: var(--radius-md);
+            overflow: hidden; transition: border-color 0.3s ease;
+        }
+        .faq__item[open] { border-color: rgba(34,102,99,0.25); }
+        .faq__item summary {
+            padding: 1.25rem 1.5rem; font-family: var(--font-body);
+            font-size: 0.9375rem; font-weight: 500; color: #1a1a1a;
+            cursor: pointer; list-style: none;
+            display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+            transition: color 0.2s ease;
+        }
+        .faq__item summary::-webkit-details-marker { display: none; }
+        .faq__item summary::after {
+            content: '+'; font-size: 1.25rem; color: var(--color-teal);
+            font-weight: 300; transition: transform 0.3s var(--ease-out-expo);
+            flex-shrink: 0;
+        }
+        .faq__item[open] summary::after { content: '\2212'; }
+        .faq__item[open] summary { color: var(--color-teal); }
+        .faq__answer {
+            padding: 0 1.5rem 1.25rem;
+            font-size: 0.9375rem; color: #555; line-height: 1.75;
+        }
+
+        /* ============================================
+           PRICING
+           ============================================ */
+        .pricing {
+            background: var(--color-offwhite); padding: 5rem 2rem;
+        }
+        .pricing__grid {
+            display: grid; grid-template-columns: repeat(2, 1fr);
+            gap: 2rem; max-width: 820px; margin: 0 auto;
+        }
+        .pricing-card {
+            background: #fff; border: 1px solid rgba(0,0,0,0.06);
+            border-radius: var(--radius-lg); padding: 2.5rem 2rem;
+            text-align: center; position: relative; overflow: hidden;
+            transition: all 0.35s var(--ease-out-expo);
+        }
+        .pricing-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+        }
+        .pricing-card--featured {
+            border-color: var(--color-teal);
+            border-width: 2px;
+        }
+        .pricing-card__badge {
+            position: absolute; top: 0; right: 0;
+            background: var(--color-teal); color: #fff;
+            font-family: var(--font-mono); font-size: 0.625rem;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            padding: 0.4rem 1.25rem 0.4rem 1rem;
+            border-radius: 0 0 0 var(--radius-md);
+        }
+        .pricing-card__type {
+            font-family: var(--font-mono); font-size: 0.6875rem;
+            text-transform: uppercase; letter-spacing: 0.12em;
+            color: var(--color-teal); margin-bottom: 0.5rem;
+        }
+        .pricing-card__title {
+            font-family: var(--font-heading); font-size: 1.375rem;
+            color: #1a1a1a; margin-bottom: 0.75rem;
+        }
+        .pricing-card__price {
+            font-family: var(--font-heading); font-size: 2.5rem;
+            color: var(--color-teal); margin-bottom: 1.5rem;
+        }
+        .pricing-card__features {
+            list-style: none; text-align: left; margin-bottom: 2rem;
+        }
+        .pricing-card__features li {
+            font-size: 0.9375rem; color: #555; line-height: 1.6;
+            padding: 0.4rem 0; padding-left: 1.5rem; position: relative;
+        }
+        .pricing-card__features li::before {
+            content: '';
+            position: absolute; left: 0; top: 0.65rem;
+            width: 14px; height: 14px; border-radius: 50%;
+            background: rgba(34,102,99,0.1);
+            display: flex; align-items: center; justify-content: center;
+        }
+        .pricing-card__features li::after {
+            content: '\2713'; position: absolute; left: 2px; top: 0.4rem;
+            font-size: 0.75rem; color: var(--color-teal); font-weight: 600;
+        }
+
+        /* ============================================
+           BUTTONS
+           ============================================ */
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+            font-family: var(--font-body); font-size: 0.875rem; font-weight: 500;
+            text-decoration: none; border-radius: var(--radius-full);
+            padding: 0.75rem 1.75rem; transition: all 0.25s ease; cursor: pointer; border: none;
+        }
+        .btn--teal { background: var(--color-teal); color: #fff; }
+        .btn--teal:hover { background: var(--color-teal-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(34,102,99,0.25); }
+        .btn--gold { background: var(--color-gold); color: #1a1a1a; }
+        .btn--gold:hover { background: #c49a48; transform: translateY(-2px); }
+        .btn--outline { background: transparent; color: var(--color-teal); border: 1.5px solid var(--color-teal); }
+        .btn--outline:hover { background: var(--color-teal); color: #fff; }
+        .btn--outline-light { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,0.4); }
+        .btn--outline-light:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
+        .btn--lg { padding: 0.875rem 2.25rem; font-size: 1rem; }
+
+        /* ============================================
+           ENROLLMENT CTA
+           ============================================ */
+        .enrollment-cta {
+            background: linear-gradient(135deg, var(--color-teal-dark), var(--color-purple-dark));
+            padding: 5rem 2rem; text-align: center; position: relative; overflow: hidden;
+        }
+        .enrollment-cta__glow {
+            position: absolute; width: 400px; height: 400px; border-radius: 50%;
+            filter: blur(120px); opacity: 0.15; pointer-events: none;
+        }
+        .enrollment-cta__glow--1 { top: -100px; left: -100px; background: var(--color-sage); }
+        .enrollment-cta__glow--2 { bottom: -100px; right: -100px; background: var(--color-lavender); }
+        .enrollment-cta__content { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; }
+        .enrollment-cta__title {
+            font-family: var(--font-heading); font-size: clamp(1.75rem, 4vw, 2.25rem);
+            color: #fff; margin-bottom: 1rem;
+        }
+        .enrollment-cta__desc {
+            font-size: 1rem; color: rgba(255,255,255,0.7); line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        /* ============================================
+           BACK LINK
+           ============================================ */
+        .back-link-section {
+            padding: 2rem; text-align: center;
+        }
+        .back-link {
+            font-family: var(--font-body); font-size: 0.9375rem; font-weight: 500;
+            color: var(--color-teal); text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        .back-link:hover { color: var(--color-teal-dark); }
+
+        /* ============================================
+           NEWSLETTER
+           ============================================ */
+        .newsletter-section {
+            padding: 4rem 2rem; text-align: center; background: var(--color-offwhite);
+        }
+        .newsletter-section__inner { max-width: 480px; margin: 0 auto; }
+        .newsletter-section__title {
+            font-family: var(--font-heading); font-size: 1.5rem;
+            color: #1a1a1a; margin-bottom: 0.5rem;
+        }
+        .newsletter-section__sub {
+            font-size: 0.9375rem; color: #666; margin-bottom: 1.5rem;
+        }
+        .newsletter-form { display: flex; gap: 0.5rem; }
+        .newsletter-input {
+            flex: 1; padding: 0.75rem 1rem; font-family: var(--font-body);
+            font-size: 0.875rem; border: 1px solid rgba(0,0,0,0.12);
+            border-radius: var(--radius-md); background: #fff; color: #1a1a1a;
+            transition: border-color 0.2s ease;
+        }
+        .newsletter-input:focus { outline: none; border-color: var(--color-teal); }
+        .newsletter-input::placeholder { color: #999; }
+        .newsletter-btn {
+            padding: 0.75rem 1.5rem; font-family: var(--font-body);
+            font-size: 0.875rem; font-weight: 500;
+            background: var(--color-teal); color: #fff; border: none;
+            border-radius: var(--radius-md); cursor: pointer;
+            transition: background 0.2s ease; white-space: nowrap;
+        }
+        .newsletter-btn:hover { background: var(--color-teal-dark); }
+        .newsletter-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+        .newsletter-message { margin-top: 0.75rem; font-size: 0.8125rem; }
+        .newsletter-message.success { color: #059669; }
+        .newsletter-message.error { color: #DC2626; }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer {
+            background: #0d1f1e; border-top: 1px solid rgba(255,255,255,0.06);
+            padding: 80px 2rem 40px; position: relative;
+        }
+        .footer__grid {
+            display: grid; grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 3rem; max-width: var(--max-width); margin: 0 auto;
+        }
+        .footer__brand-name { font-family: var(--font-heading); font-size: 1.5rem; color: #fff; margin-bottom: 1rem; }
+        .footer__brand-desc { font-size: 0.875rem; color: rgba(255,255,255,0.45); line-height: 1.7; max-width: 280px; }
+        .footer__col-title {
+            font-family: var(--font-mono); font-size: 0.6875rem; font-weight: 400;
+            color: rgba(255,255,255,0.55); text-transform: uppercase;
+            letter-spacing: 0.12em; margin-bottom: 1.25rem;
+        }
+        .footer__links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+        .footer__link { font-size: 0.875rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s ease; }
+        .footer__link:hover { color: var(--color-gold); }
+        .footer__bottom {
+            max-width: var(--max-width); margin: 3rem auto 0; padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+        }
+        .footer__copyright { font-size: 0.8125rem; color: rgba(255,255,255,0.35); }
+        .footer__socials { display: flex; gap: 0.75rem; }
+        .footer__social {
+            width: 38px; height: 38px; display: flex; align-items: center; justify-content: center;
+            border-radius: 50%; background: rgba(255,255,255,0.05);
+            color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.875rem;
+            transition: all 0.25s ease;
+        }
+        .footer__social:hover { background: var(--color-teal); color: #fff; transform: translateY(-2px); }
+
+        /* ============================================
+           REVEAL ANIMATIONS
+           ============================================ */
+        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo); }
+        .reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 768px) {
+            .header__nav, .header__cta { display: none; }
+            .hamburger { display: block; }
+            .benefits__grid { grid-template-columns: 1fr 1fr; }
+            .pricing__grid { grid-template-columns: 1fr; max-width: 420px; }
+            .footer__grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+            .footer__brand { grid-column: span 2; }
+        }
+        @media (max-width: 480px) {
+            .header { padding: 0.75rem 1rem; }
+            .page-hero { padding: 120px 1.25rem 60px; }
+            .benefits { padding: 3rem 1.25rem; }
+            .benefits__grid { grid-template-columns: 1fr; }
+            .faq { padding: 3rem 1.25rem; }
+            .pricing { padding: 3rem 1.25rem; }
+            .newsletter-form { flex-direction: column; }
+            .footer__grid { grid-template-columns: 1fr; }
+            .footer__brand { grid-column: span 1; }
+            .footer__bottom { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <a href="index.html" class="header__logo">Holistique</a>
+        <nav class="header__nav">
+            <a href="index.html#services" class="header__link is-active">Services</a>
+            <a href="index.html#events" class="header__link">What's On</a>
+            <a href="index.html#gallery" class="header__link">Community</a>
+            <a href="index.html#testimonials" class="header__link">Stories</a>
+            <a href="blog-post.html" class="header__link">Blog</a>
+        </nav>
+        <a href="index.html#contact" class="header__cta">Get in Touch</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span class="hamburger__line"></span>
+            <span class="hamburger__line"></span>
+            <span class="hamburger__line"></span>
+        </button>
+    </header>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="index.html#services" class="mobile-menu__link">Services</a>
+        <a href="index.html#events" class="mobile-menu__link">What's On</a>
+        <a href="index.html#gallery" class="mobile-menu__link">Community</a>
+        <a href="index.html#testimonials" class="mobile-menu__link">Stories</a>
+        <a href="index.html#contact" class="mobile-menu__link">Get in Touch</a>
+        <a href="blog-post.html" class="mobile-menu__link">Blog</a>
+    </div>
+
+    <!-- HERO -->
+    <section class="page-hero">
+        <p class="section-label reveal">Course</p>
+        <h1 class="page-hero__title reveal">Learn Self-Acupuncture</h1>
+        <p class="page-hero__subtitle reveal">Empower yourself with the skills to practice acupuncture safely and effectively&mdash;on your own. Designed for anyone looking to expand their knowledge and take self-care to the next level.</p>
+        <div class="reveal">
+            <span class="enrollment-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                Enrollment Now Open &mdash; Limited Spots
+            </span>
+        </div>
+    </section>
+
+    <!-- WHAT YOU'LL GET -->
+    <section class="benefits" id="benefits">
+        <div class="section-header">
+            <p class="section-label reveal">What You&rsquo;ll Get</p>
+            <h2 class="section-title reveal">Everything You Need to Start</h2>
+        </div>
+        <div class="benefits__grid">
+            <div class="benefit-card reveal">
+                <div class="benefit-card__icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                </div>
+                <h3 class="benefit-card__title">Foundations</h3>
+                <p class="benefit-card__text">Learn how acupuncture works and how it benefits the body. Understand key acupuncture points for stress, pain, digestion, immunity and more.</p>
+            </div>
+            <div class="benefit-card reveal">
+                <div class="benefit-card__icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </div>
+                <h3 class="benefit-card__title">Course Structure</h3>
+                <p class="benefit-card__text">4 guided sessions (each up to 2 hours) or one weekend intensive. Flexible, tailored to your pace, with live instruction and hands-on practice.</p>
+            </div>
+            <div class="benefit-card reveal">
+                <div class="benefit-card__icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                </div>
+                <h3 class="benefit-card__title">Materials &amp; Resources</h3>
+                <p class="benefit-card__text">Digital PDF guide with key acupuncture points, diagrams, and safety information. Plus trusted tool recommendations, needle suppliers, and book lists.</p>
+            </div>
+            <div class="benefit-card reveal">
+                <div class="benefit-card__icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <h3 class="benefit-card__title">Ideal For</h3>
+                <p class="benefit-card__text">Individuals interested in natural self-healing, and anyone ready to take charge of their health using time-tested methods. No prior experience needed.</p>
+            </div>
+            <div class="benefit-card reveal">
+                <div class="benefit-card__icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <h3 class="benefit-card__title">Skills &amp; Confidence</h3>
+                <p class="benefit-card__text">Build confidence and intuition around your own body&rsquo;s needs. Learn safe, effective self-needling techniques and how to integrate them into your wellness routine.</p>
+            </div>
+            <div class="benefit-card reveal">
+                <div class="benefit-card__icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                </div>
+                <h3 class="benefit-card__title">Outcomes</h3>
+                <p class="benefit-card__text">Feel confident, empowered, and equipped to safely needle yourself for tension relief, better sleep, immune support, or daily balance.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+        <div class="section-header">
+            <p class="section-label reveal">FAQ</p>
+            <h2 class="section-title reveal">Frequently Asked Questions</h2>
+        </div>
+        <div class="faq__grid">
+            <details class="faq__item reveal">
+                <summary>Do I need any experience to join this course?</summary>
+                <div class="faq__answer">No prior experience necessary. The course accommodates complete beginners and wellness enthusiasts or practitioners seeking deeper knowledge, with step-by-step guidance throughout.</div>
+            </details>
+            <details class="faq__item reveal">
+                <summary>Will I be able to needle other people after taking this course?</summary>
+                <div class="faq__answer">This course targets personal use exclusively. Informal use with family or close friends (done safely with consent) is acceptable, but you cannot offer paid acupuncture services or claim practitioner status. UK professional practice requires certified training and insurance.</div>
+            </details>
+            <details class="faq__item reveal">
+                <summary>Is this course accredited or certified?</summary>
+                <div class="faq__answer">This course does not offer a formal qualification. It is designed for personal development, self-care, and wellness education. A completion certificate may be provided but it is not a professional practice licence.</div>
+            </details>
+            <details class="faq__item reveal">
+                <summary>Can I do the course online or in person?</summary>
+                <div class="faq__answer">Currently the course is in-person only. Sessions feature interactive, practical instruction with demonstrations and Q&amp;A opportunities in Kensington, London.</div>
+            </details>
+            <details class="faq__item reveal">
+                <summary>What&rsquo;s included in the course?</summary>
+                <div class="faq__answer">A digital PDF guide with diagrams and safety information, a recommended tools and suppliers list, sterile needles provided during training sessions, and ongoing support for questions and guidance between sessions.</div>
+            </details>
+            <details class="faq__item reveal">
+                <summary>Will I learn how to choose the right acupuncture points for different conditions?</summary>
+                <div class="faq__answer">Yes. You&rsquo;ll learn how to locate and use points for stress, anxiety, relaxation, headaches, muscular pain, sleep, energy balance, digestion, immunity, and more&mdash;always emphasising safe personal use.</div>
+            </details>
+            <details class="faq__item reveal">
+                <summary>Do I need my own acupuncture needles?</summary>
+                <div class="faq__answer">No needles are required beforehand. Sterile, single-use needles are provided during training. Additional packs are available for purchase. The digital guide includes trusted suppliers, needle type guidance, and safe storage and disposal tips.</div>
+            </details>
+            <details class="faq__item reveal">
+                <summary>Is self-acupuncture safe?</summary>
+                <div class="faq__answer">Generally safe when performed correctly with proper guidance. The course teaches proper hygiene, safety techniques, and helps you recognise when acupuncture supports natural body healing.</div>
+            </details>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="pricing" id="pricing">
+        <div class="section-header">
+            <p class="section-label reveal">Pricing</p>
+            <h2 class="section-title reveal">Course Options</h2>
+        </div>
+        <div class="pricing__grid">
+            <!-- Group Course -->
+            <div class="pricing-card reveal">
+                <p class="pricing-card__type">Group</p>
+                <h3 class="pricing-card__title">Group Course</h3>
+                <p class="pricing-card__price">&pound;500</p>
+                <ul class="pricing-card__features">
+                    <li>Small group sessions (2&ndash;4 students)</li>
+                    <li>4 live sessions or weekend intensive</li>
+                    <li>Needles provided during the course</li>
+                    <li>Digital PDF guide &amp; resources</li>
+                    <li>Ongoing WhatsApp support</li>
+                    <li>Community access</li>
+                </ul>
+                <a href="https://wa.me/447521760405?text=Hi%20Yvonne%2C%20I%27d%20like%20to%20enquire%20about%20the%20group%20self-acupuncture%20course." class="btn btn--outline" target="_blank" rel="noopener">Enquire Now</a>
+            </div>
+            <!-- Private 1:1 -->
+            <div class="pricing-card pricing-card--featured reveal">
+                <span class="pricing-card__badge">Most Popular</span>
+                <p class="pricing-card__type">Private</p>
+                <h3 class="pricing-card__title">Private 1:1 Course</h3>
+                <p class="pricing-card__price">&pound;750</p>
+                <ul class="pricing-card__features">
+                    <li>Everything in the group course</li>
+                    <li>Fully personalised guidance &amp; schedule</li>
+                    <li>Extra time for individual questions</li>
+                    <li>Detailed technique review</li>
+                    <li>Ideal for 1:1 attention</li>
+                    <li>Priority WhatsApp support</li>
+                </ul>
+                <a href="https://wa.me/447521760405?text=Hi%20Yvonne%2C%20I%27d%20like%20to%20enquire%20about%20the%20private%201%3A1%20self-acupuncture%20course." class="btn btn--teal" target="_blank" rel="noopener">Enquire Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ENROLLMENT CTA -->
+    <section class="enrollment-cta">
+        <div class="enrollment-cta__glow enrollment-cta__glow--1"></div>
+        <div class="enrollment-cta__glow enrollment-cta__glow--2"></div>
+        <div class="enrollment-cta__content">
+            <p class="section-label reveal" style="color: var(--color-gold);">Enroll Now</p>
+            <h2 class="enrollment-cta__title reveal">Enrollment Now Open</h2>
+            <p class="enrollment-cta__desc reveal">Limited spots available. Take the first step toward self-empowered healing&mdash;reach out today to reserve your place.</p>
+            <a href="https://wa.me/447521760405?text=Hi%20Yvonne%2C%20I%27d%20like%20to%20enroll%20in%20the%20self-acupuncture%20course." class="btn btn--gold btn--lg reveal" target="_blank" rel="noopener">Enquire Now &rarr;</a>
+        </div>
+    </section>
+
+    <!-- BACK LINK -->
+    <section class="back-link-section">
+        <a href="acupuncture.html" class="back-link">&larr; Back to Acupuncture</a>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter-section">
+        <div class="newsletter-section__inner reveal">
+            <h2 class="newsletter-section__title">Stay Connected</h2>
+            <p class="newsletter-section__sub">Get new articles, event invitations, and wellness insights from Yvonne.</p>
+            <form id="newsletter-form" class="newsletter-form" onsubmit="return false;">
+                <input type="email" class="newsletter-input" placeholder="Your email address" required>
+                <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer__grid">
+            <div class="footer__brand">
+                <p class="footer__brand-name">Holistique</p>
+                <p class="footer__brand-desc">Healing and transformation through holistic practices and community. Based in Kensington, London.</p>
+            </div>
+            <div>
+                <p class="footer__col-title">Explore</p>
+                <ul class="footer__links">
+                    <li><a href="index.html#events" class="footer__link">What's On</a></li>
+                    <li><a href="acupuncture.html" class="footer__link">Acupuncture</a></li>
+                    <li><a href="#" class="footer__link">Wellness Tools</a></li>
+                    <li><a href="index.html#testimonials" class="footer__link">Stories</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="footer__col-title">Community</p>
+                <ul class="footer__links">
+                    <li><a href="index.html#events" class="footer__link">Events</a></li>
+                    <li><a href="index.html#gallery" class="footer__link">Gallery</a></li>
+                    <li><a href="index.html#testimonials" class="footer__link">Testimonials</a></li>
+                    <li><a href="https://wa.me/447521760405" class="footer__link" target="_blank" rel="noopener">WhatsApp Group</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="footer__col-title">Contact</p>
+                <ul class="footer__links">
+                    <li><a href="https://wa.me/447521760405" class="footer__link" target="_blank" rel="noopener">Get in Touch</a></li>
+                    <li><a href="#" class="footer__link">Kensington, London</a></li>
+                    <li><a href="mailto:hello@holistiqueuk.com" class="footer__link">hello@holistiqueuk.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p class="footer__copyright">&copy; 2026 Holistique UK. All rights reserved.</p>
+            <div class="footer__socials">
+                <a href="https://www.instagram.com/holistique_uk/" class="footer__social" aria-label="Instagram" target="_blank" rel="noopener">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                    </svg>
+                </a>
+                <a href="https://wa.me/447521760405" class="footer__social" aria-label="WhatsApp" target="_blank" rel="noopener">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    (function() {
+        // Mobile menu toggle
+        var hamburger = document.getElementById('hamburger');
+        var mobileMenu = document.getElementById('mobile-menu');
+        if (hamburger && mobileMenu) {
+            hamburger.addEventListener('click', function() {
+                hamburger.classList.toggle('is-open');
+                mobileMenu.classList.toggle('is-open');
+            });
+            mobileMenu.querySelectorAll('.mobile-menu__link').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    hamburger.classList.remove('is-open');
+                    mobileMenu.classList.remove('is-open');
+                });
+            });
+        }
+
+        // Reveal on scroll (IntersectionObserver)
+        var reveals = document.querySelectorAll('.reveal');
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        reveals.forEach(function(el) { observer.observe(el); });
+
+        // Newsletter subscribe
+        var SUBSCRIBE_URL = 'https://peter17tu.app.n8n.cloud/webhook/subscribe';
+        var nlForm = document.getElementById('newsletter-form');
+        if (nlForm) {
+            nlForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                var input = nlForm.querySelector('.newsletter-input');
+                var btn = nlForm.querySelector('.newsletter-btn');
+                var email = input.value.trim();
+                if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    showMsg(nlForm, 'Please enter a valid email address.', 'error'); return;
+                }
+                btn.textContent = 'Subscribing...'; btn.disabled = true;
+                fetch(SUBSCRIBE_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: email }) })
+                .then(function(r) { return r.json(); })
+                .then(function(d) {
+                    if (d.success) { showMsg(nlForm, 'Welcome aboard! Check your inbox.', 'success'); input.value = ''; }
+                    else { showMsg(nlForm, d.error || 'Something went wrong.', 'error'); }
+                })
+                .catch(function() { showMsg(nlForm, 'Network error. Please try again.', 'error'); })
+                .finally(function() { btn.textContent = 'Subscribe'; btn.disabled = false; });
+            });
+        }
+        function showMsg(form, text, type) {
+            var ex = form.querySelector('.newsletter-message'); if (ex) ex.remove();
+            var m = document.createElement('p'); m.className = 'newsletter-message ' + type; m.textContent = text;
+            form.appendChild(m); setTimeout(function() { if (m.parentNode) m.remove(); }, 5000);
+        }
+    })();
+    </script>
+</body>
+</html>

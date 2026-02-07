@@ -19,7 +19,7 @@ const path = require('path');
 const MANIFEST_PATH = path.resolve(__dirname, '..', 'posts-manifest.json');
 const WEBHOOK_URL = process.env.NEWSLETTER_WEBHOOK_URL;
 const SECRET = process.env.NEWSLETTER_SECRET;
-const SITE_BASE_URL = process.env.SITE_BASE_URL || 'https://jamesmo14.github.io/Holistique';
+const SITE_BASE_URL = process.env.SITE_BASE_URL || 'https://holistiqueuk.com';
 
 function post(url, data, headers) {
     return new Promise((resolve, reject) => {

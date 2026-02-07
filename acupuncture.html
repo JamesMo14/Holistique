@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acupuncture — Holistique UK</title>
+    <meta name="description" content="Experience the art of acupuncture and fire cupping with Yvonne Liang. Traditional Chinese medicine in Kensington, London.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-teal: #226663;
+            --color-teal-dark: #0A2E2C;
+            --color-purple-dark: #1A0A3E;
+            --color-gold: #D4A853;
+            --color-sage: #7AB89B;
+            --color-lavender: #C8B8E8;
+            --color-offwhite: #F8F6F3;
+            --color-white: #FFFFFF;
+            --font-heading: 'Marcellus', Georgia, serif;
+            --font-body: 'Inter', -apple-system, sans-serif;
+            --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+            --max-width: 1200px;
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-full: 9999px;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { font-size: 16px; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+        body { font-family: var(--font-body); background: var(--color-white); color: #444; line-height: 1.6; overflow-x: hidden; }
+
+        /* ============================================
+           HEADER
+           ============================================ */
+        .header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            padding: 0.75rem 2rem;
+            display: flex; align-items: center; justify-content: space-between;
+            background: rgba(255,255,255,0.85);
+            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+            transition: all 0.4s var(--ease-out-expo);
+        }
+        .header__logo {
+            font-family: var(--font-heading); font-size: 1.5rem;
+            color: var(--color-teal); text-decoration: none; letter-spacing: 0.02em;
+        }
+        .header__nav { display: flex; align-items: center; gap: 2rem; }
+        .header__link {
+            font-family: var(--font-body); font-size: 0.875rem; font-weight: 500;
+            color: #555; text-decoration: none; letter-spacing: 0.01em;
+            position: relative; transition: color 0.25s ease;
+        }
+        .header__link::after {
+            content: ''; position: absolute; bottom: -4px; left: 0;
+            width: 0; height: 1.5px; background: var(--color-gold);
+            transition: width 0.3s var(--ease-out-expo);
+        }
+        .header__link:hover { color: var(--color-teal); }
+        .header__link:hover::after { width: 100%; }
+        .header__link.is-active { color: var(--color-teal); }
+        .header__link.is-active::after { width: 100%; }
+        .header__cta {
+            font-family: var(--font-body); font-size: 0.875rem; font-weight: 500;
+            color: var(--color-teal); text-decoration: none;
+            padding: 0.5rem 1.25rem; border: 1.5px solid var(--color-teal);
+            border-radius: var(--radius-full); transition: all 0.25s ease;
+        }
+        .header__cta:hover { background: var(--color-teal); color: #fff; }
+
+        /* Hamburger */
+        .hamburger {
+            display: none; width: 28px; height: 20px; position: relative;
+            cursor: pointer; background: none; border: none; z-index: 1001;
+        }
+        .hamburger__line {
+            position: absolute; left: 0; width: 100%; height: 2px;
+            background: #333; transition: all 0.3s var(--ease-out-expo);
+        }
+        .hamburger__line:nth-child(1) { top: 0; }
+        .hamburger__line:nth-child(2) { top: 50%; transform: translateY(-50%); }
+        .hamburger__line:nth-child(3) { bottom: 0; }
+        .hamburger.is-open .hamburger__line:nth-child(1) { top: 50%; transform: translateY(-50%) rotate(45deg); }
+        .hamburger.is-open .hamburger__line:nth-child(2) { opacity: 0; transform: translateX(-10px); }
+        .hamburger.is-open .hamburger__line:nth-child(3) { bottom: 50%; transform: translateY(50%) rotate(-45deg); }
+
+        /* Mobile menu */
+        .mobile-menu {
+            position: fixed; inset: 0; background: rgba(10,46,44,0.97);
+            backdrop-filter: blur(20px); z-index: 999;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 2rem;
+            opacity: 0; visibility: hidden; transition: all 0.4s var(--ease-out-expo);
+        }
+        .mobile-menu.is-open { opacity: 1; visibility: visible; }
+        .mobile-menu__link {
+            font-family: var(--font-heading); font-size: 2rem; color: #fff;
+            text-decoration: none; opacity: 0; transform: translateY(20px);
+            transition: all 0.3s var(--ease-out-expo);
+        }
+        .mobile-menu.is-open .mobile-menu__link { opacity: 1; transform: translateY(0); }
+        .mobile-menu.is-open .mobile-menu__link:nth-child(1) { transition-delay: 0.1s; }
+        .mobile-menu.is-open .mobile-menu__link:nth-child(2) { transition-delay: 0.15s; }
+        .mobile-menu.is-open .mobile-menu__link:nth-child(3) { transition-delay: 0.2s; }
+        .mobile-menu.is-open .mobile-menu__link:nth-child(4) { transition-delay: 0.25s; }
+        .mobile-menu.is-open .mobile-menu__link:nth-child(5) { transition-delay: 0.3s; }
+        .mobile-menu.is-open .mobile-menu__link:nth-child(6) { transition-delay: 0.35s; }
+
+        /* ============================================
+           HERO
+           ============================================ */
+        .page-hero {
+            padding: 140px 2rem 80px;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(34,102,99,0.04) 0%, rgba(248,246,243,0.5) 60%, #fff 100%);
+        }
+        .section-label {
+            font-family: var(--font-mono); font-size: 0.6875rem; font-weight: 400;
+            text-transform: uppercase; letter-spacing: 0.15em;
+            color: var(--color-teal); margin-bottom: 1rem;
+        }
+        .page-hero__title {
+            font-family: var(--font-heading); font-size: clamp(2.5rem, 6vw, 3.5rem);
+            color: #1a1a1a; margin-bottom: 1.25rem; line-height: 1.15;
+        }
+        .page-hero__subtitle {
+            font-size: 1.0625rem; color: #666; line-height: 1.75;
+            max-width: 640px; margin: 0 auto;
+        }
+
+        /* ============================================
+           SECTION HEADERS (reused)
+           ============================================ */
+        .section-header {
+            text-align: center; margin-bottom: 3rem;
+        }
+        .section-title {
+            font-family: var(--font-heading); font-size: clamp(1.75rem, 4vw, 2.25rem);
+            color: #1a1a1a; line-height: 1.2;
+        }
+
+        /* ============================================
+           PRACTITIONER BIO
+           ============================================ */
+        .bio {
+            padding: 0 2rem 5rem;
+            max-width: var(--max-width); margin: 0 auto;
+        }
+        .bio__grid {
+            display: grid; grid-template-columns: 1fr 1.4fr;
+            gap: 4rem; align-items: center;
+        }
+        .bio__portrait {
+            position: relative; border-radius: var(--radius-lg); overflow: hidden;
+        }
+        .bio__portrait img {
+            width: 100%; height: auto; display: block;
+            filter: contrast(1.05) saturate(0.85);
+            transition: filter 0.4s ease;
+        }
+        .bio__portrait:hover img { filter: contrast(1.1) saturate(1); }
+        .bio__portrait::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(34,102,99,0.08), rgba(122,184,155,0.06));
+            mix-blend-mode: multiply; border-radius: inherit; pointer-events: none;
+        }
+        .bio__role {
+            font-family: var(--font-mono); font-size: 0.6875rem;
+            text-transform: uppercase; letter-spacing: 0.15em;
+            color: var(--color-teal); margin-bottom: 0.75rem;
+        }
+        .bio__name {
+            font-family: var(--font-heading); font-size: 1.75rem;
+            color: #1a1a1a; margin-bottom: 1.25rem;
+        }
+        .bio__text {
+            font-size: 0.9375rem; color: #555; line-height: 1.8;
+        }
+        .bio__text p + p { margin-top: 1rem; }
+
+        /* ============================================
+           PHOTO CAROUSEL
+           ============================================ */
+        .gallery {
+            padding: 0 0 5rem; overflow: hidden; position: relative;
+        }
+        .gallery__viewport {
+            display: flex; gap: 1rem; overflow-x: auto;
+            scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+            scrollbar-width: none; padding: 0 2rem;
+        }
+        .gallery__viewport::-webkit-scrollbar { display: none; }
+        .gallery__slide {
+            flex: 0 0 auto; scroll-snap-align: center;
+            width: 320px; height: 420px; border-radius: var(--radius-lg);
+            overflow: hidden; position: relative;
+        }
+        .gallery__slide img {
+            width: 100%; height: 100%; object-fit: cover; display: block;
+            filter: contrast(1.05) saturate(0.85);
+            transition: filter 0.5s ease, transform 0.5s ease;
+        }
+        .gallery__slide:hover img {
+            filter: contrast(1.1) saturate(1);
+            transform: scale(1.03);
+        }
+        .gallery__slide::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(34,102,99,0.06), rgba(122,184,155,0.04));
+            mix-blend-mode: multiply; border-radius: inherit; pointer-events: none;
+        }
+        .gallery__controls {
+            display: flex; align-items: center; justify-content: center;
+            gap: 1rem; margin-top: 1.5rem;
+        }
+        .gallery__btn {
+            width: 44px; height: 44px; border-radius: 50%;
+            border: 1.5px solid rgba(0,0,0,0.12); background: #fff;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: all 0.25s ease; color: #555;
+        }
+        .gallery__btn:hover {
+            border-color: var(--color-teal); color: var(--color-teal);
+            box-shadow: 0 4px 12px rgba(34,102,99,0.15);
+        }
+        .gallery__dots {
+            display: flex; gap: 0.5rem; align-items: center;
+        }
+        .gallery__dot {
+            width: 8px; height: 8px; border-radius: 50%;
+            background: rgba(0,0,0,0.15); border: none; cursor: pointer;
+            transition: all 0.3s ease; padding: 0;
+        }
+        .gallery__dot.is-active {
+            background: var(--color-teal); width: 24px; border-radius: 4px;
+        }
+
+        /* ============================================
+           TREATMENTS / PRICING
+           ============================================ */
+        .treatments {
+            background: var(--color-offwhite);
+            padding: 5rem 2rem;
+        }
+        .treatments__grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem; max-width: var(--max-width); margin: 0 auto;
+        }
+        .treatment-card {
+            background: #fff; border: 1px solid rgba(0,0,0,0.06);
+            border-radius: var(--radius-lg); padding: 2.5rem 2rem;
+            text-align: center; transition: all 0.35s var(--ease-out-expo);
+        }
+        .treatment-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+            border-color: rgba(34,102,99,0.15);
+        }
+        .treatment-card__badge {
+            display: inline-block; font-family: var(--font-mono);
+            font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.1em;
+            color: var(--color-teal); background: rgba(34,102,99,0.08);
+            padding: 0.35rem 0.85rem; border-radius: var(--radius-full);
+            margin-bottom: 1.25rem;
+        }
+        .treatment-card__title {
+            font-family: var(--font-heading); font-size: 1.375rem;
+            color: #1a1a1a; margin-bottom: 0.5rem;
+        }
+        .treatment-card__price {
+            font-family: var(--font-heading); font-size: 2rem;
+            color: var(--color-teal); margin-bottom: 1rem;
+        }
+        .treatment-card__desc {
+            font-size: 0.9375rem; color: #666; line-height: 1.7;
+            margin-bottom: 1.75rem;
+        }
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+            font-family: var(--font-body); font-size: 0.875rem; font-weight: 500;
+            text-decoration: none; border-radius: var(--radius-full);
+            padding: 0.75rem 1.75rem; transition: all 0.25s ease; cursor: pointer; border: none;
+        }
+        .btn--teal { background: var(--color-teal); color: #fff; }
+        .btn--teal:hover { background: var(--color-teal-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(34,102,99,0.25); }
+        .btn--gold { background: var(--color-gold); color: #1a1a1a; }
+        .btn--gold:hover { background: #c49a48; transform: translateY(-2px); }
+        .btn--outline { background: transparent; color: var(--color-teal); border: 1.5px solid var(--color-teal); }
+        .btn--outline:hover { background: var(--color-teal); color: #fff; }
+        .btn--outline-light { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,0.4); }
+        .btn--outline-light:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
+
+        /* ============================================
+           BOOKING MODAL
+           ============================================ */
+        .booking-overlay {
+            position: fixed; inset: 0; z-index: 2000;
+            background: rgba(10,46,44,0.45); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .booking-overlay.is-open { opacity: 1; visibility: visible; }
+        .booking-modal {
+            background: #fff; border-radius: var(--radius-lg); padding: 2.5rem 2rem 2rem;
+            max-width: 400px; width: 90%; position: relative;
+            transform: translateY(20px) scale(0.97);
+            transition: transform 0.35s var(--ease-out-expo);
+            box-shadow: 0 24px 80px rgba(0,0,0,0.18);
+        }
+        .booking-overlay.is-open .booking-modal { transform: translateY(0) scale(1); }
+        .booking-modal__close {
+            position: absolute; top: 1rem; right: 1rem;
+            width: 32px; height: 32px; border: none; background: rgba(0,0,0,0.04);
+            border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;
+            transition: background 0.2s ease; color: #666;
+        }
+        .booking-modal__close:hover { background: rgba(0,0,0,0.08); color: #333; }
+        .booking-modal__treatment {
+            font-family: var(--font-mono); font-size: 0.6875rem;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            color: var(--color-teal); margin-bottom: 0.5rem;
+        }
+        .booking-modal__title {
+            font-family: var(--font-heading); font-size: 1.5rem;
+            color: #1a1a1a; margin-bottom: 0.35rem;
+        }
+        .booking-modal__subtitle {
+            font-size: 0.875rem; color: #888; margin-bottom: 1.75rem;
+        }
+        .booking-modal__options { display: flex; flex-direction: column; gap: 0.75rem; }
+        .booking-option {
+            display: flex; align-items: center; gap: 1rem;
+            padding: 1rem 1.25rem; border: 1.5px solid rgba(0,0,0,0.08);
+            border-radius: var(--radius-md); text-decoration: none;
+            transition: all 0.25s ease; cursor: pointer; background: #fff;
+        }
+        .booking-option:hover {
+            border-color: var(--color-teal); background: rgba(34,102,99,0.03);
+            transform: translateY(-2px); box-shadow: 0 6px 20px rgba(34,102,99,0.1);
+        }
+        .booking-option__icon {
+            width: 44px; height: 44px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+        }
+        .booking-option__icon--whatsapp { background: #25D366; color: #fff; }
+        .booking-option__icon--email { background: var(--color-teal); color: #fff; }
+        .booking-option__text { flex: 1; }
+        .booking-option__label {
+            font-weight: 600; font-size: 0.9375rem; color: #1a1a1a; display: block;
+        }
+        .booking-option__hint {
+            font-size: 0.8125rem; color: #888; display: block; margin-top: 0.15rem;
+        }
+        .booking-option__arrow { color: #ccc; transition: color 0.2s ease, transform 0.2s ease; flex-shrink: 0; }
+        .booking-option:hover .booking-option__arrow { color: var(--color-teal); transform: translateX(3px); }
+
+        /* ============================================
+           TESTIMONIALS — Marquee
+           ============================================ */
+        .testimonials {
+            background: #fff; padding: 5rem 2rem; overflow: hidden;
+        }
+        .marquee { overflow: hidden; mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent); }
+        .marquee__track {
+            display: flex; width: max-content;
+            animation: marquee 60s linear infinite;
+        }
+        .marquee:hover .marquee__track { animation-play-state: paused; }
+        .marquee__track--reverse { animation-direction: reverse; }
+        @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        .marquee__content { display: flex; gap: 1.5rem; padding-right: 1.5rem; }
+        .marquee + .marquee { margin-top: 1.5rem; }
+
+        .testimonial-card {
+            background: var(--color-offwhite); border: 1px solid rgba(0,0,0,0.05);
+            border-radius: var(--radius-lg); padding: 2rem;
+            position: relative; min-width: 380px; max-width: 420px; flex-shrink: 0;
+        }
+        .testimonial-card__quote {
+            position: absolute; top: 1rem; left: 1.5rem;
+            font-size: 3.5rem; line-height: 1; color: var(--color-lavender);
+            opacity: 0.5; font-family: Georgia, serif;
+        }
+        .testimonial-card__text {
+            font-size: 0.9375rem; color: #444; line-height: 1.75;
+            margin-bottom: 1.5rem; position: relative; z-index: 1; padding-top: 1rem;
+        }
+        .testimonial-card__author { display: flex; align-items: center; gap: 0.75rem; }
+        .testimonial-card__avatar {
+            width: 44px; height: 44px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--color-teal), var(--color-sage));
+            display: flex; align-items: center; justify-content: center;
+            font-family: var(--font-heading); font-size: 1rem; color: #fff; flex-shrink: 0;
+        }
+        .testimonial-card__name { font-weight: 600; color: #1a1a1a; font-size: 0.9375rem; }
+
+        /* ============================================
+           ACCREDITATIONS
+           ============================================ */
+        .accreditations {
+            padding: 4rem 2rem; text-align: center;
+            background: var(--color-offwhite);
+        }
+        .accreditations__logos {
+            display: flex; align-items: center; justify-content: center;
+            gap: 3rem; margin-top: 2rem; flex-wrap: wrap;
+        }
+        .accreditations__logo {
+            height: 72px; opacity: 0.7;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            filter: grayscale(20%);
+        }
+        .accreditations__logo:hover { opacity: 1; transform: scale(1.05); filter: grayscale(0%); }
+
+        /* ============================================
+           FAQ ACCORDION
+           ============================================ */
+        .faq { padding: 5rem 2rem; max-width: var(--max-width); margin: 0 auto; }
+        .faq__grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+        }
+        .faq__item {
+            border: 1px solid rgba(0,0,0,0.08); border-radius: var(--radius-md);
+            overflow: hidden; transition: border-color 0.3s ease;
+        }
+        .faq__item[open] { border-color: rgba(34,102,99,0.25); }
+        .faq__item summary {
+            padding: 1.25rem 1.5rem; font-family: var(--font-body);
+            font-size: 0.9375rem; font-weight: 500; color: #1a1a1a;
+            cursor: pointer; list-style: none;
+            display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+            transition: color 0.2s ease;
+        }
+        .faq__item summary::-webkit-details-marker { display: none; }
+        .faq__item summary::after {
+            content: '+'; font-size: 1.25rem; color: var(--color-teal);
+            font-weight: 300; transition: transform 0.3s var(--ease-out-expo);
+            flex-shrink: 0;
+        }
+        .faq__item[open] summary::after { content: '\2212'; }
+        .faq__item[open] summary { color: var(--color-teal); }
+        .faq__answer {
+            padding: 0 1.5rem 1.25rem;
+            font-size: 0.9375rem; color: #555; line-height: 1.75;
+        }
+
+        /* ============================================
+           COURSE CTA
+           ============================================ */
+        .course-cta {
+            background: linear-gradient(135deg, var(--color-teal-dark), var(--color-purple-dark));
+            padding: 5rem 2rem; text-align: center; position: relative; overflow: hidden;
+        }
+        .course-cta__glow {
+            position: absolute; width: 400px; height: 400px; border-radius: 50%;
+            filter: blur(120px); opacity: 0.15; pointer-events: none;
+        }
+        .course-cta__glow--1 { top: -100px; left: -100px; background: var(--color-sage); }
+        .course-cta__glow--2 { bottom: -100px; right: -100px; background: var(--color-lavender); }
+        .course-cta__content { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; }
+        .course-cta__title {
+            font-family: var(--font-heading); font-size: clamp(1.75rem, 4vw, 2.25rem);
+            color: #fff; margin-bottom: 1rem;
+        }
+        .course-cta__desc {
+            font-size: 1rem; color: rgba(255,255,255,0.7); line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        /* ============================================
+           NEWSLETTER
+           ============================================ */
+        .newsletter-section {
+            padding: 4rem 2rem; text-align: center; background: var(--color-offwhite);
+        }
+        .newsletter-section__inner { max-width: 480px; margin: 0 auto; }
+        .newsletter-section__title {
+            font-family: var(--font-heading); font-size: 1.5rem;
+            color: #1a1a1a; margin-bottom: 0.5rem;
+        }
+        .newsletter-section__sub {
+            font-size: 0.9375rem; color: #666; margin-bottom: 1.5rem;
+        }
+        .newsletter-form { display: flex; gap: 0.5rem; }
+        .newsletter-input {
+            flex: 1; padding: 0.75rem 1rem; font-family: var(--font-body);
+            font-size: 0.875rem; border: 1px solid rgba(0,0,0,0.12);
+            border-radius: var(--radius-md); background: #fff; color: #1a1a1a;
+            transition: border-color 0.2s ease;
+        }
+        .newsletter-input:focus { outline: none; border-color: var(--color-teal); }
+        .newsletter-input::placeholder { color: #999; }
+        .newsletter-btn {
+            padding: 0.75rem 1.5rem; font-family: var(--font-body);
+            font-size: 0.875rem; font-weight: 500;
+            background: var(--color-teal); color: #fff; border: none;
+            border-radius: var(--radius-md); cursor: pointer;
+            transition: background 0.2s ease; white-space: nowrap;
+        }
+        .newsletter-btn:hover { background: var(--color-teal-dark); }
+        .newsletter-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+        .newsletter-message { margin-top: 0.75rem; font-size: 0.8125rem; }
+        .newsletter-message.success { color: #059669; }
+        .newsletter-message.error { color: #DC2626; }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer {
+            background: #0d1f1e; border-top: 1px solid rgba(255,255,255,0.06);
+            padding: 80px 2rem 40px; position: relative;
+        }
+        .footer__grid {
+            display: grid; grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 3rem; max-width: var(--max-width); margin: 0 auto;
+        }
+        .footer__brand-name { font-family: var(--font-heading); font-size: 1.5rem; color: #fff; margin-bottom: 1rem; }
+        .footer__brand-desc { font-size: 0.875rem; color: rgba(255,255,255,0.45); line-height: 1.7; max-width: 280px; }
+        .footer__col-title {
+            font-family: var(--font-mono); font-size: 0.6875rem; font-weight: 400;
+            color: rgba(255,255,255,0.55); text-transform: uppercase;
+            letter-spacing: 0.12em; margin-bottom: 1.25rem;
+        }
+        .footer__links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+        .footer__link { font-size: 0.875rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s ease; }
+        .footer__link:hover { color: var(--color-gold); }
+        .footer__bottom {
+            max-width: var(--max-width); margin: 3rem auto 0; padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+        }
+        .footer__copyright { font-size: 0.8125rem; color: rgba(255,255,255,0.35); }
+        .footer__socials { display: flex; gap: 0.75rem; }
+        .footer__social {
+            width: 38px; height: 38px; display: flex; align-items: center; justify-content: center;
+            border-radius: 50%; background: rgba(255,255,255,0.05);
+            color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.875rem;
+            transition: all 0.25s ease;
+        }
+        .footer__social:hover { background: var(--color-teal); color: #fff; transform: translateY(-2px); }
+
+        /* ============================================
+           REVEAL ANIMATIONS
+           ============================================ */
+        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo); }
+        .reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 768px) {
+            .header__nav, .header__cta { display: none; }
+            .hamburger { display: block; }
+            .bio__grid { grid-template-columns: 1fr; gap: 2rem; }
+            .treatments__grid { grid-template-columns: 1fr; }
+            .faq__grid { grid-template-columns: 1fr; }
+            .footer__grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+            .footer__brand { grid-column: span 2; }
+        }
+        @media (max-width: 480px) {
+            .header { padding: 0.75rem 1rem; }
+            .page-hero { padding: 120px 1.25rem 60px; }
+            .bio { padding: 0 1.25rem 3rem; }
+            .gallery__slide { width: 260px; height: 340px; }
+            .gallery__viewport { padding: 0 1.25rem; }
+            .treatments { padding: 3rem 1.25rem; }
+            .testimonial-card { min-width: 300px; max-width: 320px; }
+            .testimonials { padding: 3rem 1.25rem; }
+            .faq { padding: 3rem 1.25rem; }
+            .newsletter-form { flex-direction: column; }
+            .footer__grid { grid-template-columns: 1fr; }
+            .footer__brand { grid-column: span 1; }
+            .footer__bottom { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <a href="index.html" class="header__logo">Holistique</a>
+        <nav class="header__nav">
+            <a href="index.html#services" class="header__link is-active">Services</a>
+            <a href="index.html#events" class="header__link">What's On</a>
+            <a href="index.html#gallery" class="header__link">Community</a>
+            <a href="index.html#testimonials" class="header__link">Stories</a>
+            <a href="blog-post.html" class="header__link">Blog</a>
+        </nav>
+        <a href="index.html#contact" class="header__cta">Get in Touch</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span class="hamburger__line"></span>
+            <span class="hamburger__line"></span>
+            <span class="hamburger__line"></span>
+        </button>
+    </header>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="index.html#services" class="mobile-menu__link">Services</a>
+        <a href="index.html#events" class="mobile-menu__link">What's On</a>
+        <a href="index.html#gallery" class="mobile-menu__link">Community</a>
+        <a href="index.html#testimonials" class="mobile-menu__link">Stories</a>
+        <a href="index.html#contact" class="mobile-menu__link">Get in Touch</a>
+        <a href="blog-post.html" class="mobile-menu__link">Blog</a>
+    </div>
+
+    <!-- HERO -->
+    <section class="page-hero">
+        <p class="section-label reveal">What We Offer</p>
+        <h1 class="page-hero__title reveal">Acupuncture</h1>
+        <p class="page-hero__subtitle reveal">Experience the art of acupuncture and fire cupping&mdash;therapeutic techniques renowned for restoring balance, relieving tension, and revitalising the body.</p>
+    </section>
+
+    <!-- PRACTITIONER BIO -->
+    <section class="bio">
+        <div class="bio__grid">
+            <div class="bio__portrait reveal">
+                <img src="photos/yvonne-portrait.jpg"
+                     alt="Yvonne Liang — Acupuncturist" loading="lazy">
+            </div>
+            <div class="reveal">
+                <p class="bio__role">Acupuncturist</p>
+                <h2 class="bio__name">Yvonne Liang</h2>
+                <div class="bio__text">
+                    <p>Trained in both Traditional Chinese Medicine (TCM) and Five Elements Acupuncture (Worsley method), Yvonne began her training in 2016 in Bangkok, Thailand, before graduating from the Asante Academy of Chinese Medicine in London. She is a registered member of the Acupuncture Society UK.</p>
+                    <p>Her practice supports conditions including stress, anxiety, insomnia, hormonal imbalances, digestive issues, tension, and chronic pain&mdash;always with a holistic, patient-centred approach.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHOTO GALLERY CAROUSEL -->
+    <section class="gallery reveal">
+        <div class="section-header" style="padding: 0 2rem 2rem;">
+            <p class="section-label">In Practice</p>
+            <h2 class="section-title">Yvonne at Work</h2>
+        </div>
+        <div class="gallery__viewport" id="gallery-viewport">
+            <div class="gallery__slide"><img src="photos/carousel-1.webp" alt="Yvonne performing acupuncture treatment" loading="lazy"></div>
+            <div class="gallery__slide"><img src="photos/carousel-2.webp" alt="Acupuncture foot treatment" loading="lazy"></div>
+            <div class="gallery__slide"><img src="photos/carousel-3.webp" alt="Fire cupping therapy session" loading="lazy"></div>
+            <div class="gallery__slide"><img src="photos/carousel-4.webp" alt="Ear acupuncture treatment" loading="lazy"></div>
+            <div class="gallery__slide"><img src="photos/carousel-5.webp" alt="Facial acupuncture treatment" loading="lazy"></div>
+            <div class="gallery__slide"><img src="photos/carousel-6.webp" alt="Client during acupuncture session" loading="lazy"></div>
+            <div class="gallery__slide"><img src="photos/carousel-7.webp" alt="Gentle hands-on treatment" loading="lazy"></div>
+            <div class="gallery__slide"><img src="photos/carousel-8.webp" alt="Yvonne examining a client" loading="lazy"></div>
+            <div class="gallery__slide"><img src="photos/carousel-9.webp" alt="Facial acupuncture needles" loading="lazy"></div>
+            <div class="gallery__slide"><img src="photos/carousel-10.webp" alt="Treatment room at Holistique" loading="lazy"></div>
+        </div>
+        <div class="gallery__controls">
+            <button class="gallery__btn" id="gallery-prev" aria-label="Previous">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <div class="gallery__dots" id="gallery-dots"></div>
+            <button class="gallery__btn" id="gallery-next" aria-label="Next">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- TREATMENTS -->
+    <section class="treatments" id="treatments">
+        <div class="section-header">
+            <p class="section-label reveal">Treatments</p>
+            <h2 class="section-title reveal">Book a Session</h2>
+        </div>
+        <div class="treatments__grid">
+            <div class="treatment-card reveal">
+                <span class="treatment-card__badge">60&ndash;75 mins</span>
+                <h3 class="treatment-card__title">Initial Consultation + Treatment</h3>
+                <p class="treatment-card__price">&pound;85</p>
+                <p class="treatment-card__desc">Comprehensive session including in-depth health consultation, diagnosis, and first acupuncture treatment. Includes fire cupping and infrared heat therapy as needed.</p>
+                <button class="btn btn--teal" onclick="openBooking('Initial Consultation + Treatment', 'an initial acupuncture consultation')">Book now</button>
+            </div>
+            <div class="treatment-card reveal">
+                <span class="treatment-card__badge">60 mins</span>
+                <h3 class="treatment-card__title">Follow-Up Session</h3>
+                <p class="treatment-card__price">&pound;75</p>
+                <p class="treatment-card__desc">Personalised acupuncture treatment to continue supporting your health goals and track progress. Includes fire cupping and infrared heat therapy as needed.</p>
+                <button class="btn btn--teal" onclick="openBooking('Follow-Up Session', 'a follow-up acupuncture session')">Book now</button>
+            </div>
+            <div class="treatment-card reveal">
+                <span class="treatment-card__badge">30&ndash;45 mins</span>
+                <h3 class="treatment-card__title">Fire Cupping Only</h3>
+                <p class="treatment-card__price">&pound;45</p>
+                <p class="treatment-card__desc">Promotes blood circulation, relieves muscle tension, and detoxifies the body by drawing out stagnation through suction.</p>
+                <button class="btn btn--teal" onclick="openBooking('Fire Cupping Only', 'a fire cupping session')">Book now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials" id="testimonials">
+        <div class="section-header">
+            <p class="section-label reveal">Testimonials</p>
+            <h2 class="section-title reveal">What Clients Say</h2>
+        </div>
+
+        <!-- Row 1 -->
+        <div class="marquee">
+            <div class="marquee__track">
+                <div class="marquee__content">
+                    <div class="testimonial-card">
+                        <span class="testimonial-card__quote">&ldquo;</span>
+                        <p class="testimonial-card__text">I love going to see Yvonne she&rsquo;s so intuitive with her work. I&rsquo;ve cancelled chemo for lymphoma and instead decided to do acupuncture, with the consent of my consultant. I always feel so good after and my energy level goes up. Yvonne is so generous in every way.</p>
+                        <div class="testimonial-card__author">
+                            <div class="testimonial-card__avatar">A</div>
+                            <p class="testimonial-card__name">Anat H.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <span class="testimonial-card__quote">&ldquo;</span>
+                        <p class="testimonial-card__text">Vonny is very empathetic and knowledgeable. I have never done acupuncture before but a friend recommended Vonny when I started having health issues, and I have been going regularly ever since. She helped me shift a lot of anxiety and fear recently.</p>
+                        <div class="testimonial-card__author">
+                            <div class="testimonial-card__avatar">M</div>
+                            <p class="testimonial-card__name">Maral H.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <span class="testimonial-card__quote">&ldquo;</span>
+                        <p class="testimonial-card__text">I travel far pretty regularly just to have acupuncture and cupping sessions with Vonny. I&rsquo;ve experienced many health and mental health improvements since I started my sessions with her, which are at an affordable price given the value to my health.</p>
+                        <div class="testimonial-card__author">
+                            <div class="testimonial-card__avatar">L</div>
+                            <p class="testimonial-card__name">Lodi E.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <span class="testimonial-card__quote">&ldquo;</span>
+                        <p class="testimonial-card__text">I have been visiting Vonny for quite a long time now and would thoroughly recommend her acupuncture treatment. There have been times when physical health issues have arisen and at these times Vonny&rsquo;s needles have certainly helped avoid GP appointments!!</p>
+                        <div class="testimonial-card__author">
+                            <div class="testimonial-card__avatar">S</div>
+                            <p class="testimonial-card__name">Steve B.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <span class="testimonial-card__quote">&ldquo;</span>
+                        <p class="testimonial-card__text">I saw Yvonne as I had unbalanced menstrual cycle and after two months of acupuncture sessions with her, my periods came back to normal. I was so happy with this incredible result!! She&rsquo;s so kind, gentle and listening to your needs.</p>
+                        <div class="testimonial-card__author">
+                            <div class="testimonial-card__avatar">S</div>
+                            <p class="testimonial-card__name">Sol&egrave;ne F.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <span class="testimonial-card__quote">&ldquo;</span>
+                        <p class="testimonial-card__text">Such a great time with an incredible spirit. This was my first time doing acupuncture and what an experience. Vonny is knowledgeable and experienced in all things acupuncture and creates a beautifully spiritual energy throughout the session.</p>
+                        <div class="testimonial-card__author">
+                            <div class="testimonial-card__avatar">B</div>
+                            <p class="testimonial-card__name">Benjamin M.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="marquee__content" aria-hidden="true">
+                    <div class="testimonial-card">
+                        <span class="testimonial-card__quote">&ldquo;</span>
+                        <p class="testimonial-card__text">I love going to see Yvonne she&rsquo;s so intuitive with her work. I&rsquo;ve cancelled chemo for lymphoma and instead decided to do acupuncture, with the consent of my consultant. I always feel so good after and my energy level goes up. Yvonne is so generous in every way.</p>
+                        <div class="testimonial-card__author">
+                            <div class="testimonial-card__avatar">A</div>
+                            <p class="testimonial-card__name">Anat H.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <span class="testimonial-card__quote">&ldquo;</span>
+                        <p class="testimonial-card__text">Vonny is very empathetic and knowledgeable. I have never done acupuncture before but a friend recommended Vonny when I started having health issues, and I have been going regularly ever since. She helped me shift a lot of anxiety and fear recently.</p>
+                        <div class="testimonial-card__author">
+                            <div class="testimonial-card__avatar">M</div>
+                            <p class="testimonial-card__name">Maral H.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <span class="testimonial-card__quote">&ldquo;</span>
+                        <p class="testimonial-card__text">I travel far pretty regularly just to have acupuncture and cupping sessions with Vonny. I&rsquo;ve experienced many health and mental health improvements since I started my sessions with her, which are at an affordable price given the value to my health.</p>
+                        <div class="testimonial-card__author">
+                            <div class="testimonial-card__avatar">L</div>
+                            <p class="testimonial-card__name">Lodi E.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <span class="testimonial-card__quote">&ldquo;</span>
+                        <p class="testimonial-card__text">I have been visiting Vonny for quite a long time now and would thoroughly recommend her acupuncture treatment. There have been times when physical health issues have arisen and at these times Vonny&rsquo;s needles have certainly helped avoid GP appointments!!</p>
+                        <div class="testimonial-card__author">
+                            <div class="testimonial-card__avatar">S</div>
+                            <p class="testimonial-card__name">Steve B.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <span class="testimonial-card__quote">&ldquo;</span>
+                        <p class="testimonial-card__text">I saw Yvonne as I had unbalanced menstrual cycle and after two months of acupuncture sessions with her, my periods came back to normal. I was so happy with this incredible result!! She&rsquo;s so kind, gentle and listening to your needs.</p>
+                        <div class="testimonial-card__author">
+                            <div class="testimonial-card__avatar">S</div>
+                            <p class="testimonial-card__name">Sol&egrave;ne F.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <span class="testimonial-card__quote">&ldquo;</span>
+                        <p class="testimonial-card__text">Such a great time with an incredible spirit. This was my first time doing acupuncture and what an experience. Vonny is knowledgeable and experienced in all things acupuncture and creates a beautifully spiritual energy throughout the session.</p>
+                        <div class="testimonial-card__author">
+                            <div class="testimonial-card__avatar">B</div>
+                            <p class="testimonial-card__name">Benjamin M.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Row 2 (reverse direction) -->
+        <div class="marquee">
+            <div class="marquee__track marquee__track--reverse">
+                <div class="marquee__content">
+                    <div class="testimonial-card">
+                        <span class="testimonial-card__quote">&ldquo;</span>
+                        <p class="testimonial-card__text">I&rsquo;m so proud to meet Vonny! Thank you very much for helping me with acupuncture during the most difficult and stressful period of my life. I couldn&rsquo;t even imagine how effective and helpful it was! We had 2 sessions and I got over my illness.</p>
+                        <div class="testimonial-card__author">
+                            <div class="testimonial-card__avatar">A</div>
+                            <p class="testimonial-card__name">Anna M.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <span class="testimonial-card__quote">&ldquo;</span>
+                        <p class="testimonial-card__text">Acupuncture with Yvonne was a truly amazing experience. I was fairly sceptical of acupuncture for a long time but after having it done&hellip; it changed my life. I have neck pain and had been having it for weeks. When she took the pins out and I left, the pain was gone in about an hour.</p>
+                        <div class="testimonial-card__author">
+                            <div class="testimonial-card__avatar">D</div>
+                            <p class="testimonial-card__name">David S.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <span class="testimonial-card__quote">&ldquo;</span>
+                        <p class="testimonial-card__text">I had my first ever acupuncture experience with Vonny and I could not have been in better hands. I was on my cycle this day so I opted to go for points that would help my cramps. No word of a lie, they were gone after the session!</p>
+                        <div class="testimonial-card__author">
+                            <div class="testimonial-card__avatar">S</div>
+                            <p class="testimonial-card__name">Shannon A.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <span class="testimonial-card__quote">&ldquo;</span>
+                        <p class="testimonial-card__text">Before trying acupuncture with Vonny I was sceptical of the practice itself. Now I&rsquo;ve been getting acupuncture done with Vonny for over a year and I couldn&rsquo;t be happier with the results.</p>
+                        <div class="testimonial-card__author">
+                            <div class="testimonial-card__avatar">R</div>
+                            <p class="testimonial-card__name">Ramune P.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <span class="testimonial-card__quote">&ldquo;</span>
+                        <p class="testimonial-card__text">Vonny is an extremely talented acupuncturist. I was feeling run down and generally out of sorts. After a few sessions my energy is back and I&rsquo;m feeling far more balanced. Would highly recommend.</p>
+                        <div class="testimonial-card__author">
+                            <div class="testimonial-card__avatar">P</div>
+                            <p class="testimonial-card__name">Peter M.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="marquee__content" aria-hidden="true">
+                    <div class="testimonial-card">
+                        <span class="testimonial-card__quote">&ldquo;</span>
+                        <p class="testimonial-card__text">I&rsquo;m so proud to meet Vonny! Thank you very much for helping me with acupuncture during the most difficult and stressful period of my life. I couldn&rsquo;t even imagine how effective and helpful it was! We had 2 sessions and I got over my illness.</p>
+                        <div class="testimonial-card__author">
+                            <div class="testimonial-card__avatar">A</div>
+                            <p class="testimonial-card__name">Anna M.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <span class="testimonial-card__quote">&ldquo;</span>
+                        <p class="testimonial-card__text">Acupuncture with Yvonne was a truly amazing experience. I was fairly sceptical of acupuncture for a long time but after having it done&hellip; it changed my life. I have neck pain and had been having it for weeks. When she took the pins out and I left, the pain was gone in about an hour.</p>
+                        <div class="testimonial-card__author">
+                            <div class="testimonial-card__avatar">D</div>
+                            <p class="testimonial-card__name">David S.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <span class="testimonial-card__quote">&ldquo;</span>
+                        <p class="testimonial-card__text">I had my first ever acupuncture experience with Vonny and I could not have been in better hands. I was on my cycle this day so I opted to go for points that would help my cramps. No word of a lie, they were gone after the session!</p>
+                        <div class="testimonial-card__author">
+                            <div class="testimonial-card__avatar">S</div>
+                            <p class="testimonial-card__name">Shannon A.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <span class="testimonial-card__quote">&ldquo;</span>
+                        <p class="testimonial-card__text">Before trying acupuncture with Vonny I was sceptical of the practice itself. Now I&rsquo;ve been getting acupuncture done with Vonny for over a year and I couldn&rsquo;t be happier with the results.</p>
+                        <div class="testimonial-card__author">
+                            <div class="testimonial-card__avatar">R</div>
+                            <p class="testimonial-card__name">Ramune P.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <span class="testimonial-card__quote">&ldquo;</span>
+                        <p class="testimonial-card__text">Vonny is an extremely talented acupuncturist. I was feeling run down and generally out of sorts. After a few sessions my energy is back and I&rsquo;m feeling far more balanced. Would highly recommend.</p>
+                        <div class="testimonial-card__author">
+                            <div class="testimonial-card__avatar">P</div>
+                            <p class="testimonial-card__name">Peter M.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACCREDITATIONS -->
+    <section class="accreditations">
+        <p class="section-label reveal">Accredited &amp; Insured</p>
+        <div class="accreditations__logos reveal">
+            <img src="photos/logo-acupuncture-society.png"
+                 alt="Acupuncture Society UK" class="accreditations__logo" loading="lazy">
+            <img src="photos/logo-insurance.png"
+                 alt="Holistic Services Insurance" class="accreditations__logo" loading="lazy">
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+        <div class="section-header">
+            <p class="section-label reveal">FAQ</p>
+            <h2 class="section-title reveal">Frequently Asked Questions</h2>
+        </div>
+        <div class="faq__grid">
+            <details class="faq__item reveal">
+                <summary>What is acupuncture?</summary>
+                <div class="faq__answer">A traditional Chinese medicine practice that involves inserting fine, single-use sterile needles into specific points on the body to restore balance, relieve pain, and support the body&rsquo;s natural healing processes. It&rsquo;s commonly used for stress, anxiety, insomnia, hormonal imbalances, digestive issues, and musculoskeletal pain.</div>
+            </details>
+            <details class="faq__item reveal">
+                <summary>What conditions does acupuncture help with?</summary>
+                <div class="faq__answer">Acupuncture is widely used for pain relief&mdash;including back, neck, arthritis, headaches, fibromyalgia&mdash;and has WHO-recognised effectiveness for specific conditions such as chemotherapy-related nausea, depression, allergic rhinitis, induction of labour, gastrointestinal symptoms, and more.</div>
+            </details>
+            <details class="faq__item reveal">
+                <summary>Does acupuncture hurt?</summary>
+                <div class="faq__answer">Most people find acupuncture to be very gentle and relaxing. The needles are hair-thin, and sensations can vary from a dull ache to a slight tingling&mdash;often followed by a deep sense of calm.</div>
+            </details>
+            <details class="faq__item reveal">
+                <summary>What is fire cupping?</summary>
+                <div class="faq__answer">A technique that uses glass cups and heat to create suction on the skin. This promotes blood flow, releases tension in muscles, and helps move stagnation. It can leave temporary marks that fade in a few days.</div>
+            </details>
+            <details class="faq__item reveal">
+                <summary>What conditions is fire cupping good for?</summary>
+                <div class="faq__answer">Cupping is especially effective for muscle tightness, back and shoulder pain, tension headaches, and respiratory issues like colds or congestion. It&rsquo;s often used alongside acupuncture for enhanced results.</div>
+            </details>
+            <details class="faq__item reveal">
+                <summary>What is the infrared heat lamp used for?</summary>
+                <div class="faq__answer">The infrared heat lamp delivers soothing, penetrating warmth that helps increase circulation, relax muscles, and support the flow of Qi (energy) in the body.</div>
+            </details>
+            <details class="faq__item reveal">
+                <summary>Are these treatments safe?</summary>
+                <div class="faq__answer">Yes, acupuncture, fire cupping, and infrared heat therapy are safe when performed by a trained practitioner. All needles are single-use and sterile. Cupping and infrared heat are applied mindfully based on your comfort and health needs.</div>
+            </details>
+            <details class="faq__item reveal">
+                <summary>How many sessions will I need?</summary>
+                <div class="faq__answer">This depends on your condition and wellness goals. Some people feel immediate relief, while others may benefit from a series of treatments to see lasting improvement.</div>
+            </details>
+            <details class="faq__item reveal">
+                <summary>What should I do after a treatment?</summary>
+                <div class="faq__answer">After your session, drink plenty of water and allow your body to rest. Avoid strenuous exercise, alcohol, and caffeine for a few hours.</div>
+            </details>
+            <details class="faq__item reveal">
+                <summary>How should I prepare for a session?</summary>
+                <div class="faq__answer">Avoid heavy meals, alcohol, or caffeine for at least 1&ndash;2 hours before your appointment. Try to come in a relaxed state, and wear loose, comfortable clothing.</div>
+            </details>
+        </div>
+    </section>
+
+    <!-- SELF-ACUPUNCTURE COURSE CTA -->
+    <section class="course-cta">
+        <div class="course-cta__glow course-cta__glow--1"></div>
+        <div class="course-cta__glow course-cta__glow--2"></div>
+        <div class="course-cta__content">
+            <p class="section-label reveal" style="color: var(--color-gold);">Course</p>
+            <h2 class="course-cta__title reveal">Learn Self-Acupuncture</h2>
+            <p class="course-cta__desc reveal">Empower yourself with the skills to practice acupuncture safely and effectively&mdash;on your own. Designed for anyone looking to take self-care to the next level.</p>
+            <a href="self-acupuncture-course.html" class="btn btn--gold reveal">Learn More &rarr;</a>
+        </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter-section">
+        <div class="newsletter-section__inner reveal">
+            <h2 class="newsletter-section__title">Stay Connected</h2>
+            <p class="newsletter-section__sub">Get new articles, event invitations, and wellness insights from Yvonne.</p>
+            <form id="newsletter-form" class="newsletter-form" onsubmit="return false;">
+                <input type="email" class="newsletter-input" placeholder="Your email address" required>
+                <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- BOOKING MODAL -->
+    <div class="booking-overlay" id="booking-overlay">
+        <div class="booking-modal">
+            <button class="booking-modal__close" id="booking-close" aria-label="Close">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+            <p class="booking-modal__treatment" id="booking-treatment-label"></p>
+            <h3 class="booking-modal__title">How would you like to book?</h3>
+            <p class="booking-modal__subtitle">Choose your preferred way to get in touch with Yvonne.</p>
+            <div class="booking-modal__options">
+                <a class="booking-option" id="booking-whatsapp" target="_blank" rel="noopener">
+                    <span class="booking-option__icon booking-option__icon--whatsapp">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    </span>
+                    <span class="booking-option__text">
+                        <span class="booking-option__label">WhatsApp</span>
+                        <span class="booking-option__hint">Message Yvonne directly</span>
+                    </span>
+                    <svg class="booking-option__arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                </a>
+                <a class="booking-option" id="booking-email">
+                    <span class="booking-option__icon booking-option__icon--email">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </span>
+                    <span class="booking-option__text">
+                        <span class="booking-option__label">Email</span>
+                        <span class="booking-option__hint">Send an email to book</span>
+                    </span>
+                    <svg class="booking-option__arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer__grid">
+            <div class="footer__brand">
+                <p class="footer__brand-name">Holistique</p>
+                <p class="footer__brand-desc">Healing and transformation through holistic practices and community. Based in Kensington, London.</p>
+            </div>
+            <div>
+                <p class="footer__col-title">Explore</p>
+                <ul class="footer__links">
+                    <li><a href="index.html#events" class="footer__link">What's On</a></li>
+                    <li><a href="acupuncture.html" class="footer__link">Acupuncture</a></li>
+                    <li><a href="#" class="footer__link">Wellness Tools</a></li>
+                    <li><a href="index.html#testimonials" class="footer__link">Stories</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="footer__col-title">Community</p>
+                <ul class="footer__links">
+                    <li><a href="index.html#events" class="footer__link">Events</a></li>
+                    <li><a href="index.html#gallery" class="footer__link">Gallery</a></li>
+                    <li><a href="index.html#testimonials" class="footer__link">Testimonials</a></li>
+                    <li><a href="https://wa.me/447521760405" class="footer__link" target="_blank" rel="noopener">WhatsApp Group</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="footer__col-title">Contact</p>
+                <ul class="footer__links">
+                    <li><a href="https://wa.me/447521760405" class="footer__link" target="_blank" rel="noopener">Get in Touch</a></li>
+                    <li><a href="#" class="footer__link">Kensington, London</a></li>
+                    <li><a href="mailto:hello@holistiqueuk.com" class="footer__link">hello@holistiqueuk.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p class="footer__copyright">&copy; 2026 Holistique UK. All rights reserved.</p>
+            <div class="footer__socials">
+                <a href="https://www.instagram.com/holistique_uk/" class="footer__social" aria-label="Instagram" target="_blank" rel="noopener">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                    </svg>
+                </a>
+                <a href="https://wa.me/447521760405" class="footer__social" aria-label="WhatsApp" target="_blank" rel="noopener">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    (function() {
+        // Mobile menu toggle
+        var hamburger = document.getElementById('hamburger');
+        var mobileMenu = document.getElementById('mobile-menu');
+        if (hamburger && mobileMenu) {
+            hamburger.addEventListener('click', function() {
+                hamburger.classList.toggle('is-open');
+                mobileMenu.classList.toggle('is-open');
+            });
+            mobileMenu.querySelectorAll('.mobile-menu__link').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    hamburger.classList.remove('is-open');
+                    mobileMenu.classList.remove('is-open');
+                });
+            });
+        }
+
+        // Reveal on scroll (IntersectionObserver)
+        var reveals = document.querySelectorAll('.reveal');
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        reveals.forEach(function(el) { observer.observe(el); });
+
+        // Gallery carousel
+        (function() {
+            var viewport = document.getElementById('gallery-viewport');
+            var prevBtn = document.getElementById('gallery-prev');
+            var nextBtn = document.getElementById('gallery-next');
+            var dotsContainer = document.getElementById('gallery-dots');
+            if (!viewport) return;
+
+            var slides = viewport.querySelectorAll('.gallery__slide');
+            var slideWidth = slides[0].offsetWidth + 16; // width + gap
+            var totalSlides = slides.length;
+            var currentIndex = 0;
+            var autoplayTimer;
+
+            // Create dots
+            for (var i = 0; i < totalSlides; i++) {
+                var dot = document.createElement('button');
+                dot.className = 'gallery__dot' + (i === 0 ? ' is-active' : '');
+                dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+                dot.dataset.index = i;
+                dot.addEventListener('click', function() { goTo(parseInt(this.dataset.index)); });
+                dotsContainer.appendChild(dot);
+            }
+            var dots = dotsContainer.querySelectorAll('.gallery__dot');
+
+            function goTo(index) {
+                currentIndex = Math.max(0, Math.min(index, totalSlides - 1));
+                viewport.scrollTo({ left: currentIndex * slideWidth, behavior: 'smooth' });
+                updateDots();
+            }
+
+            function updateDots() {
+                dots.forEach(function(d, i) {
+                    d.classList.toggle('is-active', i === currentIndex);
+                });
+            }
+
+            prevBtn.addEventListener('click', function() { goTo(currentIndex - 1); resetAutoplay(); });
+            nextBtn.addEventListener('click', function() { goTo(currentIndex + 1); resetAutoplay(); });
+
+            // Update dots on manual scroll
+            viewport.addEventListener('scroll', function() {
+                var scrollLeft = viewport.scrollLeft;
+                var newIndex = Math.round(scrollLeft / slideWidth);
+                if (newIndex !== currentIndex) {
+                    currentIndex = newIndex;
+                    updateDots();
+                }
+            });
+
+            // Autoplay
+            function startAutoplay() {
+                autoplayTimer = setInterval(function() {
+                    if (currentIndex >= totalSlides - 1) goTo(0);
+                    else goTo(currentIndex + 1);
+                }, 4000);
+            }
+            function resetAutoplay() {
+                clearInterval(autoplayTimer);
+                startAutoplay();
+            }
+
+            viewport.addEventListener('mouseenter', function() { clearInterval(autoplayTimer); });
+            viewport.addEventListener('mouseleave', function() { startAutoplay(); });
+
+            startAutoplay();
+        })();
+
+        // Newsletter subscribe
+        var SUBSCRIBE_URL = 'https://peter17tu.app.n8n.cloud/webhook/subscribe';
+        var nlForm = document.getElementById('newsletter-form');
+        if (nlForm) {
+            nlForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                var input = nlForm.querySelector('.newsletter-input');
+                var btn = nlForm.querySelector('.newsletter-btn');
+                var email = input.value.trim();
+                if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    showMsg(nlForm, 'Please enter a valid email address.', 'error'); return;
+                }
+                btn.textContent = 'Subscribing...'; btn.disabled = true;
+                fetch(SUBSCRIBE_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: email }) })
+                .then(function(r) { return r.json(); })
+                .then(function(d) {
+                    if (d.success) { showMsg(nlForm, 'Welcome aboard! Check your inbox.', 'success'); input.value = ''; }
+                    else { showMsg(nlForm, d.error || 'Something went wrong.', 'error'); }
+                })
+                .catch(function() { showMsg(nlForm, 'Network error. Please try again.', 'error'); })
+                .finally(function() { btn.textContent = 'Subscribe'; btn.disabled = false; });
+            });
+        }
+        // Booking modal
+        var bookingOverlay = document.getElementById('booking-overlay');
+        var bookingClose = document.getElementById('booking-close');
+        var bookingWhatsapp = document.getElementById('booking-whatsapp');
+        var bookingEmail = document.getElementById('booking-email');
+        var bookingLabel = document.getElementById('booking-treatment-label');
+
+        window.openBooking = function(treatmentName, messageSlug) {
+            bookingLabel.textContent = treatmentName;
+            var waText = encodeURIComponent('Hi Yvonne, I\'d like to book ' + messageSlug + '.');
+            bookingWhatsapp.href = 'https://wa.me/447521760405?text=' + waText;
+            var emailSubject = encodeURIComponent('Booking enquiry: ' + treatmentName);
+            var emailBody = encodeURIComponent('Hi Yvonne,\n\nI\'d like to book ' + messageSlug + '.\n\nPlease could you let me know your availability?\n\nThank you');
+            bookingEmail.href = 'mailto:hello@holistiqueuk.com?subject=' + emailSubject + '&body=' + emailBody;
+            bookingOverlay.classList.add('is-open');
+            document.body.style.overflow = 'hidden';
+        };
+
+        function closeBooking() {
+            bookingOverlay.classList.remove('is-open');
+            document.body.style.overflow = '';
+        }
+
+        bookingClose.addEventListener('click', closeBooking);
+        bookingOverlay.addEventListener('click', function(e) {
+            if (e.target === bookingOverlay) closeBooking();
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && bookingOverlay.classList.contains('is-open')) closeBooking();
+        });
+
+        function showMsg(form, text, type) {
+            var ex = form.querySelector('.newsletter-message'); if (ex) ex.remove();
+            var m = document.createElement('p'); m.className = 'newsletter-message ' + type; m.textContent = text;
+            form.appendChild(m); setTimeout(function() { if (m.parentNode) m.remove(); }, 5000);
+        }
+    })();
+    </script>
+</body>
+</html>
