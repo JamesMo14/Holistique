@@ -37,3 +37,10 @@ jobs:
           git add -A
           git commit -m "sync: add new Medium posts (automated)"
           git push
+
+      - name: Send newsletter for new posts
+        if: steps.changes.outputs.changed == 'true'
+        run: node scripts/send-newsletter.js
+        env:
+          NEWSLETTER_WEBHOOK_URL: ${{ secrets.NEWSLETTER_WEBHOOK_URL }}
+          NEWSLETTER_SECRET: ${{ secrets.NEWSLETTER_SECRET }}

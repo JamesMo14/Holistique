@@ -51,6 +51,19 @@
         .footer-social svg { width: 20px; height: 20px; }
         @media (max-width: 768px) { .header-inner { padding: 0 20px; } .article-container { padding: 32px 20px 64px; } .article-hero img { height: 320px; } .footer-inner { padding: 0 20px; } }
         @media (max-width: 480px) { .header-inner { padding: 0 16px; } .header-nav { gap: 20px; } .article-container { padding: 24px 16px 48px; } .article-hero img { height: 240px; } .footer-inner { flex-direction: column; gap: 16px; padding: 0 16px; } }
+        .article-newsletter { margin-top: 48px; padding: 32px; border: 2px solid #111827; text-align: center; }
+        .article-newsletter__heading { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 15px; color: #111827; margin-bottom: 4px; }
+        .article-newsletter__sub { font-size: 14px; color: #6B7280; margin-bottom: 16px; }
+        .article-newsletter__row { display: flex; gap: 8px; }
+        .article-newsletter__row .newsletter-input { flex: 1; border: 1px solid #E5E7EB; background: #F9FAFB; padding: 12px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 300; color: #111827; }
+        .article-newsletter__row .newsletter-input::placeholder { color: #9CA3AF; }
+        .article-newsletter__row .newsletter-btn { background: #111827; color: #FFFFFF; text-transform: uppercase; letter-spacing: 0.1em; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 12px; padding: 12px 24px; border: none; cursor: pointer; transition: background 200ms; white-space: nowrap; }
+        .article-newsletter__row .newsletter-btn:hover { background: #000000; }
+        .article-newsletter__row .newsletter-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+        .newsletter-message { margin-top: 8px; font-size: 13px; text-align: center; }
+        .newsletter-message.success { color: #059669; }
+        .newsletter-message.error { color: #DC2626; }
+        @media (max-width: 480px) { .article-newsletter__row { flex-direction: column; } }
     </style>
 </head>
 <body>
@@ -120,11 +133,54 @@
             <p>Yvonne is a former model turned acupuncturist and sound healer. Today she organises holistic events and retreats for her community of conscious souls in London. You can find her on Instagram: <a href="https://instagram.com/yvonne.holistique/" target="_blank">@yvonne.holistique</a></p>
         </div>
 
+        <div class="article-newsletter">
+            <p class="article-newsletter__heading">Enjoyed this article?</p>
+            <p class="article-newsletter__sub">Get new posts from Yvonne delivered to your inbox.</p>
+            <form id="newsletter-form" onsubmit="return false;">
+                <div class="article-newsletter__row">
+                    <input type="email" class="newsletter-input" placeholder="Your email address" required>
+                    <button type="submit" class="newsletter-btn">Subscribe</button>
+                </div>
+            </form>
+        </div>
+
         <a href="blog-post.html" class="back-link">Back to Journal</a>
     </article>
 
     <footer class="site-footer"><div class="footer-inner"><span class="footer-copy">&copy; 2025 Holistique UK</span><div class="footer-social"><a href="https://instagram.com/yvonne.holistique/" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="5"></circle><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"></circle></svg></a><a href="https://medium.com/@yvonne.holistique" target="_blank" aria-label="Medium"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg></a></div></div></footer>
 
-    <script>window.addEventListener('DOMContentLoaded', function() { document.body.classList.add('loaded'); });</script>
+    <script>
+    window.addEventListener('DOMContentLoaded', function() {
+        document.body.classList.add('loaded');
+        var SUBSCRIBE_URL = 'https://peter17tu.app.n8n.cloud/webhook/subscribe';
+        var nlForm = document.getElementById('newsletter-form');
+        if (nlForm) {
+            nlForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                var input = nlForm.querySelector('.newsletter-input');
+                var btn = nlForm.querySelector('.newsletter-btn');
+                var email = input.value.trim();
+                if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    showMsg(nlForm, 'Please enter a valid email address.', 'error'); return;
+                }
+                if (!SUBSCRIBE_URL) { showMsg(nlForm, 'Subscribe is not configured yet.', 'error'); return; }
+                btn.textContent = 'Subscribing...'; btn.disabled = true;
+                fetch(SUBSCRIBE_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: email }) })
+                .then(function(r) { return r.json(); })
+                .then(function(d) {
+                    if (d.success) { showMsg(nlForm, 'Welcome aboard! Check your inbox.', 'success'); input.value = ''; }
+                    else { showMsg(nlForm, d.error || 'Something went wrong.', 'error'); }
+                })
+                .catch(function() { showMsg(nlForm, 'Network error. Please try again.', 'error'); })
+                .finally(function() { btn.textContent = 'Subscribe'; btn.disabled = false; });
+            });
+        }
+        function showMsg(form, text, type) {
+            var ex = form.querySelector('.newsletter-message'); if (ex) ex.remove();
+            var m = document.createElement('p'); m.className = 'newsletter-message ' + type; m.textContent = text;
+            form.appendChild(m); setTimeout(function() { if (m.parentNode) m.remove(); }, 5000);
+        }
+    });
+    </script>
 </body>
 </html>
