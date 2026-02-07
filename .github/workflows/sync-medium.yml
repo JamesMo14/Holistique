@@ -1,0 +1,39 @@
+name: Sync Medium Posts
+
+on:
+  schedule:
+    # Runs at 9:00 AM UTC on the 1st and 15th of every month (~every 2 weeks)
+    - cron: '0 9 1,15 * *'
+  workflow_dispatch: # Allow manual trigger from GitHub UI
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run Medium sync script
+        run: node scripts/sync-medium.js
+
+      - name: Check for changes
+        id: changes
+        run: |
+          git diff --quiet && git diff --staged --quiet && echo "changed=false" >> $GITHUB_OUTPUT || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push new posts
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "sync: add new Medium posts (automated)"
+          git push
