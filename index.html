@@ -2250,9 +2250,11 @@
             var panels = gsap.utils.toArray('.panel');
             var maxScroll = ScrollTrigger.maxScroll(window);
 
-            var snapPositions = panels.map(function(panel) {
+            // Include position 0 (hero) so users can snap back to the top
+            var snapPositions = [0];
+            panels.forEach(function(panel) {
                 var absoluteTop = panel.getBoundingClientRect().top + window.scrollY;
-                return Math.min(absoluteTop / maxScroll, 1);
+                snapPositions.push(Math.min(absoluteTop / maxScroll, 1));
             });
 
             snapInstance = ScrollTrigger.create({
@@ -2261,7 +2263,13 @@
                     duration: { min: 0.2, max: 0.6 },
                     delay: 0.1,
                     ease: 'power1.inOut',
-                    inertia: false
+                    inertia: false,
+                    onComplete: function() {
+                        // If snapped back to hero position, restore hero state
+                        if (window.scrollY < 10 && isRevealed) {
+                            restoreHeroState();
+                        }
+                    }
                 }
             });
         }
@@ -2418,7 +2426,70 @@
         }
 
         // ============================================
-        // RETURN TO HERO — re-lock when scrolled all the way back
+        // RESTORE HERO STATE — re-lock scroll, replay hero animations
+        // ============================================
+        function restoreHeroState() {
+            lockScroll();
+            isRevealed = false;
+
+            // Kill all ScrollTriggers and snap
+            ScrollTrigger.getAll().forEach(function(st) { st.kill(); });
+            snapInstance = null;
+
+            // Clear hero reveal inline styles so animation can replay
+            document.querySelectorAll('.hero .reveal').forEach(function(el) {
+                gsap.set(el, { clearProps: 'all' });
+            });
+
+            // Restore hero container visibility, then replay entrance animation
+            gsap.to('#hero-content', {
+                opacity: 1,
+                y: 0,
+                duration: 0.3,
+                ease: 'power2.out',
+                onComplete: function() {
+                    // Replay hero title entrance animation
+                    gsap.fromTo('.hero .reveal',
+                        { opacity: 0, y: 30 },
+                        {
+                            opacity: 1,
+                            y: 0,
+                            duration: 1,
+                            ease: 'expo.out',
+                            stagger: 0.15
+                        }
+                    );
+                }
+            });
+            gsap.to('#scroll-hint', {
+                opacity: 1,
+                duration: 0.4,
+                ease: 'power2.out'
+            });
+
+            // Re-create the nav header trigger
+            ScrollTrigger.create({
+                trigger: '#content',
+                start: 'top 20%',
+                onEnter: function() {
+                    document.getElementById('header').classList.add('is-scrolled');
+                },
+                onLeaveBack: function() {
+                    document.getElementById('header').classList.remove('is-scrolled');
+                }
+            });
+
+            // Reset panel reveal states for re-animation on next visit
+            document.querySelectorAll('.panel:not(#ethos) .reveal, .panel:not(#ethos) .reveal-scale, .panel .stagger-item').forEach(function(el) {
+                gsap.set(el, { clearProps: 'all' });
+            });
+
+            // Remove nav scrolled state
+            document.getElementById('header').classList.remove('is-scrolled');
+        }
+
+        // ============================================
+        // RETURN TO HERO — nav-triggered scroll back + restore
         // ============================================
         function returnToHero() {
             if (!isRevealed) return;
@@ -2429,52 +2500,12 @@
                 snapInstance = null;
             }
 
-            // Scroll to top
+            // Scroll to top, then restore hero state
             gsap.to(window, {
                 scrollTo: { y: 0 },
                 duration: 1,
                 ease: 'power3.inOut',
-                onComplete: function() {
-                    // Re-lock scroll
-                    lockScroll();
-                    isRevealed = false;
-
-                    // Fade hero content back in
-                    gsap.to('#hero-content', {
-                        opacity: 1,
-                        y: 0,
-                        duration: 0.6,
-                        ease: 'power2.out'
-                    });
-                    gsap.to('#scroll-hint', {
-                        opacity: 1,
-                        duration: 0.4,
-                        ease: 'power2.out'
-                    });
-
-                    // Kill all ScrollTriggers and reset
-                    ScrollTrigger.getAll().forEach(function(st) { st.kill(); });
-
-                    // Re-create the nav header trigger
-                    ScrollTrigger.create({
-                        trigger: '#content',
-                        start: 'top 20%',
-                        onEnter: function() {
-                            document.getElementById('header').classList.add('is-scrolled');
-                        },
-                        onLeaveBack: function() {
-                            document.getElementById('header').classList.remove('is-scrolled');
-                        }
-                    });
-
-                    // Reset reveal states for re-animation
-                    document.querySelectorAll('.panel:not(#ethos) .reveal, .panel:not(#ethos) .reveal-scale, .panel .stagger-item').forEach(function(el) {
-                        gsap.set(el, { clearProps: 'all' });
-                    });
-
-                    // Remove nav scrolled state
-                    document.getElementById('header').classList.remove('is-scrolled');
-                }
+                onComplete: restoreHeroState
             });
         }
 
