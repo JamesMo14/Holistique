@@ -2263,15 +2263,23 @@
                     duration: { min: 0.2, max: 0.6 },
                     delay: 0.1,
                     ease: 'power1.inOut',
-                    inertia: false,
-                    onComplete: function() {
-                        // If snapped back to hero position, restore hero state
-                        if (window.scrollY < 10 && isRevealed) {
-                            restoreHeroState();
-                        }
-                    }
+                    inertia: false
                 }
             });
+
+            // Watch for scroll reaching hero area — fires regardless of how user gets there
+            // (snap animation, natural scroll, Home key, etc.)
+            var heroReturnTimer = null;
+            function onScrollCheckHero() {
+                if (heroReturnTimer) clearTimeout(heroReturnTimer);
+                heroReturnTimer = setTimeout(function() {
+                    if (window.scrollY < 10 && isRevealed) {
+                        window.removeEventListener('scroll', onScrollCheckHero);
+                        restoreHeroState();
+                    }
+                }, 150);
+            }
+            window.addEventListener('scroll', onScrollCheckHero);
         }
 
         // ============================================
