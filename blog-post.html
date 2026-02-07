@@ -376,6 +376,57 @@
             font-size: 13px;
         }
 
+        .category-list li.is-active {
+            color: #111827;
+            font-weight: 500;
+        }
+
+        .category-list li.is-active .count {
+            color: #111827;
+        }
+
+        .article-card.is-hidden {
+            display: none;
+        }
+
+        .hero-featured.is-hidden {
+            display: none;
+        }
+
+        .filter-active-label {
+            display: none;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 24px;
+            font-size: 13px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #6B7280;
+        }
+
+        .filter-active-label.is-visible {
+            display: flex;
+        }
+
+        .filter-active-label span {
+            color: #111827;
+        }
+
+        .filter-clear {
+            margin-left: auto;
+            font-size: 12px;
+            font-weight: 500;
+            color: #9CA3AF;
+            cursor: pointer;
+            transition: color 200ms;
+        }
+
+        .filter-clear:hover {
+            color: #111827;
+        }
+
         .sidebar-trending {
             margin-top: 48px;
         }
@@ -695,6 +746,11 @@
                 <div class="article-feed">
                     <h2 class="section-header">Latest Articles</h2>
 
+                    <div class="filter-active-label">
+                        Showing: <span class="filter-name"></span>
+                        <a class="filter-clear">Clear filter</a>
+                    </div>
+
                     <div class="article-grid">
 
                         <!-- Card 2 -->
@@ -812,14 +868,7 @@
                     <div class="sidebar-categories">
                         <h3 class="sidebar-title">Categories</h3>
                         <ul class="category-list">
-                            <li><span>Health &amp; Wellness</span><span class="count">5</span></li>
-                            <li><span>Manifestation</span><span class="count">1</span></li>
-                            <li><span>Law of Attraction</span><span class="count">1</span></li>
-                            <li><span>Spiritual Tings</span><span class="count">1</span></li>
-                            <li><span>Acupuncture</span><span class="count">1</span></li>
-                            <li><span>Burning Man</span><span class="count">1</span></li>
-                            <li><span>Locals</span><span class="count">1</span></li>
-                            <li><span>Personal</span><span class="count">1</span></li>
+                            <!-- Populated dynamically by JS from article cards -->
                         </ul>
                     </div>
 
@@ -900,6 +949,89 @@
     <script>
         window.addEventListener('DOMContentLoaded', function() {
             document.body.classList.add('loaded');
+
+            // Elements
+            var cards = document.querySelectorAll('.article-card');
+            var hero = document.querySelector('.hero-featured');
+            var heroCategory = hero ? hero.querySelector('.category-tag') : null;
+            var filterLabel = document.querySelector('.filter-active-label');
+            var filterName = document.querySelector('.filter-name');
+            var filterClear = document.querySelector('.filter-clear');
+            var sectionHeader = document.querySelector('.section-header');
+            var categoryList = document.querySelector('.category-list');
+
+            // Build category counts dynamically from article cards only
+            var counts = {};
+            var total = 0;
+            cards.forEach(function(card) {
+                var catEl = card.querySelector('.card-category');
+                if (catEl) {
+                    var cat = catEl.textContent.trim();
+                    counts[cat] = (counts[cat] || 0) + 1;
+                    total++;
+                }
+            });
+
+            // Render category list items
+            var html = '<li class="is-active" data-category="all"><span>All</span><span class="count">' + total + '</span></li>';
+            Object.keys(counts).sort().forEach(function(cat) {
+                html += '<li data-category="' + cat.replace(/&/g, '&amp;') + '"><span>' + cat + '</span><span class="count">' + counts[cat] + '</span></li>';
+            });
+            categoryList.innerHTML = html;
+
+            var categoryItems = categoryList.querySelectorAll('li');
+
+            // Filter logic
+            function filterByCategory(category) {
+                categoryItems.forEach(function(item) {
+                    item.classList.remove('is-active');
+                    if (item.getAttribute('data-category') === category) {
+                        item.classList.add('is-active');
+                    }
+                });
+
+                if (category === 'all') {
+                    cards.forEach(function(card) { card.classList.remove('is-hidden'); });
+                    if (hero) hero.classList.remove('is-hidden');
+                    filterLabel.classList.remove('is-visible');
+                    sectionHeader.textContent = 'Latest Articles';
+                } else {
+                    cards.forEach(function(card) {
+                        var cardCat = card.querySelector('.card-category');
+                        if (cardCat && cardCat.textContent.trim() === category) {
+                            card.classList.remove('is-hidden');
+                        } else {
+                            card.classList.add('is-hidden');
+                        }
+                    });
+
+                    if (hero && heroCategory) {
+                        if (heroCategory.textContent.trim() === category) {
+                            hero.classList.remove('is-hidden');
+                        } else {
+                            hero.classList.add('is-hidden');
+                        }
+                    }
+
+                    filterName.textContent = category;
+                    filterLabel.classList.add('is-visible');
+                    sectionHeader.textContent = category;
+                }
+            }
+
+            // Click handlers
+            categoryItems.forEach(function(item) {
+                item.addEventListener('click', function() {
+                    filterByCategory(this.getAttribute('data-category'));
+                    window.scrollTo({ top: document.querySelector('.main-content').offsetTop - 100, behavior: 'smooth' });
+                });
+            });
+
+            if (filterClear) {
+                filterClear.addEventListener('click', function() {
+                    filterByCategory('all');
+                });
+            }
         });
     </script>
 </body>
