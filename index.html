@@ -2436,35 +2436,21 @@
             ScrollTrigger.getAll().forEach(function(st) { st.kill(); });
             snapInstance = null;
 
-            // Clear hero reveal inline styles so animation can replay
-            document.querySelectorAll('.hero .reveal').forEach(function(el) {
-                gsap.set(el, { clearProps: 'all' });
-            });
+            // Immediately restore hero container (no animation needed — user already sees the bg)
+            gsap.set('#hero-content', { opacity: 1, y: 0 });
+            gsap.set('#scroll-hint', { opacity: 1 });
 
-            // Restore hero container visibility, then replay entrance animation
-            gsap.to('#hero-content', {
+            // Set hero reveals to animation start position (override CSS .reveal opacity:0)
+            gsap.set('.hero .reveal', { opacity: 0, y: 30 });
+
+            // Replay hero entrance animation
+            gsap.to('.hero .reveal', {
                 opacity: 1,
                 y: 0,
-                duration: 0.3,
-                ease: 'power2.out',
-                onComplete: function() {
-                    // Replay hero title entrance animation
-                    gsap.fromTo('.hero .reveal',
-                        { opacity: 0, y: 30 },
-                        {
-                            opacity: 1,
-                            y: 0,
-                            duration: 1,
-                            ease: 'expo.out',
-                            stagger: 0.15
-                        }
-                    );
-                }
-            });
-            gsap.to('#scroll-hint', {
-                opacity: 1,
-                duration: 0.4,
-                ease: 'power2.out'
+                duration: 1,
+                ease: 'expo.out',
+                stagger: 0.15,
+                delay: 0.15
             });
 
             // Re-create the nav header trigger
