@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream It, See It, Manifest It — Holistique UK</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-weight: 300; font-size: 18px; background: #FFFFFF; color: #111827; line-height: 1.8; overflow-x: hidden; opacity: 0; transition: opacity 0.6s ease; }
+        body.loaded { opacity: 1; }
+        a { text-decoration: none; color: inherit; }
+        img { display: block; max-width: 100%; }
+        .site-header { position: sticky; top: 0; z-index: 100; height: 80px; background: #FFFFFF; border-bottom: 1px solid #E5E7EB; display: flex; align-items: center; }
+        .header-inner { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+        .header-logo a { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 14px; text-transform: uppercase; letter-spacing: 0.2em; color: #111827; transition: opacity 200ms ease-in-out; }
+        .header-logo a:hover { opacity: 0.7; }
+        .header-nav { display: flex; align-items: center; gap: 32px; }
+        .header-nav a { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: #9CA3AF; transition: color 200ms ease-in-out; }
+        .header-nav a:hover { color: #111827; }
+        .article-hero { width: 100%; max-height: 560px; overflow: hidden; }
+        .article-hero img { width: 100%; height: 560px; object-fit: cover; }
+        .article-container { max-width: 720px; margin: 0 auto; padding: 48px 32px 80px; }
+        .article-category { display: inline-block; background: #F3F4F6; padding: 4px 12px; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #111827; }
+        .article-title { font-family: 'Marcellus', Georgia, serif; font-size: clamp(2rem, 5vw, 3rem); line-height: 1.15; margin-top: 16px; color: #111827; }
+        .article-subtitle { font-weight: 300; font-size: 1.25rem; color: #6B7280; margin-top: 16px; line-height: 1.5; padding-left: 16px; border-left: 2px solid #E5E7EB; }
+        .article-meta { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9CA3AF; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 24px; padding-bottom: 32px; border-bottom: 1px solid #E5E7EB; }
+        .article-body { margin-top: 40px; }
+        .article-body p { margin-bottom: 24px; font-size: 18px; line-height: 1.8; color: #374151; }
+        .article-body p strong { font-weight: 600; color: #111827; }
+        .article-body h2 { font-family: 'Marcellus', Georgia, serif; font-size: 1.75rem; margin: 48px 0 24px; color: #111827; line-height: 1.2; }
+        .article-body ul { margin: 0 0 24px 0; padding-left: 0; list-style: none; }
+        .article-body ul li { padding: 8px 0 8px 24px; position: relative; font-size: 18px; line-height: 1.8; color: #374151; }
+        .article-body ul li::before { content: ''; position: absolute; left: 0; top: 18px; width: 6px; height: 6px; background: #111827; border-radius: 50%; }
+        .article-body a { color: #111827; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+        .article-body a:hover { color: #6B7280; }
+        .author-bio { margin-top: 64px; padding-top: 32px; border-top: 1px solid #E5E7EB; font-size: 15px; color: #6B7280; line-height: 1.7; }
+        .author-bio p { margin-bottom: 12px; }
+        .back-link { display: inline-block; margin-top: 48px; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; color: #9CA3AF; transition: color 200ms ease-in-out; }
+        .back-link:hover { color: #111827; }
+        .back-link::before { content: '\2190\00a0\00a0'; }
+        .site-footer { background: #F9FAFB; border-top: 1px solid #E5E7EB; padding: 32px 0; }
+        .footer-inner { display: flex; justify-content: space-between; align-items: center; max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+        .footer-copy { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #9CA3AF; text-transform: uppercase; letter-spacing: 0.1em; }
+        .footer-social { display: flex; gap: 20px; }
+        .footer-social a { display: flex; align-items: center; justify-content: center; color: #9CA3AF; transition: color 200ms ease-in-out; }
+        .footer-social a:hover { color: #111827; }
+        .footer-social svg { width: 20px; height: 20px; }
+        @media (max-width: 768px) { .header-inner { padding: 0 20px; } .article-container { padding: 32px 20px 64px; } .article-hero img { height: 320px; } .footer-inner { padding: 0 20px; } }
+        @media (max-width: 480px) { .header-inner { padding: 0 16px; } .header-nav { gap: 20px; } .article-container { padding: 24px 16px 48px; } .article-hero img { height: 240px; } .footer-inner { flex-direction: column; gap: 16px; padding: 0 16px; } }
+    </style>
+</head>
+<body>
+    <header class="site-header"><div class="header-inner"><div class="header-logo"><a href="index.html">HOLISTIQUE</a></div><nav class="header-nav"><a href="index.html">Home</a><a href="blog.html">Journal</a><a href="#">About</a></nav></div></header>
+
+    <div class="article-hero">
+        <img src="https://miro.medium.com/v2/resize:fit:1400/0*Isjwke2knFoYiaGB" alt="Dream It, See It, Manifest It">
+    </div>
+
+    <article class="article-container">
+        <span class="article-category">Manifestation</span>
+        <h1 class="article-title">Dream It, See It, Manifest It</h1>
+        <p class="article-subtitle">Wild things have happened from our London moodboard events</p>
+        <p class="article-meta">By Yvonne &middot; Oct 1, 2025 &middot; 3 Min Read</p>
+
+        <div class="article-body">
+            <p>At <a href="https://www.holistiqueuk.com/" target="_blank">Holistique UK</a>, one of our favourite events to host are <strong>Manifestation Moodboard Making</strong> &mdash; especially when we align them with the energy of the <strong>new moon</strong>. The new moon is a powerful time to set intentions, plant seeds for the future, and call in what we truly desire. Combining that energy with the creativity and focus of making a moodboard (or vision board) has led to some absolutely magical stories from our community.</p>
+
+            <h2>The Magic We've Seen</h2>
+
+            <p>Just in the past year, we've witnessed some incredible manifestations unfold after our moodboard sessions. Here are just a few:</p>
+
+            <ul>
+                <li><strong>A twist of romance:</strong> At one event, two women unknowingly ended up dating the same man not long after. In the end, he had to make a choice and settled with one of them &mdash; all sparked around the energy they set that night.</li>
+                <li><strong>An instant windfall:</strong> One woman left our session and found <strong>&pound;100 in cash</strong> on the floor on her way home. Since then, she's also manifested a loving relationship.</li>
+                <li><strong>A psychic prediction come true:</strong> Another participant boldly predicted she'd get back with her ex-boyfriend by a specific month &mdash; and it happened. She's also manifested her <strong>dream flat in London</strong>.</li>
+                <li><strong>A personal blessing:</strong> For me, the power of moodboards has been life-changing. After creating one and setting my intentions, I manifested a <strong>holiday home</strong> &mdash; and even the funds appeared in a way I could never have planned. It's now a sanctuary for me and my loved ones.</li>
+            </ul>
+
+            <p>These aren't just coincidences. When you <strong>set clear intentions</strong> and bring them into the physical world through images, words, and focused energy, the universe responds.</p>
+
+            <h2>Why Moodboards Work</h2>
+
+            <p>Moodboards are more than just pretty collages. They:</p>
+
+            <ul>
+                <li>Help you clarify your desires.</li>
+                <li>Train your mind to focus on opportunities.</li>
+                <li>Anchor your goals into the physical world.</li>
+                <li>Connect you with the frequency of what you want to attract.</li>
+            </ul>
+
+            <p>Science even backs this up. Visualisation activates the same parts of the brain as real-life action, making it easier for us to align with and achieve our goals.</p>
+
+            <h2>Famous Manifestors Who Use Vision Boards</h2>
+
+            <p>Some of the world's most successful people swear by vision boards and manifestation practices, including:</p>
+
+            <ul>
+                <li><strong>Oprah Winfrey</strong>, who has long spoken about the power of intention.</li>
+                <li><strong>Jim Carrey</strong>, who famously wrote himself a cheque for $10 million before he became successful.</li>
+                <li><strong>Beyonc&eacute;</strong>, who uses visualisation and ritual before performances.</li>
+            </ul>
+
+            <p>If it works for them, why not for you?</p>
+
+            <h2>Join Us in London</h2>
+
+            <p>We'd love for you to experience the magic of manifestation moodboards yourself. Whether you're looking for love, abundance, career growth, or simply more joy, these sessions are powerful containers for transformation.</p>
+
+            <p><a href="https://www.holistiqueuk.com/whats-on" target="_blank">Come make a moodboard with us at Holistique UK</a> and see what unfolds in your own life.</p>
+
+            <p>And if you can't join us, we encourage you to create one at home &mdash; especially on a <strong>new moon</strong>. Gather your magazines, scissors, and glue, and set the stage for miracles.</p>
+        </div>
+
+        <div class="author-bio">
+            <p>Yvonne is a former model turned acupuncturist and sound healer. Today she organises holistic events and retreats for her community of conscious souls in London. You can find her on Instagram: <a href="https://instagram.com/yvonne.holistique/" target="_blank">@yvonne.holistique</a></p>
+        </div>
+
+        <a href="blog-post.html" class="back-link">Back to Journal</a>
+    </article>
+
+    <footer class="site-footer"><div class="footer-inner"><span class="footer-copy">&copy; 2025 Holistique UK</span><div class="footer-social"><a href="https://instagram.com/yvonne.holistique/" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="5"></circle><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"></circle></svg></a><a href="https://medium.com/@yvonne.holistique" target="_blank" aria-label="Medium"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg></a></div></div></footer>
+
+    <script>window.addEventListener('DOMContentLoaded', function() { document.body.classList.add('loaded'); });</script>
+</body>
+</html>

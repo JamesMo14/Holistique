@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holistique UK — Journal</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           RESET & BASE
+           ============================================ */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-weight: 300;
+            font-size: 18px;
+            background: #FFFFFF;
+            color: #111827;
+            line-height: 1.6;
+            overflow-x: hidden;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+
+        body.loaded {
+            opacity: 1;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        button, input {
+            font-family: inherit;
+            border: none;
+            outline: none;
+            background: none;
+        }
+
+        /* ============================================
+           IMAGES
+           ============================================ */
+        .hero-img {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-img {
+            width: 100%;
+            aspect-ratio: 3 / 2;
+            object-fit: cover;
+            display: block;
+        }
+
+        .trending-img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* ============================================
+           1. STICKY HEADER
+           ============================================ */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            height: 80px;
+            background: #FFFFFF;
+            border-bottom: 1px solid #E5E7EB;
+            display: flex;
+            align-items: center;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        .header-logo a {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: #111827;
+            transition: opacity 200ms ease-in-out;
+        }
+
+        .header-logo a:hover {
+            opacity: 0.7;
+        }
+
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .header-nav a {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #9CA3AF;
+            transition: color 200ms ease-in-out;
+        }
+
+        .header-nav a:hover {
+            color: #111827;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .btn-subscribe {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 8px 24px;
+            border: 1px solid #111827;
+            background: transparent;
+            color: #111827;
+            cursor: pointer;
+            transition: all 200ms ease-in-out;
+        }
+
+        .btn-subscribe:hover {
+            background: #111827;
+            color: #FFFFFF;
+        }
+
+        /* ============================================
+           2. HERO FEATURED SECTION
+           ============================================ */
+        .hero-featured {
+            padding: 48px 0;
+            border-bottom: 1px solid #E5E7EB;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 0;
+            align-items: center;
+        }
+
+        .hero-image {
+            grid-column: span 8;
+        }
+
+        .hero-content {
+            grid-column: span 4;
+            padding-left: 48px;
+        }
+
+        .category-tag {
+            display: inline-block;
+            background: #F3F4F6;
+            padding: 4px 12px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #111827;
+        }
+
+        .hero-title {
+            font-family: 'Marcellus', Georgia, serif;
+            font-size: 3rem;
+            line-height: 1.1;
+            margin-top: 16px;
+            color: #111827;
+        }
+
+        .hero-excerpt {
+            font-weight: 300;
+            font-size: 16px;
+            color: #6B7280;
+            padding-left: 16px;
+            border-left: 2px solid #E5E7EB;
+            margin-top: 24px;
+            line-height: 1.6;
+        }
+
+        .hero-author {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: #9CA3AF;
+            margin-top: 24px;
+        }
+
+        /* ============================================
+           3. MAIN CONTENT AREA
+           ============================================ */
+        .main-content {
+            padding: 48px 0;
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 0;
+        }
+
+        .article-feed {
+            grid-column: span 8;
+        }
+
+        .section-header {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 1.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #111827;
+            margin-bottom: 32px;
+            color: #111827;
+        }
+
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .article-card {
+            display: block;
+        }
+
+        .article-card .card-category {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #9CA3AF;
+            margin-top: 12px;
+            display: block;
+        }
+
+        .article-card .card-title {
+            font-family: 'Marcellus', Georgia, serif;
+            font-size: 1.5rem;
+            line-height: 1.2;
+            margin-top: 8px;
+            color: #111827;
+            transition: text-decoration 200ms ease-in-out;
+        }
+
+        .article-card:hover .card-title {
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            text-decoration-thickness: 1px;
+        }
+
+        .article-card .card-excerpt {
+            font-weight: 300;
+            font-size: 15px;
+            color: #6B7280;
+            margin-top: 8px;
+            line-height: 1.6;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .article-card .card-meta {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: #9CA3AF;
+            margin-top: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* --- Sidebar (4 columns) --- */
+        .sidebar {
+            grid-column: span 4;
+            padding-left: 48px;
+        }
+
+        .sidebar-about {
+            background: #F9FAFB;
+            padding: 32px;
+        }
+
+        .sidebar-title {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
+            color: #111827;
+        }
+
+        .sidebar-about p {
+            font-family: 'Marcellus', Georgia, serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #6B7280;
+        }
+
+        .sidebar-categories {
+            margin-top: 48px;
+        }
+
+        .category-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #F3F4F6;
+            font-size: 14px;
+            color: #6B7280;
+            cursor: pointer;
+            transition: color 200ms ease-in-out;
+        }
+
+        .category-list li:hover {
+            color: #111827;
+        }
+
+        .category-list li .count {
+            color: #9CA3AF;
+            font-size: 13px;
+        }
+
+        .sidebar-trending {
+            margin-top: 48px;
+        }
+
+        .trending-item {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .trending-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .trending-thumb {
+            flex-shrink: 0;
+            width: 80px;
+            height: 80px;
+        }
+
+        .trending-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .trending-text .trending-category {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #9CA3AF;
+            margin-bottom: 4px;
+        }
+
+        .trending-text .trending-title {
+            font-family: 'Marcellus', Georgia, serif;
+            font-size: 14px;
+            line-height: 1.3;
+            color: #111827;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .trending-item:hover .trending-title {
+            text-decoration: underline;
+        }
+
+        .sidebar-newsletter {
+            border: 2px solid #111827;
+            padding: 32px;
+            margin-top: 48px;
+            text-align: center;
+        }
+
+        .newsletter-icon {
+            width: 32px;
+            height: 32px;
+            color: #9CA3AF;
+            margin: 0 auto;
+        }
+
+        .newsletter-heading {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 16px;
+            color: #111827;
+        }
+
+        .newsletter-sub {
+            font-size: 14px;
+            color: #6B7280;
+            margin-top: 8px;
+        }
+
+        .newsletter-input {
+            width: 100%;
+            border: 1px solid #E5E7EB;
+            background: #F9FAFB;
+            padding: 12px;
+            margin-top: 16px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 300;
+            color: #111827;
+        }
+
+        .newsletter-input::placeholder {
+            color: #9CA3AF;
+        }
+
+        .newsletter-btn {
+            width: 100%;
+            background: #111827;
+            color: #FFFFFF;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 12px;
+            padding: 12px;
+            margin-top: 8px;
+            border: none;
+            cursor: pointer;
+            transition: background 200ms ease-in-out;
+        }
+
+        .newsletter-btn:hover {
+            background: #000000;
+        }
+
+        /* ============================================
+           5. FOOTER
+           ============================================ */
+        .site-footer {
+            background: #F9FAFB;
+            border-top: 1px solid #E5E7EB;
+            padding: 32px 0;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        .footer-copy {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: #9CA3AF;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9CA3AF;
+            transition: color 200ms ease-in-out;
+        }
+
+        .footer-social a:hover {
+            color: #111827;
+        }
+
+        .footer-social svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-image {
+                grid-column: span 1;
+            }
+
+            .hero-content {
+                grid-column: span 1;
+                padding-left: 0;
+                padding-top: 32px;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .article-feed {
+                grid-column: span 1;
+            }
+
+            .sidebar {
+                grid-column: span 1;
+                padding-left: 0;
+                margin-top: 64px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .header-inner {
+                padding: 0 20px;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .article-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .article-card .card-title {
+                font-size: 1.25rem;
+            }
+
+            .footer-inner {
+                padding: 0 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-inner {
+                padding: 0 16px;
+            }
+
+            .header-nav a:nth-child(n+3) {
+                display: none;
+            }
+
+            .header-nav {
+                gap: 20px;
+            }
+
+            .btn-subscribe {
+                padding: 6px 16px;
+                font-size: 10px;
+            }
+
+            .container {
+                padding: 0 16px;
+            }
+
+            .hero-title {
+                font-size: 1.75rem;
+            }
+
+            .hero-featured {
+                padding: 32px 0;
+            }
+
+            .section-header {
+                font-size: 1rem;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                gap: 16px;
+                padding: 0 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. STICKY HEADER -->
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="header-logo">
+                <a href="index.html">HOLISTIQUE</a>
+            </div>
+            <nav class="header-nav">
+                <a href="index.html">Home</a>
+                <a href="blog.html">Journal</a>
+                <a href="#">About</a>
+            </nav>
+            <div class="header-actions">
+                <button class="btn-subscribe">Subscribe</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. HERO FEATURED SECTION -->
+    <section class="hero-featured">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-image">
+                    <a href="post-1.html">
+                        <img class="hero-img" src="https://miro.medium.com/v2/resize:fit:1400/0*Isjwke2knFoYiaGB" alt="Dream It, See It, Manifest It">
+                    </a>
+                </div>
+                <div class="hero-content">
+                    <span class="category-tag">Manifestation</span>
+                    <h1 class="hero-title"><a href="post-1.html">Dream It, See It, Manifest It</a></h1>
+                    <p class="hero-excerpt">Wild things have happened from our London moodboard events. A practical guide to turning your vision into reality through the ancient power of manifestation.</p>
+                    <p class="hero-author">By Yvonne &mdash; Oct 1, 2025 &middot; 3 min read</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. MAIN CONTENT AREA -->
+    <main class="main-content">
+        <div class="container">
+            <div class="main-grid">
+
+                <!-- Article Feed -->
+                <div class="article-feed">
+                    <h2 class="section-header">Latest Articles</h2>
+
+                    <div class="article-grid">
+
+                        <!-- Card 2 -->
+                        <a href="post-2.html" class="article-card">
+                            <img class="card-img" src="https://miro.medium.com/v2/resize:fit:700/0*YYVddOBzsDF13_Dy" alt="Home Water Filter">
+                            <span class="card-category">Health &amp; Wellness</span>
+                            <h3 class="card-title">I've Finally Found the Right Home Water Filter</h3>
+                            <p class="card-excerpt">After months of research and several returns, I've finally found the perfect water filter &mdash; and it wasn't the one everyone recommends.</p>
+                            <span class="card-meta">3 Min Read &middot; Sep 28, 2025</span>
+                        </a>
+
+                        <!-- Card 3 -->
+                        <a href="post-3.html" class="article-card">
+                            <img class="card-img" src="https://miro.medium.com/v2/resize:fit:700/0*nW3UwKkcF31rGm98" alt="Toothpaste">
+                            <span class="card-category">Health &amp; Wellness</span>
+                            <h3 class="card-title">Is Your Toothpaste Helping or Harming You?</h3>
+                            <p class="card-excerpt">The ingredients lurking in your everyday toothpaste might be doing more harm than good. Here's what to look for and what to avoid.</p>
+                            <span class="card-meta">2 Min Read &middot; Sep 27, 2025</span>
+                        </a>
+
+                        <!-- Card 4 -->
+                        <a href="post-4.html" class="article-card">
+                            <img class="card-img" src="https://miro.medium.com/v2/resize:fit:700/0*nlJYW9sskjvn4pfn" alt="Aduna Super Greens">
+                            <span class="card-category">Health &amp; Wellness</span>
+                            <h3 class="card-title">30 Days on Aduna Super Greens</h3>
+                            <p class="card-excerpt">What happened when I committed to 30 days of super greens &mdash; from a trip to Cape Town to unexpected energy shifts at home.</p>
+                            <span class="card-meta">3 Min Read &middot; Sep 27, 2025</span>
+                        </a>
+
+                        <!-- Card 5 -->
+                        <a href="post-5.html" class="article-card">
+                            <img class="card-img" src="https://miro.medium.com/v2/resize:fit:700/0*lUYQ6WLet4RQvzks" alt="Olive Oil">
+                            <span class="card-category">Health &amp; Wellness</span>
+                            <h3 class="card-title">The Healthiest Fat in Your Kitchen</h3>
+                            <p class="card-excerpt">Why high-quality extra virgin olive oil might be the most important staple in your pantry, and how to tell the real from the fake.</p>
+                            <span class="card-meta">3 Min Read &middot; Sep 26, 2025</span>
+                        </a>
+
+                        <!-- Card 6 -->
+                        <a href="post-6.html" class="article-card">
+                            <img class="card-img" src="https://miro.medium.com/v2/resize:fit:700/0*s_GHEaBXe50_Qv-J" alt="Sleep Quality">
+                            <span class="card-category">Health &amp; Wellness</span>
+                            <h3 class="card-title">The One Thing That Transformed My Sleep Quality</h3>
+                            <p class="card-excerpt">One simple change transformed my sleep &mdash; and it wasn't a supplement, a pillow, or a blue-light filter.</p>
+                            <span class="card-meta">3 Min Read &middot; Sep 24, 2025</span>
+                        </a>
+
+                        <!-- Card 7 -->
+                        <a href="post-7.html" class="article-card">
+                            <img class="card-img" src="https://miro.medium.com/v2/resize:fit:700/0*yLWMqLZjVfLFcAXb" alt="Chef Henry">
+                            <span class="card-category">Locals</span>
+                            <h3 class="card-title">The Boy Who Cried 'Gordan Ramsay'</h3>
+                            <p class="card-excerpt">A personal story about Chef Henry and the unexpected culinary journey that started with a bold claim in a London kitchen.</p>
+                            <span class="card-meta">9 Min Read &middot; Aug 23, 2025</span>
+                        </a>
+
+                        <!-- Card 8 -->
+                        <a href="post-8.html" class="article-card">
+                            <img class="card-img" src="https://miro.medium.com/v2/resize:fit:700/0*dtL0OHIcNmFmPCED" alt="Kundalini">
+                            <span class="card-category">Spiritual Tings</span>
+                            <h3 class="card-title">Kundalini Made Me Do it&hellip;</h3>
+                            <p class="card-excerpt">What happens when kundalini energy awakens unexpectedly &mdash; a raw account of spiritual transformation and everything that followed.</p>
+                            <span class="card-meta">5 Min Read &middot; Aug 21, 2025</span>
+                        </a>
+
+                        <!-- Card 9 -->
+                        <a href="post-9.html" class="article-card">
+                            <img class="card-img" src="https://miro.medium.com/v2/resize:fit:700/0*TtHzMADnedNLOrM-" alt="Burning Man">
+                            <span class="card-category">Burning Man</span>
+                            <h3 class="card-title">Top Ten Things You Need To Survive Burning Man</h3>
+                            <p class="card-excerpt">From dust goggles to tutu supplies &mdash; the essential survival list from someone who's been to the desert and lived to tell the tale.</p>
+                            <span class="card-meta">6 Min Read &middot; Aug 20, 2025</span>
+                        </a>
+
+                        <!-- Card 10 -->
+                        <a href="post-10.html" class="article-card">
+                            <img class="card-img" src="https://miro.medium.com/v2/resize:fit:700/0*KTjK8wtU9eeB2e9o" alt="Acupuncture">
+                            <span class="card-category">Acupuncture</span>
+                            <h3 class="card-title">How Acupuncture Saved Me Three Times</h3>
+                            <p class="card-excerpt">Three moments in my life where acupuncture made the impossible possible &mdash; a deeply personal account of healing.</p>
+                            <span class="card-meta">7 Min Read &middot; Aug 20, 2025</span>
+                        </a>
+
+                        <!-- Card 11 -->
+                        <a href="post-11.html" class="article-card">
+                            <img class="card-img" src="https://miro.medium.com/v2/resize:fit:700/1*8aKXCkrhMFVyxkveMy0fsg.jpeg" alt="Dream Husband">
+                            <span class="card-category">Law of Attraction</span>
+                            <h3 class="card-title">How I Manifested My Dream Husband</h3>
+                            <p class="card-excerpt">The five-step process I followed to manifest the love of my life, and why it worked when nothing else did.</p>
+                            <span class="card-meta">12 Min Read &middot; Jul 2, 2025</span>
+                        </a>
+
+                        <!-- Card 12 -->
+                        <a href="post-12.html" class="article-card">
+                            <img class="card-img" src="https://miro.medium.com/v2/resize:fit:700/1*9WxLMwHPPzFYW5Z_Z-9DUQ.jpeg" alt="Back on Medium">
+                            <span class="card-category">Personal</span>
+                            <h3 class="card-title">Why I'm Back on Medium</h3>
+                            <p class="card-excerpt">I walked away from thousands of followers and monthly revenue. Here's why I'm returning on my own terms.</p>
+                            <span class="card-meta">5 Min Read &middot; Mar 19, 2025</span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <aside class="sidebar">
+
+                    <!-- About Box -->
+                    <div class="sidebar-about">
+                        <h3 class="sidebar-title">About</h3>
+                        <p>Yvonne is a former model turned acupuncturist and sound healer. She organises holistic events and retreats for her community of conscious souls in London.</p>
+                    </div>
+
+                    <!-- Categories -->
+                    <div class="sidebar-categories">
+                        <h3 class="sidebar-title">Categories</h3>
+                        <ul class="category-list">
+                            <li><span>Health &amp; Wellness</span><span class="count">5</span></li>
+                            <li><span>Manifestation</span><span class="count">1</span></li>
+                            <li><span>Law of Attraction</span><span class="count">1</span></li>
+                            <li><span>Spiritual Tings</span><span class="count">1</span></li>
+                            <li><span>Acupuncture</span><span class="count">1</span></li>
+                            <li><span>Burning Man</span><span class="count">1</span></li>
+                            <li><span>Locals</span><span class="count">1</span></li>
+                            <li><span>Personal</span><span class="count">1</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Trending -->
+                    <div class="sidebar-trending">
+                        <h3 class="sidebar-title">Popular</h3>
+
+                        <a href="post-11.html" class="trending-item">
+                            <div class="trending-thumb">
+                                <img class="trending-img" src="https://miro.medium.com/v2/resize:fit:160/1*8aKXCkrhMFVyxkveMy0fsg.jpeg" alt="Dream Husband">
+                            </div>
+                            <div class="trending-text">
+                                <span class="trending-category">Law of Attraction</span>
+                                <span class="trending-title">How I Manifested My Dream Husband</span>
+                            </div>
+                        </a>
+
+                        <a href="post-7.html" class="trending-item">
+                            <div class="trending-thumb">
+                                <img class="trending-img" src="https://miro.medium.com/v2/resize:fit:160/0*yLWMqLZjVfLFcAXb" alt="Chef Henry">
+                            </div>
+                            <div class="trending-text">
+                                <span class="trending-category">Locals</span>
+                                <span class="trending-title">The Boy Who Cried 'Gordan Ramsay'</span>
+                            </div>
+                        </a>
+
+                        <a href="post-10.html" class="trending-item">
+                            <div class="trending-thumb">
+                                <img class="trending-img" src="https://miro.medium.com/v2/resize:fit:160/0*KTjK8wtU9eeB2e9o" alt="Acupuncture">
+                            </div>
+                            <div class="trending-text">
+                                <span class="trending-category">Acupuncture</span>
+                                <span class="trending-title">How Acupuncture Saved Me Three Times</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Newsletter Box -->
+                    <div class="sidebar-newsletter">
+                        <svg class="newsletter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="4" width="20" height="16" rx="0"></rect>
+                            <polyline points="22,4 12,13 2,4"></polyline>
+                        </svg>
+                        <h3 class="newsletter-heading">Stay Informed</h3>
+                        <p class="newsletter-sub">Follow Yvonne's holistic journey</p>
+                        <input type="email" class="newsletter-input" placeholder="Your email address">
+                        <button class="newsletter-btn">Subscribe</button>
+                    </div>
+
+                </aside>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- 5. FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <span class="footer-copy">&copy; 2025 Holistique UK</span>
+            <div class="footer-social">
+                <a href="https://instagram.com/yvonne.holistique/" target="_blank" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5"></rect>
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"></circle>
+                    </svg>
+                </a>
+                <a href="https://medium.com/@yvonne.holistique" target="_blank" aria-label="Medium">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            document.body.classList.add('loaded');
+        });
+    </script>
+</body>
+</html>

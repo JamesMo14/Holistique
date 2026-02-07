@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Healthiest Fat in Your Kitchen — Holistique UK</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-weight: 300; font-size: 18px; background: #FFFFFF; color: #111827; line-height: 1.8; overflow-x: hidden; opacity: 0; transition: opacity 0.6s ease; }
+        body.loaded { opacity: 1; }
+        a { text-decoration: none; color: inherit; } img { display: block; max-width: 100%; }
+        .site-header { position: sticky; top: 0; z-index: 100; height: 80px; background: #FFFFFF; border-bottom: 1px solid #E5E7EB; display: flex; align-items: center; }
+        .header-inner { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+        .header-logo a { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 14px; text-transform: uppercase; letter-spacing: 0.2em; color: #111827; transition: opacity 200ms; }
+        .header-logo a:hover { opacity: 0.7; }
+        .header-nav { display: flex; align-items: center; gap: 32px; }
+        .header-nav a { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: #9CA3AF; transition: color 200ms; }
+        .header-nav a:hover { color: #111827; }
+        .article-hero { width: 100%; max-height: 560px; overflow: hidden; }
+        .article-hero img { width: 100%; height: 560px; object-fit: cover; }
+        .article-container { max-width: 720px; margin: 0 auto; padding: 48px 32px 80px; }
+        .article-category { display: inline-block; background: #F3F4F6; padding: 4px 12px; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #111827; }
+        .article-title { font-family: 'Marcellus', Georgia, serif; font-size: clamp(2rem, 5vw, 3rem); line-height: 1.15; margin-top: 16px; color: #111827; }
+        .article-subtitle { font-weight: 300; font-size: 1.25rem; color: #6B7280; margin-top: 16px; line-height: 1.5; padding-left: 16px; border-left: 2px solid #E5E7EB; }
+        .article-meta { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9CA3AF; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 24px; padding-bottom: 32px; border-bottom: 1px solid #E5E7EB; }
+        .article-body { margin-top: 40px; }
+        .article-body p { margin-bottom: 24px; font-size: 18px; line-height: 1.8; color: #374151; }
+        .article-body p strong { font-weight: 600; color: #111827; }
+        .article-body p em { font-style: italic; color: #6B7280; }
+        .article-body h2 { font-family: 'Marcellus', Georgia, serif; font-size: 1.75rem; margin: 48px 0 24px; color: #111827; line-height: 1.2; }
+        .article-body ul { margin: 0 0 24px 0; padding-left: 0; list-style: none; }
+        .article-body ul li { padding: 8px 0 8px 24px; position: relative; font-size: 18px; line-height: 1.8; color: #374151; }
+        .article-body ul li::before { content: ''; position: absolute; left: 0; top: 18px; width: 6px; height: 6px; background: #111827; border-radius: 50%; }
+        .article-body a { color: #111827; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+        .article-body a:hover { color: #6B7280; }
+        .article-body .affiliate-note { margin-top: 48px; padding: 24px; background: #F9FAFB; border: 1px solid #E5E7EB; font-size: 14px; color: #6B7280; line-height: 1.7; }
+        .author-bio { margin-top: 64px; padding-top: 32px; border-top: 1px solid #E5E7EB; font-size: 15px; color: #6B7280; line-height: 1.7; }
+        .back-link { display: inline-block; margin-top: 48px; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; color: #9CA3AF; transition: color 200ms; }
+        .back-link:hover { color: #111827; }
+        .back-link::before { content: '\2190\00a0\00a0'; }
+        .site-footer { background: #F9FAFB; border-top: 1px solid #E5E7EB; padding: 32px 0; }
+        .footer-inner { display: flex; justify-content: space-between; align-items: center; max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+        .footer-copy { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #9CA3AF; text-transform: uppercase; letter-spacing: 0.1em; }
+        .footer-social { display: flex; gap: 20px; }
+        .footer-social a { display: flex; align-items: center; color: #9CA3AF; transition: color 200ms; }
+        .footer-social a:hover { color: #111827; }
+        .footer-social svg { width: 20px; height: 20px; }
+        @media (max-width: 768px) { .header-inner { padding: 0 20px; } .article-container { padding: 32px 20px 64px; } .article-hero img { height: 320px; } .footer-inner { padding: 0 20px; } }
+        @media (max-width: 480px) { .header-inner { padding: 0 16px; } .header-nav { gap: 20px; } .article-container { padding: 24px 16px 48px; } .article-hero img { height: 240px; } .footer-inner { flex-direction: column; gap: 16px; padding: 0 16px; } }
+    </style>
+</head>
+<body>
+    <header class="site-header"><div class="header-inner"><div class="header-logo"><a href="index.html">HOLISTIQUE</a></div><nav class="header-nav"><a href="index.html">Home</a><a href="blog.html">Journal</a><a href="#">About</a></nav></div></header>
+
+    <div class="article-hero">
+        <img src="https://miro.medium.com/v2/resize:fit:1400/0*lUYQ6WLet4RQvzks" alt="Olive Oil">
+    </div>
+
+    <article class="article-container">
+        <span class="article-category">Health &amp; Wellness</span>
+        <h1 class="article-title">The Healthiest Fat in Your Kitchen</h1>
+        <p class="article-subtitle">If You Can Find the Real Thing</p>
+        <p class="article-meta">By Yvonne &middot; Sep 26, 2025 &middot; 3 Min Read</p>
+
+        <div class="article-body">
+            <p>If you've ever stood in the olive oil aisle at the supermarket, you've probably felt the same frustration I have: dozens of bottles, all promising "extra virgin," all with rustic labels featuring groves, hills, or Tuscan-sounding names. But the hard truth is this &mdash; most of the olive oil we find on shelves isn't what it claims to be.</p>
+
+            <p>Big brands like Bertolli, Filippo Berio, and even some "organic" supermarket labels have been called out over the years for selling oils that are blended with cheaper seed oils or lower-grade olive oils. So instead of getting that rich, grassy, peppery hit of true extra virgin olive oil (EVOO), what we're pouring on our salads or cooking with is often flat, lifeless &mdash; and sometimes not even olive oil at all.</p>
+
+            <p>And that's a problem. Not just for our taste buds, but for our health.</p>
+
+            <h2>The Health Benefits of Real EVOO</h2>
+
+            <p>When it's the real deal, extra virgin olive oil is one of the healthiest fats you can put into your body. It's loaded with polyphenols (powerful antioxidants that fight inflammation), heart-healthy monounsaturated fats, and has even been linked to longevity in Mediterranean cultures. Real EVOO supports brain health, gut health, and lowers the risk of chronic diseases.</p>
+
+            <p>Compare that to seed oils like canola, sunflower, and soybean oil &mdash; which are cheap, highly processed, and often oxidise easily when heated. Many health experts now recommend cutting seed oils out of your kitchen altogether. But if your "olive oil" is really just olive oil cut with seed oils&hellip; well, you're not avoiding much at all.</p>
+
+            <h2>Why Citizens of Soil Feels Different</h2>
+
+            <p>After years of disappointment (and way too many wasted bottles of bland oil), discovering <a href="http://www.citizensofsoil.com/OLIVEYVONNE10" target="_blank">Citizens of Soil</a> was a revelation. This isn't just another bottle off a faceless supply chain. Every bottle is:</p>
+
+            <ul>
+                <li><strong>Single-origin</strong> &mdash; pressed from olives grown in one place, on one small family-owned farm.</li>
+                <li><strong>Ethically sourced</strong> &mdash; the farmers are paid fairly, directly supporting the communities that keep these traditions alive.</li>
+                <li><strong>Sustainably produced</strong> &mdash; with care for the land, soil, and biodiversity.</li>
+                <li><strong>Ridiculously delicious</strong> &mdash; bright, vibrant, with that peppery kick in the back of your throat that only true EVOO gives.</li>
+            </ul>
+
+            <p>And here's the part that still makes me smile every time: the EVOO packaging is designed to fit right through your letterbox. No waiting around for deliveries, no lugging heavy bottles home. With their subscription, I never have to worry about running out &mdash; and I know that what I'm drizzling on roasted veg or dunking bread into is the real deal.</p>
+
+            <h2>Choosing Olive Oil That Matters</h2>
+
+            <p>Supporting small farmers through Citizens of Soil isn't just about getting better olive oil (though, trust me, it is). It's about voting with our wallets for a food system that values transparency, sustainability, and real craftsmanship. It's about knowing that what we're putting into our bodies every day is actually good for us &mdash; and not some diluted mystery blend.</p>
+
+            <p>If you've ever struggled to find olive oil you can trust, you're not alone. But the good news is that there are producers out there &mdash; like Citizens of Soil &mdash; bringing back what olive oil is supposed to be: alive, vibrant, nourishing, and deeply connected to the people and land it comes from.</p>
+
+            <p>And once you taste it, you'll never want to go back to the supermarket shelf again.</p>
+
+            <div class="affiliate-note">
+                <p><em>This post contains affiliate links. If you purchase through <a href="http://www.citizensofsoil.com/OLIVEYVONNE10" target="_blank">my link</a>, I may earn a small commission at no extra cost to you. I only recommend products I personally use and believe in.</em></p>
+            </div>
+        </div>
+
+        <div class="author-bio">
+            <p>Yvonne is a former model turned acupuncturist and sound healer. Today she organises holistic events and retreats for her community of conscious souls in London. You can find her on Instagram: <a href="https://instagram.com/yvonne.holistique/" target="_blank">@yvonne.holistique</a></p>
+        </div>
+
+        <a href="blog-post.html" class="back-link">Back to Journal</a>
+    </article>
+
+    <footer class="site-footer"><div class="footer-inner"><span class="footer-copy">&copy; 2025 Holistique UK</span><div class="footer-social"><a href="https://instagram.com/yvonne.holistique/" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="5"></circle><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"></circle></svg></a><a href="https://medium.com/@yvonne.holistique" target="_blank" aria-label="Medium"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg></a></div></div></footer>
+
+    <script>window.addEventListener('DOMContentLoaded', function() { document.body.classList.add('loaded'); });</script>
+</body>
+</html>

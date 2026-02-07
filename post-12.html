@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why I'm Back on Medium — Holistique UK</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-weight: 300; font-size: 18px; background: #FFFFFF; color: #111827;
+            line-height: 1.8; overflow-x: hidden; opacity: 0; transition: opacity 0.6s ease;
+        }
+        body.loaded { opacity: 1; }
+        a { text-decoration: none; color: inherit; }
+        img { display: block; max-width: 100%; }
+
+        /* Header */
+        .site-header {
+            position: sticky; top: 0; z-index: 100; height: 80px;
+            background: #FFFFFF; border-bottom: 1px solid #E5E7EB;
+            display: flex; align-items: center;
+        }
+        .header-inner {
+            display: flex; align-items: center; justify-content: space-between;
+            width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 32px;
+        }
+        .header-logo a {
+            font-family: 'Inter', sans-serif; font-weight: 500; font-size: 14px;
+            text-transform: uppercase; letter-spacing: 0.2em; color: #111827;
+            transition: opacity 200ms ease-in-out;
+        }
+        .header-logo a:hover { opacity: 0.7; }
+        .header-nav { display: flex; align-items: center; gap: 32px; }
+        .header-nav a {
+            font-family: 'Inter', sans-serif; font-weight: 500; font-size: 12px;
+            text-transform: uppercase; letter-spacing: 0.1em; color: #9CA3AF;
+            transition: color 200ms ease-in-out;
+        }
+        .header-nav a:hover { color: #111827; }
+
+        /* Hero Image */
+        .article-hero {
+            width: 100%; max-height: 560px; overflow: hidden;
+        }
+        .article-hero img {
+            width: 100%; height: 560px; object-fit: cover;
+        }
+
+        /* Article Container */
+        .article-container {
+            max-width: 720px; margin: 0 auto; padding: 48px 32px 80px;
+        }
+
+        /* Meta */
+        .article-category {
+            display: inline-block; background: #F3F4F6; padding: 4px 12px;
+            font-family: 'Inter', sans-serif; font-weight: 500; font-size: 11px;
+            text-transform: uppercase; letter-spacing: 0.1em; color: #111827;
+        }
+        .article-title {
+            font-family: 'Marcellus', Georgia, serif; font-size: clamp(2rem, 5vw, 3rem);
+            line-height: 1.15; margin-top: 16px; color: #111827;
+        }
+        .article-subtitle {
+            font-weight: 300; font-size: 1.25rem; color: #6B7280;
+            margin-top: 16px; line-height: 1.5;
+            padding-left: 16px; border-left: 2px solid #E5E7EB;
+        }
+        .article-meta {
+            font-family: 'JetBrains Mono', monospace; font-size: 12px;
+            color: #9CA3AF; text-transform: uppercase; letter-spacing: 0.05em;
+            margin-top: 24px; padding-bottom: 32px;
+            border-bottom: 1px solid #E5E7EB;
+        }
+
+        /* Body */
+        .article-body { margin-top: 40px; }
+        .article-body p {
+            margin-bottom: 24px; font-size: 18px; line-height: 1.8; color: #374151;
+        }
+        .article-body p em { font-style: italic; color: #6B7280; }
+        .article-body blockquote {
+            margin: 32px 0; padding: 24px 32px;
+            border-left: 3px solid #111827; background: #F9FAFB;
+            font-family: 'Marcellus', Georgia, serif; font-size: 1.25rem;
+            line-height: 1.6; color: #111827;
+        }
+        .article-body h3 {
+            font-family: 'Marcellus', Georgia, serif; font-size: 1.5rem;
+            margin: 48px 0 24px; color: #111827;
+        }
+        .article-body .separator {
+            text-align: center; margin: 48px 0; color: #D1D5DB;
+            font-size: 1.5rem; letter-spacing: 0.5em;
+        }
+        .article-body a {
+            color: #111827; text-decoration: underline;
+            text-underline-offset: 3px; text-decoration-thickness: 1px;
+        }
+        .article-body a:hover { color: #6B7280; }
+
+        /* Author Bio */
+        .author-bio {
+            margin-top: 64px; padding-top: 32px; border-top: 1px solid #E5E7EB;
+            font-size: 15px; color: #6B7280; line-height: 1.7;
+        }
+        .author-bio p { margin-bottom: 12px; }
+
+        /* Back Link */
+        .back-link {
+            display: inline-block; margin-top: 48px;
+            font-family: 'Inter', sans-serif; font-weight: 500; font-size: 13px;
+            text-transform: uppercase; letter-spacing: 0.1em; color: #9CA3AF;
+            transition: color 200ms ease-in-out;
+        }
+        .back-link:hover { color: #111827; }
+        .back-link::before { content: '\2190\00a0\00a0'; }
+
+        /* Footer */
+        .site-footer {
+            background: #F9FAFB; border-top: 1px solid #E5E7EB; padding: 32px 0;
+        }
+        .footer-inner {
+            display: flex; justify-content: space-between; align-items: center;
+            max-width: 1280px; margin: 0 auto; padding: 0 32px;
+        }
+        .footer-copy {
+            font-family: 'JetBrains Mono', monospace; font-size: 11px;
+            color: #9CA3AF; text-transform: uppercase; letter-spacing: 0.1em;
+        }
+        .footer-social { display: flex; gap: 20px; }
+        .footer-social a {
+            display: flex; align-items: center; justify-content: center;
+            color: #9CA3AF; transition: color 200ms ease-in-out;
+        }
+        .footer-social a:hover { color: #111827; }
+        .footer-social svg { width: 20px; height: 20px; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner { padding: 0 20px; }
+            .article-container { padding: 32px 20px 64px; }
+            .article-hero img { height: 320px; }
+            .footer-inner { padding: 0 20px; }
+        }
+        @media (max-width: 480px) {
+            .header-inner { padding: 0 16px; }
+            .header-nav { gap: 20px; }
+            .article-container { padding: 24px 16px 48px; }
+            .article-hero img { height: 240px; }
+            .article-body blockquote { padding: 20px 20px; }
+            .footer-inner { flex-direction: column; gap: 16px; padding: 0 16px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="header-logo"><a href="index.html">HOLISTIQUE</a></div>
+            <nav class="header-nav">
+                <a href="index.html">Home</a>
+                <a href="blog.html">Journal</a>
+                <a href="#">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="article-hero">
+        <img src="https://miro.medium.com/v2/resize:fit:1400/1*9WxLMwHPPzFYW5Z_Z-9DUQ.jpeg" alt="Why I'm Back on Medium">
+    </div>
+
+    <article class="article-container">
+        <span class="article-category">Personal</span>
+        <h1 class="article-title">Why I'm Back on Medium &mdash; But This Time, It's Just for Me</h1>
+        <p class="article-subtitle">I walked away from thousands of followers and monthly revenue. Here's why I'm returning on my own terms.</p>
+        <p class="article-meta">By Yvonne &middot; Mar 19, 2025 &middot; 5 Min Read</p>
+
+        <div class="article-body">
+            <p>I'll be perfectly honest with you. I can't even remember why or how I started blogging on Medium years ago. It seems likely I was bored during the pandemic.</p>
+
+            <p>I had also started writing a book (it's still not finished), and I thought I should turn the book into a blog first. Each chapter could be one article. As I started writing, the creativity flowed and soon my "drafts" section was filled with half written articles.</p>
+
+            <p><em>Some were just notes of a few words that never went anywhere. If you're a prolific writer here on medium then you know what I'm referring to!</em></p>
+
+            <p>Then I went viral.</p>
+
+            <p>Well, not me personally, but one of my articles did. I never cared to check responses or even stats on any of my posts &mdash; until the viral instance.</p>
+
+            <p>That changed everything for me.</p>
+
+            <p>Suddenly I was writing in hopes of hitting the jackpot again.</p>
+
+            <blockquote>I might as well have been a gambler at the slot machines or trying my luck at the tables.</blockquote>
+
+            <p>It still makes me cringe to admit that my best selling articles were the ones related to sex parties and stories from my debaucherous dating life.</p>
+
+            <p>What about sustainability? Or the law of attraction? Acupuncture? Or my travels and life experiences from living all over the world?</p>
+
+            <p>Readers voted with their eye balls and the verdict was that I was only valuable when I shared about my sexual escapades. I was starting to see a pattern. Just like modelling where photographers only wanted to work with me if I was willing to take my clothes off.</p>
+
+            <p>When I decided to stop doing the art nude and lingerie modelling, I was slapped with the stark reality that it wasn't my facial features, the exotic asian eyes, or impossibly straight nose and chiseled chin that formed the perfect profile &mdash; they were only after my tits and ass.</p>
+
+            <p>And when I say tits, I mean my little mosquito bites &mdash; a rather sad excuse for breasts. They were so easy to cover when my hair was long. Looking back, I think that was one of the main reasons I grew my hair that length.</p>
+
+            <p><em>Subconsciously, I was trying to hide my body because I didn't actually want to be an art nude model.</em></p>
+
+            <p>Working as an art nude model can feel liberating at times, but deep down inside I was crumbling to pieces. My self-esteem was tied to how much I could charge for a photo shoot. In that world, the more explicit the content, the higher you could charge. So I graduated to Shibari rope art and made a killing. Along with the sex parties, I'd actually hit six figures.</p>
+
+            <p>It's strange to think that now I'm at a point in my life where I hardly think about my appearance. I've stopped wearing make up completely. Not even eye liner for my chinky eyes!</p>
+
+            <p>During the modelling days, my beauty was determined by how the light hit my heavily made-up face. I couldn't even bear to wake up next to my ex-boyfriend without wearing false eye lashes.</p>
+
+            <p>You see, the thing is you get so used to seeing yourself in tons of make up and airbrushed images that are not real at all. You start to believe that your real face isn't really that pretty without makeup and airbrushing. At least, that's how I felt.</p>
+
+            <p>Only recently during a conversation with a friend, I realised that I had been wearing all that makeup to hide my true self. "If I could just put this mask on then that naked girl in the photos isn't really me, right?" I was ashamed of selling my body, but I'd also gotten so used to it.</p>
+
+            <div class="separator">&middot; &middot; &middot;</div>
+
+            <p>When I realised that I was becoming obsessive about my stats on Medium and how much money I was making from each article, I knew that I had lost my passion for writing. It started to feel like a job of figuring out what readers wanted, and sadly my readers wanted porn.</p>
+
+            <blockquote>So here I am back from the dead. I'm starting from a fresh clean slate.</blockquote>
+
+            <p>It took years and a fluke of a viral article to build my following last time. I'm going to wager that this time around it might take even longer, but I don't care about any of that.</p>
+
+            <p>Writing is therapy for me.</p>
+
+            <p>It's the only thing I want to do when I can't drift off to sleepy town. It's currently almost 1am in London and I am having trouble getting to sleep because I had a slice of banana cake drizzled with microwaved chocolate and topped with pecans and shredded coconut.</p>
+
+            <p>Obviously I did not make the cake as I am a typical conspiracy theorist who doesn't use microwaves. My discipline when it comes to matters of health seem to end at my front doorstep. I'm strict within the walls of my own home and when shopping for groceries, but I can't control what other people offer me.</p>
+
+            <blockquote>I easily gobble up all sorts of delicious things that are horrible for me.</blockquote>
+
+            <p>It was as divine as you can imagine, but my tummy is still digesting and I think I might be gluten intolerant or something.</p>
+
+            <p>I can't stop farting.</p>
+
+            <p>Better out than in, I guess. That's how I feel about writing my thoughts. It's much better to just say whatever I want. Whether it's helpful or meaningful or just complete bullocks.</p>
+
+            <h3>Welcome back to the world of Medium, Yvonne.</h3>
+        </div>
+
+        <div class="author-bio">
+            <p>Yvonne is a former model and sex-party host turned acupuncturist and sound healer. Today she organises holistic events and retreats for her community of conscious souls in London. You can find her on Instagram: <a href="https://instagram.com/yvonne.holistique/" target="_blank">@yvonne.holistique</a></p>
+        </div>
+
+        <a href="blog-post.html" class="back-link">Back to Journal</a>
+    </article>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <span class="footer-copy">&copy; 2025 Holistique UK</span>
+            <div class="footer-social">
+                <a href="https://instagram.com/yvonne.holistique/" target="_blank" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5"></rect>
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"></circle>
+                    </svg>
+                </a>
+                <a href="https://medium.com/@yvonne.holistique" target="_blank" aria-label="Medium">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            document.body.classList.add('loaded');
+        });
+    </script>
+</body>
+</html>

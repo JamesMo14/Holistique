@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Is Your Toothpaste Helping or Harming You? — Holistique UK</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-weight: 300; font-size: 18px; background: #FFFFFF; color: #111827; line-height: 1.8; overflow-x: hidden; opacity: 0; transition: opacity 0.6s ease; }
+        body.loaded { opacity: 1; }
+        a { text-decoration: none; color: inherit; } img { display: block; max-width: 100%; }
+        .site-header { position: sticky; top: 0; z-index: 100; height: 80px; background: #FFFFFF; border-bottom: 1px solid #E5E7EB; display: flex; align-items: center; }
+        .header-inner { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+        .header-logo a { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 14px; text-transform: uppercase; letter-spacing: 0.2em; color: #111827; transition: opacity 200ms; }
+        .header-logo a:hover { opacity: 0.7; }
+        .header-nav { display: flex; align-items: center; gap: 32px; }
+        .header-nav a { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: #9CA3AF; transition: color 200ms; }
+        .header-nav a:hover { color: #111827; }
+        .article-hero { width: 100%; max-height: 560px; overflow: hidden; }
+        .article-hero img { width: 100%; height: 560px; object-fit: cover; }
+        .article-container { max-width: 720px; margin: 0 auto; padding: 48px 32px 80px; }
+        .article-category { display: inline-block; background: #F3F4F6; padding: 4px 12px; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #111827; }
+        .article-title { font-family: 'Marcellus', Georgia, serif; font-size: clamp(2rem, 5vw, 3rem); line-height: 1.15; margin-top: 16px; color: #111827; }
+        .article-subtitle { font-weight: 300; font-size: 1.25rem; color: #6B7280; margin-top: 16px; line-height: 1.5; padding-left: 16px; border-left: 2px solid #E5E7EB; }
+        .article-meta { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9CA3AF; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 24px; padding-bottom: 32px; border-bottom: 1px solid #E5E7EB; }
+        .article-body { margin-top: 40px; }
+        .article-body p { margin-bottom: 24px; font-size: 18px; line-height: 1.8; color: #374151; }
+        .article-body p strong { font-weight: 600; color: #111827; }
+        .article-body p em { font-style: italic; color: #6B7280; }
+        .article-body h2 { font-family: 'Marcellus', Georgia, serif; font-size: 1.75rem; margin: 48px 0 24px; color: #111827; line-height: 1.2; }
+        .article-body ul { margin: 0 0 24px 0; padding-left: 0; list-style: none; }
+        .article-body ul li { padding: 8px 0 8px 24px; position: relative; font-size: 18px; line-height: 1.8; color: #374151; }
+        .article-body ul li::before { content: ''; position: absolute; left: 0; top: 18px; width: 6px; height: 6px; background: #111827; border-radius: 50%; }
+        .article-body a { color: #111827; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+        .article-body a:hover { color: #6B7280; }
+        .article-body .affiliate-note { margin-top: 48px; padding: 24px; background: #F9FAFB; border: 1px solid #E5E7EB; font-size: 14px; color: #6B7280; line-height: 1.7; }
+        .author-bio { margin-top: 64px; padding-top: 32px; border-top: 1px solid #E5E7EB; font-size: 15px; color: #6B7280; line-height: 1.7; }
+        .back-link { display: inline-block; margin-top: 48px; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; color: #9CA3AF; transition: color 200ms; }
+        .back-link:hover { color: #111827; }
+        .back-link::before { content: '\2190\00a0\00a0'; }
+        .site-footer { background: #F9FAFB; border-top: 1px solid #E5E7EB; padding: 32px 0; }
+        .footer-inner { display: flex; justify-content: space-between; align-items: center; max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+        .footer-copy { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #9CA3AF; text-transform: uppercase; letter-spacing: 0.1em; }
+        .footer-social { display: flex; gap: 20px; }
+        .footer-social a { display: flex; align-items: center; color: #9CA3AF; transition: color 200ms; }
+        .footer-social a:hover { color: #111827; }
+        .footer-social svg { width: 20px; height: 20px; }
+        @media (max-width: 768px) { .header-inner { padding: 0 20px; } .article-container { padding: 32px 20px 64px; } .article-hero img { height: 320px; } .footer-inner { padding: 0 20px; } }
+        @media (max-width: 480px) { .header-inner { padding: 0 16px; } .header-nav { gap: 20px; } .article-container { padding: 24px 16px 48px; } .article-hero img { height: 240px; } .footer-inner { flex-direction: column; gap: 16px; padding: 0 16px; } }
+    </style>
+</head>
+<body>
+    <header class="site-header"><div class="header-inner"><div class="header-logo"><a href="index.html">HOLISTIQUE</a></div><nav class="header-nav"><a href="index.html">Home</a><a href="blog.html">Journal</a><a href="#">About</a></nav></div></header>
+
+    <div class="article-hero">
+        <img src="https://miro.medium.com/v2/resize:fit:1400/0*nW3UwKkcF31rGm98" alt="Toothpaste">
+    </div>
+
+    <article class="article-container">
+        <span class="article-category">Health &amp; Wellness</span>
+        <h1 class="article-title">Is Your Toothpaste Helping or Harming You?</h1>
+        <p class="article-subtitle">This one is for the fluoride sceptics</p>
+        <p class="article-meta">By Yvonne &middot; Sep 27, 2025 &middot; 2 Min Read</p>
+
+        <div class="article-body">
+            <p>When it comes to oral care, most of us reach for the familiar brands: Colgate, Oral-B, Sensodyne. They've been in our bathrooms for decades, promising cavity protection and fresh breath. But more and more people &mdash; and even some dental professionals &mdash; are starting to ask: <em>are traditional toothpastes really as safe as we think?</em></p>
+
+            <h2>What's Hiding in Traditional Toothpaste</h2>
+
+            <p>Mainstream toothpastes often contain:</p>
+
+            <ul>
+                <li><strong>Fluoride</strong> &mdash; added to strengthen enamel, but over-exposure can lead to fluorosis (white spots or discoloration on teeth) and, in extreme cases, skeletal issues.</li>
+                <li><strong>Sodium Lauryl Sulfate (SLS)</strong> &mdash; a foaming agent that can irritate gums and cheeks in sensitive users.</li>
+                <li><strong>Abrasive whiteners</strong> &mdash; which, over years of use, may wear down enamel.</li>
+                <li><strong>Artificial additives</strong> &mdash; flavorings, sweeteners, and preservatives that add little health value.</li>
+            </ul>
+
+            <p>While many dentists defend fluoride's benefits, critics argue that the risks of overuse &mdash; especially in children or those with sensitivities &mdash; shouldn't be ignored. And as our understanding of the oral microbiome grows, harsh chemicals that disrupt this delicate balance are increasingly under scrutiny.</p>
+
+            <h2>Gutology: A Smarter Way to Brush</h2>
+
+            <p>Gutology's toothpaste is part of a new generation of oral care products designed to work <em>with</em> your body, not against it. Instead of fluoride, Gutology uses <strong>hydroxyapatite</strong> &mdash; a mineral naturally found in teeth &mdash; to help remineralize and strengthen enamel. Because hydroxyapatite closely mimics the structure of natural enamel, it can fill microscopic cracks and protect against sensitivity.</p>
+
+            <p>Other benefits include:</p>
+
+            <ul>
+                <li><strong>Fluoride-free formula</strong> &mdash; safe if swallowed by children (ages 3+).</li>
+                <li><strong>Microbiome-friendly</strong> &mdash; no harsh surfactants like SLS.</li>
+                <li><strong>Postbiotics for oral health</strong> &mdash; supporting a balanced mouth ecology.</li>
+                <li><strong>Vegan and natural</strong> &mdash; no artificial preservatives or unnecessary additives.</li>
+            </ul>
+
+            <p>Holistic dentists, such as Dr. Seb Lomas, often recommend hydroxyapatite-based toothpastes for patients seeking gentler, biomimetic care. Users consistently report a "cleaner than ever" feeling after brushing &mdash; without the downsides of traditional formulas.</p>
+
+            <h2>Should You Switch?</h2>
+
+            <p>If you're concerned about fluoride, gum irritation, or enamel erosion, Gutology offers a modern, evidence-based alternative. It's not about demonizing traditional toothpaste &mdash; fluoride still has proven benefits, especially for high-risk patients &mdash; but about giving people a choice.</p>
+
+            <p>After all, your daily brushing routine should support both oral and overall health. For many, that means rethinking what's on the toothbrush.</p>
+
+            <p>Curious to try Gutology for yourself? You can <a href="https://gutology.co.uk/?bg_ref=foVIdfFvEJ" target="_blank">check it out here</a>. It might just change the way you think about toothpaste.</p>
+
+            <div class="affiliate-note">
+                <p><em>This post contains affiliate links. If you purchase through my link, I may earn a small commission at no extra cost to you. I only recommend products I personally use and believe in.</em></p>
+                <p>Check out our <a href="https://www.holistiqueuk.com/wellness-tools" target="_blank"><strong>Wellness Tools page</strong></a> for more discounts on products we believe in.</p>
+            </div>
+        </div>
+
+        <div class="author-bio">
+            <p>Yvonne is a former model turned acupuncturist and sound healer. Today she organises holistic events and retreats for her community of conscious souls in London. You can find her on Instagram: <a href="https://instagram.com/yvonne.holistique/" target="_blank">@yvonne.holistique</a></p>
+        </div>
+
+        <a href="blog-post.html" class="back-link">Back to Journal</a>
+    </article>
+
+    <footer class="site-footer"><div class="footer-inner"><span class="footer-copy">&copy; 2025 Holistique UK</span><div class="footer-social"><a href="https://instagram.com/yvonne.holistique/" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="5"></circle><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"></circle></svg></a><a href="https://medium.com/@yvonne.holistique" target="_blank" aria-label="Medium"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg></a></div></div></footer>
+
+    <script>window.addEventListener('DOMContentLoaded', function() { document.body.classList.add('loaded'); });</script>
+</body>
+</html>

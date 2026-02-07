@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journal — Holistique UK</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           RESET & BASE
+           ============================================ */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #3a3a3a;
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        ::selection {
+            background: #226663;
+            color: #fff;
+        }
+
+        :focus-visible {
+            outline: 2px solid #226663;
+            outline-offset: 2px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ============================================
+           ANIMATED PASTEL GRADIENT BACKGROUND
+           ============================================ */
+        .bg-wrapper {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            /* Base: soft sage-to-lavender */
+            background: linear-gradient(135deg, #e8f5f0, #ede8f5);
+        }
+
+        /* Radial overlay for depth */
+        .bg-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(
+                ellipse 80% 60% at 50% 40%,
+                rgba(255, 255, 255, 0.35) 0%,
+                transparent 70%
+            );
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        /* Layer 1: clockwise conic gradient */
+        .bg-layer-1 {
+            position: absolute;
+            inset: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                from 0deg,
+                rgba(122, 184, 155, 0.8),
+                rgba(200, 184, 232, 0.8),
+                rgba(212, 168, 83, 0.6),
+                rgba(34, 102, 99, 0.7),
+                rgba(160, 130, 200, 0.7),
+                rgba(122, 184, 155, 0.8)
+            );
+            filter: blur(60px);
+            opacity: 0.7;
+            animation: rotateClockwise 12s linear infinite;
+            z-index: 1;
+        }
+
+        /* Layer 2: counter-clockwise conic gradient */
+        .bg-layer-2 {
+            position: absolute;
+            inset: -40%;
+            width: 180%;
+            height: 180%;
+            background: conic-gradient(
+                from 180deg,
+                rgba(160, 130, 200, 0.7),
+                rgba(34, 102, 99, 0.6),
+                rgba(212, 168, 83, 0.7),
+                rgba(200, 184, 232, 0.7),
+                rgba(122, 184, 155, 0.6),
+                rgba(160, 130, 200, 0.7)
+            );
+            filter: blur(50px);
+            opacity: 0.5;
+            animation: rotateCounterClockwise 15s linear infinite;
+            z-index: 2;
+        }
+
+        @keyframes rotateClockwise {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes rotateCounterClockwise {
+            from { transform: rotate(360deg); }
+            to { transform: rotate(0deg); }
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            .bg-layer-1,
+            .bg-layer-2 {
+                animation: none;
+            }
+        }
+
+        /* ============================================
+           HEADER — Fixed Frosted Glass
+           ============================================ */
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2.5rem;
+            height: 72px;
+            background: rgba(255, 255, 255, 0.7);
+            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .header-logo a {
+            font-family: 'Marcellus', serif;
+            font-size: 1.5rem;
+            color: #226663;
+            letter-spacing: 0.02em;
+            transition: opacity 0.3s ease;
+        }
+
+        .header-logo a:hover {
+            opacity: 0.7;
+        }
+
+        .header-title {
+            font-family: 'Marcellus', serif;
+            font-size: 1.1rem;
+            color: #3a3a3a;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .header-back a {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #226663;
+            letter-spacing: 0.02em;
+            transition: opacity 0.3s ease;
+            position: relative;
+        }
+
+        .header-back a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #226663;
+            transition: width 0.3s ease;
+        }
+
+        .header-back a:hover::after {
+            width: 100%;
+        }
+
+        /* ============================================
+           HERO — Full-screen centered link
+           ============================================ */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .hero-link {
+            font-family: 'Marcellus', serif;
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            color: #fff;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.08);
+            line-height: 1.2;
+            text-decoration: none;
+            transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            cursor: pointer;
+        }
+
+        .hero-link:hover {
+            opacity: 0.8;
+            transform: scale(1.03);
+        }
+
+        .hero-link.fade-out {
+            opacity: 0;
+            transform: scale(0.97);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        /* ============================================
+           SITE FOOTER
+           ============================================ */
+        .site-footer {
+            text-align: center;
+            padding: 2rem 1rem 2.5rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 640px) {
+            .site-header {
+                padding: 0 1.25rem;
+                height: 60px;
+            }
+
+            .header-logo a {
+                font-size: 1.25rem;
+            }
+
+            .header-title {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Animated pastel gradient background -->
+    <div class="bg-wrapper" aria-hidden="true">
+        <div class="bg-layer-1"></div>
+        <div class="bg-layer-2"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-logo">
+            <a href="index.html">Holistique</a>
+        </div>
+        <div class="header-title">Journal</div>
+        <div class="header-back">
+            <a href="index.html">Back to Site</a>
+        </div>
+    </header>
+
+    <!-- Hero — clickable title links to blog -->
+    <main class="hero">
+        <a href="blog-post.html" class="hero-link">Explore Our Journal</a>
+    </main>
+
+    <script>
+        document.querySelector('.hero-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            var href = this.href;
+            this.classList.add('fade-out');
+            setTimeout(function() { window.location.href = href; }, 600);
+        });
+    </script>
+</body>
+</html>

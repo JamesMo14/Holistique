@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Ten Things You Need To Survive Burning Man — Holistique UK</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-weight: 300; font-size: 18px; background: #FFFFFF; color: #111827; line-height: 1.8; overflow-x: hidden; opacity: 0; transition: opacity 0.6s ease; }
+        body.loaded { opacity: 1; }
+        a { text-decoration: none; color: inherit; } img { display: block; max-width: 100%; }
+        .site-header { position: sticky; top: 0; z-index: 100; height: 80px; background: #FFFFFF; border-bottom: 1px solid #E5E7EB; display: flex; align-items: center; }
+        .header-inner { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+        .header-logo a { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 14px; text-transform: uppercase; letter-spacing: 0.2em; color: #111827; transition: opacity 200ms; }
+        .header-logo a:hover { opacity: 0.7; }
+        .header-nav { display: flex; align-items: center; gap: 32px; }
+        .header-nav a { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: #9CA3AF; transition: color 200ms; }
+        .header-nav a:hover { color: #111827; }
+        .article-hero { width: 100%; max-height: 560px; overflow: hidden; }
+        .article-hero img { width: 100%; height: 560px; object-fit: cover; }
+        .article-container { max-width: 720px; margin: 0 auto; padding: 48px 32px 80px; }
+        .article-category { display: inline-block; background: #F3F4F6; padding: 4px 12px; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #111827; }
+        .article-title { font-family: 'Marcellus', Georgia, serif; font-size: clamp(2rem, 5vw, 3rem); line-height: 1.15; margin-top: 16px; color: #111827; }
+        .article-subtitle { font-weight: 300; font-size: 1.25rem; color: #6B7280; margin-top: 16px; line-height: 1.5; padding-left: 16px; border-left: 2px solid #E5E7EB; }
+        .article-meta { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9CA3AF; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 24px; padding-bottom: 32px; border-bottom: 1px solid #E5E7EB; }
+        .article-body { margin-top: 40px; }
+        .article-body p { margin-bottom: 24px; font-size: 18px; line-height: 1.8; color: #374151; }
+        .article-body p strong { font-weight: 600; color: #111827; }
+        .article-body p em { font-style: italic; color: #6B7280; }
+        .article-body h2 { font-family: 'Marcellus', Georgia, serif; font-size: 1.75rem; margin: 48px 0 24px; color: #111827; line-height: 1.2; }
+        .article-body ol { margin: 0 0 24px 0; padding-left: 0; list-style: none; counter-reset: item; }
+        .article-body ol li { padding: 12px 0 12px 40px; position: relative; font-size: 18px; line-height: 1.8; color: #374151; counter-increment: item; }
+        .article-body ol li::before { content: counter(item); position: absolute; left: 0; top: 12px; width: 28px; height: 28px; background: #111827; color: #FFFFFF; border-radius: 50%; font-size: 13px; font-weight: 600; display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; }
+        .article-body .separator { text-align: center; margin: 48px 0; color: #D1D5DB; font-size: 1.5rem; letter-spacing: 0.5em; }
+        .article-body a { color: #111827; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+        .article-body a:hover { color: #6B7280; }
+        .author-bio { margin-top: 64px; padding-top: 32px; border-top: 1px solid #E5E7EB; font-size: 15px; color: #6B7280; line-height: 1.7; }
+        .back-link { display: inline-block; margin-top: 48px; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; color: #9CA3AF; transition: color 200ms; }
+        .back-link:hover { color: #111827; }
+        .back-link::before { content: '\2190\00a0\00a0'; }
+        .site-footer { background: #F9FAFB; border-top: 1px solid #E5E7EB; padding: 32px 0; }
+        .footer-inner { display: flex; justify-content: space-between; align-items: center; max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+        .footer-copy { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #9CA3AF; text-transform: uppercase; letter-spacing: 0.1em; }
+        .footer-social { display: flex; gap: 20px; }
+        .footer-social a { display: flex; align-items: center; color: #9CA3AF; transition: color 200ms; }
+        .footer-social a:hover { color: #111827; }
+        .footer-social svg { width: 20px; height: 20px; }
+        @media (max-width: 768px) { .header-inner { padding: 0 20px; } .article-container { padding: 32px 20px 64px; } .article-hero img { height: 320px; } .footer-inner { padding: 0 20px; } }
+        @media (max-width: 480px) { .header-inner { padding: 0 16px; } .header-nav { gap: 20px; } .article-container { padding: 24px 16px 48px; } .article-hero img { height: 240px; } .footer-inner { flex-direction: column; gap: 16px; padding: 0 16px; } }
+    </style>
+</head>
+<body>
+    <header class="site-header"><div class="header-inner"><div class="header-logo"><a href="index.html">HOLISTIQUE</a></div><nav class="header-nav"><a href="index.html">Home</a><a href="blog.html">Journal</a><a href="#">About</a></nav></div></header>
+
+    <div class="article-hero">
+        <img src="https://miro.medium.com/v2/resize:fit:1400/0*TtHzMADnedNLOrM-" alt="Burning Man">
+    </div>
+
+    <article class="article-container">
+        <span class="article-category">Burning Man</span>
+        <h1 class="article-title">Top Ten Things You Need To Survive Burning Man</h1>
+        <p class="article-subtitle">From a veteran burner who has been since 2009</p>
+        <p class="article-meta">By Yvonne &middot; Aug 20, 2025 &middot; 6 Min Read</p>
+
+        <div class="article-body">
+            <p>I started going to Burning Man when I was still in university in 2009. Back then, you had to explain to people what the whole thing was all about. Now it seems like everyone in the whole world and their grandma knows about Burning Man!</p>
+
+            <p>When I first started going to Burning Man, I was quite local living in San Diego. Later on, I kept going back even when I lived in Asia. Luckily, I had my mom's house to keep all my gear.</p>
+
+            <p>I've decided to compile a list of the most important things you'll need to have the best time out on the playa.</p>
+
+            <ol>
+                <li><strong>Camelbak</strong> &mdash; this is the most important item you'll need out there because the desert terrain is no joke. It gets so hot that you'll want to be naked, but it's also dry enough to curl your cuticles and crack the heels of your feet. Staying hydrated is really crucial. Having a camelbak means you have access to water all the time, even while dancing or riding your bicycle, or climbing an art structure. Water bottles are clumsy and you'll have to carry it and then take it out of your bag, which means you won't drink it as often. You don't want to end up like my friend who had to take a whole extra week off work due to inflamed tonsils from not drinking enough water out there.</li>
+
+                <li><strong>Beat-Up Bicycle</strong> &mdash; When I first started going to Burning Man, I rode around in a used bicycle that I found in my flat. Someone had just left it in the garden. It probably wasn't even worth $20 on Facebook marketplace. It was perfect because I could dress it up and do anything to it. Later on, I realised how significant having an old bicycle was on the playa. When I started living in Asia, I didn't have my bicycle anymore so we all went to Walmart and bought new ones for around $80 each. I had the worst time riding that brand new bicycle. Nobody knew how to help. I brought it to all the bicycle repair shops on the playa. Nothing worked. Finally out of pure frustration I slammed my bicycle on the ground and walked away. When I picked it up again it was working perfectly. Get a beat up bicycle. Trust me, new things don't work well out there. Also, sadly you'll need a bicycle lock too. People sometimes &ldquo;borrow&rdquo; bicycles out there&hellip;</li>
+
+                <li><strong>LED Lights</strong> &mdash; At night, everything is dark. There's no such thing as street lamps out on the playa. If you don't want someone to crash into you the only way is to be lit up at night. Also, your friends need to be able to find you too. Whatever you are wearing on the outside, like your camelbak, fur coat, or hat, and definitely your bicycle needs to be lit up with LED lights or fairy lights. One of the easiest ways to attach the string lights to your coat is with safety pins. You can make a design on the coat like swirls or write your name. It's also easy to remove them after the burn. Just slip the battery pack into your pocket.</li>
+
+                <li><strong>Misting bottle</strong> &mdash; During the day time, it's really hot on the playa. Even if you're not wearing much clothes it's dreadfully hot. One of the best ways to cool down is to have a spray bottle and mist yourself so the water evaporates on your skin. It's also a good way to make friends and a nice gift to offer people, make sure you ask before spraying of course, &ldquo;Would you like some mist?&rdquo; Add some vinegar to the bottle if you want to neutralize playa dust's alkalinity on skin, especially feet.</li>
+
+                <li><strong>Head Torch</strong> &mdash; This is pretty common camping gear to have, but out in the playa I think it's really useful. You'll need it to light up the path when you're walking around, or doing stuff at the camp site like cooking in the dark, and you'll definitely need it in the porta-potties to make sure you're not soiling yourself. It also doubles as light for your body so that other people can see you. Use it on the least bright setting and wear it as a light-up necklace!</li>
+
+                <li><strong>Face covering</strong> &mdash; You'll need some kind of mask for all the dust. Playa dust isn't like sand on the beach. This stuff is so fine it really gets everywhere. You'll be eating it, breathing it, and somehow it will get into every crevice. The least you can do is try not to breathe it in too much. It can also get unbearable during a spontaneous sandstorm. So make sure you have something to cover your nose and mouth. Bandanas and scarves are pretty easy to come by and do the job. You can also match them with your outfits.</li>
+
+                <li><strong>Eye mask</strong> &mdash; I would recommend using a ski mask for your eyes because it seems to be the most comfortable with the big round lens and stylish with a futuristic look. You'll want to always have these around your neck in case a sandstorm comes out of nowhere. It happens!!</li>
+
+                <li><strong>Closed toed shoes</strong> &mdash; I know it seems like going barefoot or having sandals on would make sense in the heat, but the climate out there is just insane. The skin on your feet will literally crack from the dryness so do yourself a favour and protect them at all cost. Moisturise and wear socks with boots/trainers. Don't even think about exposing those toes!</li>
+
+                <li><strong>Umbrella and hand fan</strong> &mdash; Channel your inner Chinese auntie and whip out those umbrellas for the sun. It's most likely not going to rain out there, but you'll want to protect yourself from the scorching heat. Some people even manage to tie an umbrella to their bicycles with a pole, but I wouldn't bother. It should be enough just to have one in your backpack for when you're walking around. There's so much to see and do out there, you'll only be on your bicycle for a short while before you hop off to explore again. Hand fans are also quite nice on the dance floor. You can offer to fan someone to help cool them down too &mdash; another playa gift you can offer!</li>
+
+                <li><strong>Extra large freezer bags</strong> &mdash; You can organise your daily outfits this way so that it's all in one bag. What happens out there is everything gets so dusty. If you just put your stuff in a tent or even in your suitcase it will be covered in dust, but if you pack them individually in a plastic bag then you just take what you need for each outfit. Think of those Halloween outfits that have everything in one pouch, the dress, the gloves, the wig, the glasses, jewellery, etc.</li>
+            </ol>
+
+            <p>I think some people are going to read this article and think this girl is all about staying hydrated and looking cute. What about food?</p>
+
+            <p>Well I'm such a foodie that I think food will have to be its own separate article.</p>
+
+            <p>Maybe I'll write one entire article about the best food to prep for Burning Man so you can enjoy some yummy meals out there!</p>
+        </div>
+
+        <div class="author-bio">
+            <p>Yvonne is a former model turned acupuncturist and sound healer. Today she organises holistic events and retreats for her community of conscious souls in London. You can find her on Instagram: <a href="https://instagram.com/yvonne.holistique/" target="_blank">@yvonne.holistique</a></p>
+        </div>
+
+        <a href="blog-post.html" class="back-link">Back to Journal</a>
+    </article>
+
+    <footer class="site-footer"><div class="footer-inner"><span class="footer-copy">&copy; 2025 Holistique UK</span><div class="footer-social"><a href="https://instagram.com/yvonne.holistique/" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="5"></circle><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"></circle></svg></a><a href="https://medium.com/@yvonne.holistique" target="_blank" aria-label="Medium"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg></a></div></div></footer>
+
+    <script>window.addEventListener('DOMContentLoaded', function() { document.body.classList.add('loaded'); });</script>
+</body>
+</html>
