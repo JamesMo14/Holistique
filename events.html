@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events — Holistique UK</title>
+    <meta name="description" content="Curated wellness events and gatherings — from sound baths to breathwork, meditation circles to community experiences. Hosted by Holistique UK in Kensington, London.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-teal: #226663;
+            --color-teal-dark: #0A2E2C;
+            --color-purple-dark: #1A0A3E;
+            --color-gold: #D4A853;
+            --color-sage: #7AB89B;
+            --color-lavender: #C8B8E8;
+            --color-offwhite: #F8F6F3;
+            --color-white: #FFFFFF;
+            --font-heading: 'Marcellus', Georgia, serif;
+            --font-body: 'Inter', -apple-system, sans-serif;
+            --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+            --max-width: 1200px;
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-full: 9999px;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { font-size: 16px; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+        body { font-family: var(--font-body); background: var(--color-white); color: #444; line-height: 1.6; overflow-x: hidden; }
+
+        /* ============================================
+           HEADER
+           ============================================ */
+        .header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            padding: 0.75rem 2rem;
+            display: flex; align-items: center; justify-content: space-between;
+            background: rgba(255,255,255,0.85);
+            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+            transition: all 0.4s var(--ease-out-expo);
+        }
+        .header__logo {
+            font-family: var(--font-heading); font-size: 1.5rem;
+            color: var(--color-teal); text-decoration: none; letter-spacing: 0.02em;
+        }
+        .header__nav { display: flex; align-items: center; gap: 2rem; }
+        .header__link {
+            font-family: var(--font-body); font-size: 0.875rem; font-weight: 500;
+            color: #555; text-decoration: none; letter-spacing: 0.01em;
+            position: relative; transition: color 0.25s ease;
+        }
+        .header__link::after {
+            content: ''; position: absolute; bottom: -4px; left: 0;
+            width: 0; height: 1.5px; background: var(--color-gold);
+            transition: width 0.3s var(--ease-out-expo);
+        }
+        .header__link:hover { color: var(--color-teal); }
+        .header__link:hover::after { width: 100%; }
+        .header__link.is-active { color: var(--color-teal); }
+        .header__link.is-active::after { width: 100%; }
+        .header__cta {
+            font-family: var(--font-body); font-size: 0.875rem; font-weight: 500;
+            color: var(--color-teal); text-decoration: none;
+            padding: 0.5rem 1.25rem; border: 1.5px solid var(--color-teal);
+            border-radius: var(--radius-full); transition: all 0.25s ease;
+        }
+        .header__cta:hover { background: var(--color-teal); color: #fff; }
+
+        /* Hamburger */
+        .hamburger {
+            display: none; width: 28px; height: 20px; position: relative;
+            cursor: pointer; background: none; border: none; z-index: 1001;
+        }
+        .hamburger__line {
+            position: absolute; left: 0; width: 100%; height: 2px;
+            background: #333; transition: all 0.3s var(--ease-out-expo);
+        }
+        .hamburger__line:nth-child(1) { top: 0; }
+        .hamburger__line:nth-child(2) { top: 50%; transform: translateY(-50%); }
+        .hamburger__line:nth-child(3) { bottom: 0; }
+        .hamburger.is-open .hamburger__line:nth-child(1) { top: 50%; transform: translateY(-50%) rotate(45deg); }
+        .hamburger.is-open .hamburger__line:nth-child(2) { opacity: 0; transform: translateX(-10px); }
+        .hamburger.is-open .hamburger__line:nth-child(3) { bottom: 50%; transform: translateY(50%) rotate(-45deg); }
+
+        /* Mobile menu */
+        .mobile-menu {
+            position: fixed; inset: 0; background: rgba(10,46,44,0.97);
+            backdrop-filter: blur(20px); z-index: 999;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 2rem;
+            opacity: 0; visibility: hidden; transition: all 0.4s var(--ease-out-expo);
+        }
+        .mobile-menu.is-open { opacity: 1; visibility: visible; }
+        .mobile-menu__link {
+            font-family: var(--font-heading); font-size: 2rem; color: #fff;
+            text-decoration: none; opacity: 0; transform: translateY(20px);
+            transition: all 0.3s var(--ease-out-expo);
+        }
+        .mobile-menu.is-open .mobile-menu__link { opacity: 1; transform: translateY(0); }
+        .mobile-menu.is-open .mobile-menu__link:nth-child(1) { transition-delay: 0.1s; }
+        .mobile-menu.is-open .mobile-menu__link:nth-child(2) { transition-delay: 0.15s; }
+        .mobile-menu.is-open .mobile-menu__link:nth-child(3) { transition-delay: 0.2s; }
+        .mobile-menu.is-open .mobile-menu__link:nth-child(4) { transition-delay: 0.25s; }
+        .mobile-menu.is-open .mobile-menu__link:nth-child(5) { transition-delay: 0.3s; }
+        .mobile-menu.is-open .mobile-menu__link:nth-child(6) { transition-delay: 0.35s; }
+
+        /* ============================================
+           HERO
+           ============================================ */
+        .page-hero {
+            padding: 140px 2rem 80px;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(34,102,99,0.04) 0%, rgba(248,246,243,0.5) 60%, #fff 100%);
+        }
+        .section-label {
+            font-family: var(--font-mono); font-size: 0.6875rem; font-weight: 400;
+            text-transform: uppercase; letter-spacing: 0.15em;
+            color: var(--color-teal); margin-bottom: 1rem;
+        }
+        .page-hero__title {
+            font-family: var(--font-heading); font-size: clamp(2.5rem, 6vw, 3.5rem);
+            color: #1a1a1a; margin-bottom: 1.25rem; line-height: 1.15;
+        }
+        .page-hero__subtitle {
+            font-size: 1.0625rem; color: #666; line-height: 1.75;
+            max-width: 640px; margin: 0 auto;
+        }
+
+        /* ============================================
+           SECTION HEADERS (reused)
+           ============================================ */
+        .section-header {
+            text-align: center; margin-bottom: 3rem;
+        }
+        .section-title {
+            font-family: var(--font-heading); font-size: clamp(1.75rem, 4vw, 2.25rem);
+            color: #1a1a1a; line-height: 1.2;
+        }
+
+        /* ============================================
+           BUTTONS
+           ============================================ */
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+            font-family: var(--font-body); font-size: 0.875rem; font-weight: 500;
+            text-decoration: none; border-radius: var(--radius-full);
+            padding: 0.75rem 1.75rem; transition: all 0.25s ease; cursor: pointer; border: none;
+        }
+        .btn--teal { background: var(--color-teal); color: #fff; }
+        .btn--teal:hover { background: var(--color-teal-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(34,102,99,0.25); }
+        .btn--gold { background: var(--color-gold); color: #1a1a1a; }
+        .btn--gold:hover { background: #c49a48; transform: translateY(-2px); }
+        .btn--outline { background: transparent; color: var(--color-teal); border: 1.5px solid var(--color-teal); }
+        .btn--outline:hover { background: var(--color-teal); color: #fff; }
+        .btn--outline-light { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,0.4); }
+        .btn--outline-light:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
+
+        /* ============================================
+           EVENT LISTING
+           ============================================ */
+        .events-listing {
+            padding: 4rem 2rem; max-width: var(--max-width); margin: 0 auto;
+        }
+        .events-listing--past { padding-top: 2rem; }
+        .events-listing--past .event-card { opacity: 0.6; }
+        .events-listing--past .event-card:hover { opacity: 1; }
+        .events-listing__grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem; margin-top: 2rem;
+        }
+        .event-card {
+            background: #fff; border-radius: var(--radius-lg); overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            transition: all 0.35s var(--ease-out-expo);
+            text-decoration: none; display: block; color: inherit;
+        }
+        .event-card:hover {
+            transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+        }
+        .event-card__img { width: 100%; height: 200px; object-fit: cover; display: block; }
+        .event-card__body { padding: 1.5rem; }
+        .event-card__date {
+            font-family: var(--font-mono); font-size: 0.75rem;
+            text-transform: uppercase; color: #999; margin-bottom: 0.5rem; letter-spacing: 0.03em;
+        }
+        .event-card__title {
+            font-family: var(--font-heading); font-size: 1.25rem;
+            color: #1a1a1a; margin-bottom: 0.5rem;
+        }
+        .event-card__desc {
+            font-size: 0.875rem; color: #777; line-height: 1.6; margin-bottom: 1rem;
+        }
+        .event-card__tag {
+            display: inline-block; font-family: var(--font-mono); font-size: 0.6875rem;
+            text-transform: uppercase; padding: 0.375rem 0.75rem;
+            background: #f5f5f5; border-radius: var(--radius-full); letter-spacing: 0.03em;
+        }
+        .event-card__tickets {
+            display: inline-block; font-family: var(--font-mono); font-size: 0.75rem;
+            font-weight: 500; color: var(--color-teal); margin-left: 0.75rem;
+            transition: color 0.2s ease;
+        }
+        .event-card:hover .event-card__tickets { color: var(--color-gold); }
+        .events__empty {
+            grid-column: 1 / -1; text-align: center; padding: 3rem 1rem;
+            font-size: 1rem; color: #999; font-style: italic;
+        }
+        .events__empty a { color: var(--color-teal); text-decoration: underline; }
+
+        /* ============================================
+           NEWSLETTER
+           ============================================ */
+        .newsletter-section {
+            padding: 4rem 2rem; text-align: center; background: var(--color-offwhite);
+        }
+        .newsletter-section__inner { max-width: 480px; margin: 0 auto; }
+        .newsletter-section__title {
+            font-family: var(--font-heading); font-size: 1.5rem;
+            color: #1a1a1a; margin-bottom: 0.5rem;
+        }
+        .newsletter-section__sub {
+            font-size: 0.9375rem; color: #666; margin-bottom: 1.5rem;
+        }
+        .newsletter-form { display: flex; gap: 0.5rem; }
+        .newsletter-input {
+            flex: 1; padding: 0.75rem 1rem; font-family: var(--font-body);
+            font-size: 0.875rem; border: 1px solid rgba(0,0,0,0.12);
+            border-radius: var(--radius-md); background: #fff; color: #1a1a1a;
+            transition: border-color 0.2s ease;
+        }
+        .newsletter-input:focus { outline: none; border-color: var(--color-teal); }
+        .newsletter-input::placeholder { color: #999; }
+        .newsletter-btn {
+            padding: 0.75rem 1.5rem; font-family: var(--font-body);
+            font-size: 0.875rem; font-weight: 500;
+            background: var(--color-teal); color: #fff; border: none;
+            border-radius: var(--radius-md); cursor: pointer;
+            transition: background 0.2s ease; white-space: nowrap;
+        }
+        .newsletter-btn:hover { background: var(--color-teal-dark); }
+        .newsletter-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+        .newsletter-message { margin-top: 0.75rem; font-size: 0.8125rem; }
+        .newsletter-message.success { color: #059669; }
+        .newsletter-message.error { color: #DC2626; }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer {
+            background: #0d1f1e; border-top: 1px solid rgba(255,255,255,0.06);
+            padding: 80px 2rem 40px; position: relative;
+        }
+        .footer__grid {
+            display: grid; grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 3rem; max-width: var(--max-width); margin: 0 auto;
+        }
+        .footer__brand-name { font-family: var(--font-heading); font-size: 1.5rem; color: #fff; margin-bottom: 1rem; }
+        .footer__brand-desc { font-size: 0.875rem; color: rgba(255,255,255,0.45); line-height: 1.7; max-width: 280px; }
+        .footer__col-title {
+            font-family: var(--font-mono); font-size: 0.6875rem; font-weight: 400;
+            color: rgba(255,255,255,0.55); text-transform: uppercase;
+            letter-spacing: 0.12em; margin-bottom: 1.25rem;
+        }
+        .footer__links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+        .footer__link { font-size: 0.875rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s ease; }
+        .footer__link:hover { color: var(--color-gold); }
+        .footer__bottom {
+            max-width: var(--max-width); margin: 3rem auto 0; padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+        }
+        .footer__copyright { font-size: 0.8125rem; color: rgba(255,255,255,0.35); }
+        .footer__socials { display: flex; gap: 0.75rem; }
+        .footer__social {
+            width: 38px; height: 38px; display: flex; align-items: center; justify-content: center;
+            border-radius: 50%; background: rgba(255,255,255,0.05);
+            color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.875rem;
+            transition: all 0.25s ease;
+        }
+        .footer__social:hover { background: var(--color-teal); color: #fff; transform: translateY(-2px); }
+
+        /* ============================================
+           REVEAL ANIMATIONS
+           ============================================ */
+        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo); }
+        .reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 768px) {
+            .header__nav, .header__cta { display: none; }
+            .hamburger { display: block; }
+            .footer__grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+            .footer__brand { grid-column: span 2; }
+        }
+        @media (max-width: 480px) {
+            .header { padding: 0.75rem 1rem; }
+            .page-hero { padding: 120px 1.25rem 60px; }
+            .events-listing { padding: 3rem 1.25rem; }
+            .events-listing--past { padding-top: 1.5rem; }
+            .events-listing__grid { grid-template-columns: 1fr; }
+            .newsletter-form { flex-direction: column; }
+            .footer__grid { grid-template-columns: 1fr; }
+            .footer__brand { grid-column: span 1; }
+            .footer__bottom { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <a href="index.html" class="header__logo">Holistique</a>
+        <nav class="header__nav">
+            <a href="index.html#services" class="header__link">Services</a>
+            <a href="events.html" class="header__link is-active">What's On</a>
+            <a href="index.html#gallery" class="header__link">Community</a>
+            <a href="index.html#testimonials" class="header__link">Stories</a>
+            <a href="blog-post.html" class="header__link">Blog</a>
+        </nav>
+        <a href="index.html#contact" class="header__cta">Get in Touch</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span class="hamburger__line"></span>
+            <span class="hamburger__line"></span>
+            <span class="hamburger__line"></span>
+        </button>
+    </header>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="index.html#services" class="mobile-menu__link">Services</a>
+        <a href="events.html" class="mobile-menu__link">What's On</a>
+        <a href="index.html#gallery" class="mobile-menu__link">Community</a>
+        <a href="index.html#testimonials" class="mobile-menu__link">Stories</a>
+        <a href="index.html#contact" class="mobile-menu__link">Get in Touch</a>
+        <a href="blog-post.html" class="mobile-menu__link">Blog</a>
+    </div>
+
+    <!-- HERO -->
+    <section class="page-hero">
+        <p class="section-label reveal">WHAT'S ON</p>
+        <h1 class="page-hero__title reveal">All Events</h1>
+        <p class="page-hero__subtitle reveal">Curated wellness experiences &mdash; from sound baths to breathwork, meditation circles to community gatherings. Tickets available on Eventbrite.</p>
+    </section>
+
+    <!-- UPCOMING EVENTS -->
+    <section class="events-listing" id="upcoming">
+        <div class="section-header">
+            <p class="section-label reveal">Coming Up</p>
+            <h2 class="section-title reveal">Upcoming Events</h2>
+        </div>
+        <div class="events-listing__grid">
+            <!-- EVENTS-UPCOMING-START -->
+                    <a href="https://www.eventbrite.co.uk/e/galentines-fashion-tea-party-tickets-1982126386379" class="event-card reveal" target="_blank" rel="noopener">
+                        <img class="event-card__img" src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1176389988%2F216441982947%2F1%2Foriginal.20260201-194240?auto=format%2Ccompress&amp;q=75&amp;sharp=10&amp;s=8043c52cbbc01a6519064bd59274f20a" alt="Galentine’s Fashion Tea Party" loading="lazy">
+                        <div class="event-card__body">
+                            <p class="event-card__date">Feb 14, 2026 &middot; 12:00 PM</p>
+                            <h3 class="event-card__title">Galentine’s Fashion Tea Party</h3>
+                            <p class="event-card__desc">Sip tea, slay styles, and celebrate friendship at the ultimate Galentine’s Fashion Tea Party!</p>
+                            <span class="event-card__tag">London</span>
+                            <span class="event-card__tickets">Get Tickets &rarr;</span>
+                        </div>
+                    </a>
+                    <a href="https://www.eventbrite.co.uk/e/valentines-ecstatic-dance-in-west-london-tickets-1978825856405" class="event-card reveal" target="_blank" rel="noopener">
+                        <img class="event-card__img" src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1173386516%2F216441982947%2F1%2Foriginal.20251222-111239?auto=format%2Ccompress&amp;q=75&amp;sharp=10&amp;s=8594ed694086f242777ba623918d512c" alt="Valentines Ecstatic Dance in West London" loading="lazy">
+                        <div class="event-card__body">
+                            <p class="event-card__date">Feb 14, 2026 &middot; 7:15 PM</p>
+                            <h3 class="event-card__title">Valentines Ecstatic Dance in West London</h3>
+                            <p class="event-card__desc">Get ready to dance your heart out at the Valentines Ecstatic Dance event, where love and music blend into a magical experience.</p>
+                            <span class="event-card__tag">London</span>
+                            <span class="event-card__tickets">Get Tickets &rarr;</span>
+                        </div>
+                    </a>
+                    <a href="https://www.eventbrite.co.uk/e/weekend-retreat-in-the-cotswolds-tickets-1981591164516" class="event-card reveal" target="_blank" rel="noopener">
+                        <img class="event-card__img" src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1175947283%2F216441982947%2F1%2Foriginal.20260127-140354?auto=format%2Ccompress&amp;q=75&amp;sharp=10&amp;s=b95961f5fedb008de2fe545dbfa1430d" alt="Weekend Retreat in the Cotswolds" loading="lazy">
+                        <div class="event-card__body">
+                            <p class="event-card__date">Mar 28, 2026 &middot; 2:00 PM</p>
+                            <h3 class="event-card__title">Weekend Retreat in the Cotswolds</h3>
+                            <p class="event-card__desc">Get ready to unwind and recharge in the beautiful Cotswolds countryside – a weekend retreat like no other awaits!</p>
+                            <span class="event-card__tag">Tetbury Upton</span>
+                            <span class="event-card__tickets">Get Tickets &rarr;</span>
+                        </div>
+                    </a>
+                    <a href="https://www.eventbrite.co.uk/e/day-retreat-in-london-presented-by-holistiqueuk-tickets-1979459659126" class="event-card reveal" target="_blank" rel="noopener">
+                        <img class="event-card__img" src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1173797836%2F216441982947%2F1%2Foriginal.20260101-165652?auto=format%2Ccompress&amp;q=75&amp;sharp=10&amp;s=1dd03b1d9de94b7c7b7331e544adb3fb" alt="Day Retreat in London presented by HolistiqueUK" loading="lazy">
+                        <div class="event-card__body">
+                            <p class="event-card__date">Apr 26, 2026 &middot; 9:30 AM</p>
+                            <h3 class="event-card__title">Day Retreat in London presented by HolistiqueUK</h3>
+                            <p class="event-card__desc">Join us for a rejuvenating day retreat in London filled with wellness activities and transformative workshops.</p>
+                            <span class="event-card__tag">London</span>
+                            <span class="event-card__tickets">Get Tickets &rarr;</span>
+                        </div>
+                    </a>
+<!-- EVENTS-UPCOMING-END -->
+        </div>
+    </section>
+
+    <!-- PAST EVENTS -->
+    <section class="events-listing events-listing--past" id="past">
+        <div class="section-header">
+            <p class="section-label reveal">Look Back</p>
+            <h2 class="section-title reveal">Past Events</h2>
+        </div>
+        <div class="events-listing__grid">
+            <!-- EVENTS-PAST-START -->
+                    <a href="https://www.eventbrite.co.uk/e/imbolc-day-retreat-the-light-returning-tickets-1980907604971" class="event-card reveal" target="_blank" rel="noopener">
+                        <img class="event-card__img" src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1175276100%2F216441982947%2F1%2Foriginal.20260119-205232?auto=format%2Ccompress&amp;q=75&amp;sharp=10&amp;s=b6a62c7dec96510ed50e8f3d7c95ba17" alt="Imbolc Day Retreat: The Light Returning" loading="lazy">
+                        <div class="event-card__body">
+                            <p class="event-card__date">Feb 1, 2026 &middot; 11:00 AM</p>
+                            <h3 class="event-card__title">Imbolc Day Retreat: The Light Returning</h3>
+                            <p class="event-card__desc">Join us for a rejuvenating day filled with light and positivity at our Imbolc Day Retreat - a perfect way to welcome the returning light!</p>
+                            <span class="event-card__tag">Weybridge</span>
+                        </div>
+                    </a>
+                    <a href="https://www.eventbrite.co.uk/e/overnight-sound-healing-journey-tickets-1976171897342" class="event-card reveal" target="_blank" rel="noopener">
+                        <img class="event-card__img" src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1152718913%2F216441982947%2F1%2Foriginal.20251014-111857?auto=format%2Ccompress&amp;q=75&amp;sharp=10&amp;s=d0986f467e05e7e7596fda12d045897b" alt="Overnight Sound Healing Journey" loading="lazy">
+                        <div class="event-card__body">
+                            <p class="event-card__date">Jan 10, 2026 &middot; 9:00 PM</p>
+                            <h3 class="event-card__title">Overnight Sound Healing Journey</h3>
+                            <p class="event-card__desc">Join us for a magical journey of relaxation and healing through the power of sound at Colet House.</p>
+                            <span class="event-card__tag">London</span>
+                        </div>
+                    </a>
+                    <a href="https://www.eventbrite.co.uk/e/chinese-tea-ceremony-workshop-tickets-1977979922193" class="event-card reveal" target="_blank" rel="noopener">
+                        <img class="event-card__img" src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1112994503%2F216441982947%2F1%2Foriginal.20250903-142807?auto=format%2Ccompress&amp;q=75&amp;sharp=10&amp;s=bb84a07046e525380ab1ed426a059d91" alt="Chinese Tea Ceremony Workshop" loading="lazy">
+                        <div class="event-card__body">
+                            <p class="event-card__date">Jan 4, 2026 &middot; 3:00 PM</p>
+                            <h3 class="event-card__title">Chinese Tea Ceremony Workshop</h3>
+                            <p class="event-card__desc">Get ready to sip and swirl your way through the art of Chinese tea ceremonies in this interactive workshop!</p>
+                            <span class="event-card__tag">London</span>
+                        </div>
+                    </a>
+                    <a href="https://www.eventbrite.co.uk/e/new-year-chakra-brunch-potluck-social-tickets-1977978275267" class="event-card reveal" target="_blank" rel="noopener">
+                        <img class="event-card__img" src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1112895263%2F216441982947%2F1%2Foriginal.20250903-130801?auto=format%2Ccompress&amp;q=75&amp;sharp=10&amp;s=756e34ed18f6085c5912e375048eebe3" alt="New Year Chakra Brunch Potluck Social" loading="lazy">
+                        <div class="event-card__body">
+                            <p class="event-card__date">Jan 4, 2026 &middot; 11:00 AM</p>
+                            <h3 class="event-card__title">New Year Chakra Brunch Potluck Social</h3>
+                            <p class="event-card__desc">Join us for a fun and relaxed Chakra Brunch Potluck Social where we'll enjoy delicious food, good company, and positive energy vibes!</p>
+                            <span class="event-card__tag">London</span>
+                        </div>
+                    </a>
+                    <a href="https://www.eventbrite.co.uk/e/gong-bath-sound-healing-journey-tickets-1978088583201" class="event-card reveal" target="_blank" rel="noopener">
+                        <img class="event-card__img" src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1050218183%2F216441982947%2F1%2Foriginal.20250610-211148?auto=format%2Ccompress&amp;q=75&amp;sharp=10&amp;s=2ff15644e65e6c9444a2294d54994858" alt="Gong Bath Sound Healing Journey" loading="lazy">
+                        <div class="event-card__body">
+                            <p class="event-card__date">Dec 23, 2025 &middot; 7:00 PM</p>
+                            <h3 class="event-card__title">Gong Bath Sound Healing Journey</h3>
+                            <p class="event-card__desc">Get ready to immerse yourself in a unique sound healing experience our Gong Bath Sound Healing Journey</p>
+                            <span class="event-card__tag">London</span>
+                        </div>
+                    </a>
+                    <a href="https://www.eventbrite.co.uk/e/transformational-breathwork-journey-tickets-1976009127493" class="event-card reveal" target="_blank" rel="noopener">
+                        <img class="event-card__img" src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1064101193%2F216441982947%2F1%2Foriginal.20250701-104235?auto=format%2Ccompress&amp;q=75&amp;sharp=10&amp;s=02bd59b51273418500bead7c6a57347d" alt="Transformational Breathwork Journey" loading="lazy">
+                        <div class="event-card__body">
+                            <p class="event-card__date">Dec 16, 2025 &middot; 7:00 PM</p>
+                            <h3 class="event-card__title">Transformational Breathwork Journey</h3>
+                            <p class="event-card__desc">Join us for a powerful session of guided breath work to release stress, increase energy, and experience deep inner transformation!</p>
+                            <span class="event-card__tag">London</span>
+                        </div>
+                    </a>
+                    <a href="https://www.eventbrite.co.uk/e/chinese-tea-ceremony-workshop-tickets-1974900103372" class="event-card reveal" target="_blank" rel="noopener">
+                        <img class="event-card__img" src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1112994503%2F216441982947%2F1%2Foriginal.20250903-142807?auto=format%2Ccompress&amp;q=75&amp;sharp=10&amp;s=bb84a07046e525380ab1ed426a059d91" alt="Chinese Tea Ceremony Workshop" loading="lazy">
+                        <div class="event-card__body">
+                            <p class="event-card__date">Dec 14, 2025 &middot; 2:00 PM</p>
+                            <h3 class="event-card__title">Chinese Tea Ceremony Workshop</h3>
+                            <p class="event-card__desc">Get ready to sip and swirl your way through the art of Chinese tea ceremonies in this interactive workshop!</p>
+                            <span class="event-card__tag">London</span>
+                        </div>
+                    </a>
+                    <a href="https://www.eventbrite.co.uk/e/mantras-sound-healing-journey-tickets-1976058302577" class="event-card reveal" target="_blank" rel="noopener">
+                        <img class="event-card__img" src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1171896988%2F216441982947%2F1%2Foriginal.20251128-000609?auto=format%2Ccompress&amp;q=75&amp;sharp=10&amp;s=f21ed4549b5cf22ee05df01a76796f60" alt="Mantras &amp; Sound Healing Journey" loading="lazy">
+                        <div class="event-card__body">
+                            <p class="event-card__date">Dec 13, 2025 &middot; 4:00 PM</p>
+                            <h3 class="event-card__title">Mantras &amp; Sound Healing Journey</h3>
+                            <p class="event-card__desc">Get ready to immerse yourself in a unique sound healing experience with mantras, bowls, gongs, and acupuncture</p>
+                            <span class="event-card__tag">London</span>
+                        </div>
+                    </a>
+                    <a href="https://www.eventbrite.co.uk/e/kundalini-activation-a-transmission-of-life-force-tickets-1977525621367" class="event-card reveal" target="_blank" rel="noopener">
+                        <img class="event-card__img" src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1170794113%2F216441982947%2F1%2Foriginal.20251112-161816?auto=format%2Ccompress&amp;q=75&amp;sharp=10&amp;s=69a9b6a65e11d5b85e46cf6a092aee92" alt="Kundalini Activation: A Transmission of Life Force" loading="lazy">
+                        <div class="event-card__body">
+                            <p class="event-card__date">Dec 13, 2025 &middot; 1:00 PM</p>
+                            <h3 class="event-card__title">Kundalini Activation: A Transmission of Life Force</h3>
+                            <p class="event-card__desc">Get ready to awaken your inner energy and feel the life force flow at Kundalini Activation - it's going to be a powerful experience!</p>
+                            <span class="event-card__tag">London</span>
+                        </div>
+                    </a>
+                    <a href="https://www.eventbrite.co.uk/e/gong-bath-sound-healing-journey-tickets-1850439056029" class="event-card reveal" target="_blank" rel="noopener">
+                        <img class="event-card__img" src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1050218183%2F216441982947%2F1%2Foriginal.20250610-211148?auto=format%2Ccompress&amp;q=75&amp;sharp=10&amp;s=2ff15644e65e6c9444a2294d54994858" alt="Gong Bath Sound Healing Journey" loading="lazy">
+                        <div class="event-card__body">
+                            <p class="event-card__date">Dec 11, 2025 &middot; 7:00 PM</p>
+                            <h3 class="event-card__title">Gong Bath Sound Healing Journey</h3>
+                            <p class="event-card__desc">Get ready to immerse yourself in a unique sound healing experience our Gong Bath Sound Healing Journey</p>
+                            <span class="event-card__tag">London</span>
+                        </div>
+                    </a>
+                    <a href="https://www.eventbrite.co.uk/e/transformational-breathwork-journey-tickets-1879731941839" class="event-card reveal" target="_blank" rel="noopener">
+                        <img class="event-card__img" src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1064101193%2F216441982947%2F1%2Foriginal.20250701-104235?auto=format%2Ccompress&amp;q=75&amp;sharp=10&amp;s=02bd59b51273418500bead7c6a57347d" alt="Transformational Breathwork Journey" loading="lazy">
+                        <div class="event-card__body">
+                            <p class="event-card__date">Nov 26, 2025 &middot; 7:00 PM</p>
+                            <h3 class="event-card__title">Transformational Breathwork Journey</h3>
+                            <p class="event-card__desc">Join us for a powerful session of guided breath work to release stress, increase energy, and experience deep inner transformation!</p>
+                            <span class="event-card__tag">London</span>
+                        </div>
+                    </a>
+                    <a href="https://www.eventbrite.co.uk/e/community-acupuncture-session-tickets-1915900492949" class="event-card reveal" target="_blank" rel="noopener">
+                        <img class="event-card__img" src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1112769683%2F216441982947%2F1%2Foriginal.20250903-104229?auto=format%2Ccompress&amp;q=75&amp;sharp=10&amp;s=0fabe58924344fce4e0bb11cb0126886" alt="Community Acupuncture Session" loading="lazy">
+                        <div class="event-card__body">
+                            <p class="event-card__date">Nov 26, 2025 &middot; 10:00 AM</p>
+                            <h3 class="event-card__title">Community Acupuncture Session</h3>
+                            <p class="event-card__desc">Join us for our Community Acupuncture Sessions where you can relax, destress, and rejuvenate with affordable acupuncture treatments.</p>
+                            <span class="event-card__tag">London</span>
+                        </div>
+                    </a>
+<!-- EVENTS-PAST-END -->
+        </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter-section">
+        <div class="newsletter-section__inner reveal">
+            <h2 class="newsletter-section__title">Stay Connected</h2>
+            <p class="newsletter-section__sub">Get new articles, event invitations, and wellness insights from Yvonne.</p>
+            <form id="newsletter-form" class="newsletter-form" onsubmit="return false;">
+                <input type="email" class="newsletter-input" placeholder="Your email address" required>
+                <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer__grid">
+            <div class="footer__brand">
+                <p class="footer__brand-name">Holistique</p>
+                <p class="footer__brand-desc">Healing and transformation through holistic practices and community. Based in Kensington, London.</p>
+            </div>
+            <div>
+                <p class="footer__col-title">Explore</p>
+                <ul class="footer__links">
+                    <li><a href="index.html#events" class="footer__link">What's On</a></li>
+                    <li><a href="acupuncture.html" class="footer__link">Acupuncture</a></li>
+                    <li><a href="#" class="footer__link">Wellness Tools</a></li>
+                    <li><a href="index.html#testimonials" class="footer__link">Stories</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="footer__col-title">Community</p>
+                <ul class="footer__links">
+                    <li><a href="index.html#events" class="footer__link">Events</a></li>
+                    <li><a href="index.html#gallery" class="footer__link">Gallery</a></li>
+                    <li><a href="index.html#testimonials" class="footer__link">Testimonials</a></li>
+                    <li><a href="https://wa.me/447521760405" class="footer__link" target="_blank" rel="noopener">WhatsApp Group</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="footer__col-title">Contact</p>
+                <ul class="footer__links">
+                    <li><a href="https://wa.me/447521760405" class="footer__link" target="_blank" rel="noopener">Get in Touch</a></li>
+                    <li><a href="#" class="footer__link">Kensington, London</a></li>
+                    <li><a href="mailto:hello@holistiqueuk.com" class="footer__link">hello@holistiqueuk.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p class="footer__copyright">&copy; 2026 Holistique UK. All rights reserved.</p>
+            <div class="footer__socials">
+                <a href="https://www.instagram.com/holistique_uk/" class="footer__social" aria-label="Instagram" target="_blank" rel="noopener">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                    </svg>
+                </a>
+                <a href="https://wa.me/447521760405" class="footer__social" aria-label="WhatsApp" target="_blank" rel="noopener">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    (function() {
+        // Mobile menu toggle
+        var hamburger = document.getElementById('hamburger');
+        var mobileMenu = document.getElementById('mobile-menu');
+        if (hamburger && mobileMenu) {
+            hamburger.addEventListener('click', function() {
+                hamburger.classList.toggle('is-open');
+                mobileMenu.classList.toggle('is-open');
+            });
+            mobileMenu.querySelectorAll('.mobile-menu__link').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    hamburger.classList.remove('is-open');
+                    mobileMenu.classList.remove('is-open');
+                });
+            });
+        }
+
+        // Reveal on scroll (IntersectionObserver)
+        var reveals = document.querySelectorAll('.reveal');
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        reveals.forEach(function(el) { observer.observe(el); });
+
+        // Newsletter subscribe
+        var SUBSCRIBE_URL = 'https://peter17tu.app.n8n.cloud/webhook/subscribe';
+        var nlForm = document.getElementById('newsletter-form');
+        if (nlForm) {
+            nlForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                var input = nlForm.querySelector('.newsletter-input');
+                var btn = nlForm.querySelector('.newsletter-btn');
+                var email = input.value.trim();
+                if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    showMsg(nlForm, 'Please enter a valid email address.', 'error'); return;
+                }
+                btn.textContent = 'Subscribing...'; btn.disabled = true;
+                fetch(SUBSCRIBE_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: email }) })
+                .then(function(r) { return r.json(); })
+                .then(function(d) {
+                    if (d.success) { showMsg(nlForm, 'Welcome aboard! Check your inbox.', 'success'); input.value = ''; }
+                    else { showMsg(nlForm, d.error || 'Something went wrong.', 'error'); }
+                })
+                .catch(function() { showMsg(nlForm, 'Network error. Please try again.', 'error'); })
+                .finally(function() { btn.textContent = 'Subscribe'; btn.disabled = false; });
+            });
+        }
+
+        function showMsg(form, text, type) {
+            var ex = form.querySelector('.newsletter-message'); if (ex) ex.remove();
+            var m = document.createElement('p'); m.className = 'newsletter-message ' + type; m.textContent = text;
+            form.appendChild(m); setTimeout(function() { if (m.parentNode) m.remove(); }, 5000);
+        }
+    })();
+    </script>
+</body>
+</html>

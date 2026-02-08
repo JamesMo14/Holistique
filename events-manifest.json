@@ -1,0 +1,200 @@
+{
+  "lastSync": "2026-02-08T08:40:24.107Z",
+  "organizationId": null,
+  "upcoming": [
+    {
+      "id": "1982126386379",
+      "name": "Galentine’s Fashion Tea Party",
+      "description": "Sip tea, slay styles, and celebrate friendship at the ultimate Galentine’s Fashion Tea Party!",
+      "url": "https://www.eventbrite.co.uk/e/galentines-fashion-tea-party-tickets-1982126386379",
+      "startLocal": "2026-02-14T12:00:00",
+      "endLocal": "2026-02-14T16:00:00",
+      "venueName": "Ranelagh Mansions",
+      "city": "London",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1176389988%2F216441982947%2F1%2Foriginal.20260201-194240?auto=format%2Ccompress&q=75&sharp=10&s=8043c52cbbc01a6519064bd59274f20a",
+      "status": "live"
+    },
+    {
+      "id": "1978825856405",
+      "name": "Valentines Ecstatic Dance in West London",
+      "description": "Get ready to dance your heart out at the Valentines Ecstatic Dance event, where love and music blend into a magical experience.",
+      "url": "https://www.eventbrite.co.uk/e/valentines-ecstatic-dance-in-west-london-tickets-1978825856405",
+      "startLocal": "2026-02-14T19:15:00",
+      "endLocal": "2026-02-14T21:30:00",
+      "venueName": "St Philip's Church, Earls Court Road",
+      "city": "London",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1173386516%2F216441982947%2F1%2Foriginal.20251222-111239?auto=format%2Ccompress&q=75&sharp=10&s=8594ed694086f242777ba623918d512c",
+      "status": "live"
+    },
+    {
+      "id": "1981591164516",
+      "name": "Weekend Retreat in the Cotswolds",
+      "description": "Get ready to unwind and recharge in the beautiful Cotswolds countryside – a weekend retreat like no other awaits!",
+      "url": "https://www.eventbrite.co.uk/e/weekend-retreat-in-the-cotswolds-tickets-1981591164516",
+      "startLocal": "2026-03-28T14:00:00",
+      "endLocal": "2026-03-28T21:00:00",
+      "venueName": "Tetbury Upton",
+      "city": "Tetbury Upton",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1175947283%2F216441982947%2F1%2Foriginal.20260127-140354?auto=format%2Ccompress&q=75&sharp=10&s=b95961f5fedb008de2fe545dbfa1430d",
+      "status": "live"
+    },
+    {
+      "id": "1979459659126",
+      "name": "Day Retreat in London presented by HolistiqueUK",
+      "description": "Join us for a rejuvenating day retreat in London filled with wellness activities and transformative workshops.",
+      "url": "https://www.eventbrite.co.uk/e/day-retreat-in-london-presented-by-holistiqueuk-tickets-1979459659126",
+      "startLocal": "2026-04-26T09:30:00",
+      "endLocal": "2026-04-26T17:30:00",
+      "venueName": "Colet House",
+      "city": "London",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1173797836%2F216441982947%2F1%2Foriginal.20260101-165652?auto=format%2Ccompress&q=75&sharp=10&s=1dd03b1d9de94b7c7b7331e544adb3fb",
+      "status": "live"
+    }
+  ],
+  "past": [
+    {
+      "id": "1980907604971",
+      "name": "Imbolc Day Retreat: The Light Returning",
+      "description": "Join us for a rejuvenating day filled with light and positivity at our Imbolc Day Retreat - a perfect way to welcome the returning light!",
+      "url": "https://www.eventbrite.co.uk/e/imbolc-day-retreat-the-light-returning-tickets-1980907604971",
+      "startLocal": "2026-02-01T11:00:00",
+      "endLocal": "2026-02-01T16:00:00",
+      "venueName": "Crockford Bridge Farm",
+      "city": "Weybridge",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1175276100%2F216441982947%2F1%2Foriginal.20260119-205232?auto=format%2Ccompress&q=75&sharp=10&s=b6a62c7dec96510ed50e8f3d7c95ba17",
+      "status": "completed"
+    },
+    {
+      "id": "1976171897342",
+      "name": "Overnight Sound Healing Journey",
+      "description": "Join us for a magical journey of relaxation and healing through the power of sound at Colet House.",
+      "url": "https://www.eventbrite.co.uk/e/overnight-sound-healing-journey-tickets-1976171897342",
+      "startLocal": "2026-01-10T21:00:00",
+      "endLocal": "2026-01-11T07:00:00",
+      "venueName": "Colet House",
+      "city": "London",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1152718913%2F216441982947%2F1%2Foriginal.20251014-111857?auto=format%2Ccompress&q=75&sharp=10&s=d0986f467e05e7e7596fda12d045897b",
+      "status": "completed"
+    },
+    {
+      "id": "1977979922193",
+      "name": "Chinese Tea Ceremony Workshop",
+      "description": "Get ready to sip and swirl your way through the art of Chinese tea ceremonies in this interactive workshop!",
+      "url": "https://www.eventbrite.co.uk/e/chinese-tea-ceremony-workshop-tickets-1977979922193",
+      "startLocal": "2026-01-04T15:00:00",
+      "endLocal": "2026-01-04T18:00:00",
+      "venueName": "W14 8BQ",
+      "city": "London",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1112994503%2F216441982947%2F1%2Foriginal.20250903-142807?auto=format%2Ccompress&q=75&sharp=10&s=bb84a07046e525380ab1ed426a059d91",
+      "status": "completed"
+    },
+    {
+      "id": "1977978275267",
+      "name": "New Year Chakra Brunch Potluck Social",
+      "description": "Join us for a fun and relaxed Chakra Brunch Potluck Social where we'll enjoy delicious food, good company, and positive energy vibes!",
+      "url": "https://www.eventbrite.co.uk/e/new-year-chakra-brunch-potluck-social-tickets-1977978275267",
+      "startLocal": "2026-01-04T11:00:00",
+      "endLocal": "2026-01-04T14:00:00",
+      "venueName": "W14 8BQ",
+      "city": "London",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1112895263%2F216441982947%2F1%2Foriginal.20250903-130801?auto=format%2Ccompress&q=75&sharp=10&s=756e34ed18f6085c5912e375048eebe3",
+      "status": "completed"
+    },
+    {
+      "id": "1978088583201",
+      "name": "Gong Bath Sound Healing Journey",
+      "description": "Get ready to immerse yourself in a unique sound healing experience our Gong Bath Sound Healing Journey",
+      "url": "https://www.eventbrite.co.uk/e/gong-bath-sound-healing-journey-tickets-1978088583201",
+      "startLocal": "2025-12-23T19:00:00",
+      "endLocal": "2025-12-23T21:00:00",
+      "venueName": "W14 8BQ",
+      "city": "London",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1050218183%2F216441982947%2F1%2Foriginal.20250610-211148?auto=format%2Ccompress&q=75&sharp=10&s=2ff15644e65e6c9444a2294d54994858",
+      "status": "completed"
+    },
+    {
+      "id": "1976009127493",
+      "name": "Transformational Breathwork Journey",
+      "description": "Join us for a powerful session of guided breath work to release stress, increase energy, and experience deep inner transformation!",
+      "url": "https://www.eventbrite.co.uk/e/transformational-breathwork-journey-tickets-1976009127493",
+      "startLocal": "2025-12-16T19:00:00",
+      "endLocal": "2025-12-16T21:00:00",
+      "venueName": "W14 8BQ",
+      "city": "London",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1064101193%2F216441982947%2F1%2Foriginal.20250701-104235?auto=format%2Ccompress&q=75&sharp=10&s=02bd59b51273418500bead7c6a57347d",
+      "status": "completed"
+    },
+    {
+      "id": "1974900103372",
+      "name": "Chinese Tea Ceremony Workshop",
+      "description": "Get ready to sip and swirl your way through the art of Chinese tea ceremonies in this interactive workshop!",
+      "url": "https://www.eventbrite.co.uk/e/chinese-tea-ceremony-workshop-tickets-1974900103372",
+      "startLocal": "2025-12-14T14:00:00",
+      "endLocal": "2025-12-14T17:00:00",
+      "venueName": "W14 8BQ",
+      "city": "London",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1112994503%2F216441982947%2F1%2Foriginal.20250903-142807?auto=format%2Ccompress&q=75&sharp=10&s=bb84a07046e525380ab1ed426a059d91",
+      "status": "completed"
+    },
+    {
+      "id": "1976058302577",
+      "name": "Mantras & Sound Healing Journey",
+      "description": "Get ready to immerse yourself in a unique sound healing experience with mantras, bowls, gongs, and acupuncture",
+      "url": "https://www.eventbrite.co.uk/e/mantras-sound-healing-journey-tickets-1976058302577",
+      "startLocal": "2025-12-13T16:00:00",
+      "endLocal": "2025-12-13T18:00:00",
+      "venueName": "W14 8BQ",
+      "city": "London",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1171896988%2F216441982947%2F1%2Foriginal.20251128-000609?auto=format%2Ccompress&q=75&sharp=10&s=f21ed4549b5cf22ee05df01a76796f60",
+      "status": "completed"
+    },
+    {
+      "id": "1977525621367",
+      "name": "Kundalini Activation: A Transmission of Life Force",
+      "description": "Get ready to awaken your inner energy and feel the life force flow at Kundalini Activation - it's going to be a powerful experience!",
+      "url": "https://www.eventbrite.co.uk/e/kundalini-activation-a-transmission-of-life-force-tickets-1977525621367",
+      "startLocal": "2025-12-13T13:00:00",
+      "endLocal": "2025-12-13T15:00:00",
+      "venueName": "W14 8BQ",
+      "city": "London",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1170794113%2F216441982947%2F1%2Foriginal.20251112-161816?auto=format%2Ccompress&q=75&sharp=10&s=69a9b6a65e11d5b85e46cf6a092aee92",
+      "status": "completed"
+    },
+    {
+      "id": "1850439056029",
+      "name": "Gong Bath Sound Healing Journey",
+      "description": "Get ready to immerse yourself in a unique sound healing experience our Gong Bath Sound Healing Journey",
+      "url": "https://www.eventbrite.co.uk/e/gong-bath-sound-healing-journey-tickets-1850439056029",
+      "startLocal": "2025-12-11T19:00:00",
+      "endLocal": "2025-12-11T21:00:00",
+      "venueName": "W14 8BQ",
+      "city": "London",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1050218183%2F216441982947%2F1%2Foriginal.20250610-211148?auto=format%2Ccompress&q=75&sharp=10&s=2ff15644e65e6c9444a2294d54994858",
+      "status": "completed"
+    },
+    {
+      "id": "1879731941839",
+      "name": "Transformational Breathwork Journey",
+      "description": "Join us for a powerful session of guided breath work to release stress, increase energy, and experience deep inner transformation!",
+      "url": "https://www.eventbrite.co.uk/e/transformational-breathwork-journey-tickets-1879731941839",
+      "startLocal": "2025-11-26T19:00:00",
+      "endLocal": "2025-11-26T21:00:00",
+      "venueName": "W14 8BQ",
+      "city": "London",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1064101193%2F216441982947%2F1%2Foriginal.20250701-104235?auto=format%2Ccompress&q=75&sharp=10&s=02bd59b51273418500bead7c6a57347d",
+      "status": "completed"
+    },
+    {
+      "id": "1915900492949",
+      "name": "Community Acupuncture Session",
+      "description": "Join us for our Community Acupuncture Sessions where you can relax, destress, and rejuvenate with affordable acupuncture treatments.",
+      "url": "https://www.eventbrite.co.uk/e/community-acupuncture-session-tickets-1915900492949",
+      "startLocal": "2025-11-26T10:00:00",
+      "endLocal": "2025-11-26T20:00:00",
+      "venueName": "W14 8BQ",
+      "city": "London",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1112769683%2F216441982947%2F1%2Foriginal.20250903-104229?auto=format%2Ccompress&q=75&sharp=10&s=0fabe58924344fce4e0bb11cb0126886",
+      "status": "completed"
+    }
+  ]
+}
