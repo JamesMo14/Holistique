@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learn Self-Acupuncture — Holistique UK</title>
-    <meta name="description" content="Empower yourself with the skills to practice acupuncture safely and effectively. Group and private courses in Kensington, London.">
+    <title>Wellness Tools — Holistique UK</title>
+    <meta name="description" content="Thoughtfully curated wellness products I personally use and believe in — from water filters to superfoods. Exclusive discount codes included.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
@@ -130,20 +130,7 @@
         }
         .page-hero__subtitle {
             font-size: 1.0625rem; color: #666; line-height: 1.75;
-            max-width: 640px; margin: 0 auto 2rem;
-        }
-        .enrollment-badge {
-            display: inline-flex; align-items: center; gap: 0.5rem;
-            font-family: var(--font-mono); font-size: 0.75rem;
-            text-transform: uppercase; letter-spacing: 0.1em;
-            color: var(--color-gold); background: rgba(212,168,83,0.1);
-            border: 1px solid rgba(212,168,83,0.25);
-            padding: 0.5rem 1.25rem; border-radius: var(--radius-full);
-            animation: badge-pulse 2.5s ease-in-out infinite;
-        }
-        @keyframes badge-pulse {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(212,168,83,0.2); }
-            50% { box-shadow: 0 0 0 8px rgba(212,168,83,0); }
+            max-width: 640px; margin: 0 auto;
         }
 
         /* ============================================
@@ -158,190 +145,100 @@
         }
 
         /* ============================================
-           WHAT YOU'LL GET — Benefit Cards
+           INTRO / AFFILIATE DISCLOSURE
            ============================================ */
-        .benefits {
-            padding: 5rem 2rem; background: var(--color-offwhite);
+        .intro {
+            max-width: 720px; margin: 0 auto; padding: 0 2rem 3rem;
+            text-align: center;
         }
-        .benefits__grid {
-            display: grid; grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem; max-width: var(--max-width); margin: 0 auto;
+        .intro__text {
+            font-size: 1rem; color: #555; line-height: 1.8; margin-bottom: 1.5rem;
         }
-        .benefit-card {
-            background: #fff; border: 1px solid rgba(0,0,0,0.06);
-            border-radius: var(--radius-lg); padding: 2rem 1.75rem;
-            transition: all 0.35s var(--ease-out-expo);
-        }
-        .benefit-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 16px 40px rgba(0,0,0,0.07);
-            border-color: rgba(34,102,99,0.15);
-        }
-        .benefit-card__icon {
-            width: 48px; height: 48px; border-radius: var(--radius-md);
-            background: rgba(34,102,99,0.08);
-            display: flex; align-items: center; justify-content: center;
-            margin-bottom: 1.25rem; color: var(--color-teal);
-        }
-        .benefit-card__title {
-            font-family: var(--font-heading); font-size: 1.25rem;
-            color: #1a1a1a; margin-bottom: 0.625rem;
-        }
-        .benefit-card__text {
-            font-size: 0.9375rem; color: #666; line-height: 1.7;
+        .intro__disclosure {
+            font-size: 0.8125rem; color: #999; font-style: italic; line-height: 1.6;
+            padding: 1rem 1.5rem; background: var(--color-offwhite);
+            border-radius: var(--radius-md);
         }
 
         /* ============================================
-           FAQ ACCORDION
+           PRODUCT CARDS
            ============================================ */
-        .faq { padding: 5rem 2rem; max-width: var(--max-width); margin: 0 auto; }
-        .faq__grid {
-            display: grid; grid-template-columns: 1fr; gap: 1rem;
-            max-width: 780px; margin: 0 auto;
+        .products {
+            padding: 0 2rem 5rem;
+            max-width: var(--max-width); margin: 0 auto;
         }
-        .faq__item {
-            border: 1px solid rgba(0,0,0,0.08); border-radius: var(--radius-md);
-            overflow: hidden; transition: border-color 0.3s ease;
+        .products__grid {
+            display: flex; flex-direction: column; gap: 2.5rem;
         }
-        .faq__item[open] { border-color: rgba(34,102,99,0.25); }
-        .faq__item summary {
-            padding: 1.25rem 1.5rem; font-family: var(--font-body);
-            font-size: 0.9375rem; font-weight: 500; color: #1a1a1a;
-            cursor: pointer; list-style: none;
-            display: flex; align-items: center; justify-content: space-between; gap: 1rem;
-            transition: color 0.2s ease;
-        }
-        .faq__item summary::-webkit-details-marker { display: none; }
-        .faq__item summary::after {
-            content: '+'; font-size: 1.25rem; color: var(--color-teal);
-            font-weight: 300; transition: transform 0.3s var(--ease-out-expo);
-            flex-shrink: 0;
-        }
-        .faq__item[open] summary::after { content: '\2212'; }
-        .faq__item[open] summary { color: var(--color-teal); }
-        .faq__answer {
-            padding: 0 1.5rem 1.25rem;
-            font-size: 0.9375rem; color: #555; line-height: 1.75;
-        }
-
-        /* ============================================
-           PRICING
-           ============================================ */
-        .pricing {
-            background: var(--color-offwhite); padding: 5rem 2rem;
-        }
-        .pricing__grid {
-            display: grid; grid-template-columns: repeat(2, 1fr);
-            gap: 2rem; max-width: 820px; margin: 0 auto;
-        }
-        .pricing-card {
-            background: #fff; border: 1px solid rgba(0,0,0,0.06);
-            border-radius: var(--radius-lg); padding: 2.5rem 2rem;
-            text-align: center; position: relative; overflow: hidden;
+        .product-card {
+            display: grid; grid-template-columns: 380px 1fr; gap: 2.5rem;
+            background: #fff; border-radius: var(--radius-lg);
+            border: 1px solid rgba(0,0,0,0.06);
+            overflow: hidden;
             transition: all 0.35s var(--ease-out-expo);
         }
-        .pricing-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+        .product-card:hover {
+            box-shadow: 0 16px 48px rgba(0,0,0,0.07);
+            transform: translateY(-2px);
         }
-        .pricing-card--featured {
-            border-color: var(--color-teal);
-            border-width: 2px;
+        .product-card__img-wrap {
+            overflow: hidden; aspect-ratio: 4/3;
         }
-        .pricing-card__badge {
-            position: absolute; top: 0; right: 0;
-            background: var(--color-teal); color: #fff;
-            font-family: var(--font-mono); font-size: 0.625rem;
-            text-transform: uppercase; letter-spacing: 0.1em;
-            padding: 0.4rem 1.25rem 0.4rem 1rem;
-            border-radius: 0 0 0 var(--radius-md);
+        .product-card__img {
+            width: 100%; height: 100%; object-fit: cover; display: block;
+            transition: transform 0.5s ease;
         }
-        .pricing-card__type {
+        .product-card:hover .product-card__img {
+            transform: scale(1.03);
+        }
+        .product-card__body {
+            padding: 2rem 2rem 2rem 0;
+            display: flex; flex-direction: column; justify-content: center;
+        }
+        .product-card__brand {
             font-family: var(--font-mono); font-size: 0.6875rem;
             text-transform: uppercase; letter-spacing: 0.12em;
             color: var(--color-teal); margin-bottom: 0.5rem;
         }
-        .pricing-card__title {
-            font-family: var(--font-heading); font-size: 1.375rem;
-            color: #1a1a1a; margin-bottom: 0.75rem;
+        .product-card__title {
+            font-family: var(--font-heading); font-size: 1.5rem;
+            color: #1a1a1a; margin-bottom: 0.75rem; line-height: 1.25;
         }
-        .pricing-card__price {
-            font-family: var(--font-heading); font-size: 2.5rem;
-            color: var(--color-teal); margin-bottom: 1.5rem;
+        .product-card__desc {
+            font-size: 0.9375rem; color: #666; line-height: 1.7;
+            margin-bottom: 1.25rem;
         }
-        .pricing-card__features {
-            list-style: none; text-align: left; margin-bottom: 2rem;
+        .product-card__discount {
+            margin-bottom: 1.5rem;
         }
-        .pricing-card__features li {
-            font-size: 0.9375rem; color: #555; line-height: 1.6;
-            padding: 0.4rem 0; padding-left: 1.5rem; position: relative;
+        .product-card__code {
+            display: inline-block;
+            font-family: var(--font-mono); font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            color: var(--color-teal); background: rgba(34,102,99,0.08);
+            padding: 0.4rem 1rem; border-radius: var(--radius-full);
+            border: 1.5px dashed rgba(34,102,99,0.25);
         }
-        .pricing-card__features li::before {
-            content: '';
-            position: absolute; left: 0; top: 0.65rem;
-            width: 14px; height: 14px; border-radius: 50%;
-            background: rgba(34,102,99,0.1);
-            display: flex; align-items: center; justify-content: center;
-        }
-        .pricing-card__features li::after {
-            content: '\2713'; position: absolute; left: 2px; top: 0.4rem;
-            font-size: 0.75rem; color: var(--color-teal); font-weight: 600;
+        .product-card__actions {
+            display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;
         }
 
-        /* ============================================
-           BUTTONS
-           ============================================ */
+        /* Buttons */
         .btn {
-            display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+            display: inline-flex; align-items: center; gap: 0.4rem;
             font-family: var(--font-body); font-size: 0.875rem; font-weight: 500;
-            text-decoration: none; border-radius: var(--radius-full);
-            padding: 0.75rem 1.75rem; transition: all 0.25s ease; cursor: pointer; border: none;
+            padding: 0.75rem 1.5rem; border-radius: var(--radius-md);
+            text-decoration: none; border: none; cursor: pointer;
+            transition: all 0.25s ease;
         }
         .btn--teal { background: var(--color-teal); color: #fff; }
-        .btn--teal:hover { background: var(--color-teal-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(34,102,99,0.25); }
-        .btn--gold { background: var(--color-gold); color: #1a1a1a; }
-        .btn--gold:hover { background: #c49a48; transform: translateY(-2px); }
-        .btn--outline { background: transparent; color: var(--color-teal); border: 1.5px solid var(--color-teal); }
-        .btn--outline:hover { background: var(--color-teal); color: #fff; }
-        .btn--outline-light { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,0.4); }
-        .btn--outline-light:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
-        .btn--lg { padding: 0.875rem 2.25rem; font-size: 1rem; }
+        .btn--teal:hover { background: var(--color-teal-dark); transform: translateY(-2px); }
 
-        /* ============================================
-           ENROLLMENT CTA
-           ============================================ */
-        .enrollment-cta {
-            background: linear-gradient(135deg, var(--color-teal-dark), var(--color-purple-dark));
-            padding: 5rem 2rem; text-align: center; position: relative; overflow: hidden;
+        .product-card__review {
+            font-size: 0.875rem; color: var(--color-teal); text-decoration: none;
+            font-weight: 500; transition: color 0.2s ease;
         }
-        .enrollment-cta__glow {
-            position: absolute; width: 400px; height: 400px; border-radius: 50%;
-            filter: blur(120px); opacity: 0.15; pointer-events: none;
-        }
-        .enrollment-cta__glow--1 { top: -100px; left: -100px; background: var(--color-sage); }
-        .enrollment-cta__glow--2 { bottom: -100px; right: -100px; background: var(--color-lavender); }
-        .enrollment-cta__content { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; }
-        .enrollment-cta__title {
-            font-family: var(--font-heading); font-size: clamp(1.75rem, 4vw, 2.25rem);
-            color: #fff; margin-bottom: 1rem;
-        }
-        .enrollment-cta__desc {
-            font-size: 1rem; color: rgba(255,255,255,0.7); line-height: 1.7;
-            margin-bottom: 2rem;
-        }
-
-        /* ============================================
-           BACK LINK
-           ============================================ */
-        .back-link-section {
-            padding: 2rem; text-align: center;
-        }
-        .back-link {
-            font-family: var(--font-body); font-size: 0.9375rem; font-weight: 500;
-            color: var(--color-teal); text-decoration: none;
-            transition: color 0.2s ease;
-        }
-        .back-link:hover { color: var(--color-teal-dark); }
+        .product-card__review:hover { color: var(--color-teal-dark); }
 
         /* ============================================
            NEWSLETTER
@@ -427,18 +324,17 @@
         @media (max-width: 768px) {
             .header__nav, .header__cta { display: none; }
             .hamburger { display: block; }
-            .benefits__grid { grid-template-columns: 1fr 1fr; }
-            .pricing__grid { grid-template-columns: 1fr; max-width: 420px; }
+            .product-card { grid-template-columns: 1fr; }
+            .product-card__body { padding: 1.5rem; }
             .footer__grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
             .footer__brand { grid-column: span 2; }
         }
         @media (max-width: 480px) {
             .header { padding: 0.75rem 1rem; }
             .page-hero { padding: 120px 1.25rem 60px; }
-            .benefits { padding: 3rem 1.25rem; }
-            .benefits__grid { grid-template-columns: 1fr; }
-            .faq { padding: 3rem 1.25rem; }
-            .pricing { padding: 3rem 1.25rem; }
+            .intro { padding: 0 1.25rem 2.5rem; }
+            .products { padding: 0 1.25rem 3rem; }
+            .product-card__img-wrap { aspect-ratio: 16/10; }
             .newsletter-form { flex-direction: column; }
             .footer__grid { grid-template-columns: 1fr; }
             .footer__brand { grid-column: span 1; }
@@ -452,8 +348,8 @@
     <header class="header" id="header">
         <a href="index.html" class="header__logo">Holistique</a>
         <nav class="header__nav">
-            <a href="index.html#services" class="header__link is-active">Services</a>
-            <a href="index.html#events" class="header__link">What's On</a>
+            <a href="index.html#services" class="header__link">Services</a>
+            <a href="events.html" class="header__link">What's On</a>
             <a href="index.html#gallery" class="header__link">Community</a>
             <a href="index.html#testimonials" class="header__link">Stories</a>
             <a href="blog-post.html" class="header__link">Blog</a>
@@ -469,7 +365,7 @@
     <!-- MOBILE MENU -->
     <div class="mobile-menu" id="mobile-menu">
         <a href="index.html#services" class="mobile-menu__link">Services</a>
-        <a href="index.html#events" class="mobile-menu__link">What's On</a>
+        <a href="events.html" class="mobile-menu__link">What's On</a>
         <a href="index.html#gallery" class="mobile-menu__link">Community</a>
         <a href="index.html#testimonials" class="mobile-menu__link">Stories</a>
         <a href="index.html#contact" class="mobile-menu__link">Get in Touch</a>
@@ -478,167 +374,149 @@
 
     <!-- HERO -->
     <section class="page-hero">
-        <p class="section-label reveal">Course</p>
-        <h1 class="page-hero__title reveal">Learn Self-Acupuncture</h1>
-        <p class="page-hero__subtitle reveal">Empower yourself with the skills to practice acupuncture safely and effectively&mdash;on your own. Designed for anyone looking to expand their knowledge and take self-care to the next level.</p>
-        <div class="reveal">
-            <span class="enrollment-badge">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                Enrollment Now Open &mdash; Limited Spots
-            </span>
-        </div>
+        <p class="section-label reveal">Curated by Yvonne</p>
+        <h1 class="page-hero__title reveal">Wellness Tools</h1>
+        <p class="page-hero__subtitle reveal">Thoughtfully curated products and resources I personally use and believe in&mdash;to support your ongoing wellbeing journey.</p>
     </section>
 
-    <!-- WHAT YOU'LL GET -->
-    <section class="benefits" id="benefits">
-        <div class="section-header">
-            <p class="section-label reveal">What You&rsquo;ll Get</p>
-            <h2 class="section-title reveal">Everything You Need to Start</h2>
-        </div>
-        <div class="benefits__grid">
-            <div class="benefit-card reveal">
-                <div class="benefit-card__icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-                </div>
-                <h3 class="benefit-card__title">Foundations</h3>
-                <p class="benefit-card__text">Learn how acupuncture works and how it benefits the body. Understand key acupuncture points for stress, pain, digestion, immunity and more.</p>
-            </div>
-            <div class="benefit-card reveal">
-                <div class="benefit-card__icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                </div>
-                <h3 class="benefit-card__title">Course Structure</h3>
-                <p class="benefit-card__text">4 guided sessions (each up to 2 hours) or one weekend intensive. Flexible, tailored to your pace, with live instruction and hands-on practice.</p>
-            </div>
-            <div class="benefit-card reveal">
-                <div class="benefit-card__icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-                </div>
-                <h3 class="benefit-card__title">Materials &amp; Resources</h3>
-                <p class="benefit-card__text">Digital PDF guide with key acupuncture points, diagrams, and safety information. Plus trusted tool recommendations, needle suppliers, and book lists.</p>
-            </div>
-            <div class="benefit-card reveal">
-                <div class="benefit-card__icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                </div>
-                <h3 class="benefit-card__title">Ideal For</h3>
-                <p class="benefit-card__text">Individuals interested in natural self-healing, and anyone ready to take charge of their health using time-tested methods. No prior experience needed.</p>
-            </div>
-            <div class="benefit-card reveal">
-                <div class="benefit-card__icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                </div>
-                <h3 class="benefit-card__title">Skills &amp; Confidence</h3>
-                <p class="benefit-card__text">Build confidence and intuition around your own body&rsquo;s needs. Learn safe, effective self-needling techniques and how to integrate them into your wellness routine.</p>
-            </div>
-            <div class="benefit-card reveal">
-                <div class="benefit-card__icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                </div>
-                <h3 class="benefit-card__title">Outcomes</h3>
-                <p class="benefit-card__text">Feel confident, empowered, and equipped to safely needle yourself for tension relief, better sleep, immune support, or daily balance.</p>
-            </div>
-        </div>
+    <!-- INTRO -->
+    <section class="intro">
+        <p class="intro__text reveal">Every product on this page is something I use in my own daily life. From the water I drink to the way I sleep, these tools have made a real difference to my health and wellbeing&mdash;and I&rsquo;m delighted to share them with you, along with exclusive discount codes where available.</p>
+        <p class="intro__disclosure reveal">This page contains affiliate links. If you purchase through these links, I may earn a small commission at no extra cost to you. I only recommend products I personally use and believe in.</p>
     </section>
 
-    <!-- FAQ -->
-    <section class="faq" id="faq">
-        <div class="section-header">
-            <p class="section-label reveal">FAQ</p>
-            <h2 class="section-title reveal">Frequently Asked Questions</h2>
-        </div>
-        <div class="faq__grid">
-            <details class="faq__item reveal">
-                <summary>Do I need any experience to join this course?</summary>
-                <div class="faq__answer">No prior experience necessary. The course accommodates complete beginners and wellness enthusiasts or practitioners seeking deeper knowledge, with step-by-step guidance throughout.</div>
-            </details>
-            <details class="faq__item reveal">
-                <summary>Will I be able to needle other people after taking this course?</summary>
-                <div class="faq__answer">This course targets personal use exclusively. Informal use with family or close friends (done safely with consent) is acceptable, but you cannot offer paid acupuncture services or claim practitioner status. UK professional practice requires certified training and insurance.</div>
-            </details>
-            <details class="faq__item reveal">
-                <summary>Is this course accredited or certified?</summary>
-                <div class="faq__answer">This course does not offer a formal qualification. It is designed for personal development, self-care, and wellness education. A completion certificate may be provided but it is not a professional practice licence.</div>
-            </details>
-            <details class="faq__item reveal">
-                <summary>Can I do the course online or in person?</summary>
-                <div class="faq__answer">Currently the course is in-person only. Sessions feature interactive, practical instruction with demonstrations and Q&amp;A opportunities in Kensington, London.</div>
-            </details>
-            <details class="faq__item reveal">
-                <summary>What&rsquo;s included in the course?</summary>
-                <div class="faq__answer">A digital PDF guide with diagrams and safety information, a recommended tools and suppliers list, sterile needles provided during training sessions, and ongoing support for questions and guidance between sessions.</div>
-            </details>
-            <details class="faq__item reveal">
-                <summary>Will I learn how to choose the right acupuncture points for different conditions?</summary>
-                <div class="faq__answer">Yes. You&rsquo;ll learn how to locate and use points for stress, anxiety, relaxation, headaches, muscular pain, sleep, energy balance, digestion, immunity, and more&mdash;always emphasising safe personal use.</div>
-            </details>
-            <details class="faq__item reveal">
-                <summary>Do I need my own acupuncture needles?</summary>
-                <div class="faq__answer">No needles are required beforehand. Sterile, single-use needles are provided during training. Additional packs are available for purchase. The digital guide includes trusted suppliers, needle type guidance, and safe storage and disposal tips.</div>
-            </details>
-            <details class="faq__item reveal">
-                <summary>Is self-acupuncture safe?</summary>
-                <div class="faq__answer">Generally safe when performed correctly with proper guidance. The course teaches proper hygiene, safety techniques, and helps you recognise when acupuncture supports natural body healing.</div>
-            </details>
-        </div>
-    </section>
+    <!-- PRODUCTS -->
+    <section class="products">
+        <div class="products__grid">
 
-    <!-- PRICING -->
-    <section class="pricing" id="pricing">
-        <div class="section-header">
-            <p class="section-label reveal">Pricing</p>
-            <h2 class="section-title reveal">Course Options</h2>
-        </div>
-        <div class="pricing__grid">
-            <!-- Group Course -->
-            <div class="pricing-card reveal">
-                <p class="pricing-card__type">Group</p>
-                <h3 class="pricing-card__title">Group Course</h3>
-                <p class="pricing-card__price">&pound;500</p>
-                <ul class="pricing-card__features">
-                    <li>Small group sessions (2&ndash;4 students)</li>
-                    <li>4 live sessions or weekend intensive</li>
-                    <li>Needles provided during the course</li>
-                    <li>Digital PDF guide &amp; resources</li>
-                    <li>Ongoing WhatsApp support</li>
-                    <li>Community access</li>
-                </ul>
-                <a href="https://wa.me/447521760405?text=Hi%20Yvonne%2C%20I%27d%20like%20to%20enquire%20about%20the%20group%20self-acupuncture%20course." class="btn btn--outline" target="_blank" rel="noopener">Enquire Now</a>
+            <!-- 1. Maverick Water Filter -->
+            <div class="product-card reveal">
+                <div class="product-card__img-wrap">
+                    <img class="product-card__img" src="https://miro.medium.com/v2/resize:fit:1400/0*YYVddOBzsDF13_Dy" alt="Maverick Under-Sink Water Filter" loading="lazy">
+                </div>
+                <div class="product-card__body">
+                    <p class="product-card__brand">Maverick Pure Water</p>
+                    <h3 class="product-card__title">Under-Sink Water Filter</h3>
+                    <p class="product-card__desc">A powerful under-sink filtration system that removes chlorine, fluoride, and other impurities&mdash;all in one unit, with no need for additional bolt-on filters. Clean, great-tasting filtered water straight from the tap, eliminating single-use plastic bottles.</p>
+                    <div class="product-card__discount">
+                        <span class="product-card__code">Use code: YVONNE10</span>
+                    </div>
+                    <div class="product-card__actions">
+                        <a href="https://maverickpurewater.com/?sca_ref=9183324.btFjcu0VJYr" class="btn btn--teal" target="_blank" rel="noopener">Shop now &rarr;</a>
+                        <a href="post-2.html" class="product-card__review">Read the review &rarr;</a>
+                    </div>
+                </div>
             </div>
-            <!-- Private 1:1 -->
-            <div class="pricing-card pricing-card--featured reveal">
-                <span class="pricing-card__badge">Most Popular</span>
-                <p class="pricing-card__type">Private</p>
-                <h3 class="pricing-card__title">Private 1:1 Course</h3>
-                <p class="pricing-card__price">&pound;750</p>
-                <ul class="pricing-card__features">
-                    <li>Everything in the group course</li>
-                    <li>Fully personalised guidance &amp; schedule</li>
-                    <li>Extra time for individual questions</li>
-                    <li>Detailed technique review</li>
-                    <li>Ideal for 1:1 attention</li>
-                    <li>Priority WhatsApp support</li>
-                </ul>
-                <a href="https://wa.me/447521760405?text=Hi%20Yvonne%2C%20I%27d%20like%20to%20enquire%20about%20the%20private%201%3A1%20self-acupuncture%20course." class="btn btn--teal" target="_blank" rel="noopener">Enquire Now</a>
+
+            <!-- 2. Curo Filtered Shower Head -->
+            <div class="product-card reveal">
+                <div class="product-card__img-wrap" style="background: linear-gradient(135deg, rgba(34,102,99,0.08), rgba(122,184,155,0.06)); display: flex; align-items: center; justify-content: center;">
+                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="rgba(34,102,99,0.3)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L12 6"/><circle cx="12" cy="12" r="6"/><path d="M8 14L6 22"/><path d="M16 14L18 22"/><path d="M12 18L12 22"/>
+                    </svg>
+                </div>
+                <div class="product-card__body">
+                    <p class="product-card__brand">Curo Skin</p>
+                    <h3 class="product-card__title">Filtered Shower Head</h3>
+                    <p class="product-card__desc">Transforms your daily shower into a wellness ritual by filtering out chlorine, heavy metals, and impurities while infusing water with skin-loving minerals. A simple swap that helps protect your skin and hair from the damaging effects of unfiltered tap water.</p>
+                    <div class="product-card__actions">
+                        <a href="https://curoskin.co.uk/" class="btn btn--teal" target="_blank" rel="noopener">Shop now &rarr;</a>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
 
-    <!-- ENROLLMENT CTA -->
-    <section class="enrollment-cta">
-        <div class="enrollment-cta__glow enrollment-cta__glow--1"></div>
-        <div class="enrollment-cta__glow enrollment-cta__glow--2"></div>
-        <div class="enrollment-cta__content">
-            <p class="section-label reveal" style="color: var(--color-gold);">Enroll Now</p>
-            <h2 class="enrollment-cta__title reveal">Enrollment Now Open</h2>
-            <p class="enrollment-cta__desc reveal">Limited spots available. Take the first step toward self-empowered healing&mdash;reach out today to reserve your place.</p>
-            <a href="https://wa.me/447521760405?text=Hi%20Yvonne%2C%20I%27d%20like%20to%20enroll%20in%20the%20self-acupuncture%20course." class="btn btn--gold btn--lg reveal" target="_blank" rel="noopener">Enquire Now &rarr;</a>
-        </div>
-    </section>
+            <!-- 3. Gutology Toothpaste -->
+            <div class="product-card reveal">
+                <div class="product-card__img-wrap">
+                    <img class="product-card__img" src="https://miro.medium.com/v2/resize:fit:1400/0*nW3UwKkcF31rGm98" alt="Gutology Organic Toothpaste" loading="lazy">
+                </div>
+                <div class="product-card__body">
+                    <p class="product-card__brand">Gutology</p>
+                    <h3 class="product-card__title">Organic Toothpaste</h3>
+                    <p class="product-card__desc">A fluoride-free toothpaste that uses hydroxyapatite&mdash;a mineral naturally found in teeth&mdash;to remineralise and strengthen enamel without harsh chemicals. Microbiome-friendly and enriched with postbiotics, it&rsquo;s vegan, SLS-free, and safe for children ages 3+.</p>
+                    <div class="product-card__actions">
+                        <a href="https://gutology.co.uk/?bg_ref=foVIdfFvEJ" class="btn btn--teal" target="_blank" rel="noopener">Shop now &rarr;</a>
+                        <a href="post-3.html" class="product-card__review">Read the review &rarr;</a>
+                    </div>
+                </div>
+            </div>
 
-    <!-- BACK LINK -->
-    <section class="back-link-section">
-        <a href="acupuncture.html" class="back-link">&larr; Back to Acupuncture</a>
+            <!-- 4. Aduna Super Greens -->
+            <div class="product-card reveal">
+                <div class="product-card__img-wrap">
+                    <img class="product-card__img" src="https://miro.medium.com/v2/resize:fit:1400/0*nlJYW9sskjvn4pfn" alt="Aduna Super Greens Powder" loading="lazy">
+                </div>
+                <div class="product-card__body">
+                    <p class="product-card__brand">Aduna</p>
+                    <h3 class="product-card__title">Super Greens Powder</h3>
+                    <p class="product-card__desc">A nutrient-dense blend of baobab, moringa, wheatgrass, spirulina, barley grass, and chlorella that delivers a natural energy boost, immune support, and clearer skin. Smooth enough to mix with just water&mdash;an effortless daily wellness ritual.</p>
+                    <div class="product-card__discount">
+                        <span class="product-card__code">Use code: VONNY20</span>
+                    </div>
+                    <div class="product-card__actions">
+                        <a href="https://aduna.com/" class="btn btn--teal" target="_blank" rel="noopener">Shop now &rarr;</a>
+                        <a href="post-4.html" class="product-card__review">Read the review &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Aduna Cacao Tea -->
+            <div class="product-card reveal">
+                <div class="product-card__img-wrap" style="background: linear-gradient(135deg, rgba(34,102,99,0.08), rgba(122,184,155,0.06)); display: flex; align-items: center; justify-content: center;">
+                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="rgba(34,102,99,0.3)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/>
+                    </svg>
+                </div>
+                <div class="product-card__body">
+                    <p class="product-card__brand">Aduna</p>
+                    <h3 class="product-card__title">Cacao Tea</h3>
+                    <p class="product-card__desc">A rich, chocolatey tea made from cacao shells that is naturally caffeine-free, delivering all the cosy warmth of hot chocolate without the jitters. A crowd favourite at Holistique events&mdash;the perfect relaxing evening ritual.</p>
+                    <div class="product-card__discount">
+                        <span class="product-card__code">Use code: VONNY20</span>
+                    </div>
+                    <div class="product-card__actions">
+                        <a href="https://aduna.com/" class="btn btn--teal" target="_blank" rel="noopener">Shop now &rarr;</a>
+                        <a href="post-4.html" class="product-card__review">Read the review &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. Citizens of Soil Olive Oil -->
+            <div class="product-card reveal">
+                <div class="product-card__img-wrap">
+                    <img class="product-card__img" src="https://miro.medium.com/v2/resize:fit:1400/0*lUYQ6WLet4RQvzks" alt="Citizens of Soil Extra Virgin Olive Oil" loading="lazy">
+                </div>
+                <div class="product-card__body">
+                    <p class="product-card__brand">Citizens of Soil</p>
+                    <h3 class="product-card__title">Extra Virgin Olive Oil</h3>
+                    <p class="product-card__desc">Single-origin, ethically sourced extra virgin olive oil pressed on small family-owned farms, loaded with polyphenols and heart-healthy monounsaturated fats. Delivered by letterbox-friendly subscription so you never run out of truly authentic EVOO.</p>
+                    <div class="product-card__actions">
+                        <a href="http://www.citizensofsoil.com/OLIVEYVONNE10" class="btn btn--teal" target="_blank" rel="noopener">Shop now &rarr;</a>
+                        <a href="post-5.html" class="product-card__review">Read the review &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. Down to Ground Grounding Mat -->
+            <div class="product-card reveal">
+                <div class="product-card__img-wrap">
+                    <img class="product-card__img" src="https://miro.medium.com/v2/resize:fit:1400/0*s_GHEaBXe50_Qv-J" alt="Down to Ground Grounding Sleep Mat" loading="lazy">
+                </div>
+                <div class="product-card__body">
+                    <p class="product-card__brand">Down to Ground</p>
+                    <h3 class="product-card__title">Grounding Sleep Mat</h3>
+                    <p class="product-card__desc">An earthing mat that slips under your fitted sheet and reconnects your body to the Earth&rsquo;s natural energy while you sleep. Associated with reduced inflammation and balanced stress hormones, it helps you fall asleep faster and wake up truly rested.</p>
+                    <div class="product-card__discount">
+                        <span class="product-card__code">Use code: VONNY10</span>
+                    </div>
+                    <div class="product-card__actions">
+                        <a href="https://downtoground.co/?snowball=VONNY10&utm_source=snowball&utm_medium=ambassadors-10-rev-share&utm_campaign=VONNY10" class="btn btn--teal" target="_blank" rel="noopener">Shop now &rarr;</a>
+                        <a href="post-6.html" class="product-card__review">Read the review &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </section>
 
     <!-- NEWSLETTER -->
@@ -663,7 +541,7 @@
             <div>
                 <p class="footer__col-title">Explore</p>
                 <ul class="footer__links">
-                    <li><a href="index.html#events" class="footer__link">What's On</a></li>
+                    <li><a href="events.html" class="footer__link">What's On</a></li>
                     <li><a href="acupuncture.html" class="footer__link">Acupuncture</a></li>
                     <li><a href="wellness-tools.html" class="footer__link">Wellness Tools</a></li>
                     <li><a href="index.html#testimonials" class="footer__link">Stories</a></li>
@@ -672,7 +550,7 @@
             <div>
                 <p class="footer__col-title">Community</p>
                 <ul class="footer__links">
-                    <li><a href="index.html#events" class="footer__link">Events</a></li>
+                    <li><a href="events.html" class="footer__link">Events</a></li>
                     <li><a href="index.html#gallery" class="footer__link">Gallery</a></li>
                     <li><a href="index.html#testimonials" class="footer__link">Testimonials</a></li>
                     <li><a href="https://wa.me/447521760405" class="footer__link" target="_blank" rel="noopener">WhatsApp Group</a></li>
@@ -722,7 +600,7 @@
             });
         }
 
-        // Reveal on scroll (IntersectionObserver)
+        // Reveal on scroll
         var reveals = document.querySelectorAll('.reveal');
         var observer = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
@@ -757,6 +635,7 @@
                 .finally(function() { btn.textContent = 'Subscribe'; btn.disabled = false; });
             });
         }
+
         function showMsg(form, text, type) {
             var ex = form.querySelector('.newsletter-message'); if (ex) ex.remove();
             var m = document.createElement('p'); m.className = 'newsletter-message ' + type; m.textContent = text;
