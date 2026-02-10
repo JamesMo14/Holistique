@@ -2313,27 +2313,30 @@
         // SECTION SNAPPING — GSAP ScrollTrigger.snap
         // ============================================
         function initSnapScrolling() {
-            var panels = gsap.utils.toArray('.panel');
-            var maxScroll = ScrollTrigger.maxScroll(window);
+            // Desktop only — skip snap on mobile for free scroll experience
+            if (window.innerWidth >= 768) {
+                var panels = gsap.utils.toArray('.panel');
+                var maxScroll = ScrollTrigger.maxScroll(window);
 
-            // Include position 0 (hero) so users can snap back to the top
-            var snapPositions = [0];
-            panels.forEach(function(panel) {
-                var absoluteTop = panel.getBoundingClientRect().top + window.scrollY;
-                snapPositions.push(Math.min(absoluteTop / maxScroll, 1));
-            });
+                // Include position 0 (hero) so users can snap back to the top
+                var snapPositions = [0];
+                panels.forEach(function(panel) {
+                    var absoluteTop = panel.getBoundingClientRect().top + window.scrollY;
+                    snapPositions.push(Math.min(absoluteTop / maxScroll, 1));
+                });
 
-            snapInstance = ScrollTrigger.create({
-                snap: {
-                    snapTo: gsap.utils.snap(snapPositions),
-                    duration: { min: 0.2, max: 0.6 },
-                    delay: 0.1,
-                    ease: 'power1.inOut',
-                    inertia: false
-                }
-            });
+                snapInstance = ScrollTrigger.create({
+                    snap: {
+                        snapTo: gsap.utils.snap(snapPositions),
+                        duration: { min: 0.2, max: 0.6 },
+                        delay: 0.1,
+                        ease: 'power1.inOut',
+                        inertia: false
+                    }
+                });
+            }
 
-            // Watch for scroll reaching hero area — fires regardless of how user gets there
+            // Watch for scroll reaching hero area — always active (both mobile and desktop)
             // (snap animation, natural scroll, Home key, etc.)
             var heroReturnTimer = null;
             function onScrollCheckHero() {
