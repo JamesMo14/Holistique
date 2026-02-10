@@ -313,6 +313,7 @@
            ============================================ */
         .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo); }
         .reveal.is-visible { opacity: 1; transform: translateY(0); }
+        .no-transition { transition: none !important; }
 
         /* ============================================
            RESPONSIVE
@@ -701,6 +702,15 @@
                 if (entry.isIntersecting) {
                     entry.target.classList.add('is-visible');
                     observer.unobserve(entry.target);
+                    // After reveal animation completes, remove transform/transition
+                    // to eliminate compositing layers that cause mobile scroll jitter
+                    entry.target.addEventListener('transitionend', function handler() {
+                        entry.target.removeEventListener('transitionend', handler);
+                        entry.target.classList.add('no-transition');
+                        entry.target.classList.remove('reveal', 'is-visible');
+                        entry.target.offsetHeight; // force reflow
+                        entry.target.classList.remove('no-transition');
+                    }, { once: true });
                 }
             });
         }, { threshold: 0.15 });
