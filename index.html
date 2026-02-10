@@ -874,9 +874,11 @@
             display: block;
         }
 
-        .event-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+        @media (hover: hover) {
+            .event-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+            }
         }
 
         .event-card__img {
@@ -1596,6 +1598,9 @@
             .hamburger {
                 display: block;
             }
+
+            .reveal, .reveal-scale, .stagger-item { opacity: 1; transform: none; }
+            .event-card { transition: none; }
 
             .hero {
                 min-height: 100vh;
@@ -2415,6 +2420,7 @@
         // ENTRANCE ANIMATIONS — Per section, triggered by scroll
         // ============================================
         function initEntranceAnimations() {
+            if (window.innerWidth <= 768) return;
             var panels = gsap.utils.toArray('.panel');
 
             panels.forEach(function(panel, i) {
@@ -2832,6 +2838,15 @@
             // Skip if reduced motion or Three.js not available
             if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
             if (typeof THREE === 'undefined') return;
+
+            // Skip WebGL pixel-reveal on mobile — too heavy for mobile GPUs
+            if (window.innerWidth <= 768) {
+                document.querySelectorAll('[data-pixel-reveal]').forEach(function(img) {
+                    img.style.opacity = '1';
+                    img.removeAttribute('data-pixel-reveal');
+                });
+                return;
+            }
 
             var images = document.querySelectorAll('img[data-pixel-reveal]');
             if (!images.length) return;
