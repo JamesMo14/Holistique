@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-02-14T18:06:38.779Z",
+  "lastSync": "2026-02-15T00:21:52.839Z",
   "organizationId": null,
   "upcoming": [
     {
@@ -12,7 +12,7 @@
       "venueName": "St Philip's Church, Earls Court Road",
       "city": "London",
       "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1173386516%2F216441982947%2F1%2Foriginal.20251222-111239?auto=format%2Ccompress&q=75&sharp=10&s=8594ed694086f242777ba623918d512c",
-      "status": "live"
+      "status": "started"
     },
     {
       "id": "1981591164516",
@@ -62,7 +62,7 @@
       "venueName": "Ranelagh Mansions",
       "city": "London",
       "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1176389988%2F216441982947%2F1%2Foriginal.20260201-194240?auto=format%2Ccompress&q=75&sharp=10&s=8043c52cbbc01a6519064bd59274f20a",
-      "status": "ended"
+      "status": "completed"
     },
     {
       "id": "1980907604971",
