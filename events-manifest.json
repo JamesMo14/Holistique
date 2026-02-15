@@ -1,19 +1,7 @@
 {
-  "lastSync": "2026-02-15T00:21:52.839Z",
+  "lastSync": "2026-02-15T06:18:24.294Z",
   "organizationId": null,
   "upcoming": [
-    {
-      "id": "1978825856405",
-      "name": "Valentines Ecstatic Dance in West London",
-      "description": "Get ready to dance your heart out at the Valentines Ecstatic Dance event, where love and music blend into a magical experience.",
-      "url": "https://www.eventbrite.co.uk/e/valentines-ecstatic-dance-in-west-london-tickets-1978825856405",
-      "startLocal": "2026-02-14T19:15:00",
-      "endLocal": "2026-02-14T21:30:00",
-      "venueName": "St Philip's Church, Earls Court Road",
-      "city": "London",
-      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1173386516%2F216441982947%2F1%2Foriginal.20251222-111239?auto=format%2Ccompress&q=75&sharp=10&s=8594ed694086f242777ba623918d512c",
-      "status": "started"
-    },
     {
       "id": "1981591164516",
       "name": "Weekend Retreat in the Cotswolds",
@@ -52,6 +40,18 @@
     }
   ],
   "past": [
+    {
+      "id": "1978825856405",
+      "name": "Valentines Ecstatic Dance in West London",
+      "description": "Get ready to dance your heart out at the Valentines Ecstatic Dance event, where love and music blend into a magical experience.",
+      "url": "https://www.eventbrite.co.uk/e/valentines-ecstatic-dance-in-west-london-tickets-1978825856405",
+      "startLocal": "2026-02-14T19:15:00",
+      "endLocal": "2026-02-14T21:30:00",
+      "venueName": "St Philip's Church, Earls Court Road",
+      "city": "London",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1173386516%2F216441982947%2F1%2Foriginal.20251222-111239?auto=format%2Ccompress&q=75&sharp=10&s=8594ed694086f242777ba623918d512c",
+      "status": "completed"
+    },
     {
       "id": "1982126386379",
       "name": "Galentine’s Fashion Tea Party",
@@ -182,18 +182,6 @@
       "venueName": "W14 8BQ",
       "city": "London",
       "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1050218183%2F216441982947%2F1%2Foriginal.20250610-211148?auto=format%2Ccompress&q=75&sharp=10&s=2ff15644e65e6c9444a2294d54994858",
-      "status": "completed"
-    },
-    {
-      "id": "1879731941839",
-      "name": "Transformational Breathwork Journey",
-      "description": "Join us for a powerful session of guided breath work to release stress, increase energy, and experience deep inner transformation!",
-      "url": "https://www.eventbrite.co.uk/e/transformational-breathwork-journey-tickets-1879731941839",
-      "startLocal": "2025-11-26T19:00:00",
-      "endLocal": "2025-11-26T21:00:00",
-      "venueName": "W14 8BQ",
-      "city": "London",
-      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1064101193%2F216441982947%2F1%2Foriginal.20250701-104235?auto=format%2Ccompress&q=75&sharp=10&s=02bd59b51273418500bead7c6a57347d",
       "status": "completed"
     }
   ]
