@@ -1,7 +1,19 @@
 {
-  "lastSync": "2026-02-21T06:12:40.194Z",
+  "lastSync": "2026-02-21T12:07:07.531Z",
   "organizationId": null,
   "upcoming": [
+    {
+      "id": "1983668180928",
+      "name": "Ecstatic Dance in West London",
+      "description": "Come experience ultimate freedom on the dance floor and meet like-minded people on the path of self awareness.",
+      "url": "https://www.eventbrite.co.uk/e/ecstatic-dance-in-west-london-tickets-1983668180928",
+      "startLocal": "2026-03-14T19:00:00",
+      "endLocal": "2026-03-14T21:30:00",
+      "venueName": "St Philip's Church, Earls Court Road",
+      "city": "London",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1173386521%2F216441982947%2F1%2Foriginal.20251222-111249?auto=format%2Ccompress&q=75&sharp=10&s=1d9f8db785fc4c9d59c7f128a7eebf5a",
+      "status": "live"
+    },
     {
       "id": "1981591164516",
       "name": "Weekend Retreat in the Cotswolds",
