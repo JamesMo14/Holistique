@@ -1,7 +1,19 @@
 {
-  "lastSync": "2026-02-24T18:20:26.369Z",
+  "lastSync": "2026-02-25T00:22:31.212Z",
   "organizationId": null,
   "upcoming": [
+    {
+      "id": "1983888442737",
+      "name": "Gong Bath Sound Healing Journey",
+      "description": "Immerse yourself in a restorative gong bath sound healing session with tea social to meet like-minded friends.",
+      "url": "https://www.eventbrite.co.uk/e/gong-bath-sound-healing-journey-tickets-1983888442737",
+      "startLocal": "2026-03-07T15:00:00",
+      "endLocal": "2026-03-07T17:00:00",
+      "venueName": "Tetbury Upton",
+      "city": "Tetbury Upton",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1050218183%2F216441982947%2F1%2Foriginal.20250610-211148?auto=format%2Ccompress&q=75&sharp=10&s=2ff15644e65e6c9444a2294d54994858",
+      "status": "live"
+    },
     {
       "id": "1983668180928",
       "name": "Ecstatic Dance in West London",
