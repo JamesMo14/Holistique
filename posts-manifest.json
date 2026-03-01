@@ -1,5 +1,5 @@
 {
-  "lastPostNumber": 12,
+  "lastPostNumber": 15,
   "posts": [
     {
       "number": 1,
@@ -59,7 +59,7 @@
     },
     {
       "number": 8,
-      "title": "Kundalini Made Me Do it\u2026",
+      "title": "Kundalini Made Me Do it…",
       "mediumUrl": "https://medium.com/@yvonne.holistique/kundalini-made-me-do-it-5a7b9c3d2e1f",
       "file": "post-8.html",
       "date": "Aug 21, 2025",
@@ -96,6 +96,30 @@
       "file": "post-12.html",
       "date": "Mar 19, 2025",
       "category": "Personal"
+    },
+    {
+      "number": 13,
+      "title": "I’ve Finally Found the Right Home Water Filter",
+      "mediumUrl": "https://medium.com/@yvonne.holistique/ive-finally-found-the-right-home-water-filter-7d880ceed531?source=rss-517af46e024b------2",
+      "file": "post-13.html",
+      "date": "Sep 28, 2025",
+      "category": "Water Filters"
+    },
+    {
+      "number": 14,
+      "title": "30 Days on Aduna Super Greens: My Everyday Ritual (Even in Cape Town!)",
+      "mediumUrl": "https://medium.com/@yvonne.holistique/30-days-on-aduna-super-greens-my-everyday-ritual-even-in-cape-town-f6a903cb37aa?source=rss-517af46e024b------2",
+      "file": "post-14.html",
+      "date": "Sep 27, 2025",
+      "category": "Smoothies"
+    },
+    {
+      "number": 15,
+      "title": "The Boy Who Cried “Gordan Ramsey”",
+      "mediumUrl": "https://medium.com/@yvonne.holistique/the-boy-who-cried-gordan-ramsey-b562dbe1c3df?source=rss-517af46e024b------2",
+      "file": "post-15.html",
+      "date": "Aug 23, 2025",
+      "category": "Friendship"
     }
   ]
 }

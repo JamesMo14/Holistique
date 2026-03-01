@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Boy Who Cried “Gordan Ramsey” — Holistique UK</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-weight: 300; font-size: 18px; background: #FFFFFF; color: #111827; line-height: 1.8; overflow-x: hidden; opacity: 0; transition: opacity 0.6s ease; }
+        body.loaded { opacity: 1; }
+        a { text-decoration: none; color: inherit; } img { display: block; max-width: 100%; }
+        .site-header { position: sticky; top: 0; z-index: 100; height: 80px; background: #FFFFFF; border-bottom: 1px solid #E5E7EB; display: flex; align-items: center; }
+        .header-inner { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+        .header-logo a { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 14px; text-transform: uppercase; letter-spacing: 0.2em; color: #111827; transition: opacity 200ms; }
+        .header-logo a:hover { opacity: 0.7; }
+        .header-nav { display: flex; align-items: center; gap: 32px; }
+        .header-nav a { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: #9CA3AF; transition: color 200ms; }
+        .header-nav a:hover { color: #111827; }
+        .article-hero { width: 100%; max-height: 560px; overflow: hidden; }
+        .article-hero img { width: 100%; height: 560px; object-fit: cover; }
+        .article-container { max-width: 720px; margin: 0 auto; padding: 48px 32px 80px; }
+        .article-category { display: inline-block; background: #F3F4F6; padding: 4px 12px; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #111827; }
+        .article-title { font-family: 'Marcellus', Georgia, serif; font-size: clamp(2rem, 5vw, 3rem); line-height: 1.15; margin-top: 16px; color: #111827; }
+        .article-subtitle { font-weight: 300; font-size: 1.25rem; color: #6B7280; margin-top: 16px; line-height: 1.5; padding-left: 16px; border-left: 2px solid #E5E7EB; }
+        .article-meta { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9CA3AF; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 24px; padding-bottom: 32px; border-bottom: 1px solid #E5E7EB; }
+        .article-body { margin-top: 40px; }
+        .article-body p { margin-bottom: 24px; font-size: 18px; line-height: 1.8; color: #374151; }
+        .article-body p strong { font-weight: 600; color: #111827; }
+        .article-body p em { font-style: italic; color: #6B7280; }
+        .article-body h2 { font-family: 'Marcellus', Georgia, serif; font-size: 1.75rem; margin: 48px 0 24px; color: #111827; line-height: 1.2; }
+        .article-body ul { margin: 0 0 24px 0; padding-left: 0; list-style: none; }
+        .article-body ul li { padding: 8px 0 8px 24px; position: relative; font-size: 18px; line-height: 1.8; color: #374151; }
+        .article-body ul li::before { content: ''; position: absolute; left: 0; top: 18px; width: 6px; height: 6px; background: #111827; border-radius: 50%; }
+        .article-body blockquote { margin: 32px 0; padding: 24px 32px; border-left: 3px solid #111827; background: #F9FAFB; font-style: italic; color: #374151; }
+        .article-body .separator { text-align: center; margin: 48px 0; color: #D1D5DB; font-size: 1.5rem; letter-spacing: 0.5em; }
+        .article-body a { color: #111827; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+        .article-body a:hover { color: #6B7280; }
+        .author-bio { margin-top: 64px; padding-top: 32px; border-top: 1px solid #E5E7EB; font-size: 15px; color: #6B7280; line-height: 1.7; }
+        .back-link { display: inline-block; margin-top: 48px; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; color: #9CA3AF; transition: color 200ms; }
+        .back-link:hover { color: #111827; }
+        .back-link::before { content: '\2190\00a0\00a0'; }
+        .article-newsletter { margin-top: 48px; padding: 32px; border: 2px solid #111827; text-align: center; }
+        .article-newsletter__heading { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 15px; color: #111827; margin-bottom: 4px; }
+        .article-newsletter__sub { font-size: 14px; color: #6B7280; margin-bottom: 16px; }
+        .article-newsletter__row { display: flex; gap: 8px; }
+        .article-newsletter__row .newsletter-input { flex: 1; border: 1px solid #E5E7EB; background: #F9FAFB; padding: 12px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 300; color: #111827; }
+        .article-newsletter__row .newsletter-input::placeholder { color: #9CA3AF; }
+        .article-newsletter__row .newsletter-btn { background: #111827; color: #FFFFFF; text-transform: uppercase; letter-spacing: 0.1em; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 12px; padding: 12px 24px; border: none; cursor: pointer; transition: background 200ms; white-space: nowrap; }
+        .article-newsletter__row .newsletter-btn:hover { background: #000000; }
+        .article-newsletter__row .newsletter-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+        .newsletter-message { margin-top: 8px; font-size: 13px; text-align: center; }
+        .newsletter-message.success { color: #059669; }
+        .newsletter-message.error { color: #DC2626; }
+        @media (max-width: 480px) { .article-newsletter__row { flex-direction: column; } }
+        .site-footer { background: #F9FAFB; border-top: 1px solid #E5E7EB; padding: 32px 0; }
+        .footer-inner { display: flex; justify-content: space-between; align-items: center; max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+        .footer-copy { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #9CA3AF; text-transform: uppercase; letter-spacing: 0.1em; }
+        .footer-social { display: flex; gap: 20px; }
+        .footer-social a { display: flex; align-items: center; color: #9CA3AF; transition: color 200ms; }
+        .footer-social a:hover { color: #111827; }
+        .footer-social svg { width: 20px; height: 20px; }
+        @media (max-width: 768px) { .header-inner { padding: 0 20px; } .article-container { padding: 32px 20px 64px; } .article-hero img { height: 320px; } .footer-inner { padding: 0 20px; } }
+        @media (max-width: 480px) { .header-inner { padding: 0 16px; } .header-nav { gap: 20px; } .article-container { padding: 24px 16px 48px; } .article-hero img { height: 240px; } .footer-inner { flex-direction: column; gap: 16px; padding: 0 16px; } }
+    </style>
+</head>
+<body>
+    <header class="site-header"><div class="header-inner"><div class="header-logo"><a href="index.html">HOLISTIQUE</a></div><nav class="header-nav"><a href="index.html">Home</a><a href="blog.html">Journal</a><a href="#">About</a></nav></div></header>
+
+    <div class="article-hero">
+        <img src="https://cdn-images-1.medium.com/max/1024/0*yLWMqLZjVfLFcAXb" alt="The Boy Who Cried “Gordan Ramsey”">
+    </div>
+
+    <article class="article-container">
+        <span class="article-category">Friendship</span>
+        <h1 class="article-title">The Boy Who Cried “Gordan Ramsey”</h1>
+        <p class="article-subtitle">Locals</p>
+        <p class="article-meta">By Yvonne &middot; Aug 23, 2025 &middot; 11 Min Read</p>
+
+        <div class="article-body">
+            <h4>Locals</h4><h2>The Boy Who Cried “Gordan Ramsay”</h2><h4>Not to mention Beyonce and Jay-Z…</h4><p>This may be the first of many articles about some interesting characters I’ve met on locals app.</p><p>Or it may just be a one-off.</p><p>Chef Henry made his appearance into my life when he signed up for my dinner social event. This was just over a year ago when I was still hiring private chefs to cook for my events which had up to 30 attendees.</p><p>He showed up with a gorgeous cake that he made for the party, and he was eager to jump into action and help out in the kitchen. To be honest, my chef was a bit overwhelmed at these events pushing out plates of finger food to hungry guests all on her own. Of course I was on hand to help out, but it was way too much work even for the two of us. Chef Henry’s help was much appreciated.</p><p>I knew that he was trying to impress me so that he could work with me on events. As it happened, my current chef was taking a sabbatical in the countryside to care for her in laws as they moved to a new home. I had gotten used to having her cook for all my major events. It wasn’t just that it made things so much easier for me, but I was also able to enjoy the delicious food that she made. I was also picking up morsels of cooking skills just by watching and helping her out in the kitchen.</p><p>When Chef Henry showed up guns blazing, I was quite pleased to have a new teacher. Almost immediately we started to talk about possibly hosting some dinner events together. Although I couldn’t really understand why someone with his credentials would want to work with me. Doesn’t Gordon Ramsay keep him busy and profitable?</p><p>Of all the name-dropping that Chef Henry did, Gordon Ramsay kept coming up over and over again. I tend to take what people say at face value because I just take the stance of “innocent until proven guilty”, and how in the world was I going to prove that he didn’t work for the famous celebrity chef?</p><p>Looking back, I wonder if I wanted to believe his lies as much as he did simply because it would elevate my own events.</p><p>Come experience the dazzling culinary creations of a celebrity chef — as in a chef to the stars. Beyonce and Jay-Z were also on the list of Chef Henry’s inflated resume.</p><p>As some of my closer friends started to meet him, some of them would grill him with questions trying to catch his lies.</p><p>“What did you cook for them?”</p><p>“Oh Jay-Z and Beyonce? They loved my miso cod. Said it was the best they ever had.”</p><p>Chef Henry never missed a beat.</p><p>He spoke so confidently about his time working at the massive celebrity dinner parties where he not only was surrounded by the likes of Rihanna and Snoop Dog, but apparently the only time he was star-struck was when he met Ariana Grande.</p><p>Wait, let me guess… was her favourite dish also the miso cod?</p><p>During the month that we met, I was also asked to help find a chef to make food for an ecstatic dance event for nearly 500 people. We didn’t have to feed all the guests. It was more like a vendor situation where attendees of the event had the option to come to the table and purchase some snacks if they wanted.</p><p>I’d never cooked that much food in my life so I decided to get Chef Henry on board. Negotiating payment and various things pertaining that event was a bit like pulling teeth. There were some painfully awkward moments like when he insisted on being paid for the cooking, and also getting a cut of the profits from the food sales.</p><p>Somehow I managed to convince him that it was good enough getting profit from food sales. The organiser was already kind enough to cover our supplies and ingredients costs, so that we wouldn’t be out of pocket or risk losing money if nothing sold.</p><p>We worked so many hours in the week leading up to the event, soaking chickpeas, rolling date balls, and blending cacao mousse with the single NutriBullet I had at home. My kitchen was not equipped to handle making that much food.</p><p>We were also pressured by the event organiser to make a lot of food. She kept saying, “Oh you guys are going to make so much money from this!”</p><p>As it turned out, I was the only one who predicted accurately how much food would potentially be sold at the event, but the organiser insisted we should prepare for more.</p><p>At the last minute she even brought on another vendor who sold bliss balls as well as brownies. He took half of the sales, so we ended up with much less than we would’ve.</p><p>But I didn’t care about the money or profits. It was fun working with Chef Henry. We shouted at each other in the kitchen, always in jest. We laughed when we realised the portions were off and we had buckets full of chickpeas we didn’t actually need. Those little butt-like beans expand to at least double their size after soaking and boiling!</p><p>We ended up spending the entire week together, cooking for hours each day and having meals together. I’m quite a social person, so I had several friends over for dinner that week too.</p><p>Chef Henry whipped up various dishes on the whim using whatever he could find in my kitchen. When my friends showed up to dinner totally empty-handed, it was fine because we had plenty to eat.</p><p>Each time a new person showed up, I’d introduce him as Gordon Ramsay’s protege. His stories became more elaborate as my friends egged him on with more questions.</p><p>“How did you end up working with Gordon Ramsay?”</p><p>“Well I made my mark in Japan with the pastries… you see my grandfather invented Peking Duck in Hong Kong. My mom had a bakery and I started cooking since I was 3 years old…”</p><p>I wish I could’ve stopped him to ask for some evidence, but that’s not exactly how conversations go usually. You don’t just say to someone, “Really? Did you grandfather really invent Peking Duck? Show me the wikipedia page with his name on it, and your birth certificate, and your entire family tree.”</p><p>A part of me was thinking this could all be fibs, but maybe it was okay that he was embellishing his life story. It was clear from the start that he was a nerdy-looking guy who probably didn’t have much luck when it came to making friends. He has some serious social awkwardness so we cut him some slack. Maybe the lies were the only way he could feel comfortable being with people.</p><p>None of it really mattered to me anyway because his cooking was really good. The only time I thought something was amiss was when he told me he’d forgotten how to cost out the ingredients based on the portions we were making. I was alarmed at first, but I just gave him the benefit of the doubt and thought perhaps it was just his way of getting me to do the maths so he didn’t have to.</p><p>I didn’t mind anyway. I used Chatgpt to calculate the amounts we needed for all the ingredients. That’s also how I ended up with an entire freezer full of chickpeas for the next few months. Chatgpt isn’t as reliable I thought. There’s only so much hummus one can serve at parties before it gets boring.</p><p>The lies kept getting bigger, and then he started name dropping bakeries and brands that would call him in for his expert advice. His private chef clients flew him around the globe for private events. Why did he want to work with lil’ ol’ me for pennies compared to what he was making with celebrities and billionaires?</p><p>Apparently, he suffered more than one heart attack due to the stress of the private chef work. He was still in his 20s. It seemed a bit over the top, but even that didn’t faze me. I was still happy to work with him and even call him my friend.</p><p>His lies, though they were growing steadily, seemed perfectly harmless. Who cares if he bragged about working with celebrities? Or if Gordon Ramsay has dinner at his home regularly.</p><p>I didn’t even bat an eyelash when he started telling the lie about selling over £20k worth of cakes and pastries out of his home kitchen per week. I’d even offered to help with the packing of the cakes. I thought it would be fun to see the process and help a friend out!</p><blockquote>I believe that it’s in the every day mundane things you do with people you care about — that’s where the magic lies.</blockquote><p>For instance, I love packing and unpacking things for my friends when they are moving house or even just going on a trip. I once packed my friend’s suitcase neatly before she left my home to get on a flight.</p><p>If she did it herself, her suitcase probably wouldn’t shut properly.</p><p>Things with Chef Henry came to a screeching halt when he told his final lie. I didn’t mind so much when he was lying about his own life, but when he brought me into the equation that’s when I had to call him out on it.</p><p>Basically, my mom passed away and I had to rush over to Taiwan again. She’d been battling cancer for two whole years and I tried to visit her in Taiwan and California whenever I could. Sometimes taking up to two months off to be with her.</p><p>This trip wasn’t exactly going to be a walk in the park with the funeral and all the paperwork that needed to be done.</p><p>Chef Henry and I were supposed to host an Easter Brunch event with him cooking up the most delicious things like finger sandwiches and other brunch bits.</p><p>I was really looking forward to it, mainly because I love a good home cooked private chef meal.</p><p>Sadly, in my most vulnerable time he cooked up a new lie. “I have points on my Amex card that I can use to book your flights in business class.”</p><p>I’m very sensitive when people say things that they don’t end up doing because then it just seems like they are saying it to get brownie points, and he was definitely doing that.</p><p>He started telling some of my friends about his generous gesture, but he never actually planned to pay for my flights at all.</p><p>And it’s not like I asked him to, or even expected anything. He offered and it seemed like a good idea because then I could just fly right back to London in time for our event.</p><p>If it was something small like a girls’ trip or a holiday or whatever it wouldn’t have hit me as hard, but this was my mother’s funeral trip that he was messing around with.</p><p>You just don’t do that.</p><p>I was actually willing to talk it through and hoping that he could just stop lying or we could confront the issue head on and maybe even laugh about it some day.</p><p>“Remember that time you lied your ass off about so and so?”</p><p>To me, friendship is about being about to talk about the difficult things and moving on from it. Not letting it get in the way of the friendship, but also not putting up with bullshit. We can address things and make sure it doesn’t happen again.</p><p>So I sent him a long, well thought out message about how I appreciate his friendship and kindness, but that he’s been lying about things. I’m not naturally diplomatic or politically correct so I did use Chatgpt to get the tone right and be as considerate as possible.</p><p>Even after all that effort, all he replied was, “Oh ok.”</p><p>And that’s how my whirlwind friendship with Chef Henry came to a swift end.</p><p>If this piece resonated with you, tap the clap button (hold it for the full cosmic effect) and follow me for more writings on manifestation, spiritual, and sometimes sexy journey of being human. You can also support my work with a <a href="https://ko-fi.com/yvonneholistique">Ko-Fi tip</a> — thank you for fuelling the magic.</p><p>Yvonne is a former model and sex-party host turned acupuncturist and sound healer. Today she organises holistic events and retreats for her community of conscious souls in London. You can find her on Instagram: <a href="https://instagram.com/yvonne.holistique/">@yvonne.holistique</a></p><img src="https://medium.com/_/stat?event=post.clientViewed&referrerSource=full_rss&postId=b562dbe1c3df" width="1" height="1" alt="">
+        </div>
+
+        <div class="author-bio">
+            <p>Yvonne is a former model turned acupuncturist and sound healer. Today she organises holistic events and retreats for her community of conscious souls in London. You can find her on Instagram: <a href="https://instagram.com/yvonne.holistique/" target="_blank">@yvonne.holistique</a></p>
+        </div>
+
+        <div class="article-newsletter">
+            <p class="article-newsletter__heading">Enjoyed this article?</p>
+            <p class="article-newsletter__sub">Get new posts from Yvonne delivered to your inbox.</p>
+            <form id="newsletter-form" onsubmit="return false;">
+                <div class="article-newsletter__row">
+                    <input type="email" class="newsletter-input" placeholder="Your email address" required>
+                    <button type="submit" class="newsletter-btn">Subscribe</button>
+                </div>
+            </form>
+        </div>
+
+        <a href="blog-post.html" class="back-link">Back to Journal</a>
+    </article>
+
+    <footer class="site-footer"><div class="footer-inner"><span class="footer-copy">&copy; 2025 Holistique UK</span><div class="footer-social"><a href="https://instagram.com/yvonne.holistique/" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="5"></circle><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"></circle></svg></a><a href="https://medium.com/@yvonne.holistique" target="_blank" aria-label="Medium"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg></a></div></div></footer>
+
+    <script>
+    window.addEventListener('DOMContentLoaded', function() {
+        document.body.classList.add('loaded');
+        var SUBSCRIBE_URL = 'https://peter17tu.app.n8n.cloud/webhook/subscribe';
+        var nlForm = document.getElementById('newsletter-form');
+        if (nlForm) {
+            nlForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                var input = nlForm.querySelector('.newsletter-input');
+                var btn = nlForm.querySelector('.newsletter-btn');
+                var email = input.value.trim();
+                if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    showMsg(nlForm, 'Please enter a valid email address.', 'error'); return;
+                }
+                if (!SUBSCRIBE_URL) { showMsg(nlForm, 'Subscribe is not configured yet.', 'error'); return; }
+                btn.textContent = 'Subscribing...'; btn.disabled = true;
+                fetch(SUBSCRIBE_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: email }) })
+                .then(function(r) { return r.json(); })
+                .then(function(d) {
+                    if (d.success) { showMsg(nlForm, 'Welcome aboard! Check your inbox.', 'success'); input.value = ''; }
+                    else { showMsg(nlForm, d.error || 'Something went wrong.', 'error'); }
+                })
+                .catch(function() { showMsg(nlForm, 'Network error. Please try again.', 'error'); })
+                .finally(function() { btn.textContent = 'Subscribe'; btn.disabled = false; });
+            });
+        }
+        function showMsg(form, text, type) {
+            var ex = form.querySelector('.newsletter-message'); if (ex) ex.remove();
+            var m = document.createElement('p'); m.className = 'newsletter-message ' + type; m.textContent = text;
+            form.appendChild(m); setTimeout(function() { if (m.parentNode) m.remove(); }, 5000);
+        }
+    });
+    </script>
+</body>
+</html>
