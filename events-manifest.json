@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-03-03T12:10:58.648Z",
+  "lastSync": "2026-03-03T18:15:01.172Z",
   "organizationId": null,
   "upcoming": [
     {
@@ -11,7 +11,7 @@
       "endLocal": "2026-03-07T17:00:00",
       "venueName": "Tetbury Upton",
       "city": "Tetbury Upton",
-      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1050218183%2F216441982947%2F1%2Foriginal.20250610-211148?auto=format%2Ccompress&q=75&sharp=10&s=2ff15644e65e6c9444a2294d54994858",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1178921745%2F216441982947%2F1%2Foriginal.20260303-172139?auto=format%2Ccompress&q=75&sharp=10&s=cf5a4c3c38923c01355d3a6c6f03544d",
       "status": "live"
     },
     {
@@ -48,6 +48,18 @@
       "venueName": "Colet House",
       "city": "London",
       "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1173797836%2F216441982947%2F1%2Foriginal.20260101-165652?auto=format%2Ccompress&q=75&sharp=10&s=1dd03b1d9de94b7c7b7331e544adb3fb",
+      "status": "live"
+    },
+    {
+      "id": "1984384339979",
+      "name": "Chinese Tea Ceremony Workshop",
+      "description": "Get ready to sip your way through the art of Chinese tea ceremonies in this interactive workshop!",
+      "url": "https://www.eventbrite.co.uk/e/chinese-tea-ceremony-workshop-tickets-1984384339979",
+      "startLocal": "2026-04-26T10:00:00",
+      "endLocal": "2026-04-26T17:00:00",
+      "venueName": "Colet House",
+      "city": "London",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1112994503%2F216441982947%2F1%2Foriginal.20250903-142807?auto=format%2Ccompress&q=75&sharp=10&s=bb84a07046e525380ab1ed426a059d91",
       "status": "live"
     },
     {
