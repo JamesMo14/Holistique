@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-03-04T06:15:04.117Z",
+  "lastSync": "2026-03-04T12:10:05.375Z",
   "organizationId": null,
   "upcoming": [
     {
@@ -36,6 +36,18 @@
       "venueName": "Tetbury Upton",
       "city": "Tetbury Upton",
       "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1175947283%2F216441982947%2F1%2Foriginal.20260127-140354?auto=format%2Ccompress&q=75&sharp=10&s=b95961f5fedb008de2fe545dbfa1430d",
+      "status": "live"
+    },
+    {
+      "id": "1984392284742",
+      "name": "Gong Bath Duo Sound Healing Journey",
+      "description": "Immerse yourself in a restorative gong bath sound healing session with tea social to meet like-minded friends.",
+      "url": "https://www.eventbrite.co.uk/e/gong-bath-duo-sound-healing-journey-tickets-1984392284742",
+      "startLocal": "2026-04-12T15:00:00",
+      "endLocal": "2026-04-12T17:00:00",
+      "venueName": "Tetbury Upton",
+      "city": "Tetbury Upton",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1178916167%2F216441982947%2F1%2Foriginal.20260303-163540?auto=format%2Ccompress&q=75&sharp=10&s=38e40276380d79ca50301cfde871853d",
       "status": "live"
     },
     {
