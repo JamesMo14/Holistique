@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-03-06T12:09:43.844Z",
+  "lastSync": "2026-03-06T18:11:51.488Z",
   "organizationId": null,
   "upcoming": [
     {
@@ -36,6 +36,18 @@
       "venueName": "Tetbury Upton",
       "city": "Tetbury Upton",
       "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1175947283%2F216441982947%2F1%2Foriginal.20260127-140354?auto=format%2Ccompress&q=75&sharp=10&s=b95961f5fedb008de2fe545dbfa1430d",
+      "status": "live"
+    },
+    {
+      "id": "1984628064967",
+      "name": "Human Design Workshop",
+      "description": "Explore the unique energetic blueprint that shapes how you make decisions, interact with others, and move through life.",
+      "url": "https://www.eventbrite.co.uk/e/human-design-workshop-tickets-1984628064967",
+      "startLocal": "2026-03-28T15:00:00",
+      "endLocal": "2026-03-28T17:00:00",
+      "venueName": "Tetbury Upton",
+      "city": "Tetbury Upton",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1179206604%2F216441982947%2F1%2Foriginal.20260306-151320?auto=format%2Ccompress&q=75&sharp=10&s=dfa73c4de01a0a9b7cdf0a8cac5b46f1",
       "status": "live"
     },
     {
