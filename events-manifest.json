@@ -1,19 +1,7 @@
 {
-  "lastSync": "2026-03-07T18:05:45.798Z",
+  "lastSync": "2026-03-08T00:20:08.644Z",
   "organizationId": null,
   "upcoming": [
-    {
-      "id": "1983888442737",
-      "name": "Gong Bath Sound Healing Journey",
-      "description": "Immerse yourself in a restorative gong bath sound healing session with tea social to meet like-minded friends.",
-      "url": "https://www.eventbrite.co.uk/e/gong-bath-sound-healing-journey-tickets-1983888442737",
-      "startLocal": "2026-03-07T15:00:00",
-      "endLocal": "2026-03-07T17:00:00",
-      "venueName": "Tetbury Upton",
-      "city": "Tetbury Upton",
-      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1178921745%2F216441982947%2F1%2Foriginal.20260303-172139?auto=format%2Ccompress&q=75&sharp=10&s=cf5a4c3c38923c01355d3a6c6f03544d",
-      "status": "started"
-    },
     {
       "id": "1983668180928",
       "name": "Ecstatic Dance in West London",
@@ -100,6 +88,18 @@
     }
   ],
   "past": [
+    {
+      "id": "1983888442737",
+      "name": "Gong Bath Sound Healing Journey",
+      "description": "Immerse yourself in a restorative gong bath sound healing session with tea social to meet like-minded friends.",
+      "url": "https://www.eventbrite.co.uk/e/gong-bath-sound-healing-journey-tickets-1983888442737",
+      "startLocal": "2026-03-07T15:00:00",
+      "endLocal": "2026-03-07T17:00:00",
+      "venueName": "Tetbury Upton",
+      "city": "Tetbury Upton",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1178921745%2F216441982947%2F1%2Foriginal.20260303-172139?auto=format%2Ccompress&q=75&sharp=10&s=cf5a4c3c38923c01355d3a6c6f03544d",
+      "status": "ended"
+    },
     {
       "id": "1978825856405",
       "name": "Valentines Ecstatic Dance in West London",
@@ -230,18 +230,6 @@
       "venueName": "W14 8BQ",
       "city": "London",
       "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1170794113%2F216441982947%2F1%2Foriginal.20251112-161816?auto=format%2Ccompress&q=75&sharp=10&s=69a9b6a65e11d5b85e46cf6a092aee92",
-      "status": "completed"
-    },
-    {
-      "id": "1850439056029",
-      "name": "Gong Bath Sound Healing Journey",
-      "description": "Get ready to immerse yourself in a unique sound healing experience our Gong Bath Sound Healing Journey",
-      "url": "https://www.eventbrite.co.uk/e/gong-bath-sound-healing-journey-tickets-1850439056029",
-      "startLocal": "2025-12-11T19:00:00",
-      "endLocal": "2025-12-11T21:00:00",
-      "venueName": "W14 8BQ",
-      "city": "London",
-      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1050218183%2F216441982947%2F1%2Foriginal.20250610-211148?auto=format%2Ccompress&q=75&sharp=10&s=2ff15644e65e6c9444a2294d54994858",
       "status": "completed"
     }
   ]
