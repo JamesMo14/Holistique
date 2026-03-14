@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-03-14T06:15:41.202Z",
+  "lastSync": "2026-03-14T12:07:58.281Z",
   "organizationId": null,
   "upcoming": [
     {
@@ -24,6 +24,18 @@
       "venueName": "Tetbury Upton",
       "city": "Tetbury Upton",
       "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1178916167%2F216441982947%2F1%2Foriginal.20260303-163540?auto=format%2Ccompress&q=75&sharp=10&s=38e40276380d79ca50301cfde871853d",
+      "status": "live"
+    },
+    {
+      "id": "1985184051939",
+      "name": "Ecstatic Dance in West London",
+      "description": "Come experience ultimate freedom on the dance floor and meet like-minded people on the path of self awareness.",
+      "url": "https://www.eventbrite.co.uk/e/ecstatic-dance-in-west-london-tickets-1985184051939",
+      "startLocal": "2026-04-25T19:00:00",
+      "endLocal": "2026-04-25T21:30:00",
+      "venueName": "St Philip's Church, Earls Court Road",
+      "city": "London",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1179833541%2F216441982947%2F1%2Foriginal.20260314-070719?auto=format%2Ccompress&q=75&sharp=10&s=562c507d9e71d55c7b0a7b9959a7b2f5",
       "status": "live"
     },
     {
