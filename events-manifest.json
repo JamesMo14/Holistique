@@ -1,19 +1,7 @@
 {
-  "lastSync": "2026-03-14T18:08:06.019Z",
+  "lastSync": "2026-03-15T00:23:30.004Z",
   "organizationId": null,
   "upcoming": [
-    {
-      "id": "1983668180928",
-      "name": "Ecstatic Dance in West London",
-      "description": "Come experience ultimate freedom on the dance floor and meet like-minded people on the path of self awareness.",
-      "url": "https://www.eventbrite.co.uk/e/ecstatic-dance-in-west-london-tickets-1983668180928",
-      "startLocal": "2026-03-14T19:00:00",
-      "endLocal": "2026-03-14T21:30:00",
-      "venueName": "St Philip's Church, Earls Court Road",
-      "city": "London",
-      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1178090897%2F216441982947%2F1%2Foriginal.20260221-110234?auto=format%2Ccompress&q=75&sharp=10&s=cb7da0eac9b67ecb945295016990e4f3",
-      "status": "live"
-    },
     {
       "id": "1984392284742",
       "name": "Gong Bath Duo Sound Healing Journey",
@@ -64,6 +52,18 @@
     }
   ],
   "past": [
+    {
+      "id": "1983668180928",
+      "name": "Ecstatic Dance in West London",
+      "description": "Come experience ultimate freedom on the dance floor and meet like-minded people on the path of self awareness.",
+      "url": "https://www.eventbrite.co.uk/e/ecstatic-dance-in-west-london-tickets-1983668180928",
+      "startLocal": "2026-03-14T19:00:00",
+      "endLocal": "2026-03-14T21:30:00",
+      "venueName": "St Philip's Church, Earls Court Road",
+      "city": "London",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1178090897%2F216441982947%2F1%2Foriginal.20260221-110234?auto=format%2Ccompress&q=75&sharp=10&s=cb7da0eac9b67ecb945295016990e4f3",
+      "status": "ended"
+    },
     {
       "id": "1983888442737",
       "name": "Gong Bath Sound Healing Journey",
@@ -194,18 +194,6 @@
       "venueName": "W14 8BQ",
       "city": "London",
       "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1171896988%2F216441982947%2F1%2Foriginal.20251128-000609?auto=format%2Ccompress&q=75&sharp=10&s=f21ed4549b5cf22ee05df01a76796f60",
-      "status": "completed"
-    },
-    {
-      "id": "1977525621367",
-      "name": "Kundalini Activation: A Transmission of Life Force",
-      "description": "Get ready to awaken your inner energy and feel the life force flow at Kundalini Activation - it's going to be a powerful experience!",
-      "url": "https://www.eventbrite.co.uk/e/kundalini-activation-a-transmission-of-life-force-tickets-1977525621367",
-      "startLocal": "2025-12-13T13:00:00",
-      "endLocal": "2025-12-13T15:00:00",
-      "venueName": "W14 8BQ",
-      "city": "London",
-      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1170794113%2F216441982947%2F1%2Foriginal.20251112-161816?auto=format%2Ccompress&q=75&sharp=10&s=69a9b6a65e11d5b85e46cf6a092aee92",
       "status": "completed"
     }
   ]
