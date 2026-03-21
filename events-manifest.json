@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-03-20T18:12:35.989Z",
+  "lastSync": "2026-03-21T00:19:35.382Z",
   "organizationId": null,
   "upcoming": [
     {
@@ -12,6 +12,18 @@
       "venueName": "Tetbury Upton",
       "city": "Tetbury Upton",
       "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1178916167%2F216441982947%2F1%2Foriginal.20260303-163540?auto=format%2Ccompress&q=75&sharp=10&s=38e40276380d79ca50301cfde871853d",
+      "status": "live"
+    },
+    {
+      "id": "1985603126402",
+      "name": "Girls Weekend Retreat in The Cotswolds",
+      "description": "A chill weekend filled with laughter, cozy vibes, and unforgettable memories in the countryside.",
+      "url": "https://www.eventbrite.co.uk/e/girls-weekend-retreat-in-the-cotswolds-tickets-1985603126402",
+      "startLocal": "2026-04-18T14:00:00",
+      "endLocal": "2026-04-19T14:00:00",
+      "venueName": "GL8 8LP",
+      "city": "Tetbury",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1180345830%2F216441982947%2F1%2Foriginal.20260320-202300?auto=format%2Ccompress&q=75&sharp=10&s=4d21a84d8e4288b25a57335e8a25770b",
       "status": "live"
     },
     {
