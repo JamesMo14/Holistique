@@ -1,12 +1,12 @@
 {
-  "lastSync": "2026-03-26T18:21:29.963Z",
+  "lastSync": "2026-03-27T00:23:36.244Z",
   "organizationId": null,
   "upcoming": [
     {
       "id": "1984392284742",
-      "name": "Gong Bath Duo Sound Healing Journey",
+      "name": "Gong Bath Sound Healing Journey",
       "description": "Immerse yourself in a restorative gong bath sound healing session with tea social to meet like-minded friends.",
-      "url": "https://www.eventbrite.co.uk/e/gong-bath-duo-sound-healing-journey-tickets-1984392284742",
+      "url": "https://www.eventbrite.co.uk/e/gong-bath-sound-healing-journey-tickets-1984392284742",
       "startLocal": "2026-04-12T15:00:00",
       "endLocal": "2026-04-12T17:00:00",
       "venueName": "Tetbury Upton",
@@ -24,6 +24,18 @@
       "venueName": "GL8 8LP",
       "city": "Tetbury",
       "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1180345830%2F216441982947%2F1%2Foriginal.20260320-202300?auto=format%2Ccompress&q=75&sharp=10&s=4d21a84d8e4288b25a57335e8a25770b",
+      "status": "live"
+    },
+    {
+      "id": "1986024637152",
+      "name": "Women's Clothes Swap & Giveaway",
+      "description": "Let's swap clothes, share stories, and have a blast - it's the best way to refresh your wardrobe and make new friends!",
+      "url": "https://www.eventbrite.co.uk/e/womens-clothes-swap-giveaway-tickets-1986024637152",
+      "startLocal": "2026-04-25T13:00:00",
+      "endLocal": "2026-04-25T16:00:00",
+      "venueName": "Colet House",
+      "city": "London",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1180786008%2F216441982947%2F1%2Foriginal.20260326-194442?auto=format%2Ccompress&q=75&sharp=10&s=85b8eb60ed75e80ed0c29cd7702847d7",
       "status": "live"
     },
     {
