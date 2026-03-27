@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-03-27T06:27:02.012Z",
+  "lastSync": "2026-03-27T12:15:13.070Z",
   "organizationId": null,
   "upcoming": [
     {
@@ -72,6 +72,18 @@
       "venueName": "Colet House",
       "city": "London",
       "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1112994503%2F216441982947%2F1%2Foriginal.20250903-142807?auto=format%2Ccompress&q=75&sharp=10&s=bb84a07046e525380ab1ed426a059d91",
+      "status": "live"
+    },
+    {
+      "id": "1986027708338",
+      "name": "Overnight Sound Healing Journey",
+      "description": "Join us for a magical journey of relaxation and healing through the power of sound at Colet House.",
+      "url": "https://www.eventbrite.co.uk/e/overnight-sound-healing-journey-tickets-1986027708338",
+      "startLocal": "2026-07-25T21:00:00",
+      "endLocal": "2026-07-26T07:00:00",
+      "venueName": "Colet House",
+      "city": "London",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1171915731%2F216441982947%2F1%2Foriginal.20251128-125820?auto=format%2Ccompress&q=75&sharp=10&s=436b622b26ed3ddbc5c9026b25ab5b6d",
       "status": "live"
     }
   ],
