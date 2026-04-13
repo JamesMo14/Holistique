@@ -1,19 +1,7 @@
 {
-  "lastSync": "2026-04-12T18:12:50.300Z",
+  "lastSync": "2026-04-13T00:27:28.459Z",
   "organizationId": null,
   "upcoming": [
-    {
-      "id": "1984392284742",
-      "name": "Gong Bath Sound Healing Journey",
-      "description": "Immerse yourself in a restorative gong bath sound healing session with tea social to meet like-minded friends.",
-      "url": "https://www.eventbrite.co.uk/e/gong-bath-sound-healing-journey-tickets-1984392284742",
-      "startLocal": "2026-04-12T15:00:00",
-      "endLocal": "2026-04-12T17:00:00",
-      "venueName": "Tetbury Upton",
-      "city": "Tetbury Upton",
-      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1178916167%2F216441982947%2F1%2Foriginal.20260303-163540?auto=format%2Ccompress&q=75&sharp=10&s=38e40276380d79ca50301cfde871853d",
-      "status": "started"
-    },
     {
       "id": "1985603126402",
       "name": "Girls Weekend Retreat in The Cotswolds",
@@ -100,6 +88,18 @@
     }
   ],
   "past": [
+    {
+      "id": "1984392284742",
+      "name": "Gong Bath Sound Healing Journey",
+      "description": "Immerse yourself in a restorative gong bath sound healing session with tea social to meet like-minded friends.",
+      "url": "https://www.eventbrite.co.uk/e/gong-bath-sound-healing-journey-tickets-1984392284742",
+      "startLocal": "2026-04-12T15:00:00",
+      "endLocal": "2026-04-12T17:00:00",
+      "venueName": "Tetbury Upton",
+      "city": "Tetbury Upton",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1178916167%2F216441982947%2F1%2Foriginal.20260303-163540?auto=format%2Ccompress&q=75&sharp=10&s=38e40276380d79ca50301cfde871853d",
+      "status": "completed"
+    },
     {
       "id": "1983668180928",
       "name": "Ecstatic Dance in West London",
@@ -230,18 +230,6 @@
       "venueName": "W14 8BQ",
       "city": "London",
       "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1112994503%2F216441982947%2F1%2Foriginal.20250903-142807?auto=format%2Ccompress&q=75&sharp=10&s=bb84a07046e525380ab1ed426a059d91",
-      "status": "completed"
-    },
-    {
-      "id": "1976058302577",
-      "name": "Mantras & Sound Healing Journey",
-      "description": "Get ready to immerse yourself in a unique sound healing experience with mantras, bowls, gongs, and acupuncture",
-      "url": "https://www.eventbrite.co.uk/e/mantras-sound-healing-journey-tickets-1976058302577",
-      "startLocal": "2025-12-13T16:00:00",
-      "endLocal": "2025-12-13T18:00:00",
-      "venueName": "W14 8BQ",
-      "city": "London",
-      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1171896988%2F216441982947%2F1%2Foriginal.20251128-000609?auto=format%2Ccompress&q=75&sharp=10&s=f21ed4549b5cf22ee05df01a76796f60",
       "status": "completed"
     }
   ]
