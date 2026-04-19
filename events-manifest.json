@@ -1,19 +1,7 @@
 {
-  "lastSync": "2026-04-19T12:11:24.139Z",
+  "lastSync": "2026-04-19T18:12:52.653Z",
   "organizationId": null,
   "upcoming": [
-    {
-      "id": "1985603126402",
-      "name": "Girls Weekend Retreat in The Cotswolds",
-      "description": "A chill weekend filled with laughter, cozy vibes, and unforgettable memories in the countryside.",
-      "url": "https://www.eventbrite.co.uk/e/girls-weekend-retreat-in-the-cotswolds-tickets-1985603126402",
-      "startLocal": "2026-04-18T14:00:00",
-      "endLocal": "2026-04-19T14:00:00",
-      "venueName": "GL8 8LP",
-      "city": "Tetbury",
-      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1180345830%2F216441982947%2F1%2Foriginal.20260320-202300?auto=format%2Ccompress&q=75&sharp=10&s=4d21a84d8e4288b25a57335e8a25770b",
-      "status": "started"
-    },
     {
       "id": "1986024637152",
       "name": "Women's Clothes Swap & Giveaway",
@@ -88,6 +76,18 @@
     }
   ],
   "past": [
+    {
+      "id": "1985603126402",
+      "name": "Girls Weekend Retreat in The Cotswolds",
+      "description": "A chill weekend filled with laughter, cozy vibes, and unforgettable memories in the countryside.",
+      "url": "https://www.eventbrite.co.uk/e/girls-weekend-retreat-in-the-cotswolds-tickets-1985603126402",
+      "startLocal": "2026-04-18T14:00:00",
+      "endLocal": "2026-04-19T14:00:00",
+      "venueName": "GL8 8LP",
+      "city": "Tetbury",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1180345830%2F216441982947%2F1%2Foriginal.20260320-202300?auto=format%2Ccompress&q=75&sharp=10&s=4d21a84d8e4288b25a57335e8a25770b",
+      "status": "ended"
+    },
     {
       "id": "1984392284742",
       "name": "Gong Bath Sound Healing Journey",
@@ -218,18 +218,6 @@
       "venueName": "W14 8BQ",
       "city": "London",
       "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1064101193%2F216441982947%2F1%2Foriginal.20250701-104235?auto=format%2Ccompress&q=75&sharp=10&s=02bd59b51273418500bead7c6a57347d",
-      "status": "completed"
-    },
-    {
-      "id": "1974900103372",
-      "name": "Chinese Tea Ceremony Workshop",
-      "description": "Get ready to sip and swirl your way through the art of Chinese tea ceremonies in this interactive workshop!",
-      "url": "https://www.eventbrite.co.uk/e/chinese-tea-ceremony-workshop-tickets-1974900103372",
-      "startLocal": "2025-12-14T14:00:00",
-      "endLocal": "2025-12-14T17:00:00",
-      "venueName": "W14 8BQ",
-      "city": "London",
-      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1112994503%2F216441982947%2F1%2Foriginal.20250903-142807?auto=format%2Ccompress&q=75&sharp=10&s=bb84a07046e525380ab1ed426a059d91",
       "status": "completed"
     }
   ]
