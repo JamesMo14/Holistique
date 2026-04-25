@@ -1,19 +1,7 @@
 {
-  "lastSync": "2026-04-25T12:13:38.903Z",
+  "lastSync": "2026-04-25T18:13:55.334Z",
   "organizationId": null,
   "upcoming": [
-    {
-      "id": "1986024637152",
-      "name": "Women's Clothes Swap & Giveaway",
-      "description": "Let's swap clothes, share stories, and have a blast - it's the best way to refresh your wardrobe and make new friends!",
-      "url": "https://www.eventbrite.co.uk/e/womens-clothes-swap-giveaway-tickets-1986024637152",
-      "startLocal": "2026-04-25T13:00:00",
-      "endLocal": "2026-04-25T16:00:00",
-      "venueName": "Colet House",
-      "city": "London",
-      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1180786008%2F216441982947%2F1%2Foriginal.20260326-194442?auto=format%2Ccompress&q=75&sharp=10&s=85b8eb60ed75e80ed0c29cd7702847d7",
-      "status": "live"
-    },
     {
       "id": "1985184051939",
       "name": "Ecstatic Dance in West London",
@@ -76,6 +64,18 @@
     }
   ],
   "past": [
+    {
+      "id": "1986024637152",
+      "name": "Women's Clothes Swap & Giveaway",
+      "description": "Let's swap clothes, share stories, and have a blast - it's the best way to refresh your wardrobe and make new friends!",
+      "url": "https://www.eventbrite.co.uk/e/womens-clothes-swap-giveaway-tickets-1986024637152",
+      "startLocal": "2026-04-25T13:00:00",
+      "endLocal": "2026-04-25T16:00:00",
+      "venueName": "Colet House",
+      "city": "London",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1180786008%2F216441982947%2F1%2Foriginal.20260326-194442?auto=format%2Ccompress&q=75&sharp=10&s=85b8eb60ed75e80ed0c29cd7702847d7",
+      "status": "ended"
+    },
     {
       "id": "1985603126402",
       "name": "Girls Weekend Retreat in The Cotswolds",
@@ -206,18 +206,6 @@
       "venueName": "W14 8BQ",
       "city": "London",
       "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1050218183%2F216441982947%2F1%2Foriginal.20250610-211148?auto=format%2Ccompress&q=75&sharp=10&s=2ff15644e65e6c9444a2294d54994858",
-      "status": "completed"
-    },
-    {
-      "id": "1976009127493",
-      "name": "Transformational Breathwork Journey",
-      "description": "Join us for a powerful session of guided breath work to release stress, increase energy, and experience deep inner transformation!",
-      "url": "https://www.eventbrite.co.uk/e/transformational-breathwork-journey-tickets-1976009127493",
-      "startLocal": "2025-12-16T19:00:00",
-      "endLocal": "2025-12-16T21:00:00",
-      "venueName": "W14 8BQ",
-      "city": "London",
-      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1064101193%2F216441982947%2F1%2Foriginal.20250701-104235?auto=format%2Ccompress&q=75&sharp=10&s=02bd59b51273418500bead7c6a57347d",
       "status": "completed"
     }
   ]
