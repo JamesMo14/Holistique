@@ -1,31 +1,7 @@
 {
-  "lastSync": "2026-04-26T18:14:41.389Z",
+  "lastSync": "2026-04-27T00:30:30.433Z",
   "organizationId": null,
   "upcoming": [
-    {
-      "id": "1979459659126",
-      "name": "Day Retreat in London presented by HolistiqueUK",
-      "description": "Join us for a rejuvenating day retreat in London filled with wellness activities and transformative workshops.",
-      "url": "https://www.eventbrite.co.uk/e/day-retreat-in-london-presented-by-holistiqueuk-tickets-1979459659126",
-      "startLocal": "2026-04-26T09:30:00",
-      "endLocal": "2026-04-26T17:30:00",
-      "venueName": "Colet House",
-      "city": "London",
-      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1173797836%2F216441982947%2F1%2Foriginal.20260101-165652?auto=format%2Ccompress&q=75&sharp=10&s=1dd03b1d9de94b7c7b7331e544adb3fb",
-      "status": "started"
-    },
-    {
-      "id": "1984384339979",
-      "name": "Chinese Tea Ceremony Workshop",
-      "description": "Get ready to sip your way through the art of Chinese tea ceremonies in this interactive workshop!",
-      "url": "https://www.eventbrite.co.uk/e/chinese-tea-ceremony-workshop-tickets-1984384339979",
-      "startLocal": "2026-04-26T10:00:00",
-      "endLocal": "2026-04-26T17:00:00",
-      "venueName": "Colet House",
-      "city": "London",
-      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1112994503%2F216441982947%2F1%2Foriginal.20250903-142807?auto=format%2Ccompress&q=75&sharp=10&s=bb84a07046e525380ab1ed426a059d91",
-      "status": "started"
-    },
     {
       "id": "1987265913844",
       "name": "Gong Bath Sound Healing Journey",
@@ -52,6 +28,30 @@
     }
   ],
   "past": [
+    {
+      "id": "1984384339979",
+      "name": "Chinese Tea Ceremony Workshop",
+      "description": "Get ready to sip your way through the art of Chinese tea ceremonies in this interactive workshop!",
+      "url": "https://www.eventbrite.co.uk/e/chinese-tea-ceremony-workshop-tickets-1984384339979",
+      "startLocal": "2026-04-26T10:00:00",
+      "endLocal": "2026-04-26T17:00:00",
+      "venueName": "Colet House",
+      "city": "London",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1112994503%2F216441982947%2F1%2Foriginal.20250903-142807?auto=format%2Ccompress&q=75&sharp=10&s=bb84a07046e525380ab1ed426a059d91",
+      "status": "completed"
+    },
+    {
+      "id": "1979459659126",
+      "name": "Day Retreat in London presented by HolistiqueUK",
+      "description": "Join us for a rejuvenating day retreat in London filled with wellness activities and transformative workshops.",
+      "url": "https://www.eventbrite.co.uk/e/day-retreat-in-london-presented-by-holistiqueuk-tickets-1979459659126",
+      "startLocal": "2026-04-26T09:30:00",
+      "endLocal": "2026-04-26T17:30:00",
+      "venueName": "Colet House",
+      "city": "London",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1173797836%2F216441982947%2F1%2Foriginal.20260101-165652?auto=format%2Ccompress&q=75&sharp=10&s=1dd03b1d9de94b7c7b7331e544adb3fb",
+      "status": "completed"
+    },
     {
       "id": "1985184051939",
       "name": "Ecstatic Dance in West London",
@@ -170,30 +170,6 @@
       "venueName": "Colet House",
       "city": "London",
       "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1152718913%2F216441982947%2F1%2Foriginal.20251014-111857?auto=format%2Ccompress&q=75&sharp=10&s=d0986f467e05e7e7596fda12d045897b",
-      "status": "completed"
-    },
-    {
-      "id": "1977979922193",
-      "name": "Chinese Tea Ceremony Workshop",
-      "description": "Get ready to sip and swirl your way through the art of Chinese tea ceremonies in this interactive workshop!",
-      "url": "https://www.eventbrite.co.uk/e/chinese-tea-ceremony-workshop-tickets-1977979922193",
-      "startLocal": "2026-01-04T15:00:00",
-      "endLocal": "2026-01-04T18:00:00",
-      "venueName": "W14 8BQ",
-      "city": "London",
-      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1112994503%2F216441982947%2F1%2Foriginal.20250903-142807?auto=format%2Ccompress&q=75&sharp=10&s=bb84a07046e525380ab1ed426a059d91",
-      "status": "completed"
-    },
-    {
-      "id": "1977978275267",
-      "name": "New Year Chakra Brunch Potluck Social",
-      "description": "Join us for a fun and relaxed Chakra Brunch Potluck Social where we'll enjoy delicious food, good company, and positive energy vibes!",
-      "url": "https://www.eventbrite.co.uk/e/new-year-chakra-brunch-potluck-social-tickets-1977978275267",
-      "startLocal": "2026-01-04T11:00:00",
-      "endLocal": "2026-01-04T14:00:00",
-      "venueName": "W14 8BQ",
-      "city": "London",
-      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1112895263%2F216441982947%2F1%2Foriginal.20250903-130801?auto=format%2Ccompress&q=75&sharp=10&s=756e34ed18f6085c5912e375048eebe3",
       "status": "completed"
     }
   ]
