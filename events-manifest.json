@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-05-07T18:34:06.232Z",
+  "lastSync": "2026-05-08T00:34:10.670Z",
   "organizationId": null,
   "upcoming": [
     {
@@ -36,6 +36,18 @@
       "venueName": "St Philip's Church, Earls Court Road",
       "city": "London",
       "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1183200311%2F216441982947%2F1%2Foriginal.20260428-082520?auto=format%2Ccompress&q=75&sharp=10&s=20400b0b804949988b823bc1af511a13",
+      "status": "live"
+    },
+    {
+      "id": "1989045013178",
+      "name": "Women's Weekend Retreat in The Cotswolds",
+      "description": "A chill weekend filled with laughter, cozy vibes, and unforgettable memories in the countryside.",
+      "url": "https://www.eventbrite.co.uk/e/womens-weekend-retreat-in-the-cotswolds-tickets-1989045013178",
+      "startLocal": "2026-07-11T14:00:00",
+      "endLocal": "2026-07-12T14:00:00",
+      "venueName": "GL8 8LP",
+      "city": "Tetbury",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1180345830%2F216441982947%2F1%2Foriginal.20260320-202300?auto=format%2Ccompress&q=75&sharp=10&s=4d21a84d8e4288b25a57335e8a25770b",
       "status": "live"
     },
     {
