@@ -1,19 +1,7 @@
 {
-  "lastSync": "2026-05-09T12:19:32.746Z",
+  "lastSync": "2026-05-09T18:19:33.013Z",
   "organizationId": null,
   "upcoming": [
-    {
-      "id": "1988387033142",
-      "name": "Women’s Sustainable Fashion Tea Party in Chelsea",
-      "description": "Sip tea, slay styles, and celebrate friendship at the ultimate Fashion Tea Party!",
-      "url": "https://www.eventbrite.co.uk/e/womens-sustainable-fashion-tea-party-in-chelsea-tickets-1988387033142",
-      "startLocal": "2026-05-09T11:00:00",
-      "endLocal": "2026-05-09T14:00:00",
-      "venueName": "SW10 0ES",
-      "city": "London",
-      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1183203340%2F216441982947%2F1%2Foriginal.20260428-092411?auto=format%2Ccompress&q=75&sharp=10&s=6394c3dc5a2d656012c7c3026fe02da2",
-      "status": "started"
-    },
     {
       "id": "1987265913844",
       "name": "Gong Bath Sound Healing Journey",
@@ -76,6 +64,18 @@
     }
   ],
   "past": [
+    {
+      "id": "1988387033142",
+      "name": "Women’s Sustainable Fashion Tea Party in Chelsea",
+      "description": "Sip tea, slay styles, and celebrate friendship at the ultimate Fashion Tea Party!",
+      "url": "https://www.eventbrite.co.uk/e/womens-sustainable-fashion-tea-party-in-chelsea-tickets-1988387033142",
+      "startLocal": "2026-05-09T11:00:00",
+      "endLocal": "2026-05-09T14:00:00",
+      "venueName": "SW10 0ES",
+      "city": "London",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1183203340%2F216441982947%2F1%2Foriginal.20260428-092411?auto=format%2Ccompress&q=75&sharp=10&s=6394c3dc5a2d656012c7c3026fe02da2",
+      "status": "ended"
+    },
     {
       "id": "1984384339979",
       "name": "Chinese Tea Ceremony Workshop",
@@ -206,18 +206,6 @@
       "venueName": "Crockford Bridge Farm",
       "city": "Weybridge",
       "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1175276100%2F216441982947%2F1%2Foriginal.20260119-205232?auto=format%2Ccompress&q=75&sharp=10&s=b6a62c7dec96510ed50e8f3d7c95ba17",
-      "status": "completed"
-    },
-    {
-      "id": "1976171897342",
-      "name": "Overnight Sound Healing Journey",
-      "description": "Join us for a magical journey of relaxation and healing through the power of sound at Colet House.",
-      "url": "https://www.eventbrite.co.uk/e/overnight-sound-healing-journey-tickets-1976171897342",
-      "startLocal": "2026-01-10T21:00:00",
-      "endLocal": "2026-01-11T07:00:00",
-      "venueName": "Colet House",
-      "city": "London",
-      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1152718913%2F216441982947%2F1%2Foriginal.20251014-111857?auto=format%2Ccompress&q=75&sharp=10&s=d0986f467e05e7e7596fda12d045897b",
       "status": "completed"
     }
   ]
