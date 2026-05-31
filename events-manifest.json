@@ -1,19 +1,7 @@
 {
-  "lastSync": "2026-05-30T18:23:21.241Z",
+  "lastSync": "2026-05-31T00:41:48.061Z",
   "organizationId": null,
   "upcoming": [
-    {
-      "id": "1988383930863",
-      "name": "Flower Power Ecstatic Dance in West London",
-      "description": "Come experience ultimate freedom on the dance floor and meet like-minded people on the path of self awareness.",
-      "url": "https://www.eventbrite.co.uk/e/flower-power-ecstatic-dance-in-west-london-tickets-1988383930863",
-      "startLocal": "2026-05-30T19:15:00",
-      "endLocal": "2026-05-30T21:30:00",
-      "venueName": "St Philip's Church, Earls Court Road",
-      "city": "London",
-      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1183200311%2F216441982947%2F1%2Foriginal.20260428-082520?auto=format%2Ccompress&q=75&sharp=10&s=20400b0b804949988b823bc1af511a13",
-      "status": "live"
-    },
     {
       "id": "1989097771981",
       "name": "Women's Weekend Retreat in The Cotswolds",
@@ -100,6 +88,18 @@
     }
   ],
   "past": [
+    {
+      "id": "1988383930863",
+      "name": "Flower Power Ecstatic Dance in West London",
+      "description": "Come experience ultimate freedom on the dance floor and meet like-minded people on the path of self awareness.",
+      "url": "https://www.eventbrite.co.uk/e/flower-power-ecstatic-dance-in-west-london-tickets-1988383930863",
+      "startLocal": "2026-05-30T19:15:00",
+      "endLocal": "2026-05-30T21:30:00",
+      "venueName": "St Philip's Church, Earls Court Road",
+      "city": "London",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1183200311%2F216441982947%2F1%2Foriginal.20260428-082520?auto=format%2Ccompress&q=75&sharp=10&s=20400b0b804949988b823bc1af511a13",
+      "status": "ended"
+    },
     {
       "id": "1987265913844",
       "name": "Gong Bath Sound Healing Journey",
@@ -230,18 +230,6 @@
       "venueName": "St Philip's Church, Earls Court Road",
       "city": "London",
       "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1173386516%2F216441982947%2F1%2Foriginal.20251222-111239?auto=format%2Ccompress&q=75&sharp=10&s=8594ed694086f242777ba623918d512c",
-      "status": "completed"
-    },
-    {
-      "id": "1982126386379",
-      "name": "Galentine’s Fashion Tea Party",
-      "description": "Sip tea, slay styles, and celebrate friendship at the ultimate Galentine’s Fashion Tea Party!",
-      "url": "https://www.eventbrite.co.uk/e/galentines-fashion-tea-party-tickets-1982126386379",
-      "startLocal": "2026-02-14T12:00:00",
-      "endLocal": "2026-02-14T16:00:00",
-      "venueName": "Ranelagh Mansions",
-      "city": "London",
-      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1176389988%2F216441982947%2F1%2Foriginal.20260201-194240?auto=format%2Ccompress&q=75&sharp=10&s=8043c52cbbc01a6519064bd59274f20a",
       "status": "completed"
     }
   ]
