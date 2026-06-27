@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-06-27T12:27:43.904Z",
+  "lastSync": "2026-06-27T18:25:11.814Z",
   "organizationId": null,
   "upcoming": [
     {
@@ -12,7 +12,7 @@
       "venueName": "GL8 8LP",
       "city": "Tetbury",
       "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1184123556%2F216441982947%2F1%2Foriginal.20260508-143415?auto=format%2Ccompress&q=75&sharp=10&s=0bc8faf3c04372b82e43bda95788c11e",
-      "status": "live"
+      "status": "started"
     },
     {
       "id": "1989645175279",
@@ -24,7 +24,7 @@
       "venueName": "GL8 8LP",
       "city": "Tetbury",
       "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1184671783%2F216441982947%2F1%2Foriginal.20260515-101325?auto=format%2Ccompress&q=75&sharp=10&s=d66b54e73974ae649987a661598bc0e0",
-      "status": "live"
+      "status": "started"
     },
     {
       "id": "1989642539395",
