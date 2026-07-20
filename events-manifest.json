@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-07-20T07:04:21.137Z",
+  "lastSync": "2026-07-20T12:43:06.998Z",
   "organizationId": null,
   "upcoming": [
     {
@@ -24,6 +24,18 @@
       "venueName": "Colet House",
       "city": "London",
       "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1171915731%2F216441982947%2F1%2Foriginal.20251128-125820?auto=format%2Ccompress&q=75&sharp=10&s=436b622b26ed3ddbc5c9026b25ab5b6d",
+      "status": "live"
+    },
+    {
+      "id": "1994539074062",
+      "name": "8/8 Lions Gate Portal Day Retreat in The Wonder Wood",
+      "description": "Get ready to recharge and align your energy during the powerful Lions Gate Portal with this chill day retreat.",
+      "url": "https://www.eventbrite.co.uk/e/88-lions-gate-portal-day-retreat-in-the-wonder-wood-tickets-1994539074062",
+      "startLocal": "2026-08-08T14:30:00",
+      "endLocal": "2026-08-08T18:30:00",
+      "venueName": "Crockford Bridge Farm",
+      "city": "Weybridge",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1189196661%2F216441982947%2F1%2Foriginal.20260720-081805?auto=format%2Ccompress&q=75&sharp=10&s=1a5e3485f564a0abc198e0e593dc25f1",
       "status": "live"
     }
   ],
