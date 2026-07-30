@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-07-29T18:20:47.932Z",
+  "lastSync": "2026-07-30T00:27:53.442Z",
   "organizationId": null,
   "upcoming": [
     {
@@ -24,6 +24,18 @@
       "venueName": "GL8 8LP",
       "city": "Tetbury",
       "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1189702427%2F216441982947%2F1%2Foriginal.20260727-143700?auto=format%2Ccompress&q=75&sharp=10&s=59107b1d21853dc342272b49db4dc12f",
+      "status": "live"
+    },
+    {
+      "id": "1996006000679",
+      "name": "Overnight Sound Healing Journey",
+      "description": "Join us for a magical journey of relaxation and healing through the power of sound at Colet House.",
+      "url": "https://www.eventbrite.co.uk/e/overnight-sound-healing-journey-tickets-1996006000679",
+      "startLocal": "2026-10-17T21:00:00",
+      "endLocal": "2026-10-18T07:00:00",
+      "venueName": "Colet House",
+      "city": "London",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1171915731%2F216441982947%2F1%2Foriginal.20251128-125820?auto=format%2Ccompress&q=75&sharp=10&s=436b622b26ed3ddbc5c9026b25ab5b6d",
       "status": "live"
     }
   ],
