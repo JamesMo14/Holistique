@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-08-04T12:37:44.152Z",
+  "lastSync": "2026-08-04T18:32:15.544Z",
   "organizationId": null,
   "upcoming": [
     {
@@ -24,6 +24,18 @@
       "venueName": "GL8 8LP",
       "city": "Tetbury",
       "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1189702427%2F216441982947%2F1%2Foriginal.20260727-143700?auto=format%2Ccompress&q=75&sharp=10&s=59107b1d21853dc342272b49db4dc12f",
+      "status": "live"
+    },
+    {
+      "id": "1996638594785",
+      "name": "Ecstatic Dance in West London",
+      "description": "Come experience ultimate freedom on the dance floor and meet like-minded people on the path of self awareness.",
+      "url": "https://www.eventbrite.co.uk/e/ecstatic-dance-in-west-london-tickets-1996638594785",
+      "startLocal": "2026-09-19T19:15:00",
+      "endLocal": "2026-09-19T21:30:00",
+      "venueName": "St Philip's Church, Earls Court Road",
+      "city": "London",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1190280943%2F216441982947%2F1%2Foriginal.20260804-132846?auto=format%2Ccompress&q=75&sharp=10&s=649ae1ea45c9817f37976ade4154413a",
       "status": "live"
     },
     {
