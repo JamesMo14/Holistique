@@ -385,7 +385,8 @@ async function main() {
 
     // Load or create manifest (enrichment is never pruned).
     let manifest = { synced_at: null, items: [], enrichment: {} };
-    if (fs.existsSync(MANIFEST_PATH)) {
+    const manifestExisted = fs.existsSync(MANIFEST_PATH);
+    if (manifestExisted) {
         manifest = JSON.parse(fs.readFileSync(MANIFEST_PATH, 'utf8'));
         manifest.enrichment = manifest.enrichment || {};
         manifest.items = manifest.items || [];
@@ -458,23 +459,30 @@ async function main() {
 
     // ── Write ───────────────────────────────────────────────────────────────
 
-    const previousHash = JSON.stringify(manifest.items);
+    const itemsChanged = JSON.stringify(items) !== JSON.stringify(manifest.items);
+    const htmlChanged = withSchema !== pageHtml;
 
-    if (withSchema !== pageHtml) {
+    if (htmlChanged) {
         fs.writeFileSync(PAGE_PATH, withSchema, 'utf8');
         console.log('  Updated wellness-tools.html.');
     } else {
         console.log('  wellness-tools.html already up to date.');
     }
 
-    manifest.synced_at = new Date().toISOString();
-    manifest.items = items;
-    manifest.enrichment = enrichment;
-    fs.writeFileSync(MANIFEST_PATH, JSON.stringify(manifest, null, 2) + '\n', 'utf8');
-    console.log('Manifest updated.');
+    // Only rewrite the manifest when the item data itself differs. synced_at is
+    // deliberately left untouched otherwise, so an unchanged run produces no file
+    // writes at all and the workflow has nothing to commit.
+    if (itemsChanged || !manifestExisted) {
+        manifest.synced_at = new Date().toISOString();
+        manifest.items = items;
+        manifest.enrichment = enrichment;
+        fs.writeFileSync(MANIFEST_PATH, JSON.stringify(manifest, null, 2) + '\n', 'utf8');
+        console.log('Manifest updated.');
+    } else {
+        console.log('No changes — linktree-manifest.json is already up to date (synced_at left as-is).');
+    }
 
-    const newHash = JSON.stringify(items);
-    console.log(`WELLNESS_TOOLS_CHANGED=${newHash !== previousHash}`);
+    console.log(`WELLNESS_TOOLS_CHANGED=${itemsChanged}`);
 
     const missing = items.filter(i => !enrichment[i.key]).map(i => i.key);
     if (missing.length) {

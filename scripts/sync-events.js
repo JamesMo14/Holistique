@@ -249,7 +249,8 @@ async function main() {
 
     // Load or create manifest
     let manifest;
-    if (fs.existsSync(MANIFEST_PATH)) {
+    const manifestExisted = fs.existsSync(MANIFEST_PATH);
+    if (manifestExisted) {
         manifest = JSON.parse(fs.readFileSync(MANIFEST_PATH, 'utf8'));
     } else {
         manifest = { lastSync: null, upcoming: [], past: [] };
@@ -304,8 +305,8 @@ async function main() {
     // ── Update events.html ──────────────────────────────────────────────────
 
     if (fs.existsSync(EVENTS_PAGE_PATH)) {
-        let eventsHtml = fs.readFileSync(EVENTS_PAGE_PATH, 'utf8');
-        let changed = false;
+        const originalEventsHtml = fs.readFileSync(EVENTS_PAGE_PATH, 'utf8');
+        let eventsHtml = originalEventsHtml;
 
         // Upcoming section
         const upcomingContent = upcomingEvents.length > 0
@@ -320,7 +321,6 @@ async function main() {
         );
         if (updatedUpcoming) {
             eventsHtml = updatedUpcoming;
-            changed = true;
         } else {
             console.warn('  Warning: Could not find EVENTS-UPCOMING markers in events.html. Skipping upcoming section.');
         }
@@ -338,14 +338,15 @@ async function main() {
         );
         if (updatedPast) {
             eventsHtml = updatedPast;
-            changed = true;
         } else {
             console.warn('  Warning: Could not find EVENTS-PAST markers in events.html. Skipping past section.');
         }
 
-        if (changed) {
+        if (eventsHtml !== originalEventsHtml) {
             fs.writeFileSync(EVENTS_PAGE_PATH, eventsHtml, 'utf8');
             console.log('  Updated events.html.');
+        } else {
+            console.log('  events.html already up to date.');
         }
     } else {
         console.warn('  Warning: events.html not found. Skipping events page update.');
@@ -367,9 +368,11 @@ async function main() {
             '<!-- HOMEPAGE-EVENTS-END -->',
             homepageContent
         );
-        if (updatedIndex) {
+        if (updatedIndex && updatedIndex !== indexHtml) {
             fs.writeFileSync(INDEX_PATH, updatedIndex, 'utf8');
             console.log('  Updated index.html with top 3 upcoming events.');
+        } else if (updatedIndex) {
+            console.log('  index.html already up to date.');
         } else {
             console.warn('  Warning: Could not find HOMEPAGE-EVENTS markers in index.html. Skipping homepage update.');
         }
@@ -379,21 +382,26 @@ async function main() {
 
     // ── Update manifest ─────────────────────────────────────────────────────
 
-    manifest.lastSync = new Date().toISOString();
-    manifest.upcoming = upcomingData;
-    manifest.past = pastData;
+    // Only rewrite the manifest when the event data itself differs. lastSync is
+    // deliberately left untouched otherwise, so an unchanged run produces no file
+    // writes at all and the workflow has nothing to commit.
+    const newHash = JSON.stringify(upcomingData) + JSON.stringify(pastData);
+    const eventsChanged = newHash !== previousHash;
 
-    fs.writeFileSync(MANIFEST_PATH, JSON.stringify(manifest, null, 2) + '\n', 'utf8');
-    console.log('Manifest updated.');
+    if (eventsChanged || !manifestExisted) {
+        manifest.lastSync = new Date().toISOString();
+        manifest.upcoming = upcomingData;
+        manifest.past = pastData;
+
+        fs.writeFileSync(MANIFEST_PATH, JSON.stringify(manifest, null, 2) + '\n', 'utf8');
+        console.log('Manifest updated.');
+    } else {
+        console.log('No changes — events-manifest.json is already up to date (lastSync left as-is).');
+    }
 
     // ── Change detection ────────────────────────────────────────────────────
 
-    const newHash = JSON.stringify(upcomingData) + JSON.stringify(pastData);
-    if (newHash !== previousHash) {
-        console.log('EVENTS_CHANGED=true');
-    } else {
-        console.log('EVENTS_CHANGED=false');
-    }
+    console.log(`EVENTS_CHANGED=${eventsChanged}`);
 
     console.log(`Sync complete! ${upcomingEvents.length} upcoming, ${pastEvents.length} past event(s).`);
 }
