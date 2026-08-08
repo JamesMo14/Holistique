@@ -7,13 +7,21 @@
  *
  * Run: node scripts/sync-linktree.js
  *
+ * Products with no hand-written enrichment entry are auto-enriched from their own
+ * site's Open Graph tags. Precedence per field is:
+ *      enrichment (hand) > auto_enrichment (Open Graph) > Linktree item
+ *
  * One-off seeding of the enrichment map from the existing hand-written cards:
  *      node scripts/sync-linktree.js --seed
+ *
+ * Refetch every auto_enrichment entry (hand entries are never touched):
+ *      node scripts/sync-linktree.js --refresh-auto
  *
  * No env vars, no secrets required.
  */
 
 const https = require('https');
+const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
@@ -42,6 +50,12 @@ const SKIP_HOSTS = [
 
 // Suffixes that need three labels to reach the registrable domain.
 const TWO_PART_SUFFIXES = ['co.uk', 'org.uk', 'ac.uk', 'me.uk', 'com.au', 'co.nz', 'co.za', 'com.br', 'co.jp'];
+
+// Auto-enrichment: pull Open Graph data off each new product's own site.
+const AUTO_FETCH_TIMEOUT_MS = 10000;
+const AUTO_FETCH_MAX_BYTES = 1024 * 1024;
+const AUTO_FETCH_MAX_REDIRECTS = 5;
+const AUTO_FAILED_RETRY_DAYS = 7;
 
 const CARD_START = '<!-- WELLNESS-TOOLS-START -->';
 const CARD_END = '<!-- WELLNESS-TOOLS-END -->';
@@ -281,22 +295,262 @@ function seedEnrichmentFromPage(html) {
     return enrichment;
 }
 
+// ── Auto-Enrichment (Open Graph off the product's own site) ─────────────────
+
+/**
+ * Fetch a product page. Follows redirects, hard timeout, capped body size, and
+ * returns the post-redirect URL so relative image paths can be resolved.
+ */
+function fetchPage(url) {
+    return new Promise((resolve, reject) => {
+        let settled = false;
+        let redirects = 0;
+
+        const done = (err, value) => {
+            if (settled) return;
+            settled = true;
+            if (err) reject(err); else resolve(value);
+        };
+
+        const doRequest = (requestUrl) => {
+            let parsed;
+            try {
+                parsed = new URL(requestUrl);
+            } catch (e) {
+                return done(new Error(`Invalid URL: ${requestUrl}`));
+            }
+            const transport = parsed.protocol === 'http:' ? http : https;
+
+            const req = transport.get(requestUrl, {
+                headers: {
+                    'User-Agent': USER_AGENT,
+                    'Accept': 'text/html,application/xhtml+xml',
+                    'Accept-Language': 'en-GB,en;q=0.9',
+                },
+            }, (res) => {
+                if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
+                    res.resume();
+                    if (++redirects > AUTO_FETCH_MAX_REDIRECTS) {
+                        return done(new Error('Too many redirects'));
+                    }
+                    let next;
+                    try {
+                        next = new URL(res.headers.location, requestUrl).toString();
+                    } catch (e) {
+                        return done(new Error('Bad redirect target'));
+                    }
+                    return doRequest(next);
+                }
+                if (res.statusCode !== 200) {
+                    res.resume();
+                    return done(new Error(`HTTP ${res.statusCode}`));
+                }
+
+                let data = '';
+                let bytes = 0;
+                res.setEncoding('utf8');
+                res.on('data', (chunk) => {
+                    bytes += Buffer.byteLength(chunk, 'utf8');
+                    if (bytes <= AUTO_FETCH_MAX_BYTES) {
+                        data += chunk;
+                    } else {
+                        // Head metadata is long past by now — keep what we have and
+                        // stop reading. Settle first: destroy() raises 'aborted' on
+                        // the request, which would otherwise be read as a failure.
+                        done(null, { html: data, finalUrl: requestUrl });
+                        res.destroy();
+                    }
+                });
+                res.on('end', () => done(null, { html: data, finalUrl: requestUrl }));
+                res.on('error', err => done(err));
+            });
+
+            req.setTimeout(AUTO_FETCH_TIMEOUT_MS, () => {
+                req.destroy(new Error(`Timed out after ${AUTO_FETCH_TIMEOUT_MS}ms`));
+            });
+            req.on('error', err => done(err));
+        };
+
+        doRequest(url);
+    });
+}
+
+/**
+ * Parse every <meta> in the document head into a plain attribute map, tolerating
+ * either attribute order and single, double or unquoted values.
+ */
+function extractMetaTags(html) {
+    const headMatch = html.match(/<head[\s\S]*?<\/head>/i);
+    const head = headMatch ? headMatch[0] : html;
+    const tags = [];
+    const tagRe = /<meta\s+([^>]*?)\/?>/gi;
+    let m;
+    while ((m = tagRe.exec(head)) !== null) {
+        const attrs = {};
+        const attrRe = /([a-zA-Z0-9_:.-]+)\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'>]+))/g;
+        let a;
+        while ((a = attrRe.exec(m[1])) !== null) {
+            const value = a[2] !== undefined ? a[2] : (a[3] !== undefined ? a[3] : (a[4] || ''));
+            attrs[a[1].toLowerCase()] = value;
+        }
+        tags.push(attrs);
+    }
+    return tags;
+}
+
+/** First non-empty content for the given keys, in preference order. */
+function metaLookup(tags, keys) {
+    for (const key of keys) {
+        for (const tag of tags) {
+            const id = (tag.property || tag.name || tag.itemprop || '').toLowerCase();
+            if (id === key && tag.content && tag.content.trim()) {
+                return decodeEntities(tag.content);
+            }
+        }
+    }
+    return '';
+}
+
+/**
+ * Share metadata for one product page. Returns only the fields actually found,
+ * so a partial result is still useful.
+ */
+function extractShareMeta(html, finalUrl) {
+    const tags = extractMetaTags(html);
+
+    const rawImage = metaLookup(tags, ['og:image', 'og:image:url', 'og:image:secure_url', 'twitter:image', 'twitter:image:src']);
+    const description = truncateText(metaLookup(tags, ['og:description', 'description', 'twitter:description']), 280);
+    const brand = metaLookup(tags, ['og:site_name']);
+
+    let image = '';
+    if (rawImage) {
+        try {
+            image = new URL(rawImage, finalUrl).toString();
+        } catch (e) {
+            image = '';
+        }
+    }
+
+    const result = {};
+    if (brand) result.brand = brand;
+    if (description) result.description = description;
+    if (image) result.image = image;
+    return result;
+}
+
+/**
+ * A key is fetched when it has no hand entry and no usable auto entry. A "failed"
+ * stub suppresses retries until it ages out, so a dead site is not hit every 6 hours.
+ */
+function needsAutoFetch(key, enrichment, autoEnrichment, refreshAll) {
+    if (enrichment[key]) return false; // hand-curated wins; never fetch
+    const auto = autoEnrichment[key];
+    if (refreshAll) return true;
+    if (!auto) return true;
+    if (auto.failed) {
+        const age = Date.now() - Date.parse(auto.checked_at);
+        return !(age >= 0) || age > AUTO_FAILED_RETRY_DAYS * 24 * 60 * 60 * 1000;
+    }
+    return false;
+}
+
+/** Stable key order so the write gate does not trip on reordering alone. */
+function sortedByKey(obj) {
+    const out = {};
+    for (const key of Object.keys(obj).sort()) out[key] = obj[key];
+    return out;
+}
+
+/**
+ * Never throws: a product site being down must not fail the sync. Failures are
+ * recorded as stubs and the card falls back to Linktree's own data.
+ */
+async function buildAutoEnrichment(items, enrichment, previousAuto, refreshAll) {
+    const auto = Object.assign({}, previousAuto);
+    const targets = items.filter(item => needsAutoFetch(item.key, enrichment, auto, refreshAll));
+
+    if (targets.length === 0) {
+        console.log('  Auto-enrichment: nothing to fetch.');
+        return auto;
+    }
+
+    console.log(`  Auto-enrichment: fetching ${targets.length} product page(s)...`);
+    for (const item of targets) {
+        const previous = auto[item.key];
+        try {
+            const { html, finalUrl } = await fetchPage(item.url);
+            const meta = extractShareMeta(html, finalUrl);
+            if (Object.keys(meta).length > 0) {
+                auto[item.key] = meta;
+                console.log(`    ${item.key}: ${Object.keys(meta).join(', ')}`);
+                continue;
+            }
+            console.warn(`    ${item.key}: no share metadata found.`);
+        } catch (err) {
+            console.warn(`    ${item.key}: fetch failed (${err.message}).`);
+        }
+
+        // On a refresh, keep known-good data rather than discarding it for a stub.
+        if (refreshAll && previous && !previous.failed) {
+            console.warn(`    ${item.key}: keeping the previous auto entry.`);
+            auto[item.key] = previous;
+        } else {
+            auto[item.key] = { failed: true, checked_at: new Date().toISOString() };
+            console.warn(`    ${item.key}: recorded as failed; retry in ${AUTO_FAILED_RETRY_DAYS} days.`);
+        }
+    }
+
+    return auto;
+}
+
 // ── HTML Generators ─────────────────────────────────────────────────────────
 
 /**
- * Enrichment values are authored HTML (they carry &mdash; etc.) and must not be
- * escaped again. Linktree values are plain text and must be escaped.
+ * Resolve one card's fields once, for both the HTML and the JSON-LD.
+ *
+ * Precedence per field: hand enrichment > auto enrichment > Linktree item.
+ * Hand values are authored HTML (they carry &mdash; etc.) and must not be escaped
+ * again; auto and Linktree values are plain text and must be. The *Text variants
+ * are for JSON-LD, which is not HTML.
  */
-function generateCard(item, enrichment, index) {
+function resolveCard(item, enrichment, autoEnrichment) {
     const e = enrichment[item.key] || {};
+    const rawAuto = autoEnrichment[item.key];
+    const a = (rawAuto && !rawAuto.failed) ? rawAuto : {};
 
-    const href = e.url || item.url;
-    const image = e.image || item.thumbnail || '';
-    const brandHtml = e.brand || '';
-    const titleHtml = e.display_title || escapeHtml(item.title);
-    const descHtml = e.description || escapeHtml(item.description || '');
+    const pickHtml = (hand, auto, linktree) => {
+        if (hand) return hand;
+        if (auto) return escapeHtml(auto);
+        return linktree ? escapeHtml(linktree) : '';
+    };
+    const pickText = (hand, auto, linktree) => decodeEntities(hand) || auto || linktree || '';
 
-    const labelText = decodeEntities([brandHtml, titleHtml].filter(Boolean).join(' '));
+    return {
+        href: e.url || item.url,
+        image: e.image || a.image || item.thumbnail || '',
+        brandHtml: pickHtml(e.brand, a.brand, ''),
+        titleHtml: pickHtml(e.display_title, a.display_title, item.title),
+        descHtml: pickHtml(e.description, a.description, item.description),
+        brandText: pickText(e.brand, a.brand, ''),
+        titleText: pickText(e.display_title, a.display_title, item.title),
+        descText: pickText(e.description, a.description, item.description),
+        reviewHref: e.review_href || '',
+    };
+}
+
+function generateCard(item, enrichment, autoEnrichment, index) {
+    const { href, image, brandHtml, titleHtml, descHtml, reviewHref } = resolveCard(item, enrichment, autoEnrichment);
+
+    // og:site_name often repeats the title ("COG" + "COG Functional Soda ..."), which
+    // would give alt text like "COG COG Functional Soda ...". Drop the brand from the
+    // label when the title already covers it, ignoring case and accents.
+    const brandLabel = decodeEntities(brandHtml);
+    const titleLabel = decodeEntities(titleHtml);
+    const COMBINING_MARKS = new RegExp('[\\u0300-\\u036f]', 'g');
+    const flatten = s => s.normalize('NFD').replace(COMBINING_MARKS, '').toLowerCase();
+    const labelText = (brandLabel && !flatten(titleLabel).includes(flatten(brandLabel)))
+        ? `${brandLabel} ${titleLabel}`
+        : titleLabel;
     const alt = escapeHtml(labelText);
     const comment = labelText.replace(/--+/g, '-');
 
@@ -323,8 +577,8 @@ function generateCard(item, enrichment, index) {
     }
     lines.push('                    <div class="product-card__actions">');
     lines.push(`                        <a href="${escapeHtml(href)}" class="btn btn--teal" target="_blank" rel="sponsored noopener">Shop now &rarr;</a>`);
-    if (e.review_href) {
-        lines.push(`                        <a href="${escapeHtml(e.review_href)}" class="product-card__review">Read the review &rarr;</a>`);
+    if (reviewHref) {
+        lines.push(`                        <a href="${escapeHtml(reviewHref)}" class="product-card__review">Read the review &rarr;</a>`);
     }
     lines.push('                    </div>');
     lines.push('                </div>');
@@ -336,7 +590,7 @@ function generateCard(item, enrichment, index) {
 /**
  * Structured data is JSON, not HTML — entities must be decoded back to real characters.
  */
-function generateSchema(items, enrichment) {
+function generateSchema(items, enrichment, autoEnrichment) {
     const list = {
         '@context': 'https://schema.org',
         '@type': 'ItemList',
@@ -345,15 +599,15 @@ function generateSchema(items, enrichment) {
         'url': 'https://holistiqueuk.com/wellness-tools.html',
         'numberOfItems': items.length,
         'itemListElement': items.map((item, i) => {
-            const e = enrichment[item.key] || {};
-            const url = e.url || item.url;
-            const name = decodeEntities(e.display_title || item.title);
+            const card = resolveCard(item, enrichment, autoEnrichment);
+            const url = card.href;
+            const name = card.titleText;
             const product = {
                 '@type': 'Product',
                 'name': name,
-                'brand': { '@type': 'Brand', 'name': decodeEntities(e.brand) || name },
-                'description': decodeEntities(e.description) || item.description || name,
-                'image': e.image || item.thumbnail || '',
+                'brand': { '@type': 'Brand', 'name': card.brandText || name },
+                'description': card.descText || name,
+                'image': card.image,
                 'url': url,
                 'offers': {
                     '@type': 'Offer',
@@ -377,6 +631,7 @@ function generateSchema(items, enrichment) {
 
 async function main() {
     const seedMode = process.argv.includes('--seed');
+    const refreshAuto = process.argv.includes('--refresh-auto');
 
     if (!fs.existsSync(PAGE_PATH)) {
         console.error(`wellness-tools.html not found at ${PAGE_PATH}`);
@@ -384,11 +639,12 @@ async function main() {
     }
 
     // Load or create manifest (enrichment is never pruned).
-    let manifest = { synced_at: null, items: [], enrichment: {} };
+    let manifest = { synced_at: null, items: [], enrichment: {}, auto_enrichment: {} };
     const manifestExisted = fs.existsSync(MANIFEST_PATH);
     if (manifestExisted) {
         manifest = JSON.parse(fs.readFileSync(MANIFEST_PATH, 'utf8'));
         manifest.enrichment = manifest.enrichment || {};
+        manifest.auto_enrichment = manifest.auto_enrichment || {};
         manifest.items = manifest.items || [];
     }
 
@@ -439,11 +695,28 @@ async function main() {
     }
     console.log(`  Parsed ${items.length} product link(s).`);
 
-    // ── Render, verifying both marker pairs before writing anything ──────────
+    // Confirm the injection points exist before spending any product-page fetches.
+    for (const marker of [CARD_START, CARD_END, SCHEMA_START, SCHEMA_END]) {
+        if (pageHtml.indexOf(marker) === -1) {
+            console.error(`Could not find ${marker} in wellness-tools.html. No files written.`);
+            process.exit(1);
+        }
+    }
+
+    // ── Auto-enrichment ─────────────────────────────────────────────────────
 
     const enrichment = manifest.enrichment;
-    const cardsHtml = items.map((item, i) => generateCard(item, enrichment, i)).join('\n\n');
-    const schemaHtml = generateSchema(items, enrichment);
+    if (refreshAuto) {
+        console.log('  --refresh-auto: refetching every auto_enrichment entry.');
+    }
+    const autoEnrichment = sortedByKey(
+        await buildAutoEnrichment(items, enrichment, manifest.auto_enrichment, refreshAuto)
+    );
+
+    // ── Render, verifying both marker pairs before writing anything ──────────
+
+    const cardsHtml = items.map((item, i) => generateCard(item, enrichment, autoEnrichment, i)).join('\n\n');
+    const schemaHtml = generateSchema(items, enrichment, autoEnrichment);
 
     const withCards = replaceSection(pageHtml, CARD_START, CARD_END, cardsHtml);
     if (!withCards) {
@@ -460,6 +733,7 @@ async function main() {
     // ── Write ───────────────────────────────────────────────────────────────
 
     const itemsChanged = JSON.stringify(items) !== JSON.stringify(manifest.items);
+    const autoChanged = JSON.stringify(autoEnrichment) !== JSON.stringify(sortedByKey(manifest.auto_enrichment));
     const htmlChanged = withSchema !== pageHtml;
 
     if (htmlChanged) {
@@ -469,24 +743,28 @@ async function main() {
         console.log('  wellness-tools.html already up to date.');
     }
 
-    // Only rewrite the manifest when the item data itself differs. synced_at is
+    // Only rewrite the manifest when the synced data itself differs. synced_at is
     // deliberately left untouched otherwise, so an unchanged run produces no file
     // writes at all and the workflow has nothing to commit.
-    if (itemsChanged || !manifestExisted) {
+    if (itemsChanged || autoChanged || !manifestExisted) {
         manifest.synced_at = new Date().toISOString();
         manifest.items = items;
         manifest.enrichment = enrichment;
+        manifest.auto_enrichment = autoEnrichment;
         fs.writeFileSync(MANIFEST_PATH, JSON.stringify(manifest, null, 2) + '\n', 'utf8');
         console.log('Manifest updated.');
     } else {
         console.log('No changes — linktree-manifest.json is already up to date (synced_at left as-is).');
     }
 
-    console.log(`WELLNESS_TOOLS_CHANGED=${itemsChanged}`);
+    console.log(`WELLNESS_TOOLS_CHANGED=${itemsChanged || autoChanged}`);
 
-    const missing = items.filter(i => !enrichment[i.key]).map(i => i.key);
-    if (missing.length) {
-        console.log(`  Note: no enrichment yet for ${missing.join(', ')} (rendering Linktree fallbacks).`);
+    const bare = items.filter(i => {
+        const auto = autoEnrichment[i.key];
+        return !enrichment[i.key] && (!auto || auto.failed);
+    }).map(i => i.key);
+    if (bare.length) {
+        console.log(`  Note: no enrichment for ${bare.join(', ')} (rendering Linktree fallbacks).`);
     }
 
     console.log(`Sync complete! ${items.length} wellness tool(s).`);

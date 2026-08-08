@@ -1,5 +1,5 @@
 {
-  "synced_at": "2026-08-08T11:14:17.105Z",
+  "synced_at": "2026-08-08T12:02:16.494Z",
   "items": [
     {
       "key": "cogcogcog.com",
@@ -179,6 +179,22 @@
       "image": "https://nurateethcare.com/cdn/shop/files/StylIdeas_NPD_2025-18.jpg?v=1747073203&width=3000",
       "review_href": null,
       "url": "https://nurateethcare.com/?dt_id=2842464"
+    }
+  },
+  "auto_enrichment": {
+    "cogcogcog.com": {
+      "brand": "COG",
+      "description": "COG makes sparkling nootropic drinks with Lion's Mane and B-Vitamins. Boost focus and mental clarity. Free UK shipping over £30."
+    },
+    "grechka.co.uk": {
+      "brand": "Gréchka Buckwheat",
+      "description": "Introducing the first buckwheat brand in the UK advocating for well-being. Experience the finest quality buckwheat groats and buckwheat tea with us. Place your order now!",
+      "image": "https://static.wixstatic.com/media/15f2ef_f32a9b4ec481454c976680af33ba2304~mv2.png/v1/fill/w_600,h_315,al_c/15f2ef_f32a9b4ec481454c976680af33ba2304~mv2.png"
+    },
+    "nocrash.co.uk": {
+      "brand": "No Crash",
+      "description": "Functional & foundational support for modern performance. Functional mushrooms, adaptogens & vitamins — backed by science, results you feel. Vegan. Sugar free. Third-party tested.",
+      "image": "http://www.nocrash.co.uk/cdn/shop/files/7_91c82614-1830-4ccb-9ef1-ea307f9a397a.png?v=1779807109"
     }
   }
 }
