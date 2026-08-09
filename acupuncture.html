@@ -130,6 +130,7 @@
         .mobile-menu.is-open .mobile-menu__link:nth-child(4) { transition-delay: 0.25s; }
         .mobile-menu.is-open .mobile-menu__link:nth-child(5) { transition-delay: 0.3s; }
         .mobile-menu.is-open .mobile-menu__link:nth-child(6) { transition-delay: 0.35s; }
+        .mobile-menu.is-open .mobile-menu__link:nth-child(7) { transition-delay: 0.4s; }
 
         /* ============================================
            HERO
@@ -648,6 +649,7 @@
         <a href="index.html" class="header__logo">Holistique</a>
         <nav class="header__nav">
             <a href="index.html#services" class="header__link is-active">Services</a>
+            <a href="wellness-tools.html" class="header__link">Wellness Tools</a>
             <a href="index.html#events" class="header__link">What's On</a>
             <a href="index.html#gallery" class="header__link">Community</a>
             <a href="index.html#testimonials" class="header__link">Stories</a>
@@ -664,6 +666,7 @@
     <!-- MOBILE MENU -->
     <div class="mobile-menu" id="mobile-menu">
         <a href="index.html#services" class="mobile-menu__link">Services</a>
+        <a href="wellness-tools.html" class="mobile-menu__link">Wellness Tools</a>
         <a href="index.html#events" class="mobile-menu__link">What's On</a>
         <a href="index.html#gallery" class="mobile-menu__link">Community</a>
         <a href="index.html#testimonials" class="mobile-menu__link">Stories</a>
@@ -1065,16 +1068,6 @@
                     </span>
                     <svg class="booking-option__arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
                 </a>
-                <a class="booking-option" id="booking-email">
-                    <span class="booking-option__icon booking-option__icon--email">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                    </span>
-                    <span class="booking-option__text">
-                        <span class="booking-option__label">Email</span>
-                        <span class="booking-option__hint">Send an email to book</span>
-                    </span>
-                    <svg class="booking-option__arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                </a>
             </div>
         </div>
     </div>
@@ -1109,7 +1102,6 @@
                 <ul class="footer__links">
                     <li><a href="https://wa.me/447521760405" class="footer__link" target="_blank" rel="noopener">Get in Touch</a></li>
                     <li><a href="#" class="footer__link">Kensington, London</a></li>
-                    <li><a href="mailto:hello@holistiqueuk.com" class="footer__link">hello@holistiqueuk.com</a></li>
                 </ul>
             </div>
         </div>
@@ -1255,16 +1247,12 @@
         var bookingOverlay = document.getElementById('booking-overlay');
         var bookingClose = document.getElementById('booking-close');
         var bookingWhatsapp = document.getElementById('booking-whatsapp');
-        var bookingEmail = document.getElementById('booking-email');
         var bookingLabel = document.getElementById('booking-treatment-label');
 
         window.openBooking = function(treatmentName, messageSlug) {
             bookingLabel.textContent = treatmentName;
             var waText = encodeURIComponent('Hi Yvonne, I\'d like to book ' + messageSlug + '.');
             bookingWhatsapp.href = 'https://wa.me/447521760405?text=' + waText;
-            var emailSubject = encodeURIComponent('Booking enquiry: ' + treatmentName);
-            var emailBody = encodeURIComponent('Hi Yvonne,\n\nI\'d like to book ' + messageSlug + '.\n\nPlease could you let me know your availability?\n\nThank you');
-            bookingEmail.href = 'mailto:hello@holistiqueuk.com?subject=' + emailSubject + '&body=' + emailBody;
             bookingOverlay.classList.add('is-open');
             document.body.style.overflow = 'hidden';
         };
