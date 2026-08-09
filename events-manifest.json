@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-08-09T00:14:35.942Z",
+  "lastSync": "2026-08-09T18:08:23.345Z",
   "organizationId": null,
   "upcoming": [
     {
@@ -36,6 +36,18 @@
       "venueName": "Colet House",
       "city": "London",
       "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1171915731%2F216441982947%2F1%2Foriginal.20251128-125820?auto=format%2Ccompress&q=75&sharp=10&s=436b622b26ed3ddbc5c9026b25ab5b6d",
+      "status": "live"
+    },
+    {
+      "id": "1996034399621",
+      "name": "Day Retreat in London presented by HolistiqueUK",
+      "description": "Join us for a rejuvenating day retreat in London filled with wellness activities and transformative workshops.",
+      "url": "https://www.eventbrite.co.uk/e/day-retreat-in-london-presented-by-holistiqueuk-tickets-1996034399621",
+      "startLocal": "2026-10-25T09:30:00",
+      "endLocal": "2026-10-25T17:30:00",
+      "venueName": "Colet House",
+      "city": "London",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1190644838%2F216441982947%2F1%2Foriginal.20260809-122550?auto=format%2Ccompress&q=75&sharp=10&s=94938c571aba1ca2703bb4c1a87a1d10",
       "status": "live"
     }
   ],
