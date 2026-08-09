@@ -1,6 +1,14 @@
 {
-  "synced_at": "2026-08-08T12:02:16.494Z",
+  "synced_at": "2026-08-09T06:48:44.924Z",
   "items": [
+    {
+      "key": "my-aevum.com",
+      "title": "Aevum Longevity and inflammation complex for healthy ageing – AEVU",
+      "code": null,
+      "url": "https://my-aevum.com/YVONNE10",
+      "description": "A daily longevity and inflammation supplement routine designed to support recovery, lower inflammation, energy, and healthier ageing from the inside out.",
+      "thumbnail": "https://ugc.production.linktr.ee/d6d2338f-79a0-4456-8a5a-8a9d95723808_DV-single-product-shot.webp"
+    },
     {
       "key": "cogcogcog.com",
       "title": "COG Functional Soda for Focus & Energy",
@@ -190,6 +198,11 @@
       "brand": "Gréchka Buckwheat",
       "description": "Introducing the first buckwheat brand in the UK advocating for well-being. Experience the finest quality buckwheat groats and buckwheat tea with us. Place your order now!",
       "image": "https://static.wixstatic.com/media/15f2ef_f32a9b4ec481454c976680af33ba2304~mv2.png/v1/fill/w_600,h_315,al_c/15f2ef_f32a9b4ec481454c976680af33ba2304~mv2.png"
+    },
+    "my-aevum.com": {
+      "brand": "AEVUM",
+      "description": "A daily longevity and inflammation supplement routine designed to support recovery, lower inflammation, energy, and healthier ageing from the inside out.",
+      "image": "http://my-aevum.com/cdn/shop/files/DV_single_product_shot.webp?v=1777630147"
     },
     "nocrash.co.uk": {
       "brand": "No Crash",
