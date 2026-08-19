@@ -1,6 +1,14 @@
 {
-  "synced_at": "2026-08-18T18:47:08.155Z",
+  "synced_at": "2026-08-19T18:46:16.976Z",
   "items": [
+    {
+      "key": "nurateethcare.com",
+      "title": "12% Hydroxyapatite Nura Toothpaste",
+      "code": "YVONNE",
+      "url": "https://nurateethcare.com/YVONNE",
+      "description": "The only toothpaste with 12% Hydroxyapatite (HAP). Proven to renew and repair enamel, whiten, and designed for sensitivity. Twice the remineralisation of Fluoride. Powered by nano-Hydroxyapatite. Developed in the UK. Tested by the University of Milan. Welcome to the future of...",
+      "thumbnail": "https://ugc.production.linktr.ee/f276a577-8153-44df-a507-5b1bff6e11e4_Google-Preview-Image3.png"
+    },
     {
       "key": "my-aevum.com",
       "title": "Aevum Longevity Supplement",
@@ -18,12 +26,12 @@
       "thumbnail": "https://ugc.production.linktr.ee/3b14b3fc-110f-4cd7-b7fa-4f8fd39d2983_d9c55e2c-7248-4ea2-a26c-b30a6aa5cf57.jpeg"
     },
     {
-      "key": "nurateethcare.com",
-      "title": "12% Hydroxyapatite Nura Toothpaste",
-      "code": "YVONNE",
-      "url": "https://nurateethcare.com/YVONNE",
-      "description": "The only toothpaste with 12% Hydroxyapatite (HAP). Proven to renew and repair enamel, whiten, and designed for sensitivity. Twice the remineralisation of Fluoride. Powered by nano-Hydroxyapatite. Developed in the UK. Tested by the University of Milan. Welcome to the future of...",
-      "thumbnail": "https://ugc.production.linktr.ee/f276a577-8153-44df-a507-5b1bff6e11e4_Google-Preview-Image3.png"
+      "key": "forplay.co.uk",
+      "title": "For Play Libido Chocolates",
+      "code": "VONNY15",
+      "url": "https://forplay.co.uk/123",
+      "description": "Discover 3 intimate experiences, featuring exquisite chocolates infused with a thrilling mix of natural adaptogens and play cards designed to spark intimate adventures.",
+      "thumbnail": "https://ugc.production.linktr.ee/41def03f-6e99-481e-9f7f-52231cbee81a_Shopify---Social-Sharing.webp"
     },
     {
       "key": "aduna.com",
@@ -193,6 +201,11 @@
     "cogcogcog.com": {
       "brand": "COG",
       "description": "COG makes sparkling nootropic drinks with Lion's Mane and B-Vitamins. Boost focus and mental clarity. Free UK shipping over £30."
+    },
+    "forplay.co.uk": {
+      "brand": "For Play",
+      "description": "Discover 3 intimate experiences, featuring exquisite chocolates infused with a thrilling mix of natural adaptogens and play cards designed to spark intimate adventures.",
+      "image": "http://forplay.co.uk/cdn/shop/files/Shopify_-_Social_Sharing.png?v=1702289722&width=2048"
     },
     "grechka.co.uk": {
       "brand": "Gréchka Buckwheat",
