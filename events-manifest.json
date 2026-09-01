@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-08-09T18:08:23.345Z",
+  "lastSync": "2026-09-01T12:12:09.791Z",
   "organizationId": null,
   "upcoming": [
     {
@@ -12,6 +12,18 @@
       "venueName": "GL8 8LP",
       "city": "Tetbury",
       "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1189702427%2F216441982947%2F1%2Foriginal.20260727-143700?auto=format%2Ccompress&q=75&sharp=10&s=59107b1d21853dc342272b49db4dc12f",
+      "status": "live"
+    },
+    {
+      "id": "1999362279399",
+      "name": "Sunday Run Club",
+      "description": "Kick off your Sunday with a chill run and good vibes—perfect for all levels looking to move and mingle.",
+      "url": "https://www.eventbrite.co.uk/e/sunday-run-club-tickets-1999362279399",
+      "startLocal": "2026-09-06T10:00:00",
+      "endLocal": "2026-09-06T12:00:00",
+      "venueName": "NOUR",
+      "city": "London",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1192348049%2F216441982947%2F1%2Foriginal.20260901-092418?auto=format%2Ccompress&q=75&sharp=10&s=be55f76cfae92127a167268b434e3089",
       "status": "live"
     },
     {
