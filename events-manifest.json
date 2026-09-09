@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-09-07T18:09:11.841Z",
+  "lastSync": "2026-09-09T12:11:37.054Z",
   "organizationId": null,
   "upcoming": [
     {
@@ -15,6 +15,18 @@
       "status": "live"
     },
     {
+      "id": "2000253386725",
+      "name": "THE EMBER HOUR  An Autumn Equinox Goddess Gathering",
+      "description": "Celebrate the magic of autumn with a cozy gathering of goddesses, good vibes, and soulful connections.",
+      "url": "https://www.eventbrite.co.uk/e/the-ember-hour-an-autumn-equinox-goddess-gathering-tickets-2000253386725",
+      "startLocal": "2026-09-20T15:30:00",
+      "endLocal": "2026-09-20T19:30:00",
+      "venueName": "Crockford Bridge Farm",
+      "city": "Weybridge",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1193037603%2F216441982947%2F1%2Foriginal.20260909-083846?auto=format%2Ccompress&q=75&sharp=10&s=f2b1ca5422f554b07d232025e9b490bb",
+      "status": "live"
+    },
+    {
       "id": "1996006000679",
       "name": "Overnight Sound Healing Journey",
       "description": "Join us for a magical journey of relaxation and healing through the power of sound at Colet House.",
@@ -23,7 +35,7 @@
       "endLocal": "2026-10-18T07:00:00",
       "venueName": "Colet House",
       "city": "London",
-      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1171915731%2F216441982947%2F1%2Foriginal.20251128-125820?auto=format%2Ccompress&q=75&sharp=10&s=436b622b26ed3ddbc5c9026b25ab5b6d",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1193034553%2F216441982947%2F1%2Foriginal.20260909-073006?auto=format%2Ccompress&q=75&sharp=10&s=55c0f2acfa15b10ab4ead9bee7c0ca5c",
       "status": "live"
     },
     {
