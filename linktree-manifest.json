@@ -1,5 +1,5 @@
 {
-  "synced_at": "2026-09-09T01:07:10.619Z",
+  "synced_at": "2026-09-16T01:07:45.000Z",
   "items": [
     {
       "key": "nurateethcare.com",
@@ -104,6 +104,14 @@
       "url": "https://www.curoskin.co.uk/VONNYLANG",
       "description": "",
       "thumbnail": "https://ugc.production.linktr.ee/49f66bf5-139d-4cac-be01-5dfd298c4cd8_Logo.png"
+    },
+    {
+      "key": "amzn.eu",
+      "title": "All Natural Face Cream",
+      "code": "YVONNE10",
+      "url": "https://amzn.eu/d/0fq1lsg6",
+      "description": "Free delivery and returns on eligible orders of £20 or more. Buy IRON CHIN Face Moisturiser For Men, Dry Skin, Fast-Absorbing 100ml | Hyaluronic acid, jojoba & aloe. Fast-absorbing, non-greasy moisturiser. For training & post-gym. Made in UK. Anti-aging at Amazon UK.",
+      "thumbnail": "https://ugc.production.linktr.ee/5fd3ecca-39a0-491b-b09f-27c3564ebd26_IMG-3368.webp"
     }
   ],
   "enrichment": {
@@ -198,6 +206,9 @@
     }
   },
   "auto_enrichment": {
+    "amzn.eu": {
+      "description": "Free delivery and returns on eligible orders of £20 or more. Buy IRON CHIN Face Moisturiser For Men, Dry Skin, Fast-Absorbing 100ml | Hyaluronic acid, jojoba & aloe. Fast-absorbing, non-greasy moisturiser. For training & post-gym. Made in UK. Anti-aging at Amazon UK."
+    },
     "cogcogcog.com": {
       "brand": "COG",
       "description": "COG makes sparkling nootropic drinks with Lion's Mane and B-Vitamins. Boost focus and mental clarity. Free UK shipping over £30."
