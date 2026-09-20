@@ -1,19 +1,7 @@
 {
-  "lastSync": "2026-09-09T12:11:37.054Z",
+  "lastSync": "2026-09-20T00:23:09.217Z",
   "organizationId": null,
   "upcoming": [
-    {
-      "id": "1996638594785",
-      "name": "Ecstatic Dance in West London",
-      "description": "Come experience ultimate freedom on the dance floor and meet like-minded people on the path of self awareness.",
-      "url": "https://www.eventbrite.co.uk/e/ecstatic-dance-in-west-london-tickets-1996638594785",
-      "startLocal": "2026-09-19T19:15:00",
-      "endLocal": "2026-09-19T21:30:00",
-      "venueName": "St Philip's Church, Earls Court Road",
-      "city": "London",
-      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1192887931%2F216441982947%2F1%2Foriginal.20260907-144705?auto=format%2Ccompress&q=75&sharp=10&s=0dc573398d3a3bcd2f54d8549e71ea7b",
-      "status": "live"
-    },
     {
       "id": "2000253386725",
       "name": "THE EMBER HOUR  An Autumn Equinox Goddess Gathering",
@@ -64,6 +52,18 @@
     }
   ],
   "past": [
+    {
+      "id": "1996638594785",
+      "name": "Ecstatic Dance in West London",
+      "description": "Come experience ultimate freedom on the dance floor and meet like-minded people on the path of self awareness.",
+      "url": "https://www.eventbrite.co.uk/e/ecstatic-dance-in-west-london-tickets-1996638594785",
+      "startLocal": "2026-09-19T19:15:00",
+      "endLocal": "2026-09-19T21:30:00",
+      "venueName": "St Philip's Church, Earls Court Road",
+      "city": "London",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1192887931%2F216441982947%2F1%2Foriginal.20260907-144705?auto=format%2Ccompress&q=75&sharp=10&s=0dc573398d3a3bcd2f54d8549e71ea7b",
+      "status": "ended"
+    },
     {
       "id": "1999362279399",
       "name": "Sunday Run Club",
@@ -194,18 +194,6 @@
       "venueName": "GL8 8LP",
       "city": "Tetbury",
       "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1184123556%2F216441982947%2F1%2Foriginal.20260508-143415?auto=format%2Ccompress&q=75&sharp=10&s=0bc8faf3c04372b82e43bda95788c11e",
-      "status": "completed"
-    },
-    {
-      "id": "1988383930863",
-      "name": "Flower Power Ecstatic Dance in West London",
-      "description": "Come experience ultimate freedom on the dance floor and meet like-minded people on the path of self awareness.",
-      "url": "https://www.eventbrite.co.uk/e/flower-power-ecstatic-dance-in-west-london-tickets-1988383930863",
-      "startLocal": "2026-05-30T19:15:00",
-      "endLocal": "2026-05-30T21:30:00",
-      "venueName": "St Philip's Church, Earls Court Road",
-      "city": "London",
-      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1183200311%2F216441982947%2F1%2Foriginal.20260428-082520?auto=format%2Ccompress&q=75&sharp=10&s=20400b0b804949988b823bc1af511a13",
       "status": "completed"
     }
   ]
