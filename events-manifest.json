@@ -1,19 +1,7 @@
 {
-  "lastSync": "2026-09-20T18:08:53.461Z",
+  "lastSync": "2026-09-21T00:22:53.708Z",
   "organizationId": null,
   "upcoming": [
-    {
-      "id": "2000253386725",
-      "name": "THE EMBER HOUR  An Autumn Equinox Goddess Gathering",
-      "description": "Celebrate the magic of autumn with a cozy gathering of goddesses, good vibes, and soulful connections.",
-      "url": "https://www.eventbrite.co.uk/e/the-ember-hour-an-autumn-equinox-goddess-gathering-tickets-2000253386725",
-      "startLocal": "2026-09-20T15:30:00",
-      "endLocal": "2026-09-20T19:30:00",
-      "venueName": "Crockford Bridge Farm",
-      "city": "Weybridge",
-      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1193037603%2F216441982947%2F1%2Foriginal.20260909-083846?auto=format%2Ccompress&q=75&sharp=10&s=f2b1ca5422f554b07d232025e9b490bb",
-      "status": "started"
-    },
     {
       "id": "1996006000679",
       "name": "Overnight Sound Healing Journey",
@@ -52,6 +40,18 @@
     }
   ],
   "past": [
+    {
+      "id": "2000253386725",
+      "name": "THE EMBER HOUR  An Autumn Equinox Goddess Gathering",
+      "description": "Celebrate the magic of autumn with a cozy gathering of goddesses, good vibes, and soulful connections.",
+      "url": "https://www.eventbrite.co.uk/e/the-ember-hour-an-autumn-equinox-goddess-gathering-tickets-2000253386725",
+      "startLocal": "2026-09-20T15:30:00",
+      "endLocal": "2026-09-20T19:30:00",
+      "venueName": "Crockford Bridge Farm",
+      "city": "Weybridge",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1193037603%2F216441982947%2F1%2Foriginal.20260909-083846?auto=format%2Ccompress&q=75&sharp=10&s=f2b1ca5422f554b07d232025e9b490bb",
+      "status": "completed"
+    },
     {
       "id": "1996638594785",
       "name": "Ecstatic Dance in West London",
@@ -182,18 +182,6 @@
       "venueName": "GL8 8LP",
       "city": "Tetbury",
       "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1184671783%2F216441982947%2F1%2Foriginal.20260515-101325?auto=format%2Ccompress&q=75&sharp=10&s=d66b54e73974ae649987a661598bc0e0",
-      "status": "completed"
-    },
-    {
-      "id": "1989097771981",
-      "name": "Women's Weekend Retreat in The Cotswolds",
-      "description": "A chill weekend filled with laughter, cozy vibes, and unforgettable memories in the countryside.",
-      "url": "https://www.eventbrite.co.uk/e/womens-weekend-retreat-in-the-cotswolds-tickets-1989097771981",
-      "startLocal": "2026-06-27T14:00:00",
-      "endLocal": "2026-06-28T14:00:00",
-      "venueName": "GL8 8LP",
-      "city": "Tetbury",
-      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1184123556%2F216441982947%2F1%2Foriginal.20260508-143415?auto=format%2Ccompress&q=75&sharp=10&s=0bc8faf3c04372b82e43bda95788c11e",
       "status": "completed"
     }
   ]
