@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-09-24T18:09:46.834Z",
+  "lastSync": "2026-09-26T00:20:39.016Z",
   "organizationId": null,
   "upcoming": [
     {
@@ -33,9 +33,21 @@
       "url": "https://www.eventbrite.co.uk/e/the-sound-within-an-immersive-sound-journey-with-christian-dimarco-tickets-2002214846504",
       "startLocal": "2026-11-19T19:00:00",
       "endLocal": "2026-11-19T21:00:00",
-      "venueName": "St Botolph without,",
+      "venueName": "St Botolph-without-Bishopsgate",
       "city": "London",
-      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1194277791%2F216441982947%2F1%2Foriginal.20260924-132249?auto=format%2Ccompress&q=75&sharp=10&s=a2faf8676b411d469db2c1750b30508f",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1194381362%2F216441982947%2F1%2Foriginal.20260925-184018?auto=format%2Ccompress&q=75&sharp=10&s=d71686d39cc27c8dd398822e5a26a653",
+      "status": "live"
+    },
+    {
+      "id": "2002314535677",
+      "name": "Into Stillness: A Sound Journey with Christian Dimarco",
+      "description": "Immerse yourself in a deeply relaxing soundscape, guided by renowned Australian sound healing facilitator Christian Dimarco.",
+      "url": "https://www.eventbrite.co.uk/e/into-stillness-a-sound-journey-with-christian-dimarco-tickets-2002314535677",
+      "startLocal": "2026-11-20T19:00:00",
+      "endLocal": "2026-11-20T21:00:00",
+      "venueName": "The Amadeus",
+      "city": "London",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1194393362%2F216441982947%2F1%2Foriginal.20260925-212450?auto=format%2Ccompress&q=75&sharp=10&s=5744a311babdbb97e2372fd9536fa630",
       "status": "live"
     },
     {
