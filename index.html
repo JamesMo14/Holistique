@@ -1257,6 +1257,37 @@
             flex-wrap: wrap;
         }
 
+        /* Newsletter — Brevo signup form (iframe embed) */
+        .cta-section__newsletter {
+            margin-top: 3rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .cta-section__newsletter-title {
+            font-family: var(--font-heading);
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+        }
+
+        .cta-section__newsletter-desc {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.65);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .newsletter-embed {
+            border-radius: var(--radius-lg);
+        }
+
+        /* The Brevo form wraps onto more lines once the iframe is narrower than ~520px */
+        @media (max-width: 567px) {
+            .newsletter-embed { height: 480px; }
+        }
+
         /* ============================================
            AMBIENT BACKGROUND ANIMATIONS
            ============================================ */
@@ -2037,6 +2068,22 @@
                     <a href="https://wa.me/447521760405" class="btn btn--gold" target="_blank" rel="noopener">Message Us on WhatsApp</a>
                     <a href="https://www.instagram.com/holistique.uk" class="btn btn--outline" target="_blank" rel="noopener">Follow on Instagram</a>
                 </div>
+                <div class="cta-section__newsletter" id="newsletter">
+                    <h3 class="cta-section__newsletter-title reveal">Join our newsletter</h3>
+                    <p class="cta-section__newsletter-desc reveal">Events, retreats and journal posts, straight to your inbox.</p>
+                    <iframe
+                        class="newsletter-embed"
+                        width="540"
+                        height="390"
+                        src="https://e516ed87.sibforms.com/v2/serve/MUIFAK3zgew98Ubk2hueDCKUUt8_b99468eh-2d6ETovBTHsmgBotq0aeWBGSMTlRFkG0cuCX5ByFu9UR5mhrMAQlBGYkYdciOKkFyHePHe7ZDeNq5qQ9sjo7x6efykYrnNyAYInPuEKW5gmlReIXj_CDhPcLvws3rgMTrgXDJ0VQbkeF5y_ZzGfn8BhQAUCfW3LSeZl6d6PjgdhcA=="
+                        frameborder="0"
+                        scrolling="auto"
+                        allowfullscreen
+                        loading="lazy"
+                        style="display:block;margin:0 auto;max-width:100%;border:0;"
+                        title="Newsletter sign up"
+                    ></iframe>
+                </div>
             </div>
         </section>
 
@@ -2063,6 +2110,7 @@
                         <li><a href="#gallery" class="footer__link">Gallery</a></li>
                         <li><a href="#testimonials" class="footer__link">Testimonials</a></li>
                         <li><a href="https://wa.me/447521760405" class="footer__link" target="_blank" rel="noopener">WhatsApp Group</a></li>
+                        <li><a href="newsletter.html" class="footer__link">Newsletter</a></li>
                     </ul>
                 </div>
                 <div>
@@ -2336,9 +2384,17 @@
                     snapPositions.push(Math.min(absoluteTop / maxScroll, 1));
                 });
 
+                // The last panel (Join Our Community + newsletter form) is taller than the
+                // viewport, so scroll freely once past its top — otherwise snap keeps pulling
+                // the form's submit button and the footer back out of view.
+                var lastSnap = snapPositions[snapPositions.length - 1];
+                var snapToPanel = gsap.utils.snap(snapPositions);
+
                 snapInstance = ScrollTrigger.create({
                     snap: {
-                        snapTo: gsap.utils.snap(snapPositions),
+                        snapTo: function(value) {
+                            return value > lastSnap ? value : snapToPanel(value);
+                        },
                         duration: { min: 0.2, max: 0.6 },
                         delay: 0.1,
                         ease: 'power1.inOut',
