@@ -1,0 +1,3 @@
+# GitHub Pages (Jekyll) settings. Keeps the agent instructions off the live site.
+exclude:
+  - AGENTS.md
