@@ -181,6 +181,10 @@
             transition: all 200ms ease-in-out;
         }
 
+        a.btn-subscribe {
+            display: inline-block;
+        }
+
         .btn-subscribe:hover {
             background: #111827;
             color: #FFFFFF;
@@ -561,6 +565,11 @@
             background: #000000;
         }
 
+        a.newsletter-btn {
+            display: block;
+            text-align: center;
+        }
+
         .newsletter-btn:disabled {
             opacity: 0.6;
             cursor: not-allowed;
@@ -749,7 +758,7 @@
                 <a href="#">About</a>
             </nav>
             <div class="header-actions">
-                <button class="btn-subscribe">Subscribe</button>
+                <a href="newsletter.html" class="btn-subscribe">Subscribe</a>
             </div>
         </div>
     </header>
@@ -978,10 +987,7 @@
                         </svg>
                         <h3 class="newsletter-heading">Stay Informed</h3>
                         <p class="newsletter-sub">Follow Yvonne's holistic journey</p>
-                        <form id="newsletter-form" onsubmit="return false;">
-                            <input type="email" class="newsletter-input" placeholder="Your email address" required>
-                            <button type="submit" class="newsletter-btn">Subscribe</button>
-                        </form>
+                        <a href="newsletter.html" class="newsletter-btn">Subscribe</a>
                     </div>
 
                 </aside>
@@ -1098,79 +1104,7 @@
                 });
             }
 
-            // ── Newsletter Subscribe ──────────────────────────────
-            var SUBSCRIBE_URL = 'https://peter17tu.app.n8n.cloud/webhook/subscribe';
 
-            // Header subscribe button scrolls to sidebar form
-            var btnSubscribe = document.querySelector('.btn-subscribe');
-            if (btnSubscribe) {
-                btnSubscribe.addEventListener('click', function() {
-                    var box = document.querySelector('.sidebar-newsletter');
-                    if (box) {
-                        box.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                        setTimeout(function() {
-                            var input = box.querySelector('.newsletter-input');
-                            if (input) input.focus();
-                        }, 500);
-                    }
-                });
-            }
-
-            // Subscribe form submission
-            var nlForm = document.getElementById('newsletter-form');
-            if (nlForm) {
-                nlForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    var input = nlForm.querySelector('.newsletter-input');
-                    var btn = nlForm.querySelector('.newsletter-btn');
-                    var email = input.value.trim();
-
-                    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                        showNlMessage(nlForm, 'Please enter a valid email address.', 'error');
-                        return;
-                    }
-
-                    if (!SUBSCRIBE_URL) {
-                        showNlMessage(nlForm, 'Subscribe is not configured yet.', 'error');
-                        return;
-                    }
-
-                    btn.textContent = 'Subscribing...';
-                    btn.disabled = true;
-
-                    fetch(SUBSCRIBE_URL, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ email: email })
-                    })
-                    .then(function(res) { return res.json(); })
-                    .then(function(data) {
-                        if (data.success) {
-                            showNlMessage(nlForm, 'Welcome aboard! Check your inbox.', 'success');
-                            input.value = '';
-                        } else {
-                            showNlMessage(nlForm, data.error || 'Something went wrong.', 'error');
-                        }
-                    })
-                    .catch(function() {
-                        showNlMessage(nlForm, 'Network error. Please try again.', 'error');
-                    })
-                    .finally(function() {
-                        btn.textContent = 'Subscribe';
-                        btn.disabled = false;
-                    });
-                });
-            }
-
-            function showNlMessage(form, text, type) {
-                var existing = form.querySelector('.newsletter-message');
-                if (existing) existing.remove();
-                var msg = document.createElement('p');
-                msg.className = 'newsletter-message ' + type;
-                msg.textContent = text;
-                form.appendChild(msg);
-                setTimeout(function() { if (msg.parentNode) msg.remove(); }, 5000);
-            }
         });
     </script>
 </body>

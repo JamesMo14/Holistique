@@ -292,6 +292,7 @@
             transition: background 0.2s ease; white-space: nowrap;
         }
         .newsletter-btn:hover { background: var(--color-teal-dark); }
+        a.newsletter-btn { display: inline-block; text-decoration: none; }
         .newsletter-btn:disabled { opacity: 0.6; cursor: not-allowed; }
         .newsletter-message { margin-top: 0.75rem; font-size: 0.8125rem; }
         .newsletter-message.success { color: #059669; }
@@ -1097,10 +1098,7 @@
         <div class="newsletter-section__inner reveal">
             <h2 class="newsletter-section__title">Stay Connected</h2>
             <p class="newsletter-section__sub">Get new articles, event invitations, and wellness insights from Yvonne.</p>
-            <form id="newsletter-form" class="newsletter-form" onsubmit="return false;">
-                <input type="email" class="newsletter-input" placeholder="Your email address" required>
-                <button type="submit" class="newsletter-btn">Subscribe</button>
-            </form>
+            <a href="newsletter.html" class="newsletter-btn">Subscribe</a>
         </div>
     </section>
 
@@ -1184,35 +1182,7 @@
         }, { threshold: 0.15 });
         reveals.forEach(function(el) { observer.observe(el); });
 
-        // Newsletter subscribe
-        var SUBSCRIBE_URL = 'https://peter17tu.app.n8n.cloud/webhook/subscribe';
-        var nlForm = document.getElementById('newsletter-form');
-        if (nlForm) {
-            nlForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                var input = nlForm.querySelector('.newsletter-input');
-                var btn = nlForm.querySelector('.newsletter-btn');
-                var email = input.value.trim();
-                if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                    showMsg(nlForm, 'Please enter a valid email address.', 'error'); return;
-                }
-                btn.textContent = 'Subscribing...'; btn.disabled = true;
-                fetch(SUBSCRIBE_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: email }) })
-                .then(function(r) { return r.json(); })
-                .then(function(d) {
-                    if (d.success) { showMsg(nlForm, 'Welcome aboard! Check your inbox.', 'success'); input.value = ''; }
-                    else { showMsg(nlForm, d.error || 'Something went wrong.', 'error'); }
-                })
-                .catch(function() { showMsg(nlForm, 'Network error. Please try again.', 'error'); })
-                .finally(function() { btn.textContent = 'Subscribe'; btn.disabled = false; });
-            });
-        }
 
-        function showMsg(form, text, type) {
-            var ex = form.querySelector('.newsletter-message'); if (ex) ex.remove();
-            var m = document.createElement('p'); m.className = 'newsletter-message ' + type; m.textContent = text;
-            form.appendChild(m); setTimeout(function() { if (m.parentNode) m.remove(); }, 5000);
-        }
     })();
     </script>
 </body>
