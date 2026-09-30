@@ -1,5 +1,5 @@
 {
-  "synced_at": "2026-09-21T01:12:29.659Z",
+  "synced_at": "2026-09-30T01:16:11.721Z",
   "items": [
     {
       "key": "nurateethcare.com",
@@ -22,7 +22,7 @@
       "title": "COG Functional Soda for Focus & Energy",
       "code": "VONNY10",
       "url": "https://cogcogcog.com",
-      "description": "COG makes sparkling nootropic drinks with Lion's Mane and B-Vitamins. Boost focus and mental clarity. Free UK shipping over £30.",
+      "description": "",
       "thumbnail": "https://ugc.production.linktr.ee/3b14b3fc-110f-4cd7-b7fa-4f8fd39d2983_d9c55e2c-7248-4ea2-a26c-b30a6aa5cf57.jpeg"
     },
     {
@@ -102,8 +102,16 @@
       "title": "Olive oil",
       "code": "OLIVEYVONNE10",
       "url": "http://www.citizensofsoil.com/OLIVEYVONNE10",
-      "description": "Citizens of Soil award-winning extra virgin olive oils from small producers practicing regenerative farming. Join us in turning a commodity into a community.",
+      "description": "",
       "thumbnail": "https://ugc.production.linktr.ee/52545f05-734d-4c09-8375-71cfd40e94b8_Screenshot-2026-09-19-at-10.01.08.png"
+    },
+    {
+      "key": "groundingwell.com",
+      "title": "Grounding Mats",
+      "code": "GWVONNYLANG",
+      "url": "https://www.groundingwell.com/GWVONNYLANG",
+      "description": "",
+      "thumbnail": "https://ugc.production.linktr.ee/904a239f-71b6-42d5-9961-c9aaa5a72332_tiny-black-dc7cdbd5-1c3c-4b5a-a7f7-05080ee41b59.png"
     },
     {
       "key": "curoskin.co.uk",
@@ -118,7 +126,7 @@
       "title": "All Natural Face Cream",
       "code": "YVONNE10",
       "url": "https://amzn.eu/d/0fq1lsg6",
-      "description": "Free delivery and returns on eligible orders of £20 or more. Buy IRON CHIN Face Moisturiser For Men, Dry Skin, Fast-Absorbing 100ml | Hyaluronic acid, jojoba & aloe. Fast-absorbing, non-greasy moisturiser. For training & post-gym. Made in UK. Anti-aging at Amazon UK.",
+      "description": "",
       "thumbnail": "https://ugc.production.linktr.ee/5fd3ecca-39a0-491b-b09f-27c3564ebd26_IMG-3368.webp"
     },
     {
@@ -126,7 +134,7 @@
       "title": "Four Visions Plant Medicine",
       "code": "VONNY10",
       "url": "https://fourvisions.com/?rstr=16589",
-      "description": "Four Visions offers ethically sourced Amazonian hape, plant medicines, ceremonial tools, and ritual allies rooted in Indigenous tradition and spiritual practice.",
+      "description": "",
       "thumbnail": "https://ugc.production.linktr.ee/5f4ef0f4-133b-444d-b86f-af8c3cf61f5e_Screenshot-2026-09-19-at-09.57.59.png"
     }
   ],
