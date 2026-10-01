@@ -3031,6 +3031,12 @@
                 dots.forEach(function(dot, i) {
                     dot.classList.toggle('is-active', i === activeIndex);
                 });
+                // Rewinding a GSAP fromTo restores future slides to their small
+                // starting crop. Hide those layers so they cannot cover this photo.
+                slides.forEach(function(slide, i) {
+                    slide.style.visibility = i <= activeIndex ? 'visible' : 'hidden';
+                    slide.setAttribute('aria-hidden', i === activeIndex ? 'false' : 'true');
+                });
             }
 
             // Smooth interpolation on every frame
