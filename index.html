@@ -1719,7 +1719,35 @@
                 grid-column: span 1;
             }
         }
-    </style>
+
+        /* About navigation: keep the full menu on one line. */
+        .header__nav { gap: clamp(12px, 2vw, 28px); }
+        .header__link, .header__cta { white-space: nowrap; }
+        .mobile-menu { gap: 1.15rem; }
+        .mobile-menu.is-open { padding-top: 70px; overflow-y: auto; }
+        .mobile-menu.is-open .mobile-menu__link { font-size: 1.7rem; }
+        .mobile-menu.is-open .mobile-menu__link:nth-child(8) { transition-delay: 0.45s; }
+        @media (max-width: 1100px) and (min-width: 769px) {
+            .header { padding-left: 20px; padding-right: 20px; }
+            .header__nav { gap: 14px; }
+            .header__link { font-size: 12px; }
+            .header__cta { font-size: 12px; padding: 8px 12px; }
+        }
+
+
+
+.gallery__slide:nth-child(11){z-index:11}.gallery__slide:nth-child(12){z-index:12}.gallery__slide:nth-child(13){z-index:13}
+.gallery__slide--new{background:var(--color-offwhite)}
+.gallery__slide--new img{position:absolute;left:12%;top:12%;width:76%;height:76%;object-fit:contain}
+.gallery-new-photos{display:flex;justify-content:center;gap:18px;margin:30px auto 22px;max-width:760px}
+.gallery-new-photos img{width:210px;height:210px;object-fit:cover;border-radius:12px}
+.gallery-new-photos img:last-child{object-position:center 36%}
+.gallery-nav{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:40;display:flex;gap:10px}
+.gallery-nav button{font:14px var(--font-body);border:1px solid #22666340;background:#fffffff2;color:var(--color-teal);border-radius:9999px;padding:11px 20px;cursor:pointer}
+.gallery-overlay__hint{bottom:78px}
+@media(max-width:768px){.gallery-new-photos{gap:8px;margin:24px 16px}.gallery-new-photos img{width:28vw;height:34vw;max-width:185px;max-height:210px}.gallery__teaser .section-title{font-size:clamp(30px,7vw,44px);padding:0 16px}.gallery-nav{bottom:24px;white-space:nowrap}.gallery-overlay__progress{right:12px}}
+
+</style>
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -1775,7 +1803,8 @@
     <!-- NAVIGATION -->
     <header class="header" id="header">
         <a href="#hero" class="header__logo nav-link">Holistique</a>
-        <nav class="header__nav">
+        <nav class="header__nav" aria-label="Main navigation">
+            <a href="about.html" class="header__link">About</a>
             <a href="#services" class="header__link nav-link">Services</a>
             <a href="wellness-tools.html" class="header__link">Wellness Tools</a>
             <a href="#events" class="header__link nav-link">What's On</a>
@@ -1793,6 +1822,7 @@
 
     <!-- MOBILE MENU -->
     <div class="mobile-menu" id="mobile-menu">
+        <a href="about.html" class="mobile-menu__link">About</a>
         <a href="#services" class="mobile-menu__link nav-link">Services</a>
         <a href="wellness-tools.html" class="mobile-menu__link">Wellness Tools</a>
         <a href="#events" class="mobile-menu__link nav-link">What's On</a>
@@ -1993,7 +2023,7 @@
         </section>
 
         <!-- COMMUNITY GALLERY — Click to explore -->
-        <section class="gallery panel" id="gallery">
+        <section class="gallery panel" id="gallery" role="button" tabindex="0" aria-label="Open community photo gallery">
             <div class="gallery__particles">
                 <div class="gallery__particle" style="--x:8%;--dur:18s;--del:0s;--sz:4px;background:rgba(122,184,155,0.30)"></div>
                 <div class="gallery__particle" style="--x:20%;--dur:22s;--del:3s;--sz:10px;background:rgba(212,168,83,0.25)"></div>
@@ -2009,7 +2039,7 @@
             <div class="gallery__teaser">
                 <p class="section-label">Our Community</p>
                 <h2 class="section-title shiny-text">Moments of Connection</h2>
-                <p class="gallery__cta-hint">Click to explore</p>
+                <div class="gallery-new-photos"><img src="photos/forest-gong-bath.webp" alt="Guests resting on mats during a forest gong bath" width="210" height="210" loading="lazy"><img src="photos/forest-sound-session.webp" alt="A forest sound session with singing bowls and Yvonne playing a gong" width="210" height="210" loading="lazy"><img src="photos/yvonne-handpan-studio.webp" alt="Yvonne and a companion with a handpan in a gong studio" width="210" height="210" loading="lazy"></div><p class="gallery__cta-hint">Click to explore</p>
             </div>
         </section>
 
@@ -2097,6 +2127,7 @@
                 <div>
                     <p class="footer__col-title">Explore</p>
                     <ul class="footer__links">
+                        <li><a href="about.html" class="footer__link">Meet Yvonne</a></li>
                         <li><a href="#events" class="footer__link">What's On</a></li>
                         <li><a href="acupuncture.html" class="footer__link">Acupuncture</a></li>
                         <li><a href="wellness-tools.html" class="footer__link">Wellness Tools</a></li>
@@ -2144,9 +2175,13 @@
     <canvas id="webgl-pixel"></canvas>
 
     <!-- GALLERY OVERLAY — Fullscreen photo experience -->
-    <div class="gallery-overlay" id="gallery-overlay">
+    <div class="gallery-overlay" id="gallery-overlay" role="dialog" aria-modal="true" aria-label="Community photo gallery" aria-hidden="true">
         <button class="gallery-overlay__close" aria-label="Close gallery">&times;</button>
         <div class="gallery-overlay__progress">
+            <span class="gallery__dot"></span>
+            <span class="gallery__dot"></span>
+            <span class="gallery__dot"></span>
+
             <span class="gallery__dot is-active"></span>
             <span class="gallery__dot"></span>
             <span class="gallery__dot"></span>
@@ -2159,6 +2194,9 @@
             <span class="gallery__dot"></span>
         </div>
         <div class="gallery-overlay__slides">
+            <div class="gallery__slide gallery__slide--new"><img src="photos/forest-gong-bath.webp" alt="Guests resting on mats during a forest gong bath"></div>
+            <div class="gallery__slide gallery__slide--new"><img src="photos/forest-sound-session.webp" alt="A forest sound session with singing bowls and Yvonne playing a gong"></div>
+            <div class="gallery__slide gallery__slide--new"><img src="photos/yvonne-handpan-studio.webp" alt="Yvonne and a companion with a handpan in a gong studio"></div>
             <div class="gallery__slide"><img src="./photos/e74c33c2.webp" alt="Community dinner gathering"></div>
             <div class="gallery__slide"><img src="./photos/IMG_1905.webp" alt="Painting class"></div>
             <div class="gallery__slide"><img src="./photos/IMG_6514.webp" alt="Sound healing with gong and flowers"></div>
@@ -2170,7 +2208,7 @@
             <div class="gallery__slide"><img src="./photos/IMG_4812.webp" alt="Group gathering around the table"></div>
             <div class="gallery__slide"><img src="./photos/1c93c8eb.webp" alt="Gong meditation in warm light"></div>
         </div>
-        <div class="gallery-overlay__hint">Scroll to explore &darr;</div>
+        <div class="gallery-nav"><button type="button" id="gallery-prev-photo" aria-label="Previous photo">← Previous</button><button type="button" id="gallery-next-photo" aria-label="Next photo">Next →</button></div><div class="gallery-overlay__hint">Scroll to explore &darr;</div>
     </div>
 
     <!-- ============================================
@@ -3098,8 +3136,8 @@
 
             function openGallery() {
                 isOpen = true;
-                targetProgress = 0;
-                currentProgress = 0;
+                targetProgress = 0.975 / numSlides;
+                currentProgress = targetProgress;
 
                 // Hide all slides, then make first photo visible
                 slides.forEach(function(slide) {
@@ -3107,11 +3145,13 @@
                 });
                 gsap.set(slides[0], { clipPath: INSET_START });
 
-                tl.progress(0);
+                tl.progress(currentProgress);
                 updateDots();
 
                 if (hint) hint.style.opacity = '1';
                 overlay.classList.add('is-open');
+                overlay.setAttribute('aria-hidden','false');
+                closeBtn.focus();
                 document.body.style.overflow = 'hidden';
 
                 startTicker();
@@ -3123,6 +3163,8 @@
             function closeGallery() {
                 isOpen = false;
                 overlay.classList.remove('is-open');
+                gallery.focus({preventScroll:true});
+                overlay.setAttribute('aria-hidden','true');
                 document.body.style.overflow = '';
 
                 stopTicker();
@@ -3132,8 +3174,23 @@
                 overlay.removeEventListener('touchmove', onTouchMove);
             }
 
+
+            function stepPhoto(direction) {
+                var nearest=Math.min(numSlides-1,Math.floor(targetProgress*numSlides));
+                targetProgress=((nearest+direction+numSlides)%numSlides+0.975)/numSlides;
+                if(snapTimeout) clearTimeout(snapTimeout);
+                currentProgress=targetProgress;
+                tl.progress(currentProgress);
+                updateDots();
+                if(hint) hint.style.opacity='0';
+            }
+            document.getElementById('gallery-prev-photo').addEventListener('click',function(){stepPhoto(-1);});
+            document.getElementById('gallery-next-photo').addEventListener('click',function(){stepPhoto(1);});
+            document.addEventListener('keydown',function(e){if(isOpen && (e.key==='ArrowRight'||e.key==='ArrowLeft')){e.preventDefault();stepPhoto(e.key==='ArrowRight'?1:-1);}});
+
             // Click gallery teaser to open
             gallery.addEventListener('click', openGallery);
+            gallery.addEventListener('keydown',function(e){if(e.target===gallery && (e.key==='Enter'||e.key===' ')){e.preventDefault();openGallery();}});
 
             // Close button
             closeBtn.addEventListener('click', function(e) {
@@ -3143,6 +3200,11 @@
 
             // ESC key to close
             document.addEventListener('keydown', function(e) {
+                if(isOpen && e.key==='Tab'){
+                    var controls=[closeBtn,document.getElementById('gallery-prev-photo'),document.getElementById('gallery-next-photo')];
+                    var focused=controls.indexOf(document.activeElement);
+                    e.preventDefault();controls[(focused+(e.shiftKey?-1:1)+controls.length)%controls.length].focus();
+                }
                 if (e.key === 'Escape' && isOpen) {
                     closeGallery();
                 }
@@ -3166,5 +3228,14 @@
             });
         }
     </script>
-</body>
+<script>
+window.addEventListener('load',function(){
+ // Honour links to homepage sections from the other pages.
+ var dest=location.hash;
+ if(['#gallery','#services','#events','#testimonials','#contact'].includes(dest)){
+  revealContent();
+  gsap.delayedCall(2.1,function(){gsap.to(window,{scrollTo:{y:dest,offsetY:0},duration:.6});});
+ }
+});
+</script></body>
 </html>

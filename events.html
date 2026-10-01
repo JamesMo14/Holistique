@@ -339,6 +339,20 @@
             .footer__brand { grid-column: span 1; }
             .footer__bottom { flex-direction: column; text-align: center; }
         }
+
+        /* About navigation: keep the full menu on one line. */
+        .header__nav { gap: clamp(12px, 2vw, 28px); }
+        .header__link, .header__cta { white-space: nowrap; }
+        .mobile-menu { gap: 1.15rem; }
+        .mobile-menu.is-open { padding-top: 70px; overflow-y: auto; }
+        .mobile-menu.is-open .mobile-menu__link { font-size: 1.7rem; }
+        .mobile-menu.is-open .mobile-menu__link:nth-child(8) { transition-delay: 0.45s; }
+        @media (max-width: 1100px) and (min-width: 769px) {
+            .header { padding-left: 20px; padding-right: 20px; }
+            .header__nav { gap: 14px; }
+            .header__link { font-size: 12px; }
+            .header__cta { font-size: 12px; padding: 8px 12px; }
+        }
     </style>
 
     <!-- Structured Data -->
@@ -414,7 +428,8 @@
     <!-- HEADER -->
     <header class="header" id="header">
         <a href="index.html" class="header__logo">Holistique</a>
-        <nav class="header__nav">
+        <nav class="header__nav" aria-label="Main navigation">
+            <a href="about.html" class="header__link">About</a>
             <a href="index.html#services" class="header__link">Services</a>
             <a href="wellness-tools.html" class="header__link">Wellness Tools</a>
             <a href="events.html" class="header__link is-active">What's On</a>
@@ -432,6 +447,7 @@
 
     <!-- MOBILE MENU -->
     <div class="mobile-menu" id="mobile-menu">
+        <a href="about.html" class="mobile-menu__link">About</a>
         <a href="index.html#services" class="mobile-menu__link">Services</a>
         <a href="wellness-tools.html" class="mobile-menu__link">Wellness Tools</a>
         <a href="events.html" class="mobile-menu__link">What's On</a>
@@ -659,6 +675,7 @@
             <div>
                 <p class="footer__col-title">Explore</p>
                 <ul class="footer__links">
+                        <li><a href="about.html" class="footer__link">Meet Yvonne</a></li>
                     <li><a href="index.html#events" class="footer__link">What's On</a></li>
                     <li><a href="acupuncture.html" class="footer__link">Acupuncture</a></li>
                     <li><a href="wellness-tools.html" class="footer__link">Wellness Tools</a></li>

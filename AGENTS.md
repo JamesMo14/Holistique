@@ -14,6 +14,7 @@ Instructions for AI coding agents (Grok Build, Claude Code, Codex, Cursor, etc.)
 | File | What it is |
 |---|---|
 | `index.html` | Home page. Its events block is filled in automatically. |
+| `about.html` | Yvonne’s full gong and acupuncture biography, with forest and studio portraits. |
 | `acupuncture.html` | Acupuncture treatments. |
 | `events.html` | Upcoming and past events, synced automatically from Eventbrite. |
 | `self-acupuncture-course.html` | The self-acupuncture course. |
@@ -66,3 +67,11 @@ A deploy shows up in the Actions tab as a `pages-build-deployment` run.
 - To preview locally, run `python -m http.server 8000` (or `npx serve`) in the repository root, then open http://localhost:8000.
 - To run a sync locally, use `node scripts/sync-linktree.js` or `node scripts/sync-medium.js`; neither needs secrets. `node scripts/sync-events.js` skips unless `EVENTBRITE_TOKEN` and `EVENTBRITE_ORG_ID` are set. Syncs change files, so only commit their output if you meant to.
 - After pushing, wait for the `pages-build-deployment` run in the Actions tab to finish, then reload https://holistiqueuk.com.
+
+## About page and community gallery
+
+- `about.html` uses ordinary document scrolling (no homepage panels or snap). Its biography complements the existing acupuncture bio; preserve both.
+- About links appear across page headers/mobile menus/footers and the article template in `scripts/sync-medium.js`. Journal pages use a separate compact header.
+- The homepage gallery has 13 slides, 13 dots and corresponding `nth-child` stacking rules. The three new community photos appear first, with contained images so the full photographs remain visible. Keep all three counts in sync when adding images.
+- Gallery Previous/Next buttons and arrow keys navigate photos; Escape closes, Tab stays inside the gallery, and focus returns to the gallery trigger. The homepage honours direct links to its sections after its intro unlocks.
+- The five named Yvonne/community WebPs have metadata stripped. Never replace them with original iPhone JPGs containing GPS metadata.

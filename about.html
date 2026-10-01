@@ -1,0 +1,747 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Meet Yvonne — Holistique UK</title>
+    <meta name="description" content="Meet Yvonne Liang, the gong practitioner and qualified acupuncturist behind Holistique UK in Kensington, London. Discover her training and holistic approach.">
+    <meta name="author" content="Yvonne Liang">
+    <link rel="canonical" href="https://holistiqueuk.com/about.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Meet Yvonne — Holistique UK">
+    <meta property="og:description" content="Gong practitioner and acupuncturist. Get to know Yvonne and her holistic approach to wellbeing.">
+    <meta property="og:url" content="https://holistiqueuk.com/about.html">
+    <meta property="og:image" content="https://holistiqueuk.com/photos/yvonne-gong-forest.webp">
+    <meta property="og:image:alt" content="Yvonne playing a gong in the forest">
+    <meta property="og:site_name" content="Holistique UK">
+    <meta property="og:locale" content="en_GB">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Meet Yvonne — Holistique UK">
+    <meta name="twitter:description" content="Meet the gong practitioner and acupuncturist behind Holistique UK.">
+    <meta name="twitter:image" content="https://holistiqueuk.com/photos/yvonne-gong-forest.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet"><style>
+        :root {
+            --color-teal: #226663;
+            --color-teal-dark: #0A2E2C;
+            --color-purple-dark: #1A0A3E;
+            --color-gold: #D4A853;
+            --color-sage: #7AB89B;
+            --color-lavender: #C8B8E8;
+            --color-offwhite: #F8F6F3;
+            --color-white: #FFFFFF;
+            --font-heading: 'Marcellus', Georgia, serif;
+            --font-body: 'Inter', -apple-system, sans-serif;
+            --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+            --max-width: 1200px;
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-full: 9999px;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { font-size: 16px; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+        body { font-family: var(--font-body); background: var(--color-white); color: #444; line-height: 1.6; overflow-x: hidden; }
+
+        /* ============================================
+           HEADER
+           ============================================ */
+        .header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            padding: 0.75rem 2rem;
+            display: flex; align-items: center; justify-content: space-between;
+            background: rgba(255,255,255,0.85);
+            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+            transition: all 0.4s var(--ease-out-expo);
+        }
+        .header__logo {
+            font-family: var(--font-heading); font-size: 1.5rem;
+            color: var(--color-teal); text-decoration: none; letter-spacing: 0.02em;
+        }
+        .header__nav { display: flex; align-items: center; gap: 2rem; }
+        .header__link {
+            font-family: var(--font-body); font-size: 0.875rem; font-weight: 500;
+            color: #555; text-decoration: none; letter-spacing: 0.01em;
+            position: relative; transition: color 0.25s ease;
+        }
+        .header__link::after {
+            content: ''; position: absolute; bottom: -4px; left: 0;
+            width: 0; height: 1.5px; background: var(--color-gold);
+            transition: width 0.3s var(--ease-out-expo);
+        }
+        .header__link:hover { color: var(--color-teal); }
+        .header__link:hover::after { width: 100%; }
+        .header__link.is-active { color: var(--color-teal); }
+        .header__link.is-active::after { width: 100%; }
+        .header__cta {
+            font-family: var(--font-body); font-size: 0.875rem; font-weight: 500;
+            color: var(--color-teal); text-decoration: none;
+            padding: 0.5rem 1.25rem; border: 1.5px solid var(--color-teal);
+            border-radius: var(--radius-full); transition: all 0.25s ease;
+        }
+        .header__cta:hover { background: var(--color-teal); color: #fff; }
+
+        /* Hamburger */
+        .hamburger {
+            display: none; width: 28px; height: 20px; position: relative;
+            cursor: pointer; background: none; border: none; z-index: 1001;
+        }
+        .hamburger__line {
+            position: absolute; left: 0; width: 100%; height: 2px;
+            background: #333; transition: all 0.3s var(--ease-out-expo);
+        }
+        .hamburger__line:nth-child(1) { top: 0; }
+        .hamburger__line:nth-child(2) { top: 50%; transform: translateY(-50%); }
+        .hamburger__line:nth-child(3) { bottom: 0; }
+        .hamburger.is-open .hamburger__line:nth-child(1) { top: 50%; transform: translateY(-50%) rotate(45deg); }
+        .hamburger.is-open .hamburger__line:nth-child(2) { opacity: 0; transform: translateX(-10px); }
+        .hamburger.is-open .hamburger__line:nth-child(3) { bottom: 50%; transform: translateY(50%) rotate(-45deg); }
+
+        /* Mobile menu */
+        .mobile-menu {
+            position: fixed; inset: 0; background: rgba(10,46,44,0.97);
+            backdrop-filter: blur(20px); z-index: 999;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 2rem;
+            opacity: 0; visibility: hidden; transition: all 0.4s var(--ease-out-expo);
+        }
+        .mobile-menu.is-open { opacity: 1; visibility: visible; }
+        .mobile-menu__link {
+            font-family: var(--font-heading); font-size: 2rem; color: #fff;
+            text-decoration: none; opacity: 0; transform: translateY(20px);
+            transition: all 0.3s var(--ease-out-expo);
+        }
+        .mobile-menu.is-open .mobile-menu__link { opacity: 1; transform: translateY(0); }
+        .mobile-menu.is-open .mobile-menu__link:nth-child(1) { transition-delay: 0.1s; }
+        .mobile-menu.is-open .mobile-menu__link:nth-child(2) { transition-delay: 0.15s; }
+        .mobile-menu.is-open .mobile-menu__link:nth-child(3) { transition-delay: 0.2s; }
+        .mobile-menu.is-open .mobile-menu__link:nth-child(4) { transition-delay: 0.25s; }
+        .mobile-menu.is-open .mobile-menu__link:nth-child(5) { transition-delay: 0.3s; }
+        .mobile-menu.is-open .mobile-menu__link:nth-child(6) { transition-delay: 0.35s; }
+        .mobile-menu.is-open .mobile-menu__link:nth-child(7) { transition-delay: 0.4s; }
+
+        /* ============================================
+           HERO
+           ============================================ */
+        .page-hero {
+            padding: 140px 2rem 80px;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(34,102,99,0.04) 0%, rgba(248,246,243,0.5) 60%, #fff 100%);
+        }
+        .section-label {
+            font-family: var(--font-mono); font-size: 0.6875rem; font-weight: 400;
+            text-transform: uppercase; letter-spacing: 0.15em;
+            color: var(--color-teal); margin-bottom: 1rem;
+        }
+        .page-hero__title {
+            font-family: var(--font-heading); font-size: clamp(2.5rem, 6vw, 3.5rem);
+            color: #1a1a1a; margin-bottom: 1.25rem; line-height: 1.15;
+        }
+        .page-hero__subtitle {
+            font-size: 1.0625rem; color: #666; line-height: 1.75;
+            max-width: 640px; margin: 0 auto;
+        }
+
+        /* ============================================
+           SECTION HEADERS (reused)
+           ============================================ */
+        .section-header {
+            text-align: center; margin-bottom: 3rem;
+        }
+        .section-title {
+            font-family: var(--font-heading); font-size: clamp(1.75rem, 4vw, 2.25rem);
+            color: #1a1a1a; line-height: 1.2;
+        }
+
+        /* ============================================
+           PRACTITIONER BIO
+           ============================================ */
+        .bio {
+            padding: 0 2rem 5rem;
+            max-width: var(--max-width); margin: 0 auto;
+        }
+        .bio__grid {
+            display: grid; grid-template-columns: 1fr 1.4fr;
+            gap: 4rem; align-items: center;
+        }
+        .bio__portrait {
+            position: relative; border-radius: var(--radius-lg); overflow: hidden;
+        }
+        .bio__portrait img {
+            width: 100%; height: auto; display: block;
+            filter: contrast(1.05) saturate(0.85);
+            transition: filter 0.4s ease;
+        }
+        .bio__portrait:hover img { filter: contrast(1.1) saturate(1); }
+        .bio__portrait::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(34,102,99,0.08), rgba(122,184,155,0.06));
+            mix-blend-mode: multiply; border-radius: inherit; pointer-events: none;
+        }
+        .bio__role {
+            font-family: var(--font-mono); font-size: 0.6875rem;
+            text-transform: uppercase; letter-spacing: 0.15em;
+            color: var(--color-teal); margin-bottom: 0.75rem;
+        }
+        .bio__name {
+            font-family: var(--font-heading); font-size: 1.75rem;
+            color: #1a1a1a; margin-bottom: 1.25rem;
+        }
+        .bio__text {
+            font-size: 0.9375rem; color: #555; line-height: 1.8;
+        }
+        .bio__text p + p { margin-top: 1rem; }
+
+        /* ============================================
+           PHOTO CAROUSEL
+           ============================================ */
+        .gallery {
+            padding: 0 0 5rem; overflow: hidden; position: relative;
+        }
+        .gallery__viewport {
+            display: flex; gap: 1rem; overflow-x: auto;
+            scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+            scrollbar-width: none; padding: 0 2rem;
+        }
+        .gallery__viewport::-webkit-scrollbar { display: none; }
+        .gallery__slide {
+            flex: 0 0 auto; scroll-snap-align: center;
+            width: 320px; height: 420px; border-radius: var(--radius-lg);
+            overflow: hidden; position: relative;
+        }
+        .gallery__slide img {
+            width: 100%; height: 100%; object-fit: cover; display: block;
+            filter: contrast(1.05) saturate(0.85);
+            transition: filter 0.5s ease, transform 0.5s ease;
+        }
+        .gallery__slide:hover img {
+            filter: contrast(1.1) saturate(1);
+            transform: scale(1.03);
+        }
+        .gallery__slide::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(34,102,99,0.06), rgba(122,184,155,0.04));
+            mix-blend-mode: multiply; border-radius: inherit; pointer-events: none;
+        }
+        .gallery__controls {
+            display: flex; align-items: center; justify-content: center;
+            gap: 1rem; margin-top: 1.5rem;
+        }
+        .gallery__btn {
+            width: 44px; height: 44px; border-radius: 50%;
+            border: 1.5px solid rgba(0,0,0,0.12); background: #fff;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: all 0.25s ease; color: #555;
+        }
+        .gallery__btn:hover {
+            border-color: var(--color-teal); color: var(--color-teal);
+            box-shadow: 0 4px 12px rgba(34,102,99,0.15);
+        }
+        .gallery__dots {
+            display: flex; gap: 0.5rem; align-items: center;
+        }
+        .gallery__dot {
+            width: 8px; height: 8px; border-radius: 50%;
+            background: rgba(0,0,0,0.15); border: none; cursor: pointer;
+            transition: all 0.3s ease; padding: 0;
+        }
+        .gallery__dot.is-active {
+            background: var(--color-teal); width: 24px; border-radius: 4px;
+        }
+
+        /* ============================================
+           TREATMENTS / PRICING
+           ============================================ */
+        .treatments {
+            background: var(--color-offwhite);
+            padding: 5rem 2rem;
+        }
+        .treatments__grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem; max-width: var(--max-width); margin: 0 auto;
+        }
+        .treatment-card {
+            background: #fff; border: 1px solid rgba(0,0,0,0.06);
+            border-radius: var(--radius-lg); padding: 2.5rem 2rem;
+            text-align: center; transition: all 0.35s var(--ease-out-expo);
+            display: flex; flex-direction: column;
+        }
+        .treatment-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+            border-color: rgba(34,102,99,0.15);
+        }
+        .treatment-card__badge {
+            display: inline-block; font-family: var(--font-mono);
+            font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.1em;
+            color: var(--color-teal); background: rgba(34,102,99,0.08);
+            padding: 0.35rem 0.85rem; border-radius: var(--radius-full);
+            margin-bottom: 1.25rem;
+        }
+        .treatment-card__title {
+            font-family: var(--font-heading); font-size: 1.375rem;
+            color: #1a1a1a; margin-bottom: 0.5rem;
+            min-height: 3.5rem;
+        }
+        .treatment-card__price {
+            font-family: var(--font-heading); font-size: 2rem;
+            color: var(--color-teal); margin-bottom: 1rem;
+        }
+        .treatment-card__desc {
+            font-size: 0.9375rem; color: #666; line-height: 1.7;
+            margin-bottom: 1.75rem; flex: 1;
+        }
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+            font-family: var(--font-body); font-size: 0.875rem; font-weight: 500;
+            text-decoration: none; border-radius: var(--radius-full);
+            padding: 0.75rem 1.75rem; transition: all 0.25s ease; cursor: pointer; border: none;
+        }
+        .btn--teal { background: var(--color-teal); color: #fff; }
+        .btn--teal:hover { background: var(--color-teal-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(34,102,99,0.25); }
+        .btn--gold { background: var(--color-gold); color: #1a1a1a; }
+        .btn--gold:hover { background: #c49a48; transform: translateY(-2px); }
+        .btn--outline { background: transparent; color: var(--color-teal); border: 1.5px solid var(--color-teal); }
+        .btn--outline:hover { background: var(--color-teal); color: #fff; }
+        .btn--outline-light { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,0.4); }
+        .btn--outline-light:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
+
+        /* ============================================
+           BOOKING MODAL
+           ============================================ */
+        .booking-overlay {
+            position: fixed; inset: 0; z-index: 2000;
+            background: rgba(10,46,44,0.45); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .booking-overlay.is-open { opacity: 1; visibility: visible; }
+        .booking-modal {
+            background: #fff; border-radius: var(--radius-lg); padding: 2.5rem 2rem 2rem;
+            max-width: 400px; width: 90%; position: relative;
+            transform: translateY(20px) scale(0.97);
+            transition: transform 0.35s var(--ease-out-expo);
+            box-shadow: 0 24px 80px rgba(0,0,0,0.18);
+        }
+        .booking-overlay.is-open .booking-modal { transform: translateY(0) scale(1); }
+        .booking-modal__close {
+            position: absolute; top: 1rem; right: 1rem;
+            width: 32px; height: 32px; border: none; background: rgba(0,0,0,0.04);
+            border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;
+            transition: background 0.2s ease; color: #666;
+        }
+        .booking-modal__close:hover { background: rgba(0,0,0,0.08); color: #333; }
+        .booking-modal__treatment {
+            font-family: var(--font-mono); font-size: 0.6875rem;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            color: var(--color-teal); margin-bottom: 0.5rem;
+        }
+        .booking-modal__title {
+            font-family: var(--font-heading); font-size: 1.5rem;
+            color: #1a1a1a; margin-bottom: 0.35rem;
+        }
+        .booking-modal__subtitle {
+            font-size: 0.875rem; color: #888; margin-bottom: 1.75rem;
+        }
+        .booking-modal__options { display: flex; flex-direction: column; gap: 0.75rem; }
+        .booking-option {
+            display: flex; align-items: center; gap: 1rem;
+            padding: 1rem 1.25rem; border: 1.5px solid rgba(0,0,0,0.08);
+            border-radius: var(--radius-md); text-decoration: none;
+            transition: all 0.25s ease; cursor: pointer; background: #fff;
+        }
+        .booking-option:hover {
+            border-color: var(--color-teal); background: rgba(34,102,99,0.03);
+            transform: translateY(-2px); box-shadow: 0 6px 20px rgba(34,102,99,0.1);
+        }
+        .booking-option__icon {
+            width: 44px; height: 44px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+        }
+        .booking-option__icon--whatsapp { background: #25D366; color: #fff; }
+        .booking-option__icon--email { background: var(--color-teal); color: #fff; }
+        .booking-option__text { flex: 1; }
+        .booking-option__label {
+            font-weight: 600; font-size: 0.9375rem; color: #1a1a1a; display: block;
+        }
+        .booking-option__hint {
+            font-size: 0.8125rem; color: #888; display: block; margin-top: 0.15rem;
+        }
+        .booking-option__arrow { color: #ccc; transition: color 0.2s ease, transform 0.2s ease; flex-shrink: 0; }
+        .booking-option:hover .booking-option__arrow { color: var(--color-teal); transform: translateX(3px); }
+
+        /* ============================================
+           TESTIMONIALS — Marquee
+           ============================================ */
+        .testimonials {
+            background: #fff; padding: 5rem 2rem; overflow: hidden;
+        }
+        .marquee { overflow: hidden; mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent); }
+        .marquee__track {
+            display: flex; width: max-content;
+            animation: marquee 60s linear infinite;
+        }
+        .marquee:hover .marquee__track { animation-play-state: paused; }
+        .marquee__track--reverse { animation-direction: reverse; }
+        @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        .marquee__content { display: flex; gap: 1.5rem; padding-right: 1.5rem; }
+        .marquee + .marquee { margin-top: 1.5rem; }
+
+        .testimonial-card {
+            background: var(--color-offwhite); border: 1px solid rgba(0,0,0,0.05);
+            border-radius: var(--radius-lg); padding: 2rem;
+            position: relative; min-width: 380px; max-width: 420px; flex-shrink: 0;
+        }
+        .testimonial-card__quote {
+            position: absolute; top: 1rem; left: 1.5rem;
+            font-size: 3.5rem; line-height: 1; color: var(--color-lavender);
+            opacity: 0.5; font-family: Georgia, serif;
+        }
+        .testimonial-card__text {
+            font-size: 0.9375rem; color: #444; line-height: 1.75;
+            margin-bottom: 1.5rem; position: relative; z-index: 1; padding-top: 1rem;
+        }
+        .testimonial-card__author { display: flex; align-items: center; gap: 0.75rem; }
+        .testimonial-card__avatar {
+            width: 44px; height: 44px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--color-teal), var(--color-sage));
+            display: flex; align-items: center; justify-content: center;
+            font-family: var(--font-heading); font-size: 1rem; color: #fff; flex-shrink: 0;
+        }
+        .testimonial-card__name { font-weight: 600; color: #1a1a1a; font-size: 0.9375rem; }
+
+        /* ============================================
+           ACCREDITATIONS
+           ============================================ */
+        .accreditations {
+            padding: 4rem 2rem; text-align: center;
+            background: var(--color-offwhite);
+        }
+        .accreditations__logos {
+            display: flex; align-items: center; justify-content: center;
+            gap: 3rem; margin-top: 2rem; flex-wrap: wrap;
+        }
+        .accreditations__logo {
+            height: 72px; opacity: 0.7;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            filter: grayscale(20%);
+        }
+        .accreditations__logo:hover { opacity: 1; transform: scale(1.05); filter: grayscale(0%); }
+
+        /* ============================================
+           FAQ ACCORDION
+           ============================================ */
+        .faq { padding: 5rem 2rem; max-width: var(--max-width); margin: 0 auto; }
+        .faq__grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+        }
+        .faq__item {
+            border: 1px solid rgba(0,0,0,0.08); border-radius: var(--radius-md);
+            overflow: hidden; transition: border-color 0.3s ease;
+        }
+        .faq__item[open] { border-color: rgba(34,102,99,0.25); }
+        .faq__item summary {
+            padding: 1.25rem 1.5rem; font-family: var(--font-body);
+            font-size: 0.9375rem; font-weight: 500; color: #1a1a1a;
+            cursor: pointer; list-style: none;
+            display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+            transition: color 0.2s ease;
+        }
+        .faq__item summary::-webkit-details-marker { display: none; }
+        .faq__item summary::after {
+            content: '+'; font-size: 1.25rem; color: var(--color-teal);
+            font-weight: 300; transition: transform 0.3s var(--ease-out-expo);
+            flex-shrink: 0;
+        }
+        .faq__item[open] summary::after { content: '\2212'; }
+        .faq__item[open] summary { color: var(--color-teal); }
+        .faq__answer {
+            padding: 0 1.5rem 1.25rem;
+            font-size: 0.9375rem; color: #555; line-height: 1.75;
+        }
+
+        /* ============================================
+           COURSE CTA
+           ============================================ */
+        .course-cta {
+            background: linear-gradient(135deg, var(--color-teal-dark), var(--color-purple-dark));
+            padding: 5rem 2rem; text-align: center; position: relative; overflow: hidden;
+        }
+        .course-cta__glow {
+            position: absolute; width: 400px; height: 400px; border-radius: 50%;
+            filter: blur(120px); opacity: 0.15; pointer-events: none;
+        }
+        .course-cta__glow--1 { top: -100px; left: -100px; background: var(--color-sage); }
+        .course-cta__glow--2 { bottom: -100px; right: -100px; background: var(--color-lavender); }
+        .course-cta__content { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; }
+        .course-cta__title {
+            font-family: var(--font-heading); font-size: clamp(1.75rem, 4vw, 2.25rem);
+            color: #fff; margin-bottom: 1rem;
+        }
+        .course-cta__desc {
+            font-size: 1rem; color: rgba(255,255,255,0.7); line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        /* ============================================
+           NEWSLETTER
+           ============================================ */
+        .newsletter-section {
+            padding: 4rem 2rem; text-align: center; background: var(--color-offwhite);
+        }
+        .newsletter-section__inner { max-width: 480px; margin: 0 auto; }
+        .newsletter-section__title {
+            font-family: var(--font-heading); font-size: 1.5rem;
+            color: #1a1a1a; margin-bottom: 0.5rem;
+        }
+        .newsletter-section__sub {
+            font-size: 0.9375rem; color: #666; margin-bottom: 1.5rem;
+        }
+        .newsletter-form { display: flex; gap: 0.5rem; }
+        .newsletter-input {
+            flex: 1; padding: 0.75rem 1rem; font-family: var(--font-body);
+            font-size: 0.875rem; border: 1px solid rgba(0,0,0,0.12);
+            border-radius: var(--radius-md); background: #fff; color: #1a1a1a;
+            transition: border-color 0.2s ease;
+        }
+        .newsletter-input:focus { outline: none; border-color: var(--color-teal); }
+        .newsletter-input::placeholder { color: #999; }
+        .newsletter-btn {
+            padding: 0.75rem 1.5rem; font-family: var(--font-body);
+            font-size: 0.875rem; font-weight: 500;
+            background: var(--color-teal); color: #fff; border: none;
+            border-radius: var(--radius-md); cursor: pointer;
+            transition: background 0.2s ease; white-space: nowrap;
+        }
+        .newsletter-btn:hover { background: var(--color-teal-dark); }
+        a.newsletter-btn { display: inline-block; text-decoration: none; }
+        .newsletter-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+        .newsletter-message { margin-top: 0.75rem; font-size: 0.8125rem; }
+        .newsletter-message.success { color: #059669; }
+        .newsletter-message.error { color: #DC2626; }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer {
+            background: #0d1f1e; border-top: 1px solid rgba(255,255,255,0.06);
+            padding: 80px 2rem 40px; position: relative;
+        }
+        .footer__grid {
+            display: grid; grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 3rem; max-width: var(--max-width); margin: 0 auto;
+        }
+        .footer__brand-name { font-family: var(--font-heading); font-size: 1.5rem; color: #fff; margin-bottom: 1rem; }
+        .footer__brand-desc { font-size: 0.875rem; color: rgba(255,255,255,0.45); line-height: 1.7; max-width: 280px; }
+        .footer__col-title {
+            font-family: var(--font-mono); font-size: 0.6875rem; font-weight: 400;
+            color: rgba(255,255,255,0.55); text-transform: uppercase;
+            letter-spacing: 0.12em; margin-bottom: 1.25rem;
+        }
+        .footer__links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+        .footer__link { font-size: 0.875rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s ease; }
+        .footer__link:hover { color: var(--color-gold); }
+        .footer__text { font-size: 0.875rem; color: rgba(255,255,255,0.5); }
+        .footer__bottom {
+            max-width: var(--max-width); margin: 3rem auto 0; padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+        }
+        .footer__copyright { font-size: 0.8125rem; color: rgba(255,255,255,0.35); }
+        .footer__socials { display: flex; gap: 0.75rem; }
+        .footer__social {
+            width: 38px; height: 38px; display: flex; align-items: center; justify-content: center;
+            border-radius: 50%; background: rgba(255,255,255,0.05);
+            color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.875rem;
+            transition: all 0.25s ease;
+        }
+        .footer__social:hover { background: var(--color-teal); color: #fff; transform: translateY(-2px); }
+
+        /* ============================================
+           REVEAL ANIMATIONS
+           ============================================ */
+        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo); }
+        .reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 768px) {
+            .header__nav, .header__cta { display: none; }
+            .hamburger { display: block; }
+            .reveal { opacity: 1; transform: none; transition: none; }
+            .bio__grid { grid-template-columns: 1fr; gap: 2rem; }
+            .treatments__grid { grid-template-columns: 1fr; }
+            .faq__grid { grid-template-columns: 1fr; }
+            .footer__grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+            .footer__brand { grid-column: span 2; }
+        }
+        @media (max-width: 480px) {
+            .header { padding: 0.75rem 1rem; }
+            .page-hero { padding: 120px 1.25rem 60px; }
+            .bio { padding: 0 1.25rem 3rem; }
+            .gallery__slide { width: 260px; height: 340px; }
+            .gallery__viewport { padding: 0 1.25rem; }
+            .treatments { padding: 3rem 1.25rem; }
+            .testimonial-card { min-width: 300px; max-width: 320px; }
+            .testimonials { padding: 3rem 1.25rem; }
+            .faq { padding: 3rem 1.25rem; }
+            .newsletter-form { flex-direction: column; }
+            .footer__grid { grid-template-columns: 1fr; }
+            .footer__brand { grid-column: span 1; }
+            .footer__bottom { flex-direction: column; text-align: center; }
+        }
+
+/* About page */
+.about-intro {background:var(--color-offwhite);padding:140px 40px 80px}
+.about-grid {max-width:1160px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-intro h1 {font-family:var(--font-heading);font-size:clamp(44px,5vw,68px);font-weight:400;line-height:1.12;color:#1a1a1a;margin:18px 0 28px}
+.about-intro p.about-lead {font-size:18px;line-height:1.85;color:#555;margin-bottom:18px}
+.about-role {font-family:var(--font-mono);font-size:11px;line-height:1.8;letter-spacing:.07em;color:var(--color-teal);text-transform:uppercase;margin-top:28px;padding-top:22px;border-top:1px solid #22666330}
+.about-photo {margin:0;min-width:0}
+.about-photo img {width:100%;height:auto;display:block;border-radius:16px}
+.about-photo figcaption {font-size:12px;color:#666;margin-top:12px;line-height:1.6}
+.about-story {padding:88px 40px 96px}
+.about-story .about-grid {grid-template-columns:.85fr 1.15fr;align-items:start}
+.about-story h2 {font-family:var(--font-heading);font-weight:400;font-size:30px;color:#1a1a1a;line-height:1.3;margin:0 0 18px}
+.about-story p {font-size:15px;line-height:1.85;color:#555}
+.about-story .story-part + .story-part {margin-top:32px;padding-top:30px;border-top:1px solid #22666325}
+.about-actions {display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.about-link {display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:12px 22px;border:1px solid var(--color-teal);border-radius:9999px;color:var(--color-teal);font-size:14px;font-weight:500;text-decoration:none;transition:background .2s,color .2s}
+.about-link.primary,.about-link:hover {background:var(--color-teal);color:white}
+.about-philosophy {background:var(--color-offwhite);padding:65px 32px;text-align:center}
+.about-philosophy p:last-child {max-width:850px;margin:auto;font:400 clamp(25px,3vw,34px)/1.6 var(--font-heading);color:var(--color-teal-dark)}
+.about-community {text-align:center;padding:55px 24px}
+.about-community a {color:var(--color-teal);text-underline-offset:6px;font-size:15px}
+.header__nav {gap:clamp(12px,2vw,28px)}
+.header__link,.header__cta {white-space:nowrap}
+.mobile-menu {gap:1.15rem}
+.mobile-menu.is-open .mobile-menu__link:nth-child(8) {transition-delay:.45s}
+.mobile-menu.is-open {padding-top:70px;overflow-y:auto}
+.mobile-menu.is-open .mobile-menu__link {font-size:1.7rem}
+
+
+
+a:focus-visible,button:focus-visible {outline:3px solid var(--color-gold);outline-offset:5px}
+@media (max-width:1100px) and (min-width:769px) {.header{padding-left:20px;padding-right:20px}.header__nav{gap:14px}.header__link{font-size:12px}.header__cta{font-size:12px;padding:8px 12px}.about-grid{gap:44px}.about-intro{padding-top:120px}}
+@media(max-width:768px) {.about-intro{padding:105px 24px 45px}.about-grid,.about-story .about-grid{grid-template-columns:1fr;gap:32px}.about-intro h1{font-size:46px;margin:12px 0 23px}.about-intro p.about-lead{font-size:16px;line-height:1.8}.about-role{margin-top:22px}.about-story{padding:46px 24px}.about-story .about-photo{max-width:450px;width:100%;margin:auto}.about-story h2{font-size:27px}.about-philosophy{padding:42px 24px}.about-philosophy p:last-child{font-size:26px}.about-actions{gap:10px}.about-link{padding:11px 18px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "AboutPage", "name": "Meet Yvonne", "url": "https://holistiqueuk.com/about.html", "mainEntity": {"@type": "Person", "name": "Yvonne Liang", "jobTitle": ["Gong Practitioner", "Acupuncturist"], "image": "https://holistiqueuk.com/photos/yvonne-gong-forest.webp", "worksFor": {"@type": "Organization", "name": "Holistique UK", "url": "https://holistiqueuk.com/"}}}</script>
+</head><body><header class="header" id="header">
+        <a href="index.html" class="header__logo">Holistique</a>
+        <nav class="header__nav" aria-label="Main navigation">
+<a href="about.html" class="header__link is-active" aria-current="page">About</a>
+            <a href="index.html#services" class="header__link">Services</a>
+            <a href="wellness-tools.html" class="header__link">Wellness Tools</a>
+            <a href="index.html#events" class="header__link">What's On</a>
+            <a href="index.html#gallery" class="header__link">Community</a>
+            <a href="index.html#testimonials" class="header__link">Stories</a>
+            <a href="blog-post.html" class="header__link">Blog</a>
+        </nav>
+        <a href="index.html#contact" class="header__cta">Get in Touch</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span class="hamburger__line"></span>
+            <span class="hamburger__line"></span>
+            <span class="hamburger__line"></span>
+        </button>
+    </header><div class="mobile-menu" id="mobile-menu">
+<a href="about.html" class="mobile-menu__link">About</a>
+        <a href="index.html#services" class="mobile-menu__link">Services</a>
+        <a href="wellness-tools.html" class="mobile-menu__link">Wellness Tools</a>
+        <a href="index.html#events" class="mobile-menu__link">What's On</a>
+        <a href="index.html#gallery" class="mobile-menu__link">Community</a>
+        <a href="index.html#testimonials" class="mobile-menu__link">Stories</a>
+        <a href="index.html#contact" class="mobile-menu__link">Get in Touch</a>
+        <a href="blog-post.html" class="mobile-menu__link">Blog</a>
+    </div>
+<main id="main">
+<section class="about-intro">
+ <div class="about-grid">
+  <div>
+   <p class="section-label">About Holistique</p>
+   <h1>Meet Yvonne</h1>
+   <p class="about-lead">Yvonne is a trained Gong Practitioner, offering deeply immersive gong baths that invite profound rest, energetic alignment, and inner stillness.</p>
+   <p class="about-lead">Her sessions guide participants back to the body's natural rhythm through the transformative power of sound.</p>
+   <p class="about-role">Gong Practitioner &nbsp;·&nbsp; Acupuncturist<br>Kensington, London</p>
+  </div>
+  <figure class="about-photo"><img src="photos/yvonne-gong-forest.webp" width="1000" height="1000" alt="Yvonne playing a large golden gong in the forest" fetchpriority="high"><figcaption>Sound, stillness and connection in nature.</figcaption></figure>
+ </div>
+</section>
+<section class="about-story">
+ <div class="about-grid">
+  <figure class="about-photo"><img src="photos/yvonne-gong-studio.webp" width="600" height="800" alt="Yvonne seated among gongs, mallets and a handpan in a gong studio" loading="lazy"><figcaption>Yvonne surrounded by the instruments of her practice.</figcaption></figure>
+  <div>
+   <div class="story-part"><p class="section-label">A practice rooted in sound</p><h2>A grounded presence.<br>A space to rest.</h2>
+    <p>She has studied with esteemed teachers, including the Cummings Twins. She has worked alongside Seth Newman (URUB Aerial Sound Healing), as well as taken part in overnight gong pujas with RogerGongs, Joanna GongFree, and Wiola Diamond heart. Yvonne brings a grounded presence, intuitive sensitivity, and a strong healing foundation to every sound journey she holds.</p>
+   </div>
+   <div class="story-part"><p class="section-label">Beyond sound</p><h2>A holistic approach to wellbeing</h2>
+    <p>In addition to her gong work, Yvonne is also a qualified Acupuncturist, trained in both Traditional Chinese Medicine (TCM) and Five Element Acupuncture. A graduate of the Asante Academy of Chinese Medicine and a registered member of the Acupuncture Society UK, she integrates acupuncture to support a wide range of physical and emotional conditions, including stress, anxiety, sleep issues, hormonal balance, digestive health, and pain management.</p>
+   </div>
+   <div class="about-actions"><a class="about-link primary" href="events.html">Explore sound baths <span aria-hidden="true">→</span></a><a class="about-link" href="acupuncture.html">Explore acupuncture <span aria-hidden="true">→</span></a></div>
+  </div>
+ </div>
+</section>
+<section class="about-philosophy"><p class="section-label">Her approach</p><p>Whether through sound or needles, her approach is holistic, nurturing, and deeply attuned to each individual's unique path toward balance and wellbeing.</p></section>
+<div class="about-community"><a href="index.html#gallery">See our moments of connection <span aria-hidden="true">↗</span></a></div>
+</main>
+<section class="newsletter-section">
+        <div class="newsletter-section__inner">
+            <h2 class="newsletter-section__title">Stay Connected</h2>
+            <p class="newsletter-section__sub">Get new articles, event invitations, and wellness insights from Yvonne.</p>
+            <a href="newsletter.html" class="newsletter-btn">Subscribe</a>
+        </div>
+    </section><footer class="footer">
+        <div class="footer__grid">
+            <div class="footer__brand">
+                <p class="footer__brand-name">Holistique</p>
+                <p class="footer__brand-desc">Healing and transformation through holistic practices and community. Based in Kensington, London.</p>
+            </div>
+            <div>
+                <p class="footer__col-title">Explore</p>
+                <ul class="footer__links">
+<li><a href="about.html" class="footer__link">Meet Yvonne</a></li>
+                    <li><a href="index.html#events" class="footer__link">What's On</a></li>
+                    <li><a href="acupuncture.html" class="footer__link">Acupuncture</a></li>
+                    <li><a href="wellness-tools.html" class="footer__link">Wellness Tools</a></li>
+                    <li><a href="index.html#testimonials" class="footer__link">Stories</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="footer__col-title">Community</p>
+                <ul class="footer__links">
+                    <li><a href="index.html#events" class="footer__link">Events</a></li>
+                    <li><a href="index.html#gallery" class="footer__link">Gallery</a></li>
+                    <li><a href="index.html#testimonials" class="footer__link">Testimonials</a></li>
+                    <li><a href="https://wa.me/447521760405" class="footer__link" target="_blank" rel="noopener">WhatsApp Group</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="footer__col-title">Contact</p>
+                <ul class="footer__links">
+                    <li><a href="https://wa.me/447521760405" class="footer__link" target="_blank" rel="noopener">Get in Touch</a></li>
+                    <li class="footer__text">Kensington, London</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p class="footer__copyright">&copy; 2026 Holistique UK. All rights reserved.</p>
+            <div class="footer__socials">
+                <a href="https://www.instagram.com/holistique.uk" class="footer__social" aria-label="Instagram" target="_blank" rel="noopener">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                    </svg>
+                </a>
+                <a href="https://wa.me/447521760405" class="footer__social" aria-label="WhatsApp" target="_blank" rel="noopener">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer><script>
+const toggle=document.getElementById('hamburger'), menu=document.getElementById('mobile-menu');
+toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-controls','mobile-menu');
+function closeMenu(){toggle.classList.remove('is-open');menu.classList.remove('is-open');toggle.setAttribute('aria-expanded','false');document.body.style.overflow='';}
+toggle.addEventListener('click',()=>{const open=!menu.classList.contains('is-open');toggle.classList.toggle('is-open',open);menu.classList.toggle('is-open',open);toggle.setAttribute('aria-expanded',String(open));document.body.style.overflow=open?'hidden':'';});
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
+document.addEventListener('keydown',e=>{if(e.key==='Escape' && menu.classList.contains('is-open')){closeMenu();toggle.focus();}});
+</script></body></html>
