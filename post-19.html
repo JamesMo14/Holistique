@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Days Out in London… — Holistique UK</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-weight: 300; font-size: 18px; background: #FFFFFF; color: #111827; line-height: 1.8; overflow-x: hidden; opacity: 0; transition: opacity 0.6s ease; }
+        body.loaded { opacity: 1; }
+        a { text-decoration: none; color: inherit; } img { display: block; max-width: 100%; }
+        .site-header { position: sticky; top: 0; z-index: 100; height: 80px; background: #FFFFFF; border-bottom: 1px solid #E5E7EB; display: flex; align-items: center; }
+        .header-inner { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+        .header-logo a { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 14px; text-transform: uppercase; letter-spacing: 0.2em; color: #111827; transition: opacity 200ms; }
+        .header-logo a:hover { opacity: 0.7; }
+        .header-nav { display: flex; align-items: center; gap: 32px; }
+        .header-nav a { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: #9CA3AF; transition: color 200ms; }
+        .header-nav a:hover { color: #111827; }
+        .article-hero { width: 100%; max-height: 560px; overflow: hidden; }
+        .article-hero img { width: 100%; height: 560px; object-fit: cover; }
+        .article-container { max-width: 720px; margin: 0 auto; padding: 48px 32px 80px; }
+        .article-category { display: inline-block; background: #F3F4F6; padding: 4px 12px; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #111827; }
+        .article-title { font-family: 'Marcellus', Georgia, serif; font-size: clamp(2rem, 5vw, 3rem); line-height: 1.15; margin-top: 16px; color: #111827; }
+        .article-subtitle { font-weight: 300; font-size: 1.25rem; color: #6B7280; margin-top: 16px; line-height: 1.5; padding-left: 16px; border-left: 2px solid #E5E7EB; }
+        .article-meta { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9CA3AF; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 24px; padding-bottom: 32px; border-bottom: 1px solid #E5E7EB; }
+        .article-body { margin-top: 40px; }
+        .article-body p { margin-bottom: 24px; font-size: 18px; line-height: 1.8; color: #374151; }
+        .article-body p strong { font-weight: 600; color: #111827; }
+        .article-body p em { font-style: italic; color: #6B7280; }
+        .article-body h2 { font-family: 'Marcellus', Georgia, serif; font-size: 1.75rem; margin: 48px 0 24px; color: #111827; line-height: 1.2; }
+        .article-body ul { margin: 0 0 24px 0; padding-left: 0; list-style: none; }
+        .article-body ul li { padding: 8px 0 8px 24px; position: relative; font-size: 18px; line-height: 1.8; color: #374151; }
+        .article-body ul li::before { content: ''; position: absolute; left: 0; top: 18px; width: 6px; height: 6px; background: #111827; border-radius: 50%; }
+        .article-body blockquote { margin: 32px 0; padding: 24px 32px; border-left: 3px solid #111827; background: #F9FAFB; font-style: italic; color: #374151; }
+        .article-body .separator { text-align: center; margin: 48px 0; color: #D1D5DB; font-size: 1.5rem; letter-spacing: 0.5em; }
+        .article-body a { color: #111827; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+        .article-body a:hover { color: #6B7280; }
+        .author-bio { margin-top: 64px; padding-top: 32px; border-top: 1px solid #E5E7EB; font-size: 15px; color: #6B7280; line-height: 1.7; }
+        .back-link { display: inline-block; margin-top: 48px; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; color: #9CA3AF; transition: color 200ms; }
+        .back-link:hover { color: #111827; }
+        .back-link::before { content: '\2190\00a0\00a0'; }
+        .article-newsletter { margin-top: 48px; padding: 32px; border: 2px solid #111827; text-align: center; }
+        .article-newsletter__heading { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 15px; color: #111827; margin-bottom: 4px; }
+        .article-newsletter__sub { font-size: 14px; color: #6B7280; margin-bottom: 16px; }
+        .article-newsletter__row { display: flex; gap: 8px; justify-content: center; }
+        .article-newsletter__row .newsletter-input { flex: 1; border: 1px solid #E5E7EB; background: #F9FAFB; padding: 12px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 300; color: #111827; }
+        .article-newsletter__row .newsletter-input::placeholder { color: #9CA3AF; }
+        .article-newsletter__row .newsletter-btn { background: #111827; color: #FFFFFF; text-transform: uppercase; letter-spacing: 0.1em; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 12px; padding: 12px 24px; border: none; cursor: pointer; transition: background 200ms; white-space: nowrap; }
+        .article-newsletter__row .newsletter-btn:hover { background: #000000; }
+        .article-newsletter__row a.newsletter-btn { text-align: center; }
+        .article-newsletter__row .newsletter-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+        .newsletter-message { margin-top: 8px; font-size: 13px; text-align: center; }
+        .newsletter-message.success { color: #059669; }
+        .newsletter-message.error { color: #DC2626; }
+        @media (max-width: 480px) { .article-newsletter__row { flex-direction: column; } }
+        .site-footer { background: #F9FAFB; border-top: 1px solid #E5E7EB; padding: 32px 0; }
+        .footer-inner { display: flex; justify-content: space-between; align-items: center; max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+        .footer-copy { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #9CA3AF; text-transform: uppercase; letter-spacing: 0.1em; }
+        .footer-social { display: flex; gap: 20px; }
+        .footer-social a { display: flex; align-items: center; color: #9CA3AF; transition: color 200ms; }
+        .footer-social a:hover { color: #111827; }
+        .footer-social svg { width: 20px; height: 20px; }
+        @media (max-width: 768px) { .header-inner { padding: 0 20px; } .article-container { padding: 32px 20px 64px; } .article-hero img { height: 320px; } .footer-inner { padding: 0 20px; } }
+        @media (max-width: 480px) { .header-inner { padding: 0 16px; } .header-nav { gap: 20px; } .article-container { padding: 24px 16px 48px; } .article-hero img { height: 240px; } .footer-inner { flex-direction: column; gap: 16px; padding: 0 16px; } }
+    </style>
+</head>
+<body>
+    <header class="site-header"><div class="header-inner"><div class="header-logo"><a href="index.html">HOLISTIQUE</a></div><nav class="header-nav"><a href="index.html">Home</a><a href="blog.html">Journal</a><a href="#">About</a></nav></div></header>
+
+    <div class="article-hero">
+        <img src="https://cdn-images-1.medium.com/max/1024/1*2ssQLgxg5ul2uGN8dTo5LQ.png" alt="Dog Days Out in London…">
+    </div>
+
+    <article class="article-container">
+        <span class="article-category">Pet Wellness</span>
+        <h1 class="article-title">Dog Days Out in London…</h1>
+        <p class="article-subtitle">Sound healing with your dog might be just what you need</p>
+        <p class="article-meta">By Yvonne &middot; Sep 28, 2026 &middot; 5 Min Read</p>
+
+        <div class="article-body">
+            <h2>Dog Days Out in London</h2><p>Sound healing with your dog might be just what you need</p><p>Not another busy class. Not a crowded meetup where nobody really exhales. Just a soft hour where your dog can settle, you can settle, and the room does some of the work for you.</p><p>That’s the quiet idea behind dog-friendly sound healing — and why <a href="https://holistiqueuk.com/">HolistiqueUK’s</a> <a href="https://dandelion.events/e/s6dev">Paws &amp; Sound evening on 10 October 2026</a> feels like such a welcome oddity on the London calendar.</p><h2>A different kind of day out with your dog</h2><p>Most “fun with your dog in London” lists point you toward activity: longer walks, agility, puppy socials. Those are lovely. They also keep the nervous system on go.</p><p>Sound healing flips the script. You lie or sit in a gently held space. Instruments — often gongs, bowls, chimes, soft voice — create a wash of tone. You don’t have to perform. Your dog doesn’t have to perform either. The invitation is simply to listen and rest.</p><p>Dogs are honest about stress. They pace, pant, cling, or bounce off the walls when the city has been too much. A shared calm experience can be a rare chance to co-regulate: your breathing slows, theirs often follows, and the bond feels less like management and more like companionship again.</p><blockquote>Soft places matter. Especially in a city that rarely stops humming.</blockquote><h2>Why sound works (without the jargon)</h2><p>You don’t need a degree in acoustics to notice what vibration does to a room. A low gong note lands in the chest. A bowl’s tone hangs in the air like a held breath. Over a short session, many people feel their shoulders drop and their thoughts thin out.</p><p>For dogs, the same principle applies in simpler terms: unfamiliar but non-threatening sound, a settled human beside them, and permission to stay rather than “do”. Some dogs doze. Some watch. Some need a little longer to decide the room is safe. All of that is fine when the facilitation is gentle and the space is dog-aware.</p><p>This isn’t a replacement for veterinary care, training, or a proper walk. It’s a complementary pause — the kind of pause Londoners (and London dogs) rarely get on a Friday night.</p><img src="https://cdn-images-1.medium.com/max/1024/1*HzzTbfRqxPZn2-GfrdPRnQ.png" alt=""><h2>What makes a dog-friendly wellness event feel safe</h2><p>If you’re weighing whether to bring your pup somewhere new, a few practical checks help:</p><ul><li>Clear guidance on what to bring (lead, water, mat or towel).</li><li>A pace that isn’t chaotic — no forced interactions between dogs.</li><li>A facilitator who understands both the sound journey and animal comfort.</li><li>An exit plan — you’re free to step out if your dog needs a break.</li></ul><p>HolistiqueUK’s events are curated for connection without pressure. Paws &amp; Sound sits in that same spirit: chill with your pups, vibe to soothing sounds, and leave a little softer than you arrived.</p><h2>Soft lead: Paws &amp; Sound — 10 October 2026</h2><p>Paws &amp; Sound: Doggy Sound Healing Experience lands on Saturday 10 October 2026 at 7:00pm in London.</p><p>It’s designed as a shared healing session for humans and their dogs — playful in tone, restorative in feel. Think of it as a Friday evening that doesn’t ask you to dress up, network, or leave your best friend at��home.</p><p>If you’ve been craving a London plan that feels kind rather than crowded, put it in the diary. Tickets and details live on the Holistique events hub:</p><p><a href="https://holistiqueuk.com/events">→ holistiqueuk.com/events</a></p><h2>How to prepare (even if you book later)</h2><p>Whether you come to Paws &amp; Sound or simply want a calmer weekend with your dog, a few small habits help:</p><ol><li>Shorter, slower walks the same day — arrive not overstimulated.</li><li>A familiar blanket or mat so your dog has a “home base” smell.</li><li>Your own water bottle (and theirs).</li><li>Low expectations — rest is the win, not a perfect Instagram moment.</li></ol><p>Tomorrow’s piece will go deeper on what to expect at Paws &amp; Sound itself — timing, vibe, and how to decide if it’s right for your dog.</p><h2>London ideas that pair well (without overdoing it)</h2><p>If Paws &amp; Sound is the centrepiece, keep the rest of the weekend simple. A slow morning walk on the common. A café with outdoor water bowls. An early night.</p><p>Resist the urge to stack three “amazing dog experiences” on the same Saturday. Dogs read our schedules through our leash hands. One special evening plus ordinary kindness usually beats a packed itinerary.</p><p>For humans without dogs who still want sound this autumn, Holistique’s wider calendar — overnight journeys, the day retreat, and November’s Christian Dimarco cluster — offers plenty of doors. The point of leading with dogs first in this series is simple: joy is a valid on-ramp to healing. You don’t have to be solemn to take rest seriously.</p><p>If you’re travelling across town for 10 October, plan your route before you leave. Build in sniff breaks. Arrive as two slightly bored mammals rather than two stressed ones. That single choice changes the session more than any fancy mat.</p><h2>A note from the Holistique corner of London</h2><p>Holistique UK exists for people who want holistic healing without the hard sell: acupuncture and fire cupping with Yvonne, curated wellness events across London, and a community that prefers sincerity to spectacle.</p><p>Dog-friendly sound healing is part of that wider invitation — to feel more human (and more connected) in a city that often forgets both.</p><p>If your autumn needs one gentle plan, start here. Bring the lead. Bring the soft towel. Leave the rush at the door.</p><p><a href="https://holistiqueuk.com/events">Tickets: holistiqueuk.com/events</a></p><p><a href="https://holistiqueuk.com/">Explore more: holistiqueuk.com</a></p><img src="https://medium.com/_/stat?event=post.clientViewed&referrerSource=full_rss&postId=afb197723682" width="1" height="1" alt="">
+        </div>
+
+        <div class="author-bio">
+            <p>Yvonne is a former model turned acupuncturist and sound healer. Today she organises holistic events and retreats for her community of conscious souls in London. You can find her on Instagram: <a href="https://instagram.com/yvonne.holistique/" target="_blank">@yvonne.holistique</a></p>
+        </div>
+
+        <div class="article-newsletter">
+            <p class="article-newsletter__heading">Enjoyed this article?</p>
+            <p class="article-newsletter__sub">Get new posts from Yvonne delivered to your inbox.</p>
+            <div class="article-newsletter__row">
+                <a href="newsletter.html" class="newsletter-btn">Subscribe</a>
+            </div>
+        </div>
+
+        <a href="blog-post.html" class="back-link">Back to Journal</a>
+    </article>
+
+    <footer class="site-footer"><div class="footer-inner"><span class="footer-copy">&copy; 2025 Holistique UK</span><div class="footer-social"><a href="https://instagram.com/yvonne.holistique/" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="5"></circle><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"></circle></svg></a><a href="https://medium.com/@yvonne.holistique" target="_blank" aria-label="Medium"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg></a></div></div></footer>
+
+    <script>
+    window.addEventListener('DOMContentLoaded', function() {
+        document.body.classList.add('loaded');
+    });
+    </script>
+</body>
+</html>

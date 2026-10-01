@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overnight Sound Healing in London — Holistique UK</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-weight: 300; font-size: 18px; background: #FFFFFF; color: #111827; line-height: 1.8; overflow-x: hidden; opacity: 0; transition: opacity 0.6s ease; }
+        body.loaded { opacity: 1; }
+        a { text-decoration: none; color: inherit; } img { display: block; max-width: 100%; }
+        .site-header { position: sticky; top: 0; z-index: 100; height: 80px; background: #FFFFFF; border-bottom: 1px solid #E5E7EB; display: flex; align-items: center; }
+        .header-inner { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+        .header-logo a { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 14px; text-transform: uppercase; letter-spacing: 0.2em; color: #111827; transition: opacity 200ms; }
+        .header-logo a:hover { opacity: 0.7; }
+        .header-nav { display: flex; align-items: center; gap: 32px; }
+        .header-nav a { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: #9CA3AF; transition: color 200ms; }
+        .header-nav a:hover { color: #111827; }
+        .article-hero { width: 100%; max-height: 560px; overflow: hidden; }
+        .article-hero img { width: 100%; height: 560px; object-fit: cover; }
+        .article-container { max-width: 720px; margin: 0 auto; padding: 48px 32px 80px; }
+        .article-category { display: inline-block; background: #F3F4F6; padding: 4px 12px; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #111827; }
+        .article-title { font-family: 'Marcellus', Georgia, serif; font-size: clamp(2rem, 5vw, 3rem); line-height: 1.15; margin-top: 16px; color: #111827; }
+        .article-subtitle { font-weight: 300; font-size: 1.25rem; color: #6B7280; margin-top: 16px; line-height: 1.5; padding-left: 16px; border-left: 2px solid #E5E7EB; }
+        .article-meta { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9CA3AF; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 24px; padding-bottom: 32px; border-bottom: 1px solid #E5E7EB; }
+        .article-body { margin-top: 40px; }
+        .article-body p { margin-bottom: 24px; font-size: 18px; line-height: 1.8; color: #374151; }
+        .article-body p strong { font-weight: 600; color: #111827; }
+        .article-body p em { font-style: italic; color: #6B7280; }
+        .article-body h2 { font-family: 'Marcellus', Georgia, serif; font-size: 1.75rem; margin: 48px 0 24px; color: #111827; line-height: 1.2; }
+        .article-body ul { margin: 0 0 24px 0; padding-left: 0; list-style: none; }
+        .article-body ul li { padding: 8px 0 8px 24px; position: relative; font-size: 18px; line-height: 1.8; color: #374151; }
+        .article-body ul li::before { content: ''; position: absolute; left: 0; top: 18px; width: 6px; height: 6px; background: #111827; border-radius: 50%; }
+        .article-body blockquote { margin: 32px 0; padding: 24px 32px; border-left: 3px solid #111827; background: #F9FAFB; font-style: italic; color: #374151; }
+        .article-body .separator { text-align: center; margin: 48px 0; color: #D1D5DB; font-size: 1.5rem; letter-spacing: 0.5em; }
+        .article-body a { color: #111827; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+        .article-body a:hover { color: #6B7280; }
+        .author-bio { margin-top: 64px; padding-top: 32px; border-top: 1px solid #E5E7EB; font-size: 15px; color: #6B7280; line-height: 1.7; }
+        .back-link { display: inline-block; margin-top: 48px; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; color: #9CA3AF; transition: color 200ms; }
+        .back-link:hover { color: #111827; }
+        .back-link::before { content: '\2190\00a0\00a0'; }
+        .article-newsletter { margin-top: 48px; padding: 32px; border: 2px solid #111827; text-align: center; }
+        .article-newsletter__heading { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 15px; color: #111827; margin-bottom: 4px; }
+        .article-newsletter__sub { font-size: 14px; color: #6B7280; margin-bottom: 16px; }
+        .article-newsletter__row { display: flex; gap: 8px; justify-content: center; }
+        .article-newsletter__row .newsletter-input { flex: 1; border: 1px solid #E5E7EB; background: #F9FAFB; padding: 12px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 300; color: #111827; }
+        .article-newsletter__row .newsletter-input::placeholder { color: #9CA3AF; }
+        .article-newsletter__row .newsletter-btn { background: #111827; color: #FFFFFF; text-transform: uppercase; letter-spacing: 0.1em; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 12px; padding: 12px 24px; border: none; cursor: pointer; transition: background 200ms; white-space: nowrap; }
+        .article-newsletter__row .newsletter-btn:hover { background: #000000; }
+        .article-newsletter__row a.newsletter-btn { text-align: center; }
+        .article-newsletter__row .newsletter-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+        .newsletter-message { margin-top: 8px; font-size: 13px; text-align: center; }
+        .newsletter-message.success { color: #059669; }
+        .newsletter-message.error { color: #DC2626; }
+        @media (max-width: 480px) { .article-newsletter__row { flex-direction: column; } }
+        .site-footer { background: #F9FAFB; border-top: 1px solid #E5E7EB; padding: 32px 0; }
+        .footer-inner { display: flex; justify-content: space-between; align-items: center; max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+        .footer-copy { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #9CA3AF; text-transform: uppercase; letter-spacing: 0.1em; }
+        .footer-social { display: flex; gap: 20px; }
+        .footer-social a { display: flex; align-items: center; color: #9CA3AF; transition: color 200ms; }
+        .footer-social a:hover { color: #111827; }
+        .footer-social svg { width: 20px; height: 20px; }
+        @media (max-width: 768px) { .header-inner { padding: 0 20px; } .article-container { padding: 32px 20px 64px; } .article-hero img { height: 320px; } .footer-inner { padding: 0 20px; } }
+        @media (max-width: 480px) { .header-inner { padding: 0 16px; } .header-nav { gap: 20px; } .article-container { padding: 24px 16px 48px; } .article-hero img { height: 240px; } .footer-inner { flex-direction: column; gap: 16px; padding: 0 16px; } }
+    </style>
+</head>
+<body>
+    <header class="site-header"><div class="header-inner"><div class="header-logo"><a href="index.html">HOLISTIQUE</a></div><nav class="header-nav"><a href="index.html">Home</a><a href="blog.html">Journal</a><a href="#">About</a></nav></div></header>
+
+    <div class="article-hero">
+        <img src="https://cdn-images-1.medium.com/max/1024/1*i_aaxu5vMIFHo4LnJagRsw.png" alt="Overnight Sound Healing in London">
+    </div>
+
+    <article class="article-container">
+        <span class="article-category">Holistique Uk</span>
+        <h1 class="article-title">Overnight Sound Healing in London</h1>
+        <p class="article-subtitle">Why overnight changes the experience</p>
+        <p class="article-meta">By Yvonne &middot; Oct 1, 2026 &middot; 5 Min Read</p>
+
+        <div class="article-body">
+            <h2>A Deep Rest Journey at Colet House</h2><p>Some evenings end at 9pm with tea and a Tube ride home. Others ask you to stay</p><p><strong>Holistique UK’s Overnight Sound Healing Journe</strong>y on<strong> Saturday 17 October 2026 at 9:00pm</strong> is the second kind — a longer container for relaxation and healing through sound at <strong>Colet House</strong>, the beautiful venue near Barons Court that hosts several Holistique gatherings.</p><p>If a standard sound bath is a deep breath, an overnight journey is permission to stop holding your breath until morning.</p><h4>Why overnight changes the experience</h4><p>In a short session, part of you still watches the clock. Bags, trains, tomorrow’s emails — they hover at the edge of the mat.</p><p>An overnight format softens that edge. You settle knowing you don’t have to “come back” quite so soon. The nervous system often follows: first the fidgets, then the heavier limbs, then the kind of rest that doesn’t feel available at home between notifications.</p><p>You’re not booking entertainment. You’re booking uninterrupted recovery time in a held room.</p><blockquote>Deep rest is a skill. Long containers help you practise it.</blockquote><img src="https://cdn-images-1.medium.com/max/1024/1*IitGztVCYj081rRk0x7knw.png" alt=""><h4>Colet House — a note on place</h4><p>Colet House (151 Talgarth Road, London W14, near Baron’s Court) has become a familiar Holistique landmark for sound and retreat days. It’s a proper London wellness address: reachable, atmospheric, and suited to lying down with intention rather than rushing between Zoom calls.</p><p>Venue specifics and arrival notes will sit on your ticket — always check the latest on <a href="https://holistiqueuk.com/events.">https://holistiqueuk.com/events.</a></p><h4>What the night is for</h4><p>The public framing is simple and true: a magical journey of relaxation and healing through the power of sound.</p><p>In practice, that usually means:A guided arrival into the space</p><ul><li>Extended soundscapes — gongs and companion instruments weaving tone through the room</li><li>Long stretches where you can drift, dream, or simply notice breath</li><li>A soft morning-adjacent landing before you re-enter the city</li></ul><p>Exact instruments and pacing belong to the facilitators on the night. Your job is to receive.</p><h4>Sound through the long night</h4><p>In shorter baths, the arc is compact: settle, receive, return. Overnight, facilitators can afford patience. Tones can rise and fall like weather. Silence can be left alone long enough to become its own instrument.</p><p>You might notice waves of alertness and drowsiness. You might dream with your eyes closed. You might remember a worry, feel it move through, and discover it has less grip at 2am than it did at 2pm. None of that needs fixing in the moment. The room is designed to hold it.</p><p>If you’ve only ever experienced sound healing as a polite 75 minutes on a weeknight, this is the format that shows you what “journey” was always hinting at.</p><h4>Practical preparation</h4><p>Before you book / before you go: Confirm the 9:00pm start on 17 Oct 2026 and any stated end guidance on the ticket. Ask yourself honestly if overnight group rest feels nourishing right now. Plan travel that doesn’t leave you panicked at 8:40pm.</p><p>What to pack: Comfortable layers and socks; an eye mask; water; any requested mat or bedding; minimal valuables and maximum softness. Eat enough beforehand that hunger won’t narrate the night, but not so heavy you feel stuck.</p><h4>Who thrives at an overnight journey</h4><ul><li>People craving more than a teaser sound bath</li><li>Light sleepers who still want structured rest away from home habits</li><li>Anyone who’s tried a shorter Holistique sound evening and thought, I could have stayed</li></ul><p>If the idea of overnight group settings brings up real anxiety, a daytime retreat on Sunday 25 October or a standard evening may be a kinder first step — and that’s wisdom, not avoidance.</p><h4>Boundaries and comfort overnight</h4><p>You’re allowed to leave if you need to. You’re allowed to sit up. You’re allowed to place yourself nearer a wall or an exit. Good rooms make that explicit so you don’t suffer politely.</p><p>If you live with trauma sensitivity around darkness, groups, or unpredictable sound, read the event page carefully and contact the team with questions before you pay. Holistique events are held with care; your pacing still matters.</p><p>Earplugs are rarely needed for gong work and can change the experience — ask the facilitator if you’re unsure. Eye masks are usually welcome. Phones on genuine silent, not vibrate.</p><p>Think of overnight sound less like a concert and more like being lent a safer harbour for a few hours. You bring courtesy; they bring the container; the instruments do the long conversation.</p><h4>How this sits in the autumn arc</h4><p>October at Holistique UK moves from playful (Paws &amp; Sound, 10 Oct) into deeper rest (this overnight, 17 Oct) and then into a full Day Retreat on 25 October. November brings Christian Dimarco’s London cluster and the Sacred Sounds overnight.</p><p>You don’t need to attend everything. You might only need one night that reminds your body what unforced quiet feels like.</p><h4>CTA — claim the deep rest</h4><p>Overnight Sound Healing Journey</p><p>Sat 17 October 2026 · 9:00pm · Colet House, London</p><p>Tickets and details: <a href="https://holistiqueuk.com/events">https://holistiqueuk.com/events</a></p><p>If your system is asking for a full day rather than a night, Friday’s article explores the 25 October day retreat — rest without the hustle.</p><p>HolistiqueUK — healing, transformation, connection, without the noise.</p><p>Home: https://holistiqueuk.com/.</p><img src="https://medium.com/_/stat?event=post.clientViewed&referrerSource=full_rss&postId=637fc54300bf" width="1" height="1" alt="">
+        </div>
+
+        <div class="author-bio">
+            <p>Yvonne is a former model turned acupuncturist and sound healer. Today she organises holistic events and retreats for her community of conscious souls in London. You can find her on Instagram: <a href="https://instagram.com/yvonne.holistique/" target="_blank">@yvonne.holistique</a></p>
+        </div>
+
+        <div class="article-newsletter">
+            <p class="article-newsletter__heading">Enjoyed this article?</p>
+            <p class="article-newsletter__sub">Get new posts from Yvonne delivered to your inbox.</p>
+            <div class="article-newsletter__row">
+                <a href="newsletter.html" class="newsletter-btn">Subscribe</a>
+            </div>
+        </div>
+
+        <a href="blog-post.html" class="back-link">Back to Journal</a>
+    </article>
+
+    <footer class="site-footer"><div class="footer-inner"><span class="footer-copy">&copy; 2025 Holistique UK</span><div class="footer-social"><a href="https://instagram.com/yvonne.holistique/" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="5"></circle><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"></circle></svg></a><a href="https://medium.com/@yvonne.holistique" target="_blank" aria-label="Medium"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg></a></div></div></footer>
+
+    <script>
+    window.addEventListener('DOMContentLoaded', function() {
+        document.body.classList.add('loaded');
+    });
+    </script>
+</body>
+</html>

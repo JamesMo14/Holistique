@@ -1,5 +1,5 @@
 {
-  "lastPostNumber": 15,
+  "lastPostNumber": 19,
   "posts": [
     {
       "number": 1,
@@ -120,6 +120,38 @@
       "file": "post-15.html",
       "date": "Aug 23, 2025",
       "category": "Friendship"
+    },
+    {
+      "number": 16,
+      "title": "Overnight Sound Healing in London",
+      "mediumUrl": "https://medium.com/@yvonne.holistique/overnight-sound-healing-in-london-637fc54300bf?source=rss-517af46e024b------2",
+      "file": "post-16.html",
+      "date": "Oct 1, 2026",
+      "category": "Holistique Uk"
+    },
+    {
+      "number": 17,
+      "title": "What Is Sound Healing?",
+      "mediumUrl": "https://medium.com/@yvonne.holistique/what-is-sound-healing-6af2d6e68145?source=rss-517af46e024b------2",
+      "file": "post-17.html",
+      "date": "Sep 30, 2026",
+      "category": "Sound Bath London"
+    },
+    {
+      "number": 18,
+      "title": "Paws & Sound: What to Expect at London’s Doggy Sound Healing Experience",
+      "mediumUrl": "https://medium.com/@yvonne.holistique/paws-sound-what-to-expect-at-londons-doggy-sound-healing-experience-1817f4c3d297?source=rss-517af46e024b------2",
+      "file": "post-18.html",
+      "date": "Sep 29, 2026",
+      "category": "Dog Friendly London"
+    },
+    {
+      "number": 19,
+      "title": "Dog Days Out in London…",
+      "mediumUrl": "https://medium.com/@yvonne.holistique/dog-days-out-in-london-afb197723682?source=rss-517af46e024b------2",
+      "file": "post-19.html",
+      "date": "Sep 28, 2026",
+      "category": "Pet Wellness"
     }
   ]
 }

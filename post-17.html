@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Is Sound Healing? — Holistique UK</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-weight: 300; font-size: 18px; background: #FFFFFF; color: #111827; line-height: 1.8; overflow-x: hidden; opacity: 0; transition: opacity 0.6s ease; }
+        body.loaded { opacity: 1; }
+        a { text-decoration: none; color: inherit; } img { display: block; max-width: 100%; }
+        .site-header { position: sticky; top: 0; z-index: 100; height: 80px; background: #FFFFFF; border-bottom: 1px solid #E5E7EB; display: flex; align-items: center; }
+        .header-inner { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+        .header-logo a { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 14px; text-transform: uppercase; letter-spacing: 0.2em; color: #111827; transition: opacity 200ms; }
+        .header-logo a:hover { opacity: 0.7; }
+        .header-nav { display: flex; align-items: center; gap: 32px; }
+        .header-nav a { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: #9CA3AF; transition: color 200ms; }
+        .header-nav a:hover { color: #111827; }
+        .article-hero { width: 100%; max-height: 560px; overflow: hidden; }
+        .article-hero img { width: 100%; height: 560px; object-fit: cover; }
+        .article-container { max-width: 720px; margin: 0 auto; padding: 48px 32px 80px; }
+        .article-category { display: inline-block; background: #F3F4F6; padding: 4px 12px; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #111827; }
+        .article-title { font-family: 'Marcellus', Georgia, serif; font-size: clamp(2rem, 5vw, 3rem); line-height: 1.15; margin-top: 16px; color: #111827; }
+        .article-subtitle { font-weight: 300; font-size: 1.25rem; color: #6B7280; margin-top: 16px; line-height: 1.5; padding-left: 16px; border-left: 2px solid #E5E7EB; }
+        .article-meta { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9CA3AF; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 24px; padding-bottom: 32px; border-bottom: 1px solid #E5E7EB; }
+        .article-body { margin-top: 40px; }
+        .article-body p { margin-bottom: 24px; font-size: 18px; line-height: 1.8; color: #374151; }
+        .article-body p strong { font-weight: 600; color: #111827; }
+        .article-body p em { font-style: italic; color: #6B7280; }
+        .article-body h2 { font-family: 'Marcellus', Georgia, serif; font-size: 1.75rem; margin: 48px 0 24px; color: #111827; line-height: 1.2; }
+        .article-body ul { margin: 0 0 24px 0; padding-left: 0; list-style: none; }
+        .article-body ul li { padding: 8px 0 8px 24px; position: relative; font-size: 18px; line-height: 1.8; color: #374151; }
+        .article-body ul li::before { content: ''; position: absolute; left: 0; top: 18px; width: 6px; height: 6px; background: #111827; border-radius: 50%; }
+        .article-body blockquote { margin: 32px 0; padding: 24px 32px; border-left: 3px solid #111827; background: #F9FAFB; font-style: italic; color: #374151; }
+        .article-body .separator { text-align: center; margin: 48px 0; color: #D1D5DB; font-size: 1.5rem; letter-spacing: 0.5em; }
+        .article-body a { color: #111827; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+        .article-body a:hover { color: #6B7280; }
+        .author-bio { margin-top: 64px; padding-top: 32px; border-top: 1px solid #E5E7EB; font-size: 15px; color: #6B7280; line-height: 1.7; }
+        .back-link { display: inline-block; margin-top: 48px; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; color: #9CA3AF; transition: color 200ms; }
+        .back-link:hover { color: #111827; }
+        .back-link::before { content: '\2190\00a0\00a0'; }
+        .article-newsletter { margin-top: 48px; padding: 32px; border: 2px solid #111827; text-align: center; }
+        .article-newsletter__heading { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 15px; color: #111827; margin-bottom: 4px; }
+        .article-newsletter__sub { font-size: 14px; color: #6B7280; margin-bottom: 16px; }
+        .article-newsletter__row { display: flex; gap: 8px; justify-content: center; }
+        .article-newsletter__row .newsletter-input { flex: 1; border: 1px solid #E5E7EB; background: #F9FAFB; padding: 12px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 300; color: #111827; }
+        .article-newsletter__row .newsletter-input::placeholder { color: #9CA3AF; }
+        .article-newsletter__row .newsletter-btn { background: #111827; color: #FFFFFF; text-transform: uppercase; letter-spacing: 0.1em; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 12px; padding: 12px 24px; border: none; cursor: pointer; transition: background 200ms; white-space: nowrap; }
+        .article-newsletter__row .newsletter-btn:hover { background: #000000; }
+        .article-newsletter__row a.newsletter-btn { text-align: center; }
+        .article-newsletter__row .newsletter-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+        .newsletter-message { margin-top: 8px; font-size: 13px; text-align: center; }
+        .newsletter-message.success { color: #059669; }
+        .newsletter-message.error { color: #DC2626; }
+        @media (max-width: 480px) { .article-newsletter__row { flex-direction: column; } }
+        .site-footer { background: #F9FAFB; border-top: 1px solid #E5E7EB; padding: 32px 0; }
+        .footer-inner { display: flex; justify-content: space-between; align-items: center; max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+        .footer-copy { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #9CA3AF; text-transform: uppercase; letter-spacing: 0.1em; }
+        .footer-social { display: flex; gap: 20px; }
+        .footer-social a { display: flex; align-items: center; color: #9CA3AF; transition: color 200ms; }
+        .footer-social a:hover { color: #111827; }
+        .footer-social svg { width: 20px; height: 20px; }
+        @media (max-width: 768px) { .header-inner { padding: 0 20px; } .article-container { padding: 32px 20px 64px; } .article-hero img { height: 320px; } .footer-inner { padding: 0 20px; } }
+        @media (max-width: 480px) { .header-inner { padding: 0 16px; } .header-nav { gap: 20px; } .article-container { padding: 24px 16px 48px; } .article-hero img { height: 240px; } .footer-inner { flex-direction: column; gap: 16px; padding: 0 16px; } }
+    </style>
+</head>
+<body>
+    <header class="site-header"><div class="header-inner"><div class="header-logo"><a href="index.html">HOLISTIQUE</a></div><nav class="header-nav"><a href="index.html">Home</a><a href="blog.html">Journal</a><a href="#">About</a></nav></div></header>
+
+    <div class="article-hero">
+        <img src="https://cdn-images-1.medium.com/max/1024/1*r_NQ3G2ixvyNJZka268GMg.png" alt="What Is Sound Healing?">
+    </div>
+
+    <article class="article-container">
+        <span class="article-category">Sound Bath London</span>
+        <h1 class="article-title">What Is Sound Healing?</h1>
+        <p class="article-subtitle">What actually happens in a session</p>
+        <p class="article-meta">By Yvonne &middot; Sep 30, 2026 &middot; 4 Min Read</p>
+
+        <div class="article-body">
+            <h2>Benefits, How It Feels, and Why Londoners Are Booking In</h2><p>Search “what is sound healing and you’ll find a fog of claims. Some mystical. Some medical-sounding. Some so vague you still don’t know what to wear.</p><p>Here’s the grounded version.</p><p>Sound healing (sometimes called a sound bath or sound journey) is a guided session where you rest while instruments — gongs, singing bowls, chimes, drums, voice, and more — create a landscape of tone and vibration. You don’t have to chant, perform, or understand music theory. You listen. Your body does the rest of the noticing.</p><h4>What actually happens in a session</h4><p>Most in-person journeys follow a simple shape:</p><ol><li>You arrive and take a spot on a mat (or chair if lying down isn’t comfortable).</li><li>The facilitator welcomes the room and explains the rough arc.</li><li>Lights soften. Sound begins — sometimes slowly, sometimes as a full wash.</li><li>For a stretch of time you rest with eyes closed or soft gaze.</li><li>Sound fades. Silence returns. You come back, stretch, and leave when ready.</li></ol><p>Some evenings are shorter community baths. Others, like HolistiqueUKs overnight journeys, give you a longer container to go deeper into rest.</p><h4>How it can feel (realistically)</h4><p>People report different things and that’s normal:</p><ul><li>Heavy limbs, warm chest, slower breath</li><li>A busy mind that gradually thins</li><li>Emotions rising and passing (tears are allowed)</li><li>Deep quiet, even sleep</li><li>Occasionally restlessness before the settle arrives</li></ul><p>There’s no gold-star response. Feeling “nothing dramatic” can still mean your nervous system got a break from scrolling, commuting, and bracing.</p><blockquote>Sound doesn’t demand belief. It asks for presence.</blockquote><img src="https://cdn-images-1.medium.com/max/1024/1*DCqwtQLCHRfuFe4mqT3ZvA.png" alt=""><h4>Benefits people often seek</h4><p>Without overclaiming, sound healing is commonly used to support:</p><ul><li>Stress softening — a structured pause from cognitive overload</li><li>Better body awareness noticing tension you usually ignore</li><li>Sleepiness and wind-down — especially later-evening sessions</li><li>A sense of community — resting beside others without small talk pressure</li><li>Curiosity about inner life — many leave wanting more stillness, not less</li></ul><p>Modern interest sits alongside older cultural uses of sound for ritual, meditation, and care. Facilitators like those hosted by HolistiqueUK work experientially: the proof is in how you feel when you stand up afterwards.</p><p>If you have specific health conditions, treat this as complementary wellbeing not a substitute for clinical care — and check with a qualified professional when unsure.</p><h4>Sound healing vs meditation vs a spa playlist</h4><p>Meditation often asks you to attend to breath or a focus object.</p><ul><li>A spa playlist is background music.</li><li>Sound healing puts live (or carefully crafted) vibration at the centre, with a facilitator holding the room’s pace and safety.</li></ul><p>You can be “bad at meditating” and still benefit from a sound journey, because the sound gives the mind something external to lean on.</p><h4>Why Londoners are booking in this autumn</h4><p>City life compresses recovery time. A 90-minute or overnight sound journey is one of the few social plans that reduces stimulation instead of adding it.</p><p>Holistique UK’s autumn calendar leans into that need:</p><ul><li>10 Oct — Paws &amp; Sound (dog-friendly)</li><li>17 Oct — Overnight Sound Healing Journey at Colet House</li><li>25 Oct — Day Retreat in London</li><li>19–21 Nov — Christian Dimarco sound journeys and Sacred Sounds overnight</li></ul><p>Browse the full list here: <a href="https://holistiqueuk.com/events">holistiqueuk.com/events</a></p><h4>Common myths, gently retired</h4><p>“I have to clear my mind. You don’t. Minds think. Sound gives the thinking something kinder to lean against.</p><p>“If I fall asleep I’ve failed.” Sleep can be the session working. Soft snoring is a community sport.</p><p>“It’s only for spiritual people. Plenty of sceptics leave with looser jaws. You can keep your worldview and still enjoy physics meeting a quiet room.</p><p>Louder means more powerful.” Not necessarily. Skilled facilitation is about arc and listening, not volume contests.</p><p>One session should fix my stress.” Think of it like bathing: useful repeatedly, not a one-time exorcism of modern life.</p><p>Understanding these myths in advance makes the first booking less loaded. You can arrive curious instead of braced for a transformation you have to prove.</p><p>Research interest in sound and nervous-system downshifting continues to grow, but your own before-and-after — shoulders, breath, sleep that night — remains the most relevant data point.</p><h4>How to try it for the first time</h4><ol><li>Pick a session with clear beginner-friendly language.</li><li>Eat lightly beforehand; caffeine optional (many prefer less).</li><li>Wear soft clothes; bring a layer and water.</li><li>Arrive early enough to claim a comfortable spot.</li><li>Give yourself 20 quiet minutes afterwards before diving back into messages.</li></ol><p>Sound healing is a family of experiences, not a single product. Match the format to the season you’re actually in — tired, curious, grieving, celebrating, or simply ready to lie down without apology.</p><h4>A Holistique note</h4><p>HolistiqueUK is a London wellness home for people who want healing and community without the circus events, curated tools, and acupuncture with Yvonne when one-to-one care is what you need.</p><p>Sound is one doorway. Rest is the point.</p><p>Events: <a href="https://holistiqueuk.com/events">holistiqueuk.com/event</a>s</p><p>Home:<a href="https://holistiqueuk.com/"> holistiqueuk.com</a></p><img src="https://medium.com/_/stat?event=post.clientViewed&referrerSource=full_rss&postId=6af2d6e68145" width="1" height="1" alt="">
+        </div>
+
+        <div class="author-bio">
+            <p>Yvonne is a former model turned acupuncturist and sound healer. Today she organises holistic events and retreats for her community of conscious souls in London. You can find her on Instagram: <a href="https://instagram.com/yvonne.holistique/" target="_blank">@yvonne.holistique</a></p>
+        </div>
+
+        <div class="article-newsletter">
+            <p class="article-newsletter__heading">Enjoyed this article?</p>
+            <p class="article-newsletter__sub">Get new posts from Yvonne delivered to your inbox.</p>
+            <div class="article-newsletter__row">
+                <a href="newsletter.html" class="newsletter-btn">Subscribe</a>
+            </div>
+        </div>
+
+        <a href="blog-post.html" class="back-link">Back to Journal</a>
+    </article>
+
+    <footer class="site-footer"><div class="footer-inner"><span class="footer-copy">&copy; 2025 Holistique UK</span><div class="footer-social"><a href="https://instagram.com/yvonne.holistique/" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="5"></circle><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"></circle></svg></a><a href="https://medium.com/@yvonne.holistique" target="_blank" aria-label="Medium"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg></a></div></div></footer>
+
+    <script>
+    window.addEventListener('DOMContentLoaded', function() {
+        document.body.classList.add('loaded');
+    });
+    </script>
+</body>
+</html>
