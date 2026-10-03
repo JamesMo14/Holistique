@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-10-03T00:21:01.919Z",
+  "lastSync": "2026-10-03T18:38:28.466Z",
   "organizationId": null,
   "upcoming": [
     {
@@ -84,6 +84,18 @@
       "venueName": "Colet House",
       "city": "London",
       "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1192882758%2F216441982947%2F1%2Foriginal.20260907-134032?auto=format%2Ccompress&q=75&sharp=10&s=72135ec3bf91859ea98331d0e2570288",
+      "status": "live"
+    },
+    {
+      "id": "2002840190926",
+      "name": "Medicine Music — A Journey Through Sound with Christian Dimarco",
+      "description": "Immerse yourself in a deeply relaxing soundscape, guided by renowned Australian sound healing facilitator Christian Dimarco.",
+      "url": "https://www.eventbrite.co.uk/e/medicine-music-a-journey-through-sound-with-christian-dimarco-tickets-2002840190926",
+      "startLocal": "2026-11-22T16:00:00",
+      "endLocal": "2026-11-22T18:00:00",
+      "venueName": "AndSoul Sanctuary Sauna and Wellness Studio",
+      "city": "London",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1194961911%2F216441982947%2F1%2Foriginal.20261003-065503?auto=format%2Ccompress&q=75&sharp=10&s=8670e774acb3d1958498566ca369e6d0",
       "status": "live"
     }
   ],
