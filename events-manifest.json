@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-10-03T18:38:28.466Z",
+  "lastSync": "2026-10-05T00:24:41.325Z",
   "organizationId": null,
   "upcoming": [
     {
@@ -60,6 +60,18 @@
       "venueName": "St Botolph-without-Bishopsgate",
       "city": "London",
       "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1194381362%2F216441982947%2F1%2Foriginal.20260925-184018?auto=format%2Ccompress&q=75&sharp=10&s=d71686d39cc27c8dd398822e5a26a653",
+      "status": "live"
+    },
+    {
+      "id": "2002836219046",
+      "name": "Chinese Tea Ceremony Workshop",
+      "description": "Get ready to sip your way through the art of Chinese tea ceremonies in this interactive workshop!",
+      "url": "https://www.eventbrite.co.uk/e/chinese-tea-ceremony-workshop-tickets-2002836219046",
+      "startLocal": "2026-11-20T18:00:00",
+      "endLocal": "2026-11-20T21:00:00",
+      "venueName": "The Amadeus",
+      "city": "London",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1194934372%2F216441982947%2F1%2Foriginal.20261002-192725?auto=format%2Ccompress&q=75&sharp=10&s=cfb48e0ac7944b20ae89cbdb411a491e",
       "status": "live"
     },
     {
