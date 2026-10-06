@@ -50,7 +50,7 @@ A deploy shows up in the Actions tab as a `pages-build-deployment` run.
 
 1. **Pull before you start work and again before you push** (`git pull --rebase`). The bots push to `main` constantly, so a push from a stale checkout will be rejected.
 2. **Never hand-edit content between sync markers.** The bots overwrite everything between these comment pairs:
-   - `events.html`: `<!-- EVENTS-UPCOMING-START -->` / `-END -->` and `<!-- EVENTS-PAST-START -->` / `-END -->`
+   - `events.html`: `<!-- EVENTS-UPCOMING-START -->` / `-END -->`, `<!-- EVENTS-PAST-START -->` / `-END -->`, and `<!-- EVENTS-JSONLD-START -->` / `-END -->` in `<head>`. That last pair holds the schema.org Event structured data, regenerated from the upcoming events each run. The page's other JSON-LD (BreadcrumbList) is hand-maintained.
    - `index.html`: `<!-- HOMEPAGE-EVENTS-START -->` / `-END -->`
    - `wellness-tools.html`: `<!-- WELLNESS-TOOLS-START -->` / `-END -->` and `<!-- WELLNESS-TOOLS-SCHEMA-START -->` / `-END -->`
 
@@ -68,6 +68,15 @@ A deploy shows up in the Actions tab as a `pages-build-deployment` run.
      - If a download fails, that card uses the remote URL until the next run.
      - Images for events that are no longer upcoming are deleted.
      - Past events still hotlink to Eventbrite.
+   - **Structured data:** there is one JSON-LD `Event` per upcoming card. It includes:
+     - start and end dates in ISO format with the London offset
+     - a `Place` with venue name and postal address (Dandelion's address, gaps filled from Eventbrite)
+     - the self-hosted image as an absolute URL
+     - the booking URL, plus an `Offer` carrying that URL
+     - a plain-text description truncated to about 300 characters
+     - `EventScheduled` status, and Holistique UK as organiser
+
+     `<` is escaped in the JSON so event text can't close the script tag.
 3. **Wellness-tool descriptions** can be hand-written in the `enrichment` map of `linktree-manifest.json`. When sources disagree, hand-written `enrichment` wins over `auto_enrichment` (read from each product site's Open Graph tags), which wins over Linktree. `node scripts/sync-linktree.js --refresh-auto` refetches only the automatic entries.
 4. **Site-wide changes affect every page.** Each HTML file has its own copy of the header, footer, newsletter box and contact links. Search for every copy and update them all. Also update the page template inside `scripts/sync-medium.js`, or the next generated article will still have the old design.
 5. **Articles:** `sync-medium.js` only creates posts that aren't already in `posts-manifest.json`. It never regenerates an existing `post-N.html`, so hand edits to those files are safe. It doesn't touch `sitemap.xml`, so add new pages there yourself.

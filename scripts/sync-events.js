@@ -33,6 +33,7 @@ const DANDELION_URL = 'https://dandelion.events/o/holistique/events.json';
 const BROWSER_USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
 const LONDON_TZ = 'Europe/London';
 const REQUEST_TIMEOUT_MS = 20000;
+const SITE_URL = 'https://holistiqueuk.com';
 
 // Upcoming event images are self-hosted here (the sync owns this folder).
 const EVENT_PHOTOS_PATH = 'photos/events';
@@ -223,6 +224,23 @@ function toLondonLocal(isoStr) {
     return `${p.year}-${p.month}-${p.day}T${p.hour}:${p.minute}:${p.second}`;
 }
 
+const LONDON_OFFSET = new Intl.DateTimeFormat('en-GB', { timeZone: LONDON_TZ, timeZoneName: 'longOffset' });
+
+// ISO 8601 with London's offset at that instant, e.g. "2026-10-10T19:00:00+01:00". Uses the
+// exact instant when known, else finds the GMT/BST offset that reproduces the London time.
+function londonIso(ms, londonLocal) {
+    if (!Number.isNaN(ms)) {
+        const zone = LONDON_OFFSET.formatToParts(new Date(ms)).find(p => p.type === 'timeZoneName').value;
+        const offset = zone === 'GMT' ? '+00:00' : zone.replace('GMT', '');
+        return toLondonLocal(new Date(ms).toISOString()) + offset;
+    }
+    if (!londonLocal) return '';
+    for (const offset of ['+00:00', '+01:00']) {
+        if (toLondonLocal(londonLocal + offset) === londonLocal) return londonLocal + offset;
+    }
+    return londonLocal;
+}
+
 function decodeEntities(str) {
     return String(str || '')
         .replace(/&nbsp;/g, ' ')
@@ -245,17 +263,29 @@ function normaliseTitle(title) {
     return decodeEntities(title).toLowerCase().replace(/[^\p{L}\p{N}\s]/gu, ' ').replace(/\s+/g, ' ').trim();
 }
 
-// "Colet House, Talgarth Road, London, UK" -> venue "Colet House", city "London"
+const UK_POSTCODE = /\s*\b([A-Z]{1,2}\d[A-Z\d]?\s*\d[A-Z]{2})$/i;
+
+// "Colet House, Talgarth Road, London, UK" -> venue "Colet House", street "Talgarth Road",
+// city "London", country "GB"
 function splitDandelionLocation(location) {
-    const parts = String(location || '').split(',').map(p => p.trim()).filter(Boolean);
+    const parts = String(location || '').split(',').map(p => p.trim()).filter(Boolean)
+        .filter((p, i, all) => i === 0 || p.toLowerCase() !== all[i - 1].toLowerCase());
     const venueName = parts[0] || null;
+    let country = null;
     while (parts.length > 1 && /^(uk|united kingdom|england|great britain|gb)$/i.test(parts[parts.length - 1])) {
         parts.pop();
+        country = 'GB';
     }
-    const city = parts.length > 1
-        ? parts[parts.length - 1].replace(/\s+[A-Z]{1,2}\d[A-Z\d]?\s*\d[A-Z]{2}$/i, '').trim() || null
-        : null;
-    return { venueName, city };
+    let city = null;
+    let postalCode = null;
+    if (parts.length > 1) {
+        const last = parts[parts.length - 1];
+        const pc = last.match(UK_POSTCODE);
+        postalCode = pc ? pc[1].toUpperCase() : null;
+        city = last.replace(UK_POSTCODE, '').trim() || null;
+    }
+    const street = parts.length > 2 ? parts.slice(1, -1).join(', ') : null;
+    return { venueName, city, address: { street, locality: city, postalCode, region: null, country } };
 }
 
 // Both sources are normalised to one shape. imageUrl is the event's own image (null if
@@ -270,15 +300,28 @@ function fromEventbrite(event) {
         startLocal: event.start ? event.start.local : '',
         endLocal: event.end ? event.end.local : '',
         startMs: event.start && event.start.utc ? Date.parse(event.start.utc) : NaN,
+        endMs: event.end && event.end.utc ? Date.parse(event.end.utc) : NaN,
         venueName: event.venue ? event.venue.name : null,
         city: event.venue && event.venue.address ? event.venue.address.city : null,
+        address: eventbriteAddress(event.venue && event.venue.address),
         imageUrl: event.logo ? ((event.logo.original && event.logo.original.url) || event.logo.url || null) : null,
         status: event.status,
     };
 }
 
+function eventbriteAddress(a) {
+    if (!a) return { street: null, locality: null, postalCode: null, region: null, country: null };
+    return {
+        street: [a.address_1, a.address_2].filter(Boolean).join(', ') || null,
+        locality: a.city || null,
+        postalCode: a.postal_code || null,
+        region: a.region || null,
+        country: a.country || null,
+    };
+}
+
 function fromDandelion(event) {
-    const { venueName, city } = splitDandelionLocation(event.location);
+    const { venueName, city, address } = splitDandelionLocation(event.location);
     return {
         source: 'dandelion',
         id: event.id,
@@ -288,8 +331,10 @@ function fromDandelion(event) {
         startLocal: toLondonLocal(event.start_time),
         endLocal: toLondonLocal(event.end_time),
         startMs: Date.parse(event.start_time),
+        endMs: Date.parse(event.end_time),
         venueName,
         city,
+        address,
         imageUrl: event.image || null,
         status: 'live',
     };
@@ -308,8 +353,10 @@ function combinePair(d, e) {
         startLocal: pick('startLocal'),
         endLocal: pick('endLocal'),
         startMs: Number.isNaN(d.startMs) ? e.startMs : d.startMs,
+        endMs: Number.isNaN(d.endMs) ? e.endMs : d.endMs,
         venueName: pick('venueName'),
         city: pick('city'),
+        address: Object.fromEntries(Object.keys(d.address).map(k => [k, d.address[k] || e.address[k]])),
         imageUrl: pick('imageUrl'),
         status: e.status || d.status,
         eventbriteUrl: e.url,
@@ -486,6 +533,59 @@ async function mirrorEventImages(events, previousUpcoming) {
 // The image a card shows: the self-hosted copy, else the remote original.
 function cardImage(m) {
     return m.localImage || m.imageUrl || fallbackImage(m.name);
+}
+
+// ── Event structured data ───────────────────────────────────────────────────
+
+function absoluteUrl(url) {
+    return /^https?:\/\//.test(url) ? url : `${SITE_URL}/${url.replace(/^\//, '')}`;
+}
+
+// One schema.org Event per upcoming card, for the JSON-LD block in events.html.
+function eventJsonLd(m) {
+    const a = m.address || {};
+    const isInPerson = Boolean(m.venueName || a.street || a.locality);
+    const postal = { '@type': 'PostalAddress' };
+    if (a.street) postal.streetAddress = a.street;
+    if (a.locality) postal.addressLocality = a.locality;
+    if (a.region) postal.addressRegion = a.region;
+    if (a.postalCode) postal.postalCode = a.postalCode;
+    if (a.country) postal.addressCountry = a.country;
+
+    const ev = {
+        '@context': 'https://schema.org',
+        '@type': 'Event',
+        name: m.name,
+    };
+    const description = truncateText(m.descriptionText, 300);
+    if (description) ev.description = description;
+    ev.startDate = londonIso(m.startMs, m.startLocal);
+    const endDate = londonIso(m.endMs, m.endLocal);
+    if (endDate) ev.endDate = endDate;
+    ev.eventStatus = 'https://schema.org/EventScheduled';
+    ev.eventAttendanceMode = isInPerson
+        ? 'https://schema.org/OfflineEventAttendanceMode'
+        : 'https://schema.org/OnlineEventAttendanceMode';
+    ev.location = isInPerson
+        ? { '@type': 'Place', name: m.venueName || a.locality, address: postal }
+        : { '@type': 'VirtualLocation', url: m.url || SITE_URL };
+    ev.image = absoluteUrl(cardImage(m));
+    ev.organizer = { '@type': 'Organization', name: 'Holistique UK', url: SITE_URL };
+    if (m.url) {
+        ev.url = m.url;
+        ev.offers = { '@type': 'Offer', url: m.url };
+    }
+    return ev;
+}
+
+// The <script> block that goes between the EVENTS-JSONLD markers. "<" is escaped so no
+// event text can close the script element early.
+function eventsJsonLdBlock(events) {
+    if (events.length === 0) return '';
+    const json = JSON.stringify(events.map(eventJsonLd), null, 4)
+        .replace(/</g, '\\u003c')
+        .split('\n').map(line => '    ' + line).join('\n');
+    return `    <script type="application/ld+json">\n${json}\n    </script>`;
 }
 
 // Manifest entry for an upcoming event: the original Eventbrite fields plus its source.
@@ -714,6 +814,19 @@ async function main() {
             } else {
                 console.warn('  Warning: Could not find EVENTS-PAST markers in events.html. Skipping past section.');
             }
+        }
+
+        // Event structured data (JSON-LD), regenerated from the upcoming events
+        const updatedJsonLd = replaceSection(
+            eventsHtml,
+            '<!-- EVENTS-JSONLD-START -->',
+            '<!-- EVENTS-JSONLD-END -->',
+            eventsJsonLdBlock(upcomingEvents)
+        );
+        if (updatedJsonLd) {
+            eventsHtml = updatedJsonLd;
+        } else {
+            console.warn('  Warning: Could not find EVENTS-JSONLD markers in events.html. Skipping event structured data.');
         }
 
         if (eventsHtml !== originalEventsHtml) {
