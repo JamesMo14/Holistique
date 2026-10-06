@@ -1,12 +1,18 @@
 /**
- * Eventbrite -> Holistique UK Events Sync
+ * Eventbrite + Dandelion -> Holistique UK Events Sync
  *
- * Fetches upcoming and past events from the Eventbrite API, updates
- * events-manifest.json, and injects event cards into events.html and index.html.
+ * Fetches upcoming events from Eventbrite and Dandelion, merges them into one
+ * deduplicated list (Dandelion is the preferred booking link), fetches past events
+ * from Eventbrite, updates events-manifest.json, and injects event cards into
+ * events.html and index.html.
+ *
+ * Either source may fail on its own and the sync carries on with the other; it
+ * exits 1 only if both are unavailable. Past events always come from Eventbrite and
+ * are left as they are when Eventbrite is unavailable.
  *
  * Run: node scripts/sync-events.js
  *
- * Env vars required:
+ * Env vars (Eventbrite only — Dandelion needs no auth):
  *   EVENTBRITE_TOKEN   — Eventbrite private API token
  *   EVENTBRITE_ORG_ID  — Eventbrite organization ID
  */
@@ -23,6 +29,11 @@ const INDEX_PATH = path.join(ROOT, 'index.html');
 const TOKEN = process.env.EVENTBRITE_TOKEN;
 const ORG_ID = process.env.EVENTBRITE_ORG_ID;
 
+const DANDELION_URL = 'https://dandelion.events/o/holistique/events.json';
+const BROWSER_USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
+const LONDON_TZ = 'Europe/London';
+const REQUEST_TIMEOUT_MS = 20000;
+
 // ── Fallback Images ─────────────────────────────────────────────────────────
 
 const FALLBACK_IMAGES = [
@@ -35,16 +46,10 @@ const DEFAULT_FALLBACK = 'https://images.unsplash.com/photo-1545389336-cf0906944
 
 // ── Helpers ─────────────────────────────────────────────────────────────────
 
-function fetchJson(url) {
+function fetchJson(url, headers) {
     return new Promise((resolve, reject) => {
         const doRequest = (requestUrl) => {
-            const options = {
-                headers: {
-                    'Authorization': `Bearer ${TOKEN}`,
-                    'User-Agent': 'HolistiqueSync/1.0',
-                },
-            };
-            https.get(requestUrl, options, (res) => {
+            const req = https.get(requestUrl, { headers }, (res) => {
                 if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
                     doRequest(res.headers.location);
                     return;
@@ -62,7 +67,11 @@ function fetchJson(url) {
                         reject(new Error(`Invalid JSON response: ${e.message}`));
                     }
                 });
-            }).on('error', reject);
+            });
+            req.setTimeout(REQUEST_TIMEOUT_MS, () => {
+                req.destroy(new Error(`Timed out after ${REQUEST_TIMEOUT_MS}ms`));
+            });
+            req.on('error', reject);
         };
         doRequest(url);
     });
@@ -76,7 +85,10 @@ async function fetchAllEvents(status) {
     let url = `https://www.eventbriteapi.com/v3/organizations/${ORG_ID}/events/?status=${status}&expand=venue,logo&order_by=start_${status === 'ended' ? 'desc' : 'asc'}`;
 
     while (url) {
-        const data = await fetchJson(url);
+        const data = await fetchJson(url, {
+            'Authorization': `Bearer ${TOKEN}`,
+            'User-Agent': 'HolistiqueSync/1.0',
+        });
         if (data.events) {
             events.push(...data.events);
         }
@@ -146,8 +158,12 @@ function getEventImage(event) {
         if (event.logo.url) return event.logo.url;
     }
 
-    // Fallback based on event name keywords
-    const nameLower = (event.name && event.name.text || '').toLowerCase();
+    return fallbackImage(event.name && event.name.text);
+}
+
+// Fallback based on event name keywords
+function fallbackImage(name) {
+    const nameLower = (name || '').toLowerCase();
     for (const fb of FALLBACK_IMAGES) {
         if (fb.keywords.some(kw => nameLower.includes(kw))) {
             return fb.url;
@@ -166,6 +182,201 @@ function getEventLocation(event) {
     return 'Online';
 }
 
+// ── Dandelion & merging ─────────────────────────────────────────────────────
+
+async function fetchDandelionEvents() {
+    const data = await fetchJson(DANDELION_URL, {
+        'User-Agent': BROWSER_USER_AGENT,
+        'Accept': 'application/json',
+    });
+    if (!Array.isArray(data)) {
+        throw new Error('Expected a JSON array of events');
+    }
+    return data;
+}
+
+const LONDON_PARTS = new Intl.DateTimeFormat('en-GB', {
+    timeZone: LONDON_TZ,
+    hourCycle: 'h23',
+    year: 'numeric', month: '2-digit', day: '2-digit',
+    hour: '2-digit', minute: '2-digit', second: '2-digit',
+});
+
+/**
+ * Dandelion timestamps can carry a non-UK offset (e.g. "-05:00", with the real zone in
+ * time_zone). The offset still pins an exact instant, so parse it and re-express it as
+ * London wall-clock time in Eventbrite's start.local shape ("YYYY-MM-DDTHH:MM:SS"), which
+ * formatDateTime() already renders.
+ */
+function toLondonLocal(isoStr) {
+    const ms = Date.parse(isoStr);
+    if (Number.isNaN(ms)) return '';
+    const p = {};
+    for (const part of LONDON_PARTS.formatToParts(new Date(ms))) p[part.type] = part.value;
+    return `${p.year}-${p.month}-${p.day}T${p.hour}:${p.minute}:${p.second}`;
+}
+
+function decodeEntities(str) {
+    return String(str || '')
+        .replace(/&nbsp;/g, ' ')
+        .replace(/&lt;/g, '<')
+        .replace(/&gt;/g, '>')
+        .replace(/&quot;/g, '"')
+        .replace(/&#39;|&apos;/g, "'")
+        .replace(/&#(\d+);/g, (_, dec) => String.fromCodePoint(parseInt(dec, 10)))
+        .replace(/&#x([0-9a-f]+);/gi, (_, hex) => String.fromCodePoint(parseInt(hex, 16)))
+        .replace(/&amp;/g, '&');
+}
+
+// Dandelion descriptions are HTML; turn block boundaries into spaces so paragraphs
+// don't run together once the tags are gone.
+function htmlToText(html) {
+    return decodeEntities(String(html || '').replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ').trim();
+}
+
+function normaliseTitle(title) {
+    return decodeEntities(title).toLowerCase().replace(/[^\p{L}\p{N}\s]/gu, ' ').replace(/\s+/g, ' ').trim();
+}
+
+// "Colet House, Talgarth Road, London, UK" -> venue "Colet House", city "London"
+function splitDandelionLocation(location) {
+    const parts = String(location || '').split(',').map(p => p.trim()).filter(Boolean);
+    const venueName = parts[0] || null;
+    while (parts.length > 1 && /^(uk|united kingdom|england|great britain|gb)$/i.test(parts[parts.length - 1])) {
+        parts.pop();
+    }
+    const city = parts.length > 1
+        ? parts[parts.length - 1].replace(/\s+[A-Z]{1,2}\d[A-Z\d]?\s*\d[A-Z]{2}$/i, '').trim() || null
+        : null;
+    return { venueName, city };
+}
+
+// Both sources are normalised to one shape. imageUrl is the event's own image (null if
+// none); the keyword fallback is applied at render time so a pair can prefer a real one.
+function fromEventbrite(event) {
+    return {
+        source: 'eventbrite',
+        id: event.id,
+        name: event.name ? event.name.text : 'Untitled Event',
+        descriptionText: event.description ? event.description.text : '',
+        url: event.url || '',
+        startLocal: event.start ? event.start.local : '',
+        endLocal: event.end ? event.end.local : '',
+        startMs: event.start && event.start.utc ? Date.parse(event.start.utc) : NaN,
+        venueName: event.venue ? event.venue.name : null,
+        city: event.venue && event.venue.address ? event.venue.address.city : null,
+        imageUrl: event.logo ? ((event.logo.original && event.logo.original.url) || event.logo.url || null) : null,
+        status: event.status,
+    };
+}
+
+function fromDandelion(event) {
+    const { venueName, city } = splitDandelionLocation(event.location);
+    return {
+        source: 'dandelion',
+        id: event.id,
+        name: decodeEntities(event.name).trim(),
+        descriptionText: htmlToText(event.description),
+        url: event.url || '',
+        startLocal: toLondonLocal(event.start_time),
+        endLocal: toLondonLocal(event.end_time),
+        startMs: Date.parse(event.start_time),
+        venueName,
+        city,
+        imageUrl: event.image || null,
+        status: 'live',
+    };
+}
+
+// One card per event: Dandelion's booking link, and Dandelion's fields wherever it has
+// them, with gaps filled from the Eventbrite copy.
+function combinePair(d, e) {
+    const pick = field => (d[field] ? d[field] : e[field]);
+    return {
+        source: 'both',
+        id: d.id,
+        name: pick('name'),
+        descriptionText: pick('descriptionText'),
+        url: pick('url'),
+        startLocal: pick('startLocal'),
+        endLocal: pick('endLocal'),
+        startMs: Number.isNaN(d.startMs) ? e.startMs : d.startMs,
+        venueName: pick('venueName'),
+        city: pick('city'),
+        imageUrl: pick('imageUrl'),
+        status: e.status || d.status,
+        eventbriteUrl: e.url,
+        eventbriteName: e.name,
+    };
+}
+
+/**
+ * Union of both sources, deduplicated. A Dandelion and an Eventbrite event match on the
+ * same start instant; failing that, on the same London calendar day where one normalised
+ * title contains the other. Exact-instant pairs are taken first so a looser title match
+ * can't claim an event that has an exact twin.
+ */
+function mergeUpcoming(dandelion, eventbrite) {
+    const unmatchedD = dandelion.slice();
+    const unmatchedE = eventbrite.slice();
+    const pairs = [];
+
+    const takePairs = (isMatch) => {
+        for (let i = 0; i < unmatchedD.length; i++) {
+            const j = unmatchedE.findIndex(e => isMatch(unmatchedD[i], e));
+            if (j !== -1) {
+                pairs.push(combinePair(unmatchedD[i], unmatchedE[j]));
+                unmatchedD.splice(i--, 1);
+                unmatchedE.splice(j, 1);
+            }
+        }
+    };
+    takePairs((d, e) => !Number.isNaN(d.startMs) && d.startMs === e.startMs);
+    takePairs((d, e) => {
+        if (!d.startLocal || d.startLocal.slice(0, 10) !== (e.startLocal || '').slice(0, 10)) return false;
+        const a = normaliseTitle(d.name);
+        const b = normaliseTitle(e.name);
+        return a !== '' && b !== '' && (a.includes(b) || b.includes(a));
+    });
+
+    const upcoming = [...pairs, ...unmatchedD, ...unmatchedE]
+        .sort((x, y) => (x.startLocal < y.startLocal ? -1 : x.startLocal > y.startLocal ? 1 : 0));
+    for (const m of upcoming) {
+        if (!m.name) m.name = 'Untitled Event';
+    }
+    return { upcoming, summary: { both: pairs, dandelion: unmatchedD, eventbrite: unmatchedE } };
+}
+
+function logSourceSummary(summary) {
+    console.log(`Source summary: ${summary.both.length} matched pair(s), ${summary.dandelion.length} Dandelion-only, ${summary.eventbrite.length} Eventbrite-only.`);
+    const when = m => (m.startLocal || '').replace('T', ' ').substring(0, 16);
+    for (const m of summary.both) {
+        const ebNote = m.eventbriteName && m.eventbriteName !== m.name ? `  (Eventbrite: ${m.eventbriteName})` : '';
+        console.log(`  [matched]         ${when(m)}  ${m.name}${ebNote}`);
+    }
+    for (const m of summary.dandelion) console.log(`  [dandelion-only]  ${when(m)}  ${m.name}`);
+    for (const m of summary.eventbrite) console.log(`  [eventbrite-only] ${when(m)}  ${m.name}`);
+}
+
+// Manifest entry for an upcoming event: the original Eventbrite fields plus its source.
+function upcomingManifestEntry(m) {
+    const entry = {
+        id: m.id,
+        name: m.name,
+        description: truncateText(m.descriptionText, 150),
+        url: m.url,
+        startLocal: m.startLocal,
+        endLocal: m.endLocal,
+        venueName: m.venueName,
+        city: m.city,
+        imageUrl: m.imageUrl || fallbackImage(m.name),
+        status: m.status,
+        source: m.source,
+    };
+    if (m.eventbriteUrl) entry.eventbriteUrl = m.eventbriteUrl;
+    return entry;
+}
+
 function replaceSection(html, startMarker, endMarker, newContent) {
     const startIdx = html.indexOf(startMarker);
     const endIdx = html.indexOf(endMarker);
@@ -179,13 +390,20 @@ function replaceSection(html, startMarker, endMarker, newContent) {
 
 // ── HTML Generators ─────────────────────────────────────────────────────────
 
+// Upcoming cards take a normalised event (see fromEventbrite / fromDandelion).
+function upcomingCardFields(m) {
+    return {
+        name: m.name,
+        desc: truncateText(m.descriptionText, 150),
+        dateStr: formatDateTime(m.startLocal),
+        imageUrl: m.imageUrl || fallbackImage(m.name),
+        location: m.city || m.venueName || 'Online',
+        eventUrl: m.url || '#',
+    };
+}
+
 function generateEventsPageUpcomingCard(event) {
-    const name = event.name ? event.name.text : 'Untitled Event';
-    const desc = truncateText(event.description ? event.description.text : '', 150);
-    const dateStr = formatDateTime(event.start ? event.start.local : '');
-    const imageUrl = getEventImage(event);
-    const location = getEventLocation(event);
-    const eventUrl = event.url || '#';
+    const { name, desc, dateStr, imageUrl, location, eventUrl } = upcomingCardFields(event);
 
     return `                    <a href="${escapeHtml(eventUrl)}" class="event-card reveal" target="_blank" rel="noopener">
                         <img class="event-card__img" src="${escapeHtml(imageUrl)}" alt="${escapeHtml(name)}" loading="lazy">
@@ -219,12 +437,7 @@ function generateEventsPagePastCard(event) {
 }
 
 function generateHomepageCard(event) {
-    const name = event.name ? event.name.text : 'Untitled Event';
-    const desc = truncateText(event.description ? event.description.text : '', 150);
-    const dateStr = formatDateTime(event.start ? event.start.local : '');
-    const imageUrl = getEventImage(event);
-    const location = getEventLocation(event);
-    const eventUrl = event.url || '#';
+    const { name, desc, dateStr, imageUrl, location, eventUrl } = upcomingCardFields(event);
 
     return `                    <a href="${escapeHtml(eventUrl)}" class="event-card stagger-item" target="_blank" rel="noopener">
                         <img class="event-card__img" data-pixel-reveal
@@ -241,12 +454,6 @@ function generateHomepageCard(event) {
 // ── Main Sync Logic ─────────────────────────────────────────────────────────
 
 async function main() {
-    // Check env vars
-    if (!TOKEN || !ORG_ID) {
-        console.log('EVENTBRITE_TOKEN or EVENTBRITE_ORG_ID not set. Skipping event sync.');
-        process.exit(0);
-    }
-
     // Load or create manifest
     let manifest;
     const manifestExisted = fs.existsSync(MANIFEST_PATH);
@@ -259,29 +466,59 @@ async function main() {
 
     const previousHash = JSON.stringify(manifest.upcoming) + JSON.stringify(manifest.past);
 
-    // Fetch upcoming events
-    console.log('Fetching upcoming events from Eventbrite...');
-    let upcomingEvents;
-    try {
-        upcomingEvents = await fetchAllEvents('live,started');
-    } catch (err) {
-        console.error('Failed to fetch upcoming events:', err.message);
-        process.exit(1);
-    }
-    console.log(`  Found ${upcomingEvents.length} upcoming event(s).`);
+    // Each source is null when it was unavailable this run.
+    let ebUpcoming = null;
+    let pastEvents = null;
 
-    // Fetch past events
-    console.log('Fetching past events from Eventbrite...');
-    let pastEvents;
+    if (!TOKEN || !ORG_ID) {
+        console.warn('EVENTBRITE_TOKEN or EVENTBRITE_ORG_ID not set. Skipping Eventbrite.');
+    } else {
+        // Fetch upcoming events
+        console.log('Fetching upcoming events from Eventbrite...');
+        try {
+            ebUpcoming = await fetchAllEvents('live,started');
+            console.log(`  Found ${ebUpcoming.length} upcoming event(s).`);
+        } catch (err) {
+            console.warn('  Warning: failed to fetch upcoming events from Eventbrite:', err.message);
+        }
+
+        // Fetch past events
+        console.log('Fetching past events from Eventbrite...');
+        try {
+            // Limit past events to 12 most recent (already sorted desc by API)
+            pastEvents = (await fetchAllEvents('ended')).slice(0, 12);
+            console.log(`  Found ${pastEvents.length} past event(s) (limited to 12).`);
+        } catch (err) {
+            console.warn('  Warning: failed to fetch past events from Eventbrite:', err.message);
+        }
+    }
+
+    console.log('Fetching upcoming events from Dandelion...');
+    let dandelionEvents = null;
     try {
-        pastEvents = await fetchAllEvents('ended');
+        dandelionEvents = await fetchDandelionEvents();
+        console.log(`  Found ${dandelionEvents.length} upcoming event(s).`);
     } catch (err) {
-        console.error('Failed to fetch past events:', err.message);
+        console.warn('  Warning: failed to fetch events from Dandelion:', err.message);
+    }
+
+    if (ebUpcoming === null && dandelionEvents === null) {
+        console.error('Both Eventbrite and Dandelion are unavailable for upcoming events. Nothing written.');
         process.exit(1);
     }
-    // Limit past events to 12 most recent (already sorted desc by API)
-    pastEvents = pastEvents.slice(0, 12);
-    console.log(`  Found ${pastEvents.length} past event(s) (limited to 12).`);
+    if (dandelionEvents === null) console.warn('Proceeding with Eventbrite only for upcoming events.');
+    if (ebUpcoming === null) console.warn('Proceeding with Dandelion only for upcoming events.');
+    if (pastEvents === null) console.warn('Past events left as they are (Eventbrite unavailable).');
+
+    const dandelionModels = (dandelionEvents || []).map(fromDandelion).filter(m => {
+        if (Number.isNaN(m.startMs)) {
+            console.warn(`  Warning: skipping Dandelion event with an unreadable start_time: ${m.name || m.id}`);
+            return false;
+        }
+        return true;
+    });
+    const { upcoming: upcomingEvents, summary } = mergeUpcoming(dandelionModels, (ebUpcoming || []).map(fromEventbrite));
+    logSourceSummary(summary);
 
     // Extract event data for manifest
     function extractEventData(event) {
@@ -299,8 +536,8 @@ async function main() {
         };
     }
 
-    const upcomingData = upcomingEvents.map(extractEventData);
-    const pastData = pastEvents.map(extractEventData);
+    const upcomingData = upcomingEvents.map(upcomingManifestEntry);
+    const pastData = pastEvents !== null ? pastEvents.map(extractEventData) : manifest.past;
 
     // ── Update events.html ──────────────────────────────────────────────────
 
@@ -325,21 +562,23 @@ async function main() {
             console.warn('  Warning: Could not find EVENTS-UPCOMING markers in events.html. Skipping upcoming section.');
         }
 
-        // Past section
-        const pastContent = pastEvents.length > 0
-            ? pastEvents.map(e => generateEventsPagePastCard(e)).join('\n')
-            : '                    <p class="events__empty reveal">No past events to show yet.</p>';
+        // Past section (Eventbrite only; left as it is when Eventbrite was unavailable)
+        if (pastEvents !== null) {
+            const pastContent = pastEvents.length > 0
+                ? pastEvents.map(e => generateEventsPagePastCard(e)).join('\n')
+                : '                    <p class="events__empty reveal">No past events to show yet.</p>';
 
-        const updatedPast = replaceSection(
-            eventsHtml,
-            '<!-- EVENTS-PAST-START -->',
-            '<!-- EVENTS-PAST-END -->',
-            pastContent
-        );
-        if (updatedPast) {
-            eventsHtml = updatedPast;
-        } else {
-            console.warn('  Warning: Could not find EVENTS-PAST markers in events.html. Skipping past section.');
+            const updatedPast = replaceSection(
+                eventsHtml,
+                '<!-- EVENTS-PAST-START -->',
+                '<!-- EVENTS-PAST-END -->',
+                pastContent
+            );
+            if (updatedPast) {
+                eventsHtml = updatedPast;
+            } else {
+                console.warn('  Warning: Could not find EVENTS-PAST markers in events.html. Skipping past section.');
+            }
         }
 
         if (eventsHtml !== originalEventsHtml) {
@@ -403,7 +642,7 @@ async function main() {
 
     console.log(`EVENTS_CHANGED=${eventsChanged}`);
 
-    console.log(`Sync complete! ${upcomingEvents.length} upcoming, ${pastEvents.length} past event(s).`);
+    console.log(`Sync complete! ${upcomingEvents.length} upcoming, ${pastData.length} past event(s)${pastEvents === null ? ' (unchanged)' : ''}.`);
 }
 
 main().catch(err => {

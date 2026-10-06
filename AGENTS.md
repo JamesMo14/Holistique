@@ -16,7 +16,7 @@ Instructions for AI coding agents (Grok Build, Claude Code, Codex, Cursor, etc.)
 | `index.html` | Home page. Its events block is filled in automatically. |
 | `about.html` | Yvonne’s full gong and acupuncture biography, with forest and studio portraits. |
 | `acupuncture.html` | Acupuncture treatments. |
-| `events.html` | Upcoming and past events, synced automatically from Eventbrite. |
+| `events.html` | Upcoming events, synced automatically from Dandelion and Eventbrite (cards book through Dandelion). Past events come from Eventbrite. |
 | `self-acupuncture-course.html` | The self-acupuncture course. |
 | `wellness-tools.html` | Wellness tools and discount codes, synced automatically from Linktree. |
 | `newsletter.html` | Standalone newsletter signup page (also reachable at `/newsletter`), using the Brevo form. |
@@ -32,7 +32,7 @@ Bots commit directly to `main` as `github-actions[bot]`, several times a day. Yo
 
 | Workflow | Runs (UTC) | Script | Source | Writes |
 |---|---|---|---|---|
-| Sync Eventbrite Events | Every 6 hours, on the hour | `scripts/sync-events.js` | Eventbrite API | `events-manifest.json`, `events.html`, `index.html` |
+| Sync Eventbrite Events | Every 6 hours, on the hour | `scripts/sync-events.js` | Dandelion feed (`dandelion.events/o/holistique/events.json`, no auth) and Eventbrite API | `events-manifest.json`, `events.html`, `index.html` |
 | Sync Linktree Wellness Tools | Every 6 hours, at half past | `scripts/sync-linktree.js` | linktr.ee/holistiqueuk | `linktree-manifest.json`, `wellness-tools.html` |
 | Sync Medium Posts | 09:00 on the 1st and 15th | `scripts/sync-medium.js`, then `scripts/send-newsletter.js` | Medium RSS feed for @yvonne.holistique | `posts-manifest.json`, new `post-N.html` files, `blog-post.html`. Its newsletter-email step is switched off (see rule 6). |
 
@@ -53,7 +53,14 @@ A deploy shows up in the Actions tab as a `pages-build-deployment` run.
    - `index.html`: `<!-- HOMEPAGE-EVENTS-START -->` / `-END -->`
    - `wellness-tools.html`: `<!-- WELLNESS-TOOLS-START -->` / `-END -->` and `<!-- WELLNESS-TOOLS-SCHEMA-START -->` / `-END -->`
 
-   Change the content at its source instead: events in Eventbrite, wellness tools in Linktree, articles on Medium. To change how the cards look, edit the HTML template inside the matching script.
+   Change the content at its source instead: events in Dandelion and Eventbrite, wellness tools in Linktree, articles on Medium. To change how the cards look, edit the HTML template inside the matching script.
+   **Events merge:** Yvonne lists each event on both platforms.
+   - **Matching:** `sync-events.js` pairs the two copies by the same start instant. Failing that, it pairs events on the same London day whose normalised titles contain one another.
+   - **Rendering a pair:** one card, using Dandelion's link, image, description and title, with any gaps filled from Eventbrite.
+   - **Stragglers:** an event listed on only one platform still gets a card, from that platform.
+   - **Times:** Dandelion times can carry non-UK offsets. They are converted to London time.
+   - **Outages:** if one source fails, the sync carries on with the other; it exits 1 only when both fail. Past events (Eventbrite only) are left untouched when Eventbrite is down.
+   - **Log:** each run prints a source summary (matched / Dandelion-only / Eventbrite-only).
 3. **Wellness-tool descriptions** can be hand-written in the `enrichment` map of `linktree-manifest.json`. When sources disagree, hand-written `enrichment` wins over `auto_enrichment` (read from each product site's Open Graph tags), which wins over Linktree. `node scripts/sync-linktree.js --refresh-auto` refetches only the automatic entries.
 4. **Site-wide changes affect every page.** Each HTML file has its own copy of the header, footer, newsletter box and contact links. Search for every copy and update them all. Also update the page template inside `scripts/sync-medium.js`, or the next generated article will still have the old design.
 5. **Articles:** `sync-medium.js` only creates posts that aren't already in `posts-manifest.json`. It never regenerates an existing `post-N.html`, so hand edits to those files are safe. It doesn't touch `sitemap.xml`, so add new pages there yourself.
@@ -65,7 +72,7 @@ A deploy shows up in the Actions tab as a `pages-build-deployment` run.
 ## Checking your work
 
 - To preview locally, run `python -m http.server 8000` (or `npx serve`) in the repository root, then open http://localhost:8000.
-- To run a sync locally, use `node scripts/sync-linktree.js` or `node scripts/sync-medium.js`; neither needs secrets. `node scripts/sync-events.js` skips unless `EVENTBRITE_TOKEN` and `EVENTBRITE_ORG_ID` are set. Syncs change files, so only commit their output if you meant to.
+- To run a sync locally, use `node scripts/sync-linktree.js` or `node scripts/sync-medium.js`; neither needs secrets. Without `EVENTBRITE_TOKEN` and `EVENTBRITE_ORG_ID` set, `node scripts/sync-events.js` runs Dandelion-only for upcoming events, drops any Eventbrite-only straggler, and leaves past events as they are. Don't commit that output; the scheduled workflow has the secrets. Syncs change files, so only commit their output if you meant to.
 - After pushing, wait for the `pages-build-deployment` run in the Actions tab to finish, then reload https://holistiqueuk.com.
 
 ## About page and community gallery
