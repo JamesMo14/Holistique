@@ -254,9 +254,12 @@ function decodeEntities(str) {
 }
 
 // Dandelion descriptions are HTML; turn block boundaries into spaces so paragraphs
-// don't run together once the tags are gone.
+// don't run together once the tags are gone. That also puts a space after inline tags
+// ("<strong>London</strong>, held"), so drop any whitespace left before punctuation or a
+// closing bracket. The lookahead leaves decimals like "£ .50" alone.
 function htmlToText(html) {
-    return decodeEntities(String(html || '').replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ').trim();
+    return decodeEntities(String(html || '').replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ')
+        .replace(/ ([,.;:!?)\]}])(?=[\s,.;:!?)\]}]|$)/g, '$1').trim();
 }
 
 function normaliseTitle(title) {
