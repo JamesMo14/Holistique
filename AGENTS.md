@@ -24,6 +24,7 @@ Instructions for AI coding agents (Grok Build, Claude Code, Codex, Cursor, etc.)
 | `blog-post.html` | The list of articles. Cards for new articles are inserted automatically. |
 | `post-1.html` … `post-N.html` | Individual articles, generated from Medium posts. |
 | `photos/` | Images. Prefer `.webp`. |
+| `photos/events/` | Self-hosted images for upcoming events, managed by the events sync. Don't add files here; the sync deletes anything that isn't an upcoming event's image. |
 | `sitemap.xml`, `robots.txt`, `og-image.jpg` | SEO files. `sitemap.xml` is updated by hand. |
 
 ## Automations (GitHub Actions, `.github/workflows/`)
@@ -61,6 +62,12 @@ A deploy shows up in the Actions tab as a `pages-build-deployment` run.
    - **Times:** Dandelion times can carry non-UK offsets. They are converted to London time.
    - **Outages:** if one source fails, the sync carries on with the other; it exits 1 only when both fail. Past events (Eventbrite only) are left untouched when Eventbrite is down.
    - **Log:** each run prints a source summary (matched / Dandelion-only / Eventbrite-only).
+   - **Images:** upcoming-event images are self-hosted. Dandelion's image CDN loads intermittently for visitors, so the sync downloads each card's image to `photos/events/<event id>.<jpg|png|webp>`, and cards use that local path.
+     - The remote original is recorded as `image_src` in `events-manifest.json`.
+     - An image is only re-downloaded when its file is missing or its `image_src` changes.
+     - If a download fails, that card uses the remote URL until the next run.
+     - Images for events that are no longer upcoming are deleted.
+     - Past events still hotlink to Eventbrite.
 3. **Wellness-tool descriptions** can be hand-written in the `enrichment` map of `linktree-manifest.json`. When sources disagree, hand-written `enrichment` wins over `auto_enrichment` (read from each product site's Open Graph tags), which wins over Linktree. `node scripts/sync-linktree.js --refresh-auto` refetches only the automatic entries.
 4. **Site-wide changes affect every page.** Each HTML file has its own copy of the header, footer, newsletter box and contact links. Search for every copy and update them all. Also update the page template inside `scripts/sync-medium.js`, or the next generated article will still have the old design.
 5. **Articles:** `sync-medium.js` only creates posts that aren't already in `posts-manifest.json`. It never regenerates an existing `post-N.html`, so hand edits to those files are safe. It doesn't touch `sitemap.xml`, so add new pages there yourself.

@@ -34,6 +34,13 @@ const BROWSER_USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKi
 const LONDON_TZ = 'Europe/London';
 const REQUEST_TIMEOUT_MS = 20000;
 
+// Upcoming event images are self-hosted here (the sync owns this folder).
+const EVENT_PHOTOS_PATH = 'photos/events';
+const EVENT_PHOTOS_DIR = path.join(ROOT, EVENT_PHOTOS_PATH);
+const IMAGE_TIMEOUT_MS = 15000;
+const IMAGE_MAX_BYTES = 10 * 1024 * 1024;
+const IMAGE_EXTENSIONS = { 'image/jpeg': '.jpg', 'image/jpg': '.jpg', 'image/png': '.png', 'image/webp': '.webp' };
+
 // ── Fallback Images ─────────────────────────────────────────────────────────
 
 const FALLBACK_IMAGES = [
@@ -358,7 +365,131 @@ function logSourceSummary(summary) {
     for (const m of summary.eventbrite) console.log(`  [eventbrite-only] ${when(m)}  ${m.name}`);
 }
 
+// ── Self-hosted event images ────────────────────────────────────────────────
+
+/**
+ * Download one image. Follows redirects, 15s timeout, 10 MB cap, and only accepts
+ * JPEG/PNG/WebP. Resolves { ext, body }.
+ */
+function downloadImage(url) {
+    return new Promise((resolve, reject) => {
+        const doRequest = (requestUrl, redirectsLeft) => {
+            let req;
+            try {
+                req = https.get(requestUrl, {
+                    headers: { 'User-Agent': BROWSER_USER_AGENT, 'Accept': 'image/webp,image/png,image/jpeg,image/*;q=0.8' },
+                }, (res) => {
+                    if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
+                        res.resume();
+                        if (redirectsLeft === 0) return reject(new Error('Too many redirects'));
+                        doRequest(new URL(res.headers.location, requestUrl).toString(), redirectsLeft - 1);
+                        return;
+                    }
+                    if (res.statusCode !== 200) {
+                        res.resume();
+                        return reject(new Error(`HTTP ${res.statusCode}`));
+                    }
+                    const type = String(res.headers['content-type'] || '').split(';')[0].trim().toLowerCase();
+                    const ext = IMAGE_EXTENSIONS[type];
+                    if (!ext) {
+                        res.resume();
+                        return reject(new Error(`Unsupported Content-Type "${type}"`));
+                    }
+                    const chunks = [];
+                    let size = 0;
+                    res.on('data', chunk => {
+                        size += chunk.length;
+                        if (size > IMAGE_MAX_BYTES) {
+                            req.destroy(new Error(`Larger than ${IMAGE_MAX_BYTES} bytes`));
+                            return;
+                        }
+                        chunks.push(chunk);
+                    });
+                    res.on('end', () => {
+                        if (size > IMAGE_MAX_BYTES) return;
+                        if (size === 0) return reject(new Error('Empty response'));
+                        resolve({ ext, body: Buffer.concat(chunks) });
+                    });
+                    res.on('error', reject);
+                });
+            } catch (err) {
+                return reject(err);
+            }
+            req.setTimeout(IMAGE_TIMEOUT_MS, () => {
+                req.destroy(new Error(`Timed out after ${IMAGE_TIMEOUT_MS}ms`));
+            });
+            req.on('error', reject);
+        };
+        doRequest(url, 5);
+    });
+}
+
+function slugify(str) {
+    return String(str || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+}
+
+/**
+ * Self-host every upcoming card's image as photos/events/<event id><ext>. Dandelion's
+ * image CDN loads intermittently for real visitors, so hotlinking isn't reliable.
+ *
+ * An image is downloaded only when its file is missing or its source URL changed since
+ * the last run (image_src in the manifest), so an unchanged run downloads nothing. A
+ * failed download falls back to the remote URL for that card and is retried next run.
+ * Files for events that are no longer upcoming are deleted.
+ */
+async function mirrorEventImages(events, previousUpcoming) {
+    fs.mkdirSync(EVENT_PHOTOS_DIR, { recursive: true });
+    const previous = new Map((previousUpcoming || []).map(e => [e.id, e]));
+    const counts = { downloaded: 0, unchanged: 0, failed: 0, removed: 0 };
+
+    for (const m of events) {
+        m.imageSrc = m.imageUrl || fallbackImage(m.name);
+        m.localImage = null;
+
+        const prev = previous.get(m.id);
+        if (prev && prev.image_src === m.imageSrc && typeof prev.imageUrl === 'string'
+            && prev.imageUrl.startsWith(EVENT_PHOTOS_PATH + '/') && fs.existsSync(path.join(ROOT, prev.imageUrl))) {
+            m.localImage = prev.imageUrl;
+            counts.unchanged++;
+            continue;
+        }
+
+        try {
+            const stableId = slugify(m.id);
+            if (!stableId) throw new Error('event has no id');
+            const { ext, body } = await downloadImage(m.imageSrc);
+            const localPath = `${EVENT_PHOTOS_PATH}/${stableId}${ext}`;
+            const tmpFile = path.join(ROOT, localPath + '.tmp');
+            fs.writeFileSync(tmpFile, body);
+            fs.renameSync(tmpFile, path.join(ROOT, localPath));
+            m.localImage = localPath;
+            counts.downloaded++;
+            console.log(`  Downloaded ${localPath} (${Math.round(body.length / 1024)} KB) for ${m.name}`);
+        } catch (err) {
+            counts.failed++;
+            console.warn(`  Warning: image download failed for "${m.name}" (${m.imageSrc}): ${err.message}. Using the remote URL until the next run.`);
+        }
+    }
+
+    const keep = new Set(events.filter(m => m.localImage).map(m => path.basename(m.localImage)));
+    for (const file of fs.readdirSync(EVENT_PHOTOS_DIR)) {
+        if (!keep.has(file)) {
+            fs.unlinkSync(path.join(EVENT_PHOTOS_DIR, file));
+            counts.removed++;
+            console.log(`  Removed ${EVENT_PHOTOS_PATH}/${file} (no longer used by an upcoming event)`);
+        }
+    }
+
+    console.log(`Event images: ${counts.downloaded} downloaded, ${counts.unchanged} unchanged, ${counts.failed} failed (remote fallback), ${counts.removed} removed.`);
+}
+
+// The image a card shows: the self-hosted copy, else the remote original.
+function cardImage(m) {
+    return m.localImage || m.imageUrl || fallbackImage(m.name);
+}
+
 // Manifest entry for an upcoming event: the original Eventbrite fields plus its source.
+// imageUrl is what the card shows; image_src is the remote original it was copied from.
 function upcomingManifestEntry(m) {
     const entry = {
         id: m.id,
@@ -369,7 +500,8 @@ function upcomingManifestEntry(m) {
         endLocal: m.endLocal,
         venueName: m.venueName,
         city: m.city,
-        imageUrl: m.imageUrl || fallbackImage(m.name),
+        imageUrl: cardImage(m),
+        image_src: m.imageSrc || m.imageUrl || fallbackImage(m.name),
         status: m.status,
         source: m.source,
     };
@@ -396,7 +528,7 @@ function upcomingCardFields(m) {
         name: m.name,
         desc: truncateText(m.descriptionText, 150),
         dateStr: formatDateTime(m.startLocal),
-        imageUrl: m.imageUrl || fallbackImage(m.name),
+        imageUrl: cardImage(m),
         location: m.city || m.venueName || 'Online',
         eventUrl: m.url || '#',
     };
@@ -519,6 +651,9 @@ async function main() {
     });
     const { upcoming: upcomingEvents, summary } = mergeUpcoming(dandelionModels, (ebUpcoming || []).map(fromEventbrite));
     logSourceSummary(summary);
+
+    console.log('Self-hosting upcoming event images...');
+    await mirrorEventImages(upcomingEvents, manifest.upcoming);
 
     // Extract event data for manifest
     function extractEventData(event) {
