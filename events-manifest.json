@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-10-06T11:51:49.359Z",
+  "lastSync": "2026-10-09T00:23:53.402Z",
   "organizationId": null,
   "upcoming": [
     {
@@ -16,21 +16,6 @@
       "status": "live",
       "source": "both",
       "eventbriteUrl": "https://www.eventbrite.co.uk/e/paws-sound-doggy-sound-healing-experience-tickets-2002223791258"
-    },
-    {
-      "id": "6ac396d44449f363f438c833",
-      "name": "Gong Bath Sound Healing",
-      "description": "Enjoy the soothing vibrations of this transformative experience designed to promote relaxation, clarity, and inner peace. 🎶🧘🏻‍♀️🌿 ✨This session...",
-      "url": "https://dandelion.events/e/w9ehb",
-      "startLocal": "2026-10-11T19:00:00",
-      "endLocal": "2026-10-11T21:00:00",
-      "venueName": "Social Yoga Fish Island",
-      "city": "London",
-      "imageUrl": "photos/events/6ac396d44449f363f438c833.jpg",
-      "image_src": "https://r2.dandelion.events/2026/10/05/12/23/51/75108940-6b45-4af4-886a-a01ef043ef95/ebab6d75-c2ed-4732-ae03-f49baf218922.jpeg",
-      "status": "live",
-      "source": "both",
-      "eventbriteUrl": "https://www.eventbrite.co.uk/e/gong-bath-sound-healing-journey-tickets-2002942302344"
     },
     {
       "id": "6a91cec7ed45d468df8cb55d",
