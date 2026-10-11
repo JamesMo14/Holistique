@@ -1,3 +1,4 @@
-# GitHub Pages (Jekyll) settings. Keeps the agent instructions off the live site.
+# GitHub Pages (Jekyll) settings. Keeps the agent instructions and handover notes off the live site.
 exclude:
   - AGENTS.md
+  - HANDOVER.md

@@ -1,6 +1,6 @@
 # AGENTS.md: Holistique UK website
 
-Instructions for AI coding agents (Grok Build, Claude Code, Codex, Cursor, etc.) and for anyone maintaining https://holistiqueuk.com.
+Instructions for AI coding agents (Grok Build, Claude Code, Codex, Cursor, etc.) and for anyone maintaining https://holistiqueuk.com. For ownership, the accounts the site depends on, and the handover checklist, see [`HANDOVER.md`](HANDOVER.md).
 
 ## What this site is
 
