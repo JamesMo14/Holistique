@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-10-11T06:13:18.201Z",
+  "lastSync": "2026-10-12T00:26:18.596Z",
   "organizationId": null,
   "upcoming": [
     {
@@ -16,6 +16,21 @@
       "status": "live",
       "source": "both",
       "eventbriteUrl": "https://www.eventbrite.co.uk/e/overnight-sound-healing-journey-tickets-1996006000679"
+    },
+    {
+      "id": "6acbe6f956aae50332e66d57",
+      "name": "Dog Friendly Sound Healing Session",
+      "description": "Some evenings you just need to slow down, breathe out and be around good people. And maybe a few good dogs. Dogs are welcome, but you do NOT need to...",
+      "url": "https://dandelion.events/e/b0k2x",
+      "startLocal": "2026-10-23T19:00:00",
+      "endLocal": "2026-10-23T21:00:00",
+      "venueName": "Studio 91",
+      "city": "London",
+      "imageUrl": "photos/events/6acbe6f956aae50332e66d57.jpg",
+      "image_src": "https://r2.dandelion.events/2026/10/11/19/43/55/7fd1c76e-0603-44dd-82a0-5a2e607a5c99/d84e8633-6359-45b8-aa79-7cc9e743f064.jpeg",
+      "status": "live",
+      "source": "both",
+      "eventbriteUrl": "https://www.eventbrite.co.uk/e/dog-friendly-sound-healing-session-tickets-2003264599343"
     },
     {
       "id": "6a91d407ed45d468df8cb94b",
