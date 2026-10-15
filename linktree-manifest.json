@@ -1,5 +1,5 @@
 {
-  "synced_at": "2026-09-30T01:16:11.721Z",
+  "synced_at": "2026-10-15T01:04:27.696Z",
   "items": [
     {
       "key": "nurateethcare.com",
@@ -126,7 +126,7 @@
       "title": "All Natural Face Cream",
       "code": "YVONNE10",
       "url": "https://amzn.eu/d/0fq1lsg6",
-      "description": "",
+      "description": "Free delivery and returns on eligible orders of £20 or more. Buy IRON CHIN Face Moisturiser For Men, Dry Skin, Fast-Absorbing 100ml | Hyaluronic acid, jojoba & aloe. Fast-absorbing, non-greasy moisturiser. For training & post-gym. Made in UK. Anti-aging at Amazon UK.",
       "thumbnail": "https://ugc.production.linktr.ee/5fd3ecca-39a0-491b-b09f-27c3564ebd26_IMG-3368.webp"
     },
     {
@@ -136,6 +136,22 @@
       "url": "https://fourvisions.com/?rstr=16589",
       "description": "",
       "thumbnail": "https://ugc.production.linktr.ee/5f4ef0f4-133b-444d-b86f-af8c3cf61f5e_Screenshot-2026-09-19-at-09.57.59.png"
+    },
+    {
+      "key": "premiumgrounding.au",
+      "title": "Grounding Sheets | 316L Stainless Steel Earthing Sheets | Premium Grounding",
+      "code": null,
+      "url": "https://premiumgrounding.au/?ref=kqmokbpo",
+      "description": "",
+      "thumbnail": "https://ugc.production.linktr.ee/a544540e-cd97-4e03-a71d-fece3a0fe2e0_PG-Logo-IA---RGB-Icon-CoreBlue-bd760f1a-cf47-4347-a2fb-6ddaa2e0d976.png"
+    },
+    {
+      "key": "soov.uk",
+      "title": "Soov Period Health Supplements",
+      "code": "YVONNE15",
+      "url": "http://soov.uk/YVONNE15",
+      "description": "",
+      "thumbnail": "https://ugc.production.linktr.ee/4aaad556-3434-4cc4-bfea-4c9df6b7001d_SoovBlue-SquarePNG-ef31251b-4d2f-46e2-b427-6bed4b654a53.webp"
     }
   ],
   "enrichment": {
@@ -259,6 +275,16 @@
       "brand": "No Crash",
       "description": "Functional & foundational support for modern performance. Functional mushrooms, adaptogens & vitamins — backed by science, results you feel. Vegan. Sugar free. Third-party tested.",
       "image": "http://www.nocrash.co.uk/cdn/shop/files/7_91c82614-1830-4ccb-9ef1-ea307f9a397a.png?v=1779807109"
+    },
+    "premiumgrounding.au": {
+      "brand": "Premium Grounding",
+      "description": "Premium Grounding — 316L stainless steel grounding sheets engineered to last. 1,000+ verified reviews. 120-night trial. 3-year warranty. Ships internationally.",
+      "image": "https://premiumgrounding.com/cdn/shop/files/PG_Logo_IA___RGB_Icon_CoreBlue_bd760f1a-cf47-4347-a2fb-6ddaa2e0d976.png?v=1765859579&width=1200"
+    },
+    "soov.uk": {
+      "brand": "soov.uk",
+      "description": "Soov is a unique range of supplements designed by women to alleviate symptoms associated with your period. Our aim is to look after your well-being and ease some of those less joyful elements of your cycle.",
+      "image": "http://soov.uk/cdn/shop/files/SoovBlue_SquarePNG_ef31251b-4d2f-46e2-b427-6bed4b654a53.png?v=1776247089"
     }
   }
 }
