@@ -1,5 +1,5 @@
 {
-  "lastPostNumber": 19,
+  "lastPostNumber": 21,
   "posts": [
     {
       "number": 1,
@@ -152,6 +152,22 @@
       "file": "post-19.html",
       "date": "Sep 28, 2026",
       "category": "Pet Wellness"
+    },
+    {
+      "number": 20,
+      "title": "My Morning Wellness Stack: Clean Water, Better Teeth, Quieter Start",
+      "mediumUrl": "https://medium.com/@yvonne.holistique/my-morning-wellness-stack-clean-water-better-teeth-quieter-start-258cd8150792?source=rss-517af46e024b------2",
+      "file": "post-20.html",
+      "date": "Oct 3, 2026",
+      "category": "Holistique Uk"
+    },
+    {
+      "number": 21,
+      "title": "A Day Retreat in London That Actually Lets You Rest (Without the Hustle)",
+      "mediumUrl": "https://medium.com/@yvonne.holistique/a-day-retreat-in-london-that-actually-lets-you-rest-without-the-hustle-7bb7edb6178f?source=rss-517af46e024b------2",
+      "file": "post-21.html",
+      "date": "Oct 2, 2026",
+      "category": "Holistique Uk"
     }
   ]
 }

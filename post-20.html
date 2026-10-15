@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Morning Wellness Stack: Clean Water, Better Teeth, Quieter Start — Holistique UK</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-weight: 300; font-size: 18px; background: #FFFFFF; color: #111827; line-height: 1.8; overflow-x: hidden; opacity: 0; transition: opacity 0.6s ease; }
+        body.loaded { opacity: 1; }
+        a { text-decoration: none; color: inherit; } img { display: block; max-width: 100%; }
+        .site-header { position: sticky; top: 0; z-index: 100; height: 80px; background: #FFFFFF; border-bottom: 1px solid #E5E7EB; display: flex; align-items: center; }
+        .header-inner { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+        .header-logo a { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 14px; text-transform: uppercase; letter-spacing: 0.2em; color: #111827; transition: opacity 200ms; }
+        .header-logo a:hover { opacity: 0.7; }
+        .header-nav { display: flex; align-items: center; gap: 32px; }
+        .header-nav a { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: #9CA3AF; transition: color 200ms; }
+        .header-nav a:hover { color: #111827; }
+        .article-hero { width: 100%; max-height: 560px; overflow: hidden; }
+        .article-hero img { width: 100%; height: 560px; object-fit: cover; }
+        .article-container { max-width: 720px; margin: 0 auto; padding: 48px 32px 80px; }
+        .article-category { display: inline-block; background: #F3F4F6; padding: 4px 12px; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #111827; }
+        .article-title { font-family: 'Marcellus', Georgia, serif; font-size: clamp(2rem, 5vw, 3rem); line-height: 1.15; margin-top: 16px; color: #111827; }
+        .article-subtitle { font-weight: 300; font-size: 1.25rem; color: #6B7280; margin-top: 16px; line-height: 1.5; padding-left: 16px; border-left: 2px solid #E5E7EB; }
+        .article-meta { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9CA3AF; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 24px; padding-bottom: 32px; border-bottom: 1px solid #E5E7EB; }
+        .article-body { margin-top: 40px; }
+        .article-body p { margin-bottom: 24px; font-size: 18px; line-height: 1.8; color: #374151; }
+        .article-body p strong { font-weight: 600; color: #111827; }
+        .article-body p em { font-style: italic; color: #6B7280; }
+        .article-body h2 { font-family: 'Marcellus', Georgia, serif; font-size: 1.75rem; margin: 48px 0 24px; color: #111827; line-height: 1.2; }
+        .article-body ul { margin: 0 0 24px 0; padding-left: 0; list-style: none; }
+        .article-body ul li { padding: 8px 0 8px 24px; position: relative; font-size: 18px; line-height: 1.8; color: #374151; }
+        .article-body ul li::before { content: ''; position: absolute; left: 0; top: 18px; width: 6px; height: 6px; background: #111827; border-radius: 50%; }
+        .article-body blockquote { margin: 32px 0; padding: 24px 32px; border-left: 3px solid #111827; background: #F9FAFB; font-style: italic; color: #374151; }
+        .article-body .separator { text-align: center; margin: 48px 0; color: #D1D5DB; font-size: 1.5rem; letter-spacing: 0.5em; }
+        .article-body a { color: #111827; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+        .article-body a:hover { color: #6B7280; }
+        .author-bio { margin-top: 64px; padding-top: 32px; border-top: 1px solid #E5E7EB; font-size: 15px; color: #6B7280; line-height: 1.7; }
+        .back-link { display: inline-block; margin-top: 48px; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; color: #9CA3AF; transition: color 200ms; }
+        .back-link:hover { color: #111827; }
+        .back-link::before { content: '\2190\00a0\00a0'; }
+        .article-newsletter { margin-top: 48px; padding: 32px; border: 2px solid #111827; text-align: center; }
+        .article-newsletter__heading { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 15px; color: #111827; margin-bottom: 4px; }
+        .article-newsletter__sub { font-size: 14px; color: #6B7280; margin-bottom: 16px; }
+        .article-newsletter__row { display: flex; gap: 8px; justify-content: center; }
+        .article-newsletter__row .newsletter-input { flex: 1; border: 1px solid #E5E7EB; background: #F9FAFB; padding: 12px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 300; color: #111827; }
+        .article-newsletter__row .newsletter-input::placeholder { color: #9CA3AF; }
+        .article-newsletter__row .newsletter-btn { background: #111827; color: #FFFFFF; text-transform: uppercase; letter-spacing: 0.1em; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 12px; padding: 12px 24px; border: none; cursor: pointer; transition: background 200ms; white-space: nowrap; }
+        .article-newsletter__row .newsletter-btn:hover { background: #000000; }
+        .article-newsletter__row a.newsletter-btn { text-align: center; }
+        .article-newsletter__row .newsletter-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+        .newsletter-message { margin-top: 8px; font-size: 13px; text-align: center; }
+        .newsletter-message.success { color: #059669; }
+        .newsletter-message.error { color: #DC2626; }
+        @media (max-width: 480px) { .article-newsletter__row { flex-direction: column; } }
+        .site-footer { background: #F9FAFB; border-top: 1px solid #E5E7EB; padding: 32px 0; }
+        .footer-inner { display: flex; justify-content: space-between; align-items: center; max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+        .footer-copy { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #9CA3AF; text-transform: uppercase; letter-spacing: 0.1em; }
+        .footer-social { display: flex; gap: 20px; }
+        .footer-social a { display: flex; align-items: center; color: #9CA3AF; transition: color 200ms; }
+        .footer-social a:hover { color: #111827; }
+        .footer-social svg { width: 20px; height: 20px; }
+        @media (max-width: 768px) { .header-inner { padding: 0 20px; } .article-container { padding: 32px 20px 64px; } .article-hero img { height: 320px; } .footer-inner { padding: 0 20px; } }
+        @media (max-width: 480px) { .header-inner { padding: 0 16px; } .header-nav { gap: 20px; } .article-container { padding: 24px 16px 48px; } .article-hero img { height: 240px; } .footer-inner { flex-direction: column; gap: 16px; padding: 0 16px; } }
+    </style>
+</head>
+<body>
+    <header class="site-header"><div class="header-inner"><div class="header-logo"><a href="index.html">HOLISTIQUE</a></div><nav class="header-nav"><a href="index.html">Home</a><a href="blog.html">Journal</a><a href="about.html">About</a></nav></div></header>
+
+    <div class="article-hero">
+        <img src="https://cdn-images-1.medium.com/max/1024/1*rbYtNQCx-TDOr9k0egDxZA.png" alt="My Morning Wellness Stack: Clean Water, Better Teeth, Quieter Start">
+    </div>
+
+    <article class="article-container">
+        <span class="article-category">Holistique Uk</span>
+        <h1 class="article-title">My Morning Wellness Stack: Clean Water, Better Teeth, Quieter Start</h1>
+        <p class="article-subtitle">Start with water you don’t have to second-guess</p>
+        <p class="article-meta">By Yvonne &middot; Oct 3, 2026 &middot; 4 Min Read</p>
+
+        <div class="article-body">
+            <p>A practical Holistique morning: under-sink filtered water, mineralising toothpaste, and small rituals that make the day feel less rushed — with reader codes.</p><p>Events change how you feel for a night. Mornings decide how you feel for a decade of Tuesdays.</p><p>This is the first of three wellness-tools pieces in the series — the practical layer behind Holistique UK’s curated wellness tools<a href="https://holistiqueuk.com/wellness-tools"> hu</a>b.</p><p>No 27-step routine. Just a quieter stack.</p><h4>Start with water you don’t have to second-guess</h4><p>If you live in a hard-water UK city, you already know tap water can taste like a swimming pool’s cousin. An under-sink filter is one of those boring-brilliant changes: clean-tasting water on tap, fewer plastic bottles in the recycling, less mental fuss before the kettle.</p><p>Maverick’s under-sink water filter is built as an all-in-one unit aimed at chlorine, fluoride, and other impurities — without a tangle of bolt-on extras. It’s the “set it up and stop thinking about<a href="https://maverickpurewater.com/?sca_ref=9183324.btFjcu0VJYr"> it” end of wellness.</a></p><ul><li>Shop: <a href="https://maverickpurewater.com/?sca_ref=9183324.btFjcu0VJYr">maverickpurewater.com</a></li><li>- Code: YVONNE15</li><li>Fill a glass before your phone. It sounds small. It trains the day to begin in the body, not the feed.</li></ul><blockquote>The first litre of the day is a vote for the kind of morning you want.</blockquote><h4>Teeth: remineralise without the drama</h4><p>Oral care is wellness hiding in plain sight. Two hydroxyapatite-forward options sit on the Holistique tools shelf — pick the texture and ethos you prefer; both come with Yvonne’s code YVONNE.</p><img src="https://cdn-images-1.medium.com/max/1024/1*l2A7pxxW_l6nRtdmaLH93w.png" alt=""><h2>Nura Mineralising Toothpaste</h2><p>A hydroxyapatite-rich paste positioned for enamel support, free from SLS and titanium dioxide, with a gentler abrasive profile than many high-street tubes.</p><ul><li><a href="https://nurateethcare.com/?dt_id=2842464">nurateethcare.com</a></li></ul><h2>Gutology Organic Toothpaste</h2><p>Fluoride-free, microbiome-minded, postbiotic-enriched, vegan and SLS-free — framed as family-friendly from age 3+.</p><ul><li><a href="https://gutology.co.uk/?bg_ref=foVIdfFvEJ">gutology.co.uk</a></li></ul><p>Two minutes with either, after that first glass of filtered water, beats a rushed scrub with whatever was on special offer.</p><h4>Optional shower note (if mornings feel skin-tight)</h4><p>London water doesn’t only hit the glass. If hair and skin feel crispy after washing, a filtered shower head is the parallel upgrade. Curo Skin filters chlorine and impurities while adding a more skin-kind mineral feel to the daily rinse.</p><ul><li><a href="https://www.curoskin.co.uk/VONNYLANG">curoskin.co.uk/VONNYLANG</a></li></ul><p>Not mandatory for the morning stack — just honest adjacency.</p><h4>A 12-minute quieter start (steal this)</h4><ol><li>Glass of filtered water (2 min) — stand at the window if you can.</li><li>Brush with intention (2 min) — no email in the mirror hand.</li><li>Open a window / step outside (3 min) — light to the eyes beats another snooze.</li><li>One slow tune or silence (5 min) — tea counts; scrolling doesn’t.</li></ol><p>That’s it. If you later add supplements, mushroom drinks, or a fuller kitchen ritual, Days 10–11 will meet you there. Mornings work best when they stay humble.</p><h4>Longevity, if you already have the basics</h4><p>Once water and oral care are steady, some people layer a daily longevity/inflammation support. Aevum sits on the Holistique list for recovery, energy, and healthier ageing from the inside out.</p><ul><li><a href="https://my-aevum.com/YVONNE10">my-aevum.com/YVONNE10</a></li></ul><p>Treat extras as extras. Foundations first.</p><h4>Keep the stack boring on purpose</h4><p>The failure mode of wellness mornings is ambition. Five new products, a gratitude template, a cold blast, a journaling prompt you’ll resent by Wednesday.</p><p>Boring wins. Filtered water. Decent toothpaste. Light to the eyes. Then breakfast you actually like.</p><p>Once those stick for a fortnight, then consider Aevum, a mushroom drink, or a fancier shower head. Holistique’s tools hub is a pantry, not a checklist. Yvonne shares what she uses; you decide what earns space in your cupboard.</p><p>If you share a kitchen, get housemates on side for the filter — clean water is communal infrastructure. Toothpaste can stay personal. The twelve quiet minutes are non-negotiable either way.</p><h4>Where this fits with autumn events</h4><p>You’re reading this between booking season and experience season. Clean mornings make evening sound journeys land better — less wired in, more <a href="https://holistiqueuk.com/events">available. If you haven’t yet chosen an October date, the hub is here: </a>holistiqueuk.com/events.</p><p>And if you want the full shelf Yvonne stands behind:</p><p><a href="https://holistiqueuk.com/wellness-tools">holistiqueuk.com/wellness-tools</a></p><img src="https://medium.com/_/stat?event=post.clientViewed&referrerSource=full_rss&postId=258cd8150792" width="1" height="1" alt="">
+        </div>
+
+        <div class="author-bio">
+            <p>Yvonne is a former model turned acupuncturist and sound healer. Today she organises holistic events and retreats for her community of conscious souls in London. You can find her on Instagram: <a href="https://instagram.com/yvonne.holistique/" target="_blank">@yvonne.holistique</a></p>
+        </div>
+
+        <div class="article-newsletter">
+            <p class="article-newsletter__heading">Enjoyed this article?</p>
+            <p class="article-newsletter__sub">Get new posts from Yvonne delivered to your inbox.</p>
+            <div class="article-newsletter__row">
+                <a href="newsletter.html" class="newsletter-btn">Subscribe</a>
+            </div>
+        </div>
+
+        <a href="blog-post.html" class="back-link">Back to Journal</a>
+    </article>
+
+    <footer class="site-footer"><div class="footer-inner"><span class="footer-copy">&copy; 2025 Holistique UK</span><div class="footer-social"><a href="about.html">Meet Yvonne</a><a href="https://instagram.com/yvonne.holistique/" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="5"></circle><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"></circle></svg></a><a href="https://medium.com/@yvonne.holistique" target="_blank" aria-label="Medium"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg></a></div></div></footer>
+
+    <script>
+    window.addEventListener('DOMContentLoaded', function() {
+        document.body.classList.add('loaded');
+    });
+    </script>
+</body>
+</html>
