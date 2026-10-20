@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-10-19T00:21:51.884Z",
+  "lastSync": "2026-10-20T18:09:31.514Z",
   "organizationId": null,
   "upcoming": [
     {
@@ -46,6 +46,21 @@
       "status": "live",
       "source": "both",
       "eventbriteUrl": "https://www.eventbrite.co.uk/e/chinese-tea-ceremony-workshop-tickets-2002834363496"
+    },
+    {
+      "id": "6ad75be1979c2dd95183553a",
+      "name": "NOUR Run Club – Free Social Run in Walthamstow",
+      "description": "A relaxed, friendly group run around Walthamstow, then 25% off food and drinks at NOUR. Join us for a relaxed social run around Walthamstow, starting...",
+      "url": "https://dandelion.events/e/j0wcq",
+      "startLocal": "2026-11-08T09:30:00",
+      "endLocal": "2026-11-08T11:00:00",
+      "venueName": "NOUR",
+      "city": "London",
+      "imageUrl": "photos/events/6ad75be1979c2dd95183553a.jpg",
+      "image_src": "https://r2.dandelion.events/2026/10/20/12/17/40/772305ac-6544-4d9b-9001-2088ee6f4ccd/7935683e-64c3-4e8c-89c6-be82a9776b86.jpeg",
+      "status": "live",
+      "source": "both",
+      "eventbriteUrl": "https://www.eventbrite.co.uk/e/nour-run-club-free-social-run-in-walthamstow-tickets-2003657361104"
     },
     {
       "id": "6ab6e017fb94b07fb29d3ca7",
