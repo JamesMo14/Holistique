@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-10-22T12:12:15.207Z",
+  "lastSync": "2026-10-23T18:08:58.634Z",
   "organizationId": null,
   "upcoming": [
     {
@@ -29,8 +29,7 @@
       "imageUrl": "photos/events/6a91d407ed45d468df8cb94b.jpg",
       "image_src": "https://r2.dandelion.events/2026/08/28/18/32/28/6f67adf9-de08-41c6-bd7e-a525364471d4/1366800c-4468-4423-abeb-83bcc87ca176.jpeg",
       "status": "live",
-      "source": "both",
-      "eventbriteUrl": "https://www.eventbrite.co.uk/e/day-retreat-in-london-presented-by-holistiqueuk-tickets-1996034399621"
+      "source": "dandelion"
     },
     {
       "id": "6ac007800a761b3b5f8e7f47",
@@ -45,7 +44,21 @@
       "image_src": "https://r2.dandelion.events/2026/10/02/19/35/31/29c1a30b-f703-45cc-93e7-5c7b4c8f8dd2/71bd4ad8-67bb-4b79-80f1-a5b544085fe6.jpeg",
       "status": "live",
       "source": "both",
-      "eventbriteUrl": "https://www.eventbrite.co.uk/e/chinese-tea-ceremony-workshop-tickets-2002834363496"
+      "eventbriteUrl": "https://www.eventbrite.co.uk/e/day-retreat-in-london-presented-by-holistiqueuk-tickets-1996034399621"
+    },
+    {
+      "id": "2002834363496",
+      "name": "Chinese Tea Ceremony Workshop",
+      "description": "Get ready to sip your way through the art of Chinese tea ceremonies in this interactive workshop!",
+      "url": "https://www.eventbrite.co.uk/e/chinese-tea-ceremony-workshop-tickets-2002834363496",
+      "startLocal": "2026-10-25T10:00:00",
+      "endLocal": "2026-10-25T17:00:00",
+      "venueName": "Colet House",
+      "city": "London",
+      "imageUrl": "photos/events/2002834363496.jpg",
+      "image_src": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1112994503%2F216441982947%2F1%2Foriginal.20250903-142807?auto=format%2Ccompress&q=75&sharp=10&s=bb84a07046e525380ab1ed426a059d91",
+      "status": "live",
+      "source": "eventbrite"
     },
     {
       "id": "6ad75be1979c2dd95183553a",
