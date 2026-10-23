@@ -1610,6 +1610,79 @@
             transform: translateY(-2px);
         }
 
+        .footer__legal {
+            max-width: var(--max-width);
+            margin: 2.5rem auto 0;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .footer__company {
+            font-size: 0.8125rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.78);
+            max-width: 46rem;
+        }
+        .footer__policies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem 1.15rem;
+            list-style: none;
+            margin: 0.85rem 0 0;
+            padding: 0;
+        }
+        .footer__policies .footer__link {
+            color: rgba(255, 255, 255, 0.88);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+        .footer__disclaimer {
+            margin-top: 0.9rem;
+            max-width: 46rem;
+            font-size: 0.75rem;
+            line-height: 1.65;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        .footer__brand-desc { max-width: 340px; }
+        .footer__bottom { margin-top: 1.5rem; }
+
+        a.review-card {
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        a.review-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 36px rgba(34, 102, 99, 0.12);
+        }
+        .review-card__label {
+            font-family: var(--font-mono);
+            font-size: 0.6875rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--color-teal);
+            margin-bottom: 0.85rem;
+        }
+        .review-card__title {
+            font-family: var(--font-heading);
+            font-size: 1.75rem;
+            color: #1a1a1a;
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+        }
+        .review-card__text {
+            font-size: 0.975rem;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        .review-card__link {
+            margin-top: auto;
+            color: var(--color-teal);
+            font-weight: 500;
+        }
+
         /* ============================================
            REVEAL ANIMATIONS (initial hidden state)
            ============================================ */
@@ -1755,7 +1828,9 @@
         "@context": "https://schema.org",
         "@type": "HealthAndBeautyBusiness",
         "name": "Holistique UK",
-        "description": "Holistic wellness practice offering acupuncture, fire cupping, wellness events, and community gatherings in London.",
+        "legalName": "WellGlow Ltd",
+        "email": "hello@holistiqueuk.com",
+        "description": "London wellbeing practice offering traditional acupuncture, fire cupping, sound events and community gatherings.",
         "url": "https://holistiqueuk.com",
         "logo": "https://holistiqueuk.com/og-image.jpg",
         "image": "https://holistiqueuk.com/og-image.jpg",
@@ -1788,7 +1863,7 @@
         "@type": "WebSite",
         "name": "Holistique UK",
         "url": "https://holistiqueuk.com",
-        "description": "Holistic wellness practice in London — acupuncture, events, and community."
+        "description": "London wellbeing practice: traditional acupuncture, events and community."
     }
     </script>
 </head>
@@ -1809,7 +1884,7 @@
             <a href="wellness-tools.html" class="header__link">Wellness Tools</a>
             <a href="#events" class="header__link nav-link">What's On</a>
             <a href="#gallery" class="header__link nav-link">Community</a>
-            <a href="#testimonials" class="header__link nav-link">Stories</a>
+            <a href="#reviews" class="header__link nav-link">Reviews</a>
             <a href="blog.html" class="header__link">Blog</a>
         </nav>
         <a href="#contact" class="header__cta nav-link">Get in Touch</a>
@@ -1827,7 +1902,7 @@
         <a href="wellness-tools.html" class="mobile-menu__link">Wellness Tools</a>
         <a href="#events" class="mobile-menu__link nav-link">What's On</a>
         <a href="#gallery" class="mobile-menu__link nav-link">Community</a>
-        <a href="#testimonials" class="mobile-menu__link nav-link">Stories</a>
+        <a href="#reviews" class="mobile-menu__link nav-link">Reviews</a>
         <a href="#contact" class="mobile-menu__link nav-link">Get in Touch</a>
         <a href="blog.html" class="mobile-menu__link">Blog</a>
     </div>
@@ -1856,7 +1931,7 @@
 
         <div class="hero__content" id="hero-content">
             <h1 class="hero__title reveal shiny-text shiny-text--light shiny-text--loop" id="hero-title">Elevate Your Wellbeing</h1>
-            <p class="hero__subtitle reveal">Connect with like-minded souls through curated wellness experiences, holistic healing, and a community that nurtures transformation.</p>
+            <p class="hero__subtitle reveal">Curated wellbeing events, traditional acupuncture, and a London community.</p>
             <div class="hero__actions reveal">
                 <a href="#events" class="btn btn--primary hero-cta">Explore Events</a>
                 <a href="#services" class="btn btn--outline hero-cta">Learn More</a>
@@ -1921,9 +1996,9 @@
                 </div>
             </div>
             <p class="ethos__label reveal">Our Essence</p>
-            <h2 class="ethos__heading reveal shiny-text">Healing. Transformation.<br>Connection.</h2>
+            <h2 class="ethos__heading reveal shiny-text">Rest. Stillness.<br>Connection.</h2>
             <p class="ethos__text reveal">
-                Holistique UK is more than a wellness platform; it is a sanctuary for those seeking holistic healing and inner harmony. We curate transformative experiences that blend ancient wisdom with modern mindfulness practices - from sound healing to meditation and bespoke holistic services. Thrive in today's fast-paced world whilst building meaningful connections within our wellness community.
+                Holistique UK is a London wellbeing practice run by Yvonne Liang. We host sound gatherings, meditation and community events, and Yvonne offers traditional acupuncture. Come for rest, quiet and time with other people.
             </p>
             <div class="ethos__divider reveal-scale"></div>
         </section>
@@ -1946,7 +2021,7 @@
                         </svg>
                     </div>
                     <h3 class="service-card__title">Acupuncture</h3>
-                    <p class="service-card__desc">Traditional Chinese medicine techniques to restore balance, relieve pain, and promote natural healing through precise meridian therapy.</p>
+                    <p class="service-card__desc">Traditional acupuncture, offered for relaxation and wellbeing. It does not replace advice from your GP.</p>
                     <a href="acupuncture.html" class="service-card__link">Learn more <span class="arrow">&rarr;</span></a>
                 </div>
                 <div class="service-card stagger-item">
@@ -2043,47 +2118,26 @@
             </div>
         </section>
 
-        <!-- TESTIMONIALS -->
-        <section class="testimonials panel" id="testimonials">
+        <!-- REVIEWS -->
+        <section class="testimonials panel" id="reviews">
             <div class="testimonials__glow"></div>
             <div class="section-header">
-                <p class="section-label reveal">Kind Words</p>
-                <h2 class="section-title reveal shiny-text">What Our Community Says</h2>
+                <p class="section-label reveal">Reviews</p>
+                <h2 class="section-title reveal shiny-text">Read our reviews</h2>
             </div>
             <div class="testimonials__grid stagger-container">
-                <div class="testimonial-card stagger-item">
-                    <span class="testimonial-card__quote">&ldquo;</span>
-                    <p class="testimonial-card__text">Holistique has completely transformed my relationship with wellness. The events are beautifully curated and the community is unlike anything I've experienced.</p>
-                    <div class="testimonial-card__author">
-                        <div class="testimonial-card__avatar">S</div>
-                        <div>
-                            <p class="testimonial-card__name">Sarah M.</p>
-                            <p class="testimonial-card__role">Community Member</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card stagger-item">
-                    <span class="testimonial-card__quote">&ldquo;</span>
-                    <p class="testimonial-card__text">The acupuncture sessions have been life-changing for my chronic back pain. I finally feel like myself again after years of discomfort.</p>
-                    <div class="testimonial-card__author">
-                        <div class="testimonial-card__avatar">J</div>
-                        <div>
-                            <p class="testimonial-card__name">James K.</p>
-                            <p class="testimonial-card__role">Acupuncture Client</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card stagger-item">
-                    <span class="testimonial-card__quote">&ldquo;</span>
-                    <p class="testimonial-card__text">Every sound bath leaves me feeling renewed. The Holistique team creates such a sacred, welcoming space for healing and growth.</p>
-                    <div class="testimonial-card__author">
-                        <div class="testimonial-card__avatar">E</div>
-                        <div>
-                            <p class="testimonial-card__name">Elena R.</p>
-                            <p class="testimonial-card__role">Event Regular</p>
-                        </div>
-                    </div>
-                </div>
+                <a class="testimonial-card review-card stagger-item" href="https://maps.app.goo.gl/Nve7pTdM2yHV4Mp68" target="_blank" rel="noopener">
+                    <p class="review-card__label">Acupuncture</p>
+                    <h3 class="review-card__title">Google reviews</h3>
+                    <p class="review-card__text">Reviews of acupuncture with Yvonne are published on Google. We do not repeat them on this page.</p>
+                    <span class="review-card__link">Read our Google reviews &rarr;</span>
+                </a>
+                <a class="testimonial-card review-card stagger-item" href="https://dandelion.events/o/holistique" target="_blank" rel="noopener">
+                    <p class="review-card__label">Events</p>
+                    <h3 class="review-card__title">Events on Dandelion</h3>
+                    <p class="review-card__text">Upcoming Holistique events are listed on Dandelion, which is also where tickets are booked.</p>
+                    <span class="review-card__link">See our events on Dandelion &rarr;</span>
+                </a>
             </div>
         </section>
 
@@ -2093,9 +2147,10 @@
             <div class="cta-section__glow cta-section__glow--2"></div>
             <div class="cta-section__content">
                 <h2 class="cta-section__title reveal shiny-text shiny-text--light">Join Our Community</h2>
-                <p class="cta-section__desc reveal">Ready to begin your wellness journey? Connect with us on WhatsApp and discover a community that genuinely cares.</p>
+                <p class="cta-section__desc reveal">Questions about an event or an appointment? Email hello@holistiqueuk.com, or message us on WhatsApp.</p>
                 <div class="cta-section__actions reveal">
-                    <a href="https://wa.me/447521760405" class="btn btn--gold" target="_blank" rel="noopener">Message Us on WhatsApp</a>
+                    <a href="mailto:hello@holistiqueuk.com" class="btn btn--gold">Email hello@holistiqueuk.com</a>
+                    <a href="https://wa.me/447521760405" class="btn btn--outline" target="_blank" rel="noopener">Message Us on WhatsApp</a>
                     <a href="https://www.instagram.com/holistique.uk" class="btn btn--outline" target="_blank" rel="noopener">Follow on Instagram</a>
                 </div>
                 <div class="cta-section__newsletter" id="newsletter">
@@ -2122,7 +2177,7 @@
             <div class="footer__grid">
                 <div class="footer__brand">
                     <p class="footer__brand-name">Holistique</p>
-                    <p class="footer__brand-desc">Healing and transformation through holistic practices and community. Based in London.</p>
+                    <p class="footer__brand-desc">Wellbeing gatherings, traditional acupuncture and community events in London.</p>
                 </div>
                 <div>
                     <p class="footer__col-title">Explore</p>
@@ -2131,7 +2186,7 @@
                         <li><a href="#events" class="footer__link">What's On</a></li>
                         <li><a href="acupuncture.html" class="footer__link">Acupuncture</a></li>
                         <li><a href="wellness-tools.html" class="footer__link">Wellness Tools</a></li>
-                        <li><a href="#testimonials" class="footer__link">Stories</a></li>
+                        <li><a href="#reviews" class="footer__link">Reviews</a></li>
                     </ul>
                 </div>
                 <div>
@@ -2139,7 +2194,6 @@
                     <ul class="footer__links">
                         <li><a href="#events" class="footer__link">Events</a></li>
                         <li><a href="#gallery" class="footer__link">Gallery</a></li>
-                        <li><a href="#testimonials" class="footer__link">Testimonials</a></li>
                         <li><a href="https://wa.me/447521760405" class="footer__link" target="_blank" rel="noopener">WhatsApp Group</a></li>
                         <li><a href="newsletter.html" class="footer__link">Newsletter</a></li>
                     </ul>
@@ -2147,11 +2201,25 @@
                 <div>
                     <p class="footer__col-title">Contact</p>
                     <ul class="footer__links">
-                        <li><a href="https://wa.me/447521760405" class="footer__link" target="_blank" rel="noopener">Get in Touch</a></li>
+                        <li><a href="mailto:hello@holistiqueuk.com" class="footer__link">hello@holistiqueuk.com</a></li>
+                        <li><a href="https://wa.me/447521760405" class="footer__link" target="_blank" rel="noopener">WhatsApp</a></li>
                         <li class="footer__text">London</li>
                     </ul>
                 </div>
             </div>
+            
+            <div class="footer__legal">
+                <p class="footer__company">Holistique UK is a trading name of WellGlow Ltd. Registered in England and Wales, company number 16173232. Registered office: 3rd Floor, 86-90 Paul Street, London EC2A 4NE.</p>
+                <ul class="footer__policies">
+                    <li><a class="footer__link" href="mailto:hello@holistiqueuk.com">hello@holistiqueuk.com</a></li>
+                    <li><a class="footer__link" href="https://www.instagram.com/holistique.uk" target="_blank" rel="noopener">Instagram</a></li>
+                    <li><a class="footer__link" href="refund-policy.html">Refund and cancellation policy</a></li>
+                    <li><a class="footer__link" href="terms.html">Terms and conditions</a></li>
+                    <li><a class="footer__link" href="privacy.html">Privacy policy</a></li>
+                </ul>
+                <p class="footer__disclaimer">Acupuncture and sound sessions are traditional wellbeing practices for relaxation. They do not diagnose, treat or cure any medical condition, and they are not a substitute for advice from your GP or another qualified healthcare professional.</p>
+            </div>
+
             <div class="footer__bottom">
                 <p class="footer__copyright">&copy; 2026 Holistique UK. All rights reserved.</p>
                 <div class="footer__socials">
@@ -3238,9 +3306,10 @@
 window.addEventListener('load',function(){
  // Honour links to homepage sections from the other pages.
  var dest=location.hash;
- if(['#gallery','#services','#events','#testimonials','#contact'].includes(dest)){
+ var target=dest==='#testimonials'?'#reviews':dest;
+ if(['#gallery','#services','#events','#reviews','#testimonials','#contact'].includes(dest)){
   revealContent();
-  gsap.delayedCall(2.1,function(){gsap.to(window,{scrollTo:{y:dest,offsetY:0},duration:.6});});
+  gsap.delayedCall(2.1,function(){gsap.to(window,{scrollTo:{y:target,offsetY:0},duration:.6});});
  }
 });
 </script></body>

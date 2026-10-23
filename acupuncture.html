@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acupuncture & Fire Cupping in London — Holistique UK</title>
-    <meta name="description" content="Experience the art of acupuncture and fire cupping with Yvonne Liang. Traditional Chinese medicine treatments in London. Book your session today.">
+    <meta name="description" content="Traditional acupuncture and fire cupping with Yvonne Liang in London. A wellbeing practice that does not replace medical advice.">
     <meta name="author" content="Yvonne Liang">
     <link rel="canonical" href="https://holistiqueuk.com/acupuncture.html">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Acupuncture & Fire Cupping — Holistique UK">
-    <meta property="og:description" content="Traditional Chinese medicine treatments with Yvonne Liang in London. Acupuncture, fire cupping, and holistic healing.">
+    <meta property="og:description" content="Traditional acupuncture and fire cupping with Yvonne Liang in London, offered for relaxation and wellbeing.">
     <meta property="og:url" content="https://holistiqueuk.com/acupuncture.html">
     <meta property="og:image" content="https://holistiqueuk.com/og-image.jpg?v=1">
     <meta property="og:image:width" content="1200">
@@ -22,7 +22,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Acupuncture & Fire Cupping — Holistique UK">
-    <meta name="twitter:description" content="Traditional Chinese medicine treatments with Yvonne Liang in London.">
+    <meta name="twitter:description" content="Traditional acupuncture and fire cupping with Yvonne Liang in London.">
     <meta name="twitter:image" content="https://holistiqueuk.com/og-image.jpg?v=1">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -570,6 +570,69 @@
         }
         .footer__social:hover { background: var(--color-teal); color: #fff; transform: translateY(-2px); }
 
+        .footer__legal {
+            max-width: var(--max-width);
+            margin: 2.5rem auto 0;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .footer__company {
+            font-size: 0.8125rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.78);
+            max-width: 46rem;
+        }
+        .footer__policies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem 1.15rem;
+            list-style: none;
+            margin: 0.85rem 0 0;
+            padding: 0;
+        }
+        .footer__policies .footer__link {
+            color: rgba(255, 255, 255, 0.88);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+        .footer__disclaimer {
+            margin-top: 0.9rem;
+            max-width: 46rem;
+            font-size: 0.75rem;
+            line-height: 1.65;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        .footer__brand-desc { max-width: 340px; }
+        .footer__bottom { margin-top: 1.5rem; }
+
+        .reviews { background: #fff; padding: 5rem 2rem; }
+        .reviews__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+        a.review-card {
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+            background: var(--color-offwhite);
+            border: 1px solid rgba(0,0,0,0.05);
+            border-radius: var(--radius-lg);
+            padding: 1.75rem;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        a.review-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(34,102,99,0.12); }
+        .review-card__label {
+            font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.14em;
+            text-transform: uppercase; color: var(--color-teal); margin-bottom: 0.75rem;
+        }
+        .review-card__title { font-family: var(--font-heading); font-size: 1.6rem; color: #1a1a1a; margin-bottom: 0.7rem; }
+        .review-card__text { color: #555; line-height: 1.7; margin-bottom: 1.25rem; }
+        .review-card__link { margin-top: auto; color: var(--color-teal); font-weight: 500; }
+
         /* ============================================
            REVEAL ANIMATIONS
            ============================================ */
@@ -626,7 +689,7 @@
         "@context": "https://schema.org",
         "@type": "Service",
         "name": "Acupuncture & Fire Cupping",
-        "description": "Traditional Chinese medicine treatments including acupuncture and fire cupping with qualified practitioner Yvonne Liang in London.",
+        "description": "Traditional acupuncture and fire cupping with Yvonne Liang in London, offered as a wellbeing practice rather than medical treatment.",
         "provider": {
             "@type": "HealthAndBeautyBusiness",
             "name": "Holistique UK",
@@ -669,7 +732,7 @@
             <a href="wellness-tools.html" class="header__link">Wellness Tools</a>
             <a href="index.html#events" class="header__link">What's On</a>
             <a href="index.html#gallery" class="header__link">Community</a>
-            <a href="index.html#testimonials" class="header__link">Stories</a>
+            <a href="index.html#reviews" class="header__link">Reviews</a>
             <a href="blog-post.html" class="header__link">Blog</a>
         </nav>
         <a href="index.html#contact" class="header__cta">Get in Touch</a>
@@ -687,7 +750,7 @@
         <a href="wellness-tools.html" class="mobile-menu__link">Wellness Tools</a>
         <a href="index.html#events" class="mobile-menu__link">What's On</a>
         <a href="index.html#gallery" class="mobile-menu__link">Community</a>
-        <a href="index.html#testimonials" class="mobile-menu__link">Stories</a>
+        <a href="index.html#reviews" class="mobile-menu__link">Reviews</a>
         <a href="index.html#contact" class="mobile-menu__link">Get in Touch</a>
         <a href="blog-post.html" class="mobile-menu__link">Blog</a>
     </div>
@@ -696,7 +759,7 @@
     <section class="page-hero">
         <p class="section-label reveal">What We Offer</p>
         <h1 class="page-hero__title reveal">Acupuncture</h1>
-        <p class="page-hero__subtitle reveal">Experience the art of acupuncture and fire cupping&mdash;therapeutic techniques renowned for restoring balance, relieving tension, and revitalising the body.</p>
+        <p class="page-hero__subtitle reveal">Traditional acupuncture and fire cupping with Yvonne Liang in London, offered for relaxation. This does not diagnose, treat or cure any condition, and it does not replace advice from your GP.</p>
     </section>
 
     <!-- PRACTITIONER BIO -->
@@ -711,7 +774,7 @@
                 <h2 class="bio__name">Yvonne Liang</h2>
                 <div class="bio__text">
                     <p>Trained in both Traditional Chinese Medicine (TCM) and Five Elements Acupuncture (Worsley method), Yvonne began her training in 2016 in Bangkok, Thailand, before graduating from the Asante Academy of Chinese Medicine in London. She is a registered member of the Acupuncture Society UK.</p>
-                    <p>Her practice supports conditions including stress, anxiety, insomnia, hormonal imbalances, digestive issues, tension, and chronic pain&mdash;always with a holistic, patient-centred approach.</p>
+                    <p>People book when they want a quiet hour and a traditional practice. Acupuncture here is not a treatment for stress, pain, insomnia or any other condition. Please speak to your GP about health concerns.</p>
                 </div>
             </div>
         </div>
@@ -757,227 +820,45 @@
                 <span class="treatment-card__badge">60&ndash;75 mins</span>
                 <h3 class="treatment-card__title">Initial Consultation + Treatment</h3>
                 <p class="treatment-card__price">&pound;85</p>
-                <p class="treatment-card__desc">Comprehensive session including in-depth health consultation, diagnosis, and first acupuncture treatment. Includes fire cupping and infrared heat therapy as needed.</p>
+                <p class="treatment-card__desc">A first visit: time to talk about how you are feeling, then a traditional acupuncture session. Fire cupping or a warming lamp may be included. This is not a diagnosis or a medical treatment.</p>
                 <button class="btn btn--teal" onclick="openBooking('Initial Consultation + Treatment', 'an initial acupuncture consultation')">Book now</button>
             </div>
             <div class="treatment-card reveal">
                 <span class="treatment-card__badge">60 mins</span>
                 <h3 class="treatment-card__title">Follow-Up Session</h3>
                 <p class="treatment-card__price">&pound;75</p>
-                <p class="treatment-card__desc">Personalised acupuncture treatment to continue supporting your health goals and track progress. Includes fire cupping and infrared heat therapy as needed.</p>
+                <p class="treatment-card__desc">A further traditional acupuncture session. Fire cupping or a warming lamp may be included. It does not treat a medical condition.</p>
                 <button class="btn btn--teal" onclick="openBooking('Follow-Up Session', 'a follow-up acupuncture session')">Book now</button>
             </div>
             <div class="treatment-card reveal">
                 <span class="treatment-card__badge">30&ndash;45 mins</span>
                 <h3 class="treatment-card__title">Fire Cupping Only</h3>
                 <p class="treatment-card__price">&pound;45</p>
-                <p class="treatment-card__desc">Promotes blood circulation, relieves muscle tension, and detoxifies the body by drawing out stagnation through suction.</p>
+                <p class="treatment-card__desc">A traditional cupping session using warmth and suction, offered for relaxation. It does not detoxify the body or treat a medical condition.</p>
                 <button class="btn btn--teal" onclick="openBooking('Fire Cupping Only', 'a fire cupping session')">Book now</button>
             </div>
         </div>
     </section>
 
-    <!-- TESTIMONIALS -->
-    <section class="testimonials" id="testimonials">
+    <!-- REVIEWS -->
+    <section class="reviews" id="reviews">
         <div class="section-header">
-            <p class="section-label reveal">Testimonials</p>
-            <h2 class="section-title reveal">What Clients Say</h2>
+            <p class="section-label reveal">Reviews</p>
+            <h2 class="section-title reveal">Read our reviews</h2>
         </div>
-
-        <!-- Row 1 -->
-        <div class="marquee">
-            <div class="marquee__track">
-                <div class="marquee__content">
-                    <div class="testimonial-card">
-                        <span class="testimonial-card__quote">&ldquo;</span>
-                        <p class="testimonial-card__text">I love going to see Yvonne she&rsquo;s so intuitive with her work. I&rsquo;ve cancelled chemo for lymphoma and instead decided to do acupuncture, with the consent of my consultant. I always feel so good after and my energy level goes up. Yvonne is so generous in every way.</p>
-                        <div class="testimonial-card__author">
-                            <div class="testimonial-card__avatar">A</div>
-                            <p class="testimonial-card__name">Anat H.</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <span class="testimonial-card__quote">&ldquo;</span>
-                        <p class="testimonial-card__text">Vonny is very empathetic and knowledgeable. I have never done acupuncture before but a friend recommended Vonny when I started having health issues, and I have been going regularly ever since. She helped me shift a lot of anxiety and fear recently.</p>
-                        <div class="testimonial-card__author">
-                            <div class="testimonial-card__avatar">M</div>
-                            <p class="testimonial-card__name">Maral H.</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <span class="testimonial-card__quote">&ldquo;</span>
-                        <p class="testimonial-card__text">I travel far pretty regularly just to have acupuncture and cupping sessions with Vonny. I&rsquo;ve experienced many health and mental health improvements since I started my sessions with her, which are at an affordable price given the value to my health.</p>
-                        <div class="testimonial-card__author">
-                            <div class="testimonial-card__avatar">L</div>
-                            <p class="testimonial-card__name">Lodi E.</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <span class="testimonial-card__quote">&ldquo;</span>
-                        <p class="testimonial-card__text">I have been visiting Vonny for quite a long time now and would thoroughly recommend her acupuncture treatment. There have been times when physical health issues have arisen and at these times Vonny&rsquo;s needles have certainly helped avoid GP appointments!!</p>
-                        <div class="testimonial-card__author">
-                            <div class="testimonial-card__avatar">S</div>
-                            <p class="testimonial-card__name">Steve B.</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <span class="testimonial-card__quote">&ldquo;</span>
-                        <p class="testimonial-card__text">I saw Yvonne as I had unbalanced menstrual cycle and after two months of acupuncture sessions with her, my periods came back to normal. I was so happy with this incredible result!! She&rsquo;s so kind, gentle and listening to your needs.</p>
-                        <div class="testimonial-card__author">
-                            <div class="testimonial-card__avatar">S</div>
-                            <p class="testimonial-card__name">Sol&egrave;ne F.</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <span class="testimonial-card__quote">&ldquo;</span>
-                        <p class="testimonial-card__text">Such a great time with an incredible spirit. This was my first time doing acupuncture and what an experience. Vonny is knowledgeable and experienced in all things acupuncture and creates a beautifully spiritual energy throughout the session.</p>
-                        <div class="testimonial-card__author">
-                            <div class="testimonial-card__avatar">B</div>
-                            <p class="testimonial-card__name">Benjamin M.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="marquee__content" aria-hidden="true">
-                    <div class="testimonial-card">
-                        <span class="testimonial-card__quote">&ldquo;</span>
-                        <p class="testimonial-card__text">I love going to see Yvonne she&rsquo;s so intuitive with her work. I&rsquo;ve cancelled chemo for lymphoma and instead decided to do acupuncture, with the consent of my consultant. I always feel so good after and my energy level goes up. Yvonne is so generous in every way.</p>
-                        <div class="testimonial-card__author">
-                            <div class="testimonial-card__avatar">A</div>
-                            <p class="testimonial-card__name">Anat H.</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <span class="testimonial-card__quote">&ldquo;</span>
-                        <p class="testimonial-card__text">Vonny is very empathetic and knowledgeable. I have never done acupuncture before but a friend recommended Vonny when I started having health issues, and I have been going regularly ever since. She helped me shift a lot of anxiety and fear recently.</p>
-                        <div class="testimonial-card__author">
-                            <div class="testimonial-card__avatar">M</div>
-                            <p class="testimonial-card__name">Maral H.</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <span class="testimonial-card__quote">&ldquo;</span>
-                        <p class="testimonial-card__text">I travel far pretty regularly just to have acupuncture and cupping sessions with Vonny. I&rsquo;ve experienced many health and mental health improvements since I started my sessions with her, which are at an affordable price given the value to my health.</p>
-                        <div class="testimonial-card__author">
-                            <div class="testimonial-card__avatar">L</div>
-                            <p class="testimonial-card__name">Lodi E.</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <span class="testimonial-card__quote">&ldquo;</span>
-                        <p class="testimonial-card__text">I have been visiting Vonny for quite a long time now and would thoroughly recommend her acupuncture treatment. There have been times when physical health issues have arisen and at these times Vonny&rsquo;s needles have certainly helped avoid GP appointments!!</p>
-                        <div class="testimonial-card__author">
-                            <div class="testimonial-card__avatar">S</div>
-                            <p class="testimonial-card__name">Steve B.</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <span class="testimonial-card__quote">&ldquo;</span>
-                        <p class="testimonial-card__text">I saw Yvonne as I had unbalanced menstrual cycle and after two months of acupuncture sessions with her, my periods came back to normal. I was so happy with this incredible result!! She&rsquo;s so kind, gentle and listening to your needs.</p>
-                        <div class="testimonial-card__author">
-                            <div class="testimonial-card__avatar">S</div>
-                            <p class="testimonial-card__name">Sol&egrave;ne F.</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <span class="testimonial-card__quote">&ldquo;</span>
-                        <p class="testimonial-card__text">Such a great time with an incredible spirit. This was my first time doing acupuncture and what an experience. Vonny is knowledgeable and experienced in all things acupuncture and creates a beautifully spiritual energy throughout the session.</p>
-                        <div class="testimonial-card__author">
-                            <div class="testimonial-card__avatar">B</div>
-                            <p class="testimonial-card__name">Benjamin M.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Row 2 (reverse direction) -->
-        <div class="marquee">
-            <div class="marquee__track marquee__track--reverse">
-                <div class="marquee__content">
-                    <div class="testimonial-card">
-                        <span class="testimonial-card__quote">&ldquo;</span>
-                        <p class="testimonial-card__text">I&rsquo;m so proud to meet Vonny! Thank you very much for helping me with acupuncture during the most difficult and stressful period of my life. I couldn&rsquo;t even imagine how effective and helpful it was! We had 2 sessions and I got over my illness.</p>
-                        <div class="testimonial-card__author">
-                            <div class="testimonial-card__avatar">A</div>
-                            <p class="testimonial-card__name">Anna M.</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <span class="testimonial-card__quote">&ldquo;</span>
-                        <p class="testimonial-card__text">Acupuncture with Yvonne was a truly amazing experience. I was fairly sceptical of acupuncture for a long time but after having it done&hellip; it changed my life. I have neck pain and had been having it for weeks. When she took the pins out and I left, the pain was gone in about an hour.</p>
-                        <div class="testimonial-card__author">
-                            <div class="testimonial-card__avatar">D</div>
-                            <p class="testimonial-card__name">David S.</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <span class="testimonial-card__quote">&ldquo;</span>
-                        <p class="testimonial-card__text">I had my first ever acupuncture experience with Vonny and I could not have been in better hands. I was on my cycle this day so I opted to go for points that would help my cramps. No word of a lie, they were gone after the session!</p>
-                        <div class="testimonial-card__author">
-                            <div class="testimonial-card__avatar">S</div>
-                            <p class="testimonial-card__name">Shannon A.</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <span class="testimonial-card__quote">&ldquo;</span>
-                        <p class="testimonial-card__text">Before trying acupuncture with Vonny I was sceptical of the practice itself. Now I&rsquo;ve been getting acupuncture done with Vonny for over a year and I couldn&rsquo;t be happier with the results.</p>
-                        <div class="testimonial-card__author">
-                            <div class="testimonial-card__avatar">R</div>
-                            <p class="testimonial-card__name">Ramune P.</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <span class="testimonial-card__quote">&ldquo;</span>
-                        <p class="testimonial-card__text">Vonny is an extremely talented acupuncturist. I was feeling run down and generally out of sorts. After a few sessions my energy is back and I&rsquo;m feeling far more balanced. Would highly recommend.</p>
-                        <div class="testimonial-card__author">
-                            <div class="testimonial-card__avatar">P</div>
-                            <p class="testimonial-card__name">Peter M.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="marquee__content" aria-hidden="true">
-                    <div class="testimonial-card">
-                        <span class="testimonial-card__quote">&ldquo;</span>
-                        <p class="testimonial-card__text">I&rsquo;m so proud to meet Vonny! Thank you very much for helping me with acupuncture during the most difficult and stressful period of my life. I couldn&rsquo;t even imagine how effective and helpful it was! We had 2 sessions and I got over my illness.</p>
-                        <div class="testimonial-card__author">
-                            <div class="testimonial-card__avatar">A</div>
-                            <p class="testimonial-card__name">Anna M.</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <span class="testimonial-card__quote">&ldquo;</span>
-                        <p class="testimonial-card__text">Acupuncture with Yvonne was a truly amazing experience. I was fairly sceptical of acupuncture for a long time but after having it done&hellip; it changed my life. I have neck pain and had been having it for weeks. When she took the pins out and I left, the pain was gone in about an hour.</p>
-                        <div class="testimonial-card__author">
-                            <div class="testimonial-card__avatar">D</div>
-                            <p class="testimonial-card__name">David S.</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <span class="testimonial-card__quote">&ldquo;</span>
-                        <p class="testimonial-card__text">I had my first ever acupuncture experience with Vonny and I could not have been in better hands. I was on my cycle this day so I opted to go for points that would help my cramps. No word of a lie, they were gone after the session!</p>
-                        <div class="testimonial-card__author">
-                            <div class="testimonial-card__avatar">S</div>
-                            <p class="testimonial-card__name">Shannon A.</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <span class="testimonial-card__quote">&ldquo;</span>
-                        <p class="testimonial-card__text">Before trying acupuncture with Vonny I was sceptical of the practice itself. Now I&rsquo;ve been getting acupuncture done with Vonny for over a year and I couldn&rsquo;t be happier with the results.</p>
-                        <div class="testimonial-card__author">
-                            <div class="testimonial-card__avatar">R</div>
-                            <p class="testimonial-card__name">Ramune P.</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <span class="testimonial-card__quote">&ldquo;</span>
-                        <p class="testimonial-card__text">Vonny is an extremely talented acupuncturist. I was feeling run down and generally out of sorts. After a few sessions my energy is back and I&rsquo;m feeling far more balanced. Would highly recommend.</p>
-                        <div class="testimonial-card__author">
-                            <div class="testimonial-card__avatar">P</div>
-                            <p class="testimonial-card__name">Peter M.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="reviews__grid">
+            <a class="review-card" href="https://maps.app.goo.gl/Nve7pTdM2yHV4Mp68" target="_blank" rel="noopener">
+                <p class="review-card__label">Acupuncture</p>
+                <h3 class="review-card__title">Google reviews</h3>
+                <p class="review-card__text">Reviews of acupuncture with Yvonne are published on Google. We do not repeat them on this page.</p>
+                <span class="review-card__link">Read our Google reviews &rarr;</span>
+            </a>
+            <a class="review-card" href="https://dandelion.events/o/holistique" target="_blank" rel="noopener">
+                <p class="review-card__label">Events</p>
+                <h3 class="review-card__title">Events on Dandelion</h3>
+                <p class="review-card__text">Upcoming Holistique events are listed on Dandelion, which is also where tickets are booked.</p>
+                <span class="review-card__link">See our events on Dandelion &rarr;</span>
+            </a>
         </div>
     </section>
 
@@ -1001,11 +882,11 @@
         <div class="faq__grid">
             <details class="faq__item reveal">
                 <summary>What is acupuncture?</summary>
-                <div class="faq__answer">A traditional Chinese medicine practice that involves inserting fine, single-use sterile needles into specific points on the body to restore balance, relieve pain, and support the body&rsquo;s natural healing processes. It&rsquo;s commonly used for stress, anxiety, insomnia, hormonal imbalances, digestive issues, and musculoskeletal pain.</div>
+                <div class="faq__answer">A traditional practice in which very fine, single-use sterile needles are placed at points on the body. At Holistique it is offered for relaxation. It does not diagnose, treat, cure or relieve any condition.</div>
             </details>
             <details class="faq__item reveal">
-                <summary>What conditions does acupuncture help with?</summary>
-                <div class="faq__answer">Acupuncture is widely used for pain relief&mdash;including back, neck, arthritis, headaches, fibromyalgia&mdash;and has WHO-recognised effectiveness for specific conditions such as chemotherapy-related nausea, depression, allergic rhinitis, induction of labour, gastrointestinal symptoms, and more.</div>
+                <summary>Does acupuncture treat medical conditions?</summary>
+                <div class="faq__answer">No. Sessions at Holistique do not diagnose, treat, cure or relieve any condition, including pain, anxiety, insomnia or hormonal symptoms. They are not a substitute for your GP. If you are unwell, please seek medical advice.</div>
             </details>
             <details class="faq__item reveal">
                 <summary>Does acupuncture hurt?</summary>
@@ -1013,23 +894,23 @@
             </details>
             <details class="faq__item reveal">
                 <summary>What is fire cupping?</summary>
-                <div class="faq__answer">A technique that uses glass cups and heat to create suction on the skin. This promotes blood flow, releases tension in muscles, and helps move stagnation. It can leave temporary marks that fade in a few days.</div>
+                <div class="faq__answer">Glass cups and heat are used to create suction on the skin. It is a traditional practice offered for relaxation. It can leave temporary marks that fade in a few days. It does not treat a medical condition.</div>
             </details>
             <details class="faq__item reveal">
-                <summary>What conditions is fire cupping good for?</summary>
-                <div class="faq__answer">Cupping is especially effective for muscle tightness, back and shoulder pain, tension headaches, and respiratory issues like colds or congestion. It&rsquo;s often used alongside acupuncture for enhanced results.</div>
+                <summary>Does fire cupping treat anything?</summary>
+                <div class="faq__answer">No. It is offered alongside acupuncture as a traditional relaxation practice. It is not a treatment for pain, headaches, colds or any other condition.</div>
             </details>
             <details class="faq__item reveal">
                 <summary>What is the infrared heat lamp used for?</summary>
-                <div class="faq__answer">The infrared heat lamp delivers soothing, penetrating warmth that helps increase circulation, relax muscles, and support the flow of Qi (energy) in the body.</div>
+                <div class="faq__answer">A warming lamp may be used during a session for comfort. It is not a medical device in this setting, and it is not a treatment.</div>
             </details>
             <details class="faq__item reveal">
                 <summary>Are these treatments safe?</summary>
-                <div class="faq__answer">Yes, acupuncture, fire cupping, and infrared heat therapy are safe when performed by a trained practitioner. All needles are single-use and sterile. Cupping and infrared heat are applied mindfully based on your comfort and health needs.</div>
+                <div class="faq__answer">Needles are single-use and sterile, and sessions are given by a trained practitioner. They are still not risk-free, and they are not a substitute for medical care. Tell Yvonne about anything that may matter, including pregnancy, a bleeding disorder, a pacemaker, or broken skin, and speak to your GP if you are unsure whether to attend.</div>
             </details>
             <details class="faq__item reveal">
                 <summary>How many sessions will I need?</summary>
-                <div class="faq__answer">This depends on your condition and wellness goals. Some people feel immediate relief, while others may benefit from a series of treatments to see lasting improvement.</div>
+                <div class="faq__answer">That is up to you. A single session is a complete visit. Nothing on this page promises a particular result, immediate or otherwise.</div>
             </details>
             <details class="faq__item reveal">
                 <summary>What should I do after a treatment?</summary>
@@ -1049,7 +930,7 @@
         <div class="course-cta__content">
             <p class="section-label reveal" style="color: var(--color-gold);">Course</p>
             <h2 class="course-cta__title reveal">Learn Self-Acupuncture</h2>
-            <p class="course-cta__desc reveal">Empower yourself with the skills to practice acupuncture safely and effectively&mdash;on your own. Designed for anyone looking to take self-care to the next level.</p>
+            <p class="course-cta__desc reveal">A short course in traditional self-acupuncture for your own relaxation. It does not qualify you to treat anyone, and it does not replace medical advice.</p>
             <a href="self-acupuncture-course.html" class="btn btn--gold reveal">Learn More &rarr;</a>
         </div>
     </section>
@@ -1073,6 +954,16 @@
             <h3 class="booking-modal__title">How would you like to book?</h3>
             <p class="booking-modal__subtitle">Choose your preferred way to get in touch with Yvonne.</p>
             <div class="booking-modal__options">
+                <a class="booking-option" id="booking-email" href="mailto:hello@holistiqueuk.com">
+                    <span class="booking-option__icon booking-option__icon--email">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg>
+                    </span>
+                    <span class="booking-option__text">
+                        <span class="booking-option__label">Email</span>
+                        <span class="booking-option__hint">hello@holistiqueuk.com</span>
+                    </span>
+                    <svg class="booking-option__arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                </a>
                 <a class="booking-option" id="booking-whatsapp" target="_blank" rel="noopener">
                     <span class="booking-option__icon booking-option__icon--whatsapp">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -1092,7 +983,7 @@
         <div class="footer__grid">
             <div class="footer__brand">
                 <p class="footer__brand-name">Holistique</p>
-                <p class="footer__brand-desc">Healing and transformation through holistic practices and community. Based in London.</p>
+                <p class="footer__brand-desc">Wellbeing gatherings, traditional acupuncture and community events in London.</p>
             </div>
             <div>
                 <p class="footer__col-title">Explore</p>
@@ -1101,7 +992,7 @@
                     <li><a href="index.html#events" class="footer__link">What's On</a></li>
                     <li><a href="acupuncture.html" class="footer__link">Acupuncture</a></li>
                     <li><a href="wellness-tools.html" class="footer__link">Wellness Tools</a></li>
-                    <li><a href="index.html#testimonials" class="footer__link">Stories</a></li>
+                    <li><a href="index.html#reviews" class="footer__link">Reviews</a></li>
                 </ul>
             </div>
             <div>
@@ -1109,19 +1000,32 @@
                 <ul class="footer__links">
                     <li><a href="index.html#events" class="footer__link">Events</a></li>
                     <li><a href="index.html#gallery" class="footer__link">Gallery</a></li>
-                    <li><a href="index.html#testimonials" class="footer__link">Testimonials</a></li>
                     <li><a href="https://wa.me/447521760405" class="footer__link" target="_blank" rel="noopener">WhatsApp Group</a></li>
                 </ul>
             </div>
             <div>
                 <p class="footer__col-title">Contact</p>
                 <ul class="footer__links">
-                    <li><a href="https://wa.me/447521760405" class="footer__link" target="_blank" rel="noopener">Get in Touch</a></li>
+                    <li><a href="mailto:hello@holistiqueuk.com" class="footer__link">hello@holistiqueuk.com</a></li>
+                        <li><a href="https://wa.me/447521760405" class="footer__link" target="_blank" rel="noopener">WhatsApp</a></li>
                     <li class="footer__text">London</li>
                 </ul>
             </div>
         </div>
-        <div class="footer__bottom">
+        
+            <div class="footer__legal">
+                <p class="footer__company">Holistique UK is a trading name of WellGlow Ltd. Registered in England and Wales, company number 16173232. Registered office: 3rd Floor, 86-90 Paul Street, London EC2A 4NE.</p>
+                <ul class="footer__policies">
+                    <li><a class="footer__link" href="mailto:hello@holistiqueuk.com">hello@holistiqueuk.com</a></li>
+                    <li><a class="footer__link" href="https://www.instagram.com/holistique.uk" target="_blank" rel="noopener">Instagram</a></li>
+                    <li><a class="footer__link" href="refund-policy.html">Refund and cancellation policy</a></li>
+                    <li><a class="footer__link" href="terms.html">Terms and conditions</a></li>
+                    <li><a class="footer__link" href="privacy.html">Privacy policy</a></li>
+                </ul>
+                <p class="footer__disclaimer">Acupuncture and sound sessions are traditional wellbeing practices for relaxation. They do not diagnose, treat or cure any medical condition, and they are not a substitute for advice from your GP or another qualified healthcare professional.</p>
+            </div>
+
+            <div class="footer__bottom">
             <p class="footer__copyright">&copy; 2026 Holistique UK. All rights reserved.</p>
             <div class="footer__socials">
                 <a href="https://www.instagram.com/holistique.uk" class="footer__social" aria-label="Instagram" target="_blank" rel="noopener">
@@ -1242,10 +1146,14 @@
         var bookingWhatsapp = document.getElementById('booking-whatsapp');
         var bookingLabel = document.getElementById('booking-treatment-label');
 
+        var bookingEmail = document.getElementById('booking-email');
         window.openBooking = function(treatmentName, messageSlug) {
             bookingLabel.textContent = treatmentName;
             var waText = encodeURIComponent('Hi Yvonne, I\'d like to book ' + messageSlug + '.');
             bookingWhatsapp.href = 'https://wa.me/447521760405?text=' + waText;
+            var subject = encodeURIComponent('Booking: ' + treatmentName);
+            var body = encodeURIComponent('Hello,\n\nI would like to book ' + messageSlug + '.\n\n');
+            bookingEmail.href = 'mailto:hello@holistiqueuk.com?subject=' + subject + '&body=' + body;
             bookingOverlay.classList.add('is-open');
             document.body.style.overflow = 'hidden';
         };

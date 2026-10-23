@@ -226,7 +226,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
+            min-height: auto;
+            padding: 28vh 1.5rem 4rem;
             text-align: center;
         }
 
@@ -255,13 +256,27 @@
         /* ============================================
            SITE FOOTER
            ============================================ */
+
         .site-footer {
+            position: relative;
+            z-index: 2;
+            max-width: 760px;
+            margin: 0 auto 2rem;
+            padding: 1.35rem 1.25rem 1.5rem;
             text-align: center;
-            padding: 2rem 1rem 2.5rem;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.6);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            line-height: 1.65;
+            color: rgba(255, 255, 255, 0.9);
+            background: rgba(13, 31, 30, 0.78);
+            border-radius: 16px;
+            backdrop-filter: blur(8px);
         }
+        .site-footer p { margin: 0 0 0.7rem; }
+        .site-footer p:last-child { margin-bottom: 0; }
+        .site-footer a { color: #fff; text-decoration: underline; text-underline-offset: 2px; }
+        .footer-disclaimer { font-size: 0.78rem; color: rgba(255, 255, 255, 0.72); }
+
 
         /* ============================================
            RESPONSIVE
@@ -309,6 +324,13 @@
     <main class="hero">
         <a href="blog-post.html" class="hero-link">Explore Our Journal</a>
     </main>
+
+    <footer class="site-footer">
+        <p>Holistique UK is a trading name of WellGlow Ltd. Registered in England and Wales, company number 16173232. Registered office: 3rd Floor, 86-90 Paul Street, London EC2A 4NE.</p>
+        <p><a href="mailto:hello@holistiqueuk.com">hello@holistiqueuk.com</a> · <a href="https://www.instagram.com/holistique.uk" target="_blank" rel="noopener">Instagram</a> · <a href="refund-policy.html">Refund and cancellation policy</a> · <a href="terms.html">Terms and conditions</a> · <a href="privacy.html">Privacy policy</a></p>
+        <p class="footer-disclaimer">Acupuncture and sound sessions are traditional wellbeing practices for relaxation. They do not diagnose, treat or cure any medical condition, and they are not a substitute for advice from your GP or another qualified healthcare professional.</p>
+        <p><a href="about.html">Meet Yvonne</a> · &copy; 2026 Holistique UK</p>
+    </footer>
 
     <script>
         document.querySelector('.hero-link').addEventListener('click', function(e) {
