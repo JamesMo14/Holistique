@@ -18,6 +18,9 @@ Instructions for AI coding agents (Grok Build, Claude Code, Codex, Cursor, etc.)
 | `acupuncture.html` | Acupuncture treatments. |
 | `events.html` | Upcoming events, synced automatically from Dandelion and Eventbrite (cards book through Dandelion). Past events come from Eventbrite. |
 | `self-acupuncture-course.html` | The self-acupuncture course. |
+| `refund-policy.html` | Refund and cancellation policy for events, appointments and the course. |
+| `terms.html` | Terms and conditions. |
+| `privacy.html` | Privacy policy (UK GDPR). |
 | `wellness-tools.html` | Wellness tools and discount codes, synced automatically from Linktree. |
 | `newsletter.html` | Standalone newsletter signup page (also reachable at `/newsletter`), using the Brevo form. |
 | `blog.html` | The Journal landing page. It links to `blog-post.html`. |
