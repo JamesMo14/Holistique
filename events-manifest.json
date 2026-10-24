@@ -1,22 +1,7 @@
 {
-  "lastSync": "2026-10-23T18:08:58.634Z",
+  "lastSync": "2026-10-24T00:19:21.800Z",
   "organizationId": null,
   "upcoming": [
-    {
-      "id": "6acbe6f956aae50332e66d57",
-      "name": "Dog Friendly Sound Healing Session",
-      "description": "Some evenings you just need to slow down, breathe out and be around good people. And maybe a few good dogs. For the full line-up, schedule and FAQs,...",
-      "url": "https://dandelion.events/e/b0k2x",
-      "startLocal": "2026-10-23T19:00:00",
-      "endLocal": "2026-10-23T21:00:00",
-      "venueName": "Studio 91",
-      "city": "London",
-      "imageUrl": "photos/events/6acbe6f956aae50332e66d57.jpg",
-      "image_src": "https://r2.dandelion.events/2026/10/11/19/43/55/7fd1c76e-0603-44dd-82a0-5a2e607a5c99/d84e8633-6359-45b8-aa79-7cc9e743f064.jpeg",
-      "status": "live",
-      "source": "both",
-      "eventbriteUrl": "https://www.eventbrite.co.uk/e/dog-friendly-sound-healing-session-tickets-2003264599343"
-    },
     {
       "id": "6a91d407ed45d468df8cb94b",
       "name": "Day Retreat in London presented by HolistiqueUK",
@@ -168,6 +153,18 @@
   ],
   "past": [
     {
+      "id": "2003264599343",
+      "name": "Dog Friendly Sound Healing Session",
+      "description": "Dogs welcome, but you do not need to bring one. Children welcome too. An evening of gongs, singing bowls and calm.",
+      "url": "https://www.eventbrite.co.uk/e/dog-friendly-sound-healing-session-tickets-2003264599343",
+      "startLocal": "2026-10-23T19:00:00",
+      "endLocal": "2026-10-23T21:00:00",
+      "venueName": "Social Yoga Fish Island",
+      "city": "London",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1195558903%2F216441982947%2F1%2Foriginal.20261011-193336?auto=format%2Ccompress&q=75&sharp=10&s=cb8b766ae2c310b0ab1d2a7dfbbfd5b6",
+      "status": "ended"
+    },
+    {
       "id": "1996006000679",
       "name": "Overnight Sound Healing Journey",
       "description": "Imagine lying down at the end of a busy week and letting go completely, all night long.",
@@ -297,18 +294,6 @@
       "venueName": "GL8 8LP",
       "city": "Tetbury",
       "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1184670973%2F216441982947%2F1%2Foriginal.20260515-095903?auto=format%2Ccompress&q=75&sharp=10&s=9ffeedae264c03601cbead30b407edca",
-      "status": "completed"
-    },
-    {
-      "id": "1989045013178",
-      "name": "Women's Weekend Retreat in The Cotswolds",
-      "description": "A chill weekend filled with laughter, cozy vibes, and unforgettable memories in the countryside.",
-      "url": "https://www.eventbrite.co.uk/e/womens-weekend-retreat-in-the-cotswolds-tickets-1989045013178",
-      "startLocal": "2026-07-11T14:00:00",
-      "endLocal": "2026-07-12T14:00:00",
-      "venueName": "GL8 8LP",
-      "city": "Tetbury",
-      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1180345830%2F216441982947%2F1%2Foriginal.20260320-202300?auto=format%2Ccompress&q=75&sharp=10&s=4d21a84d8e4288b25a57335e8a25770b",
       "status": "completed"
     }
   ]
