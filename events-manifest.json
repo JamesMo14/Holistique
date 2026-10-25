@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-10-24T12:09:44.784Z",
+  "lastSync": "2026-10-25T12:09:51.045Z",
   "organizationId": null,
   "upcoming": [
     {
@@ -27,7 +27,7 @@
       "city": "London",
       "imageUrl": "photos/events/6ac007800a761b3b5f8e7f47.jpg",
       "image_src": "https://r2.dandelion.events/2026/10/02/19/35/31/29c1a30b-f703-45cc-93e7-5c7b4c8f8dd2/71bd4ad8-67bb-4b79-80f1-a5b544085fe6.jpeg",
-      "status": "live",
+      "status": "started",
       "source": "both",
       "eventbriteUrl": "https://www.eventbrite.co.uk/e/day-retreat-in-london-presented-by-holistiqueuk-tickets-1996034399621"
     },
@@ -42,7 +42,7 @@
       "city": "London",
       "imageUrl": "photos/events/2002834363496.jpg",
       "image_src": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1112994503%2F216441982947%2F1%2Foriginal.20250903-142807?auto=format%2Ccompress&q=75&sharp=10&s=bb84a07046e525380ab1ed426a059d91",
-      "status": "live",
+      "status": "started",
       "source": "eventbrite"
     },
     {
