@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-10-26T00:20:58.160Z",
+  "lastSync": "2026-10-27T12:12:13.106Z",
   "organizationId": null,
   "upcoming": [
     {
@@ -91,6 +91,21 @@
       "status": "live",
       "source": "both",
       "eventbriteUrl": "https://www.eventbrite.co.uk/e/medicine-music-a-journey-through-sound-with-christian-dimarco-tickets-2002840190926"
+    },
+    {
+      "id": "6ae04b57ab2f5914d54dc9db",
+      "name": "Trust the Signal: Free Talk with Aude Firmin",
+      "description": "Join intuitive business coach and psychic medium Aude Firmin for a free evening talk at The College of Psychic Studies, where she shares the thinking...",
+      "url": "https://dandelion.events/e/g7am4",
+      "startLocal": "2026-11-25T19:00:00",
+      "endLocal": "2026-11-25T20:30:00",
+      "venueName": "The College of Psychic Studies",
+      "city": "London",
+      "imageUrl": "photos/events/6ae04b57ab2f5914d54dc9db.jpg",
+      "image_src": "https://r2.dandelion.events/2026/10/27/06/57/30/47fcb1f7-4a21-4cdd-81b9-d182fa3a5d8e/a37fc149-117b-4e56-8366-8b1d74d8cd9e.jpeg",
+      "status": "live",
+      "source": "both",
+      "eventbriteUrl": "https://www.eventbrite.co.uk/e/trust-the-signal-free-talk-with-aude-firmin-tickets-2003954532953"
     },
     {
       "id": "6ad13756379db2473851818c",
