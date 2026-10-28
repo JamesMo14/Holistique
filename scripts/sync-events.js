@@ -270,11 +270,6 @@ function normaliseTitle(title) {
 // title (lowercase, punctuation turned into spaces). A hit replaces the card link,
 // the JSON-LD booking URL, and the manifest url. Events that are not listed keep
 // their Dandelion or Eventbrite link. Past events are not passed through this list.
-//
-// Sacred Sounds: An Overnight Journey with Music & Gongs (overnight, 21 Nov) is
-// still awaiting DesignMyNight approval. Leave it off this list so its card keeps
-// the current Dandelion / Eventbrite link. When the listing is approved, add:
-//   { match: 'sacred sounds', url: 'https://www.designmynight.com/london/whats-on/sound-bath/REPLACE-WITH-APPROVED-SLUG?t=tickets' },
 const DESIGNMYNIGHT_TICKETS = [
     {
         match: 'the sound within',
@@ -287,6 +282,10 @@ const DESIGNMYNIGHT_TICKETS = [
     {
         match: 'medicine music',
         url: 'https://www.designmynight.com/london/whats-on/sound-bath/medicine-music-a-journey-through-sound-with-christian-dimarco?t=tickets',
+    },
+    {
+        match: 'sacred sounds',
+        url: 'https://www.designmynight.com/london/whats-on/sound-bath/sacred-sounds-an-overnight-journey-with-music-gongs?t=tickets',
     },
     {
         match: 'paws sound',

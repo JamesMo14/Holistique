@@ -60,7 +60,7 @@ A deploy shows up in the Actions tab as a `pages-build-deployment` run.
    Change the content at its source instead: events in Dandelion and Eventbrite, wellness tools in Linktree, articles on Medium. To change how the cards look, edit the HTML template inside the matching script.
    **Events merge:** Yvonne lists each event on both platforms.
    - **Matching:** `sync-events.js` pairs the two copies by the same start instant. Failing that, it pairs events on the same London day whose normalised titles contain one another.
-   - **Rendering a pair:** one card, using Dandelion's link, image, description and title, with any gaps filled from Eventbrite. Events in `DESIGNMYNIGHT_TICKETS` (`scripts/sync-events.js`) use that DesignMyNight ticket URL instead, on the What's On cards, the homepage cards, and the Event JSON-LD. Sacred Sounds stays on its current link until it is added to that list.
+   - **Rendering a pair:** one card, using Dandelion's link, image, description and title, with any gaps filled from Eventbrite. Events in `DESIGNMYNIGHT_TICKETS` (`scripts/sync-events.js`) use that DesignMyNight ticket URL instead, on the What's On cards, the homepage cards, and the Event JSON-LD.
    - **Stragglers:** an event listed on only one platform still gets a card, from that platform.
    - **Times:** Dandelion times can carry non-UK offsets. They are converted to London time.
    - **Outages:** if one source fails, the sync carries on with the other; it exits 1 only when both fail. Past events (Eventbrite only) are left untouched when Eventbrite is down.
