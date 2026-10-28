@@ -2,9 +2,9 @@
  * Eventbrite + Dandelion -> Holistique UK Events Sync
  *
  * Fetches upcoming events from Eventbrite and Dandelion, merges them into one
- * deduplicated list (Dandelion is the preferred booking link), fetches past events
- * from Eventbrite, updates events-manifest.json, and injects event cards into
- * events.html and index.html.
+ * deduplicated list (Dandelion is the preferred booking link, unless the event is
+ * in DESIGNMYNIGHT_TICKETS), fetches past events from Eventbrite, updates
+ * events-manifest.json, and injects event cards into events.html and index.html.
  *
  * Either source may fail on its own and the sync carries on with the other; it
  * exits 1 only if both are unavailable. Past events always come from Eventbrite and
@@ -264,6 +264,54 @@ function htmlToText(html) {
 
 function normaliseTitle(title) {
     return decodeEntities(title).toLowerCase().replace(/[^\p{L}\p{N}\s]/gu, ' ').replace(/\s+/g, ' ').trim();
+}
+
+// DesignMyNight is the ticketing partner. `match` is a substring of the normalised
+// title (lowercase, punctuation turned into spaces). A hit replaces the card link,
+// the JSON-LD booking URL, and the manifest url. Events that are not listed keep
+// their Dandelion or Eventbrite link. Past events are not passed through this list.
+//
+// Sacred Sounds: An Overnight Journey with Music & Gongs (overnight, 21 Nov) is
+// still awaiting DesignMyNight approval. Leave it off this list so its card keeps
+// the current Dandelion / Eventbrite link. When the listing is approved, add:
+//   { match: 'sacred sounds', url: 'https://www.designmynight.com/london/whats-on/sound-bath/REPLACE-WITH-APPROVED-SLUG?t=tickets' },
+const DESIGNMYNIGHT_TICKETS = [
+    {
+        match: 'the sound within',
+        url: 'https://www.designmynight.com/london/whats-on/sound-bath/the-sound-within-an-immersive-sound-journey-with-christian-dimarco?t=tickets',
+    },
+    {
+        match: 'into stillness',
+        url: 'https://www.designmynight.com/london/whats-on/sound-bath/into-stillness-a-sound-journey-with-christian-dimarco?t=tickets',
+    },
+    {
+        match: 'medicine music',
+        url: 'https://www.designmynight.com/london/whats-on/sound-bath/medicine-music-a-journey-through-sound-with-christian-dimarco?t=tickets',
+    },
+    {
+        match: 'paws sound',
+        url: 'https://www.designmynight.com/london/whats-on/sound-bath/paws-sound-dog-friendly-sound-healing-experience?t=tickets',
+    },
+    {
+        match: 'chinese tea ceremony',
+        url: 'https://www.designmynight.com/london/whats-on/classes/chinese-tea-ceremony-workshop?t=tickets',
+    },
+];
+
+function designMyNightTicketUrl(name) {
+    const title = normaliseTitle(name);
+    if (!title) return null;
+    const hit = DESIGNMYNIGHT_TICKETS.find(entry => title.includes(entry.match));
+    return hit ? hit.url : null;
+}
+
+function applyDesignMyNightTickets(events) {
+    for (const event of events) {
+        const ticketUrl = designMyNightTicketUrl(event.name);
+        if (!ticketUrl || ticketUrl === event.url) continue;
+        console.log(`  DesignMyNight tickets: ${event.name}`);
+        event.url = ticketUrl;
+    }
 }
 
 const UK_POSTCODE = /\s*\b([A-Z]{1,2}\d[A-Z\d]?\s*\d[A-Z]{2})$/i;
@@ -754,6 +802,7 @@ async function main() {
     });
     const { upcoming: upcomingEvents, summary } = mergeUpcoming(dandelionModels, (ebUpcoming || []).map(fromEventbrite));
     logSourceSummary(summary);
+    applyDesignMyNightTickets(upcomingEvents);
 
     console.log('Self-hosting upcoming event images...');
     await mirrorEventImages(upcomingEvents, manifest.upcoming);
