@@ -28,7 +28,7 @@ Instructions for AI coding agents (Grok Build, Claude Code, Codex, Cursor, etc.)
 | `post-1.html` … `post-N.html` | Individual articles, generated from Medium posts. |
 | `photos/` | Images. Prefer `.webp`. |
 | `photos/events/` | Self-hosted images for upcoming events, managed by the events sync. Don't add files here; the sync deletes anything that isn't an upcoming event's image. |
-| `sitemap.xml`, `robots.txt`, `og-image.jpg` | SEO files. `sitemap.xml` is updated by hand. |
+| `sitemap.xml`, `robots.txt`, `og-image-events.jpg` | SEO files. `sitemap.xml` is updated by hand. `og-image-events.jpg` is the link-preview banner (sound baths and community gatherings). `og-image.jpg` is the same picture, kept so older shares do not 404. |
 
 ## Automations (GitHub Actions, `.github/workflows/`)
 
