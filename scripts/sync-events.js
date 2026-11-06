@@ -267,9 +267,12 @@ function normaliseTitle(title) {
 }
 
 // DesignMyNight is the ticketing partner. `match` is a substring of the normalised
-// title (lowercase, punctuation turned into spaces). A hit replaces the card link,
-// the JSON-LD booking URL, and the manifest url. Events that are not listed keep
-// their Dandelion or Eventbrite link. Past events are not passed through this list.
+// title (lowercase, punctuation turned into spaces). Optional `date` (YYYY-MM-DD,
+// London local) and `venue` (substring of the normalised venue name) tell listings
+// that share a title apart; when either is set, it has to match as well, so the
+// title on its own is not enough. A hit replaces the card link, the JSON-LD booking
+// URL, and the manifest url. Events that are not listed keep their Dandelion or
+// Eventbrite link. Past events are not passed through this list.
 const DESIGNMYNIGHT_TICKETS = [
     {
         match: 'the sound within',
@@ -292,23 +295,42 @@ const DESIGNMYNIGHT_TICKETS = [
         url: 'https://www.designmynight.com/london/whats-on/sound-bath/paws-sound-dog-friendly-sound-healing-experience?t=tickets',
     },
     {
+        // Sat 14 Nov 2026, Social Yoga Fish Island, 14:30–17:30. DesignMyNight's
+        // unsuffixed slug is the 20 Nov Amadeus evening, not this workshop.
         match: 'chinese tea ceremony',
+        date: '2026-11-14',
+        venue: 'fish island',
+        url: 'https://www.designmynight.com/london/whats-on/classes/chinese-tea-ceremony-workshop-1?t=tickets',
+    },
+    {
+        // Fri 20 Nov 2026, The Amadeus, 18:00–21:00 (Holistic Market & Chinese Tea Ceremony).
+        match: 'chinese tea ceremony',
+        date: '2026-11-20',
+        venue: 'amadeus',
         url: 'https://www.designmynight.com/london/whats-on/classes/chinese-tea-ceremony-workshop?t=tickets',
     },
 ];
 
-function designMyNightTicketUrl(name) {
-    const title = normaliseTitle(name);
+function designMyNightTicketUrl(event) {
+    const title = normaliseTitle(event && event.name);
     if (!title) return null;
-    const hit = DESIGNMYNIGHT_TICKETS.find(entry => title.includes(entry.match));
+    const date = String((event && event.startLocal) || '').slice(0, 10);
+    const venue = normaliseTitle(event && event.venueName);
+    const hit = DESIGNMYNIGHT_TICKETS.find(entry => {
+        if (!entry.match || !title.includes(entry.match)) return false;
+        if (entry.date && entry.date !== date) return false;
+        if (entry.venue && !venue.includes(normaliseTitle(entry.venue))) return false;
+        return true;
+    });
     return hit ? hit.url : null;
 }
 
 function applyDesignMyNightTickets(events) {
     for (const event of events) {
-        const ticketUrl = designMyNightTicketUrl(event.name);
+        const ticketUrl = designMyNightTicketUrl(event);
         if (!ticketUrl || ticketUrl === event.url) continue;
-        console.log(`  DesignMyNight tickets: ${event.name}`);
+        const when = String(event.startLocal || '').slice(0, 10);
+        console.log(`  DesignMyNight tickets: ${event.name}${when ? ` (${when})` : ''}`);
         event.url = ticketUrl;
     }
 }
