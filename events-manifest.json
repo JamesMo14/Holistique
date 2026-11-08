@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-11-04T00:13:11.313Z",
+  "lastSync": "2026-11-08T18:05:08.751Z",
   "organizationId": null,
   "upcoming": [
     {
@@ -14,8 +14,7 @@
       "imageUrl": "photos/events/6ad75be1979c2dd95183553a.jpg",
       "image_src": "https://r2.dandelion.events/2026/10/20/12/17/40/772305ac-6544-4d9b-9001-2088ee6f4ccd/7935683e-64c3-4e8c-89c6-be82a9776b86.jpeg",
       "status": "live",
-      "source": "both",
-      "eventbriteUrl": "https://www.eventbrite.co.uk/e/nour-run-club-free-social-run-in-walthamstow-tickets-2003657361104"
+      "source": "dandelion"
     },
     {
       "id": "6ae85fe9e58b43d0c019244e",
@@ -185,6 +184,18 @@
   ],
   "past": [
     {
+      "id": "2003657361104",
+      "name": "NOUR Run Club – Free Social Run in Walthamstow",
+      "description": "A relaxed, friendly group run around Walthamstow, then 25% off food and drinks at NOUR.",
+      "url": "https://www.eventbrite.co.uk/e/nour-run-club-free-social-run-in-walthamstow-tickets-2003657361104",
+      "startLocal": "2026-11-08T09:30:00",
+      "endLocal": "2026-11-08T11:00:00",
+      "venueName": "NOUR",
+      "city": "London",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1196179924%2F216441982947%2F1%2Foriginal.20261020-121234?auto=format%2Ccompress&q=75&sharp=10&s=8a01a9a9a4be571c70bb29addd79aa3f",
+      "status": "completed"
+    },
+    {
       "id": "2002834363496",
       "name": "Chinese Tea Ceremony Workshop",
       "description": "Get ready to sip your way through the art of Chinese tea ceremonies in this interactive workshop!",
@@ -314,18 +325,6 @@
       "venueName": "Colet House",
       "city": "London",
       "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1171915731%2F216441982947%2F1%2Foriginal.20251128-125820?auto=format%2Ccompress&q=75&sharp=10&s=436b622b26ed3ddbc5c9026b25ab5b6d",
-      "status": "completed"
-    },
-    {
-      "id": "1991288270822",
-      "name": "Women's Clothes Swap & Giveaway",
-      "description": "Let's swap clothes, share stories, and have a blast - it's the best way to refresh your wardrobe and make new friends!",
-      "url": "https://www.eventbrite.co.uk/e/womens-clothes-swap-giveaway-tickets-1991288270822",
-      "startLocal": "2026-07-25T15:00:00",
-      "endLocal": "2026-07-25T17:00:00",
-      "venueName": "Colet House",
-      "city": "London",
-      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1188934731%2F216441982947%2F1%2Foriginal.20260715-164103?auto=format%2Ccompress&q=75&sharp=10&s=d773c03c442efa9aa21cce4a1bc06fa6",
       "status": "completed"
     }
   ]
