@@ -1,21 +1,7 @@
 {
-  "lastSync": "2026-11-10T00:12:25.383Z",
+  "lastSync": "2026-11-10T06:08:02.991Z",
   "organizationId": null,
   "upcoming": [
-    {
-      "id": "2004186148722",
-      "name": "Women's Clothes Swap & Social Evening",
-      "description": "Swap the clothes you don't wear for ones you will. A relaxed women-only evening in East London, with finger food and drinks included.",
-      "url": "https://www.eventbrite.co.uk/e/womens-clothes-swap-social-evening-tickets-2004186148722",
-      "startLocal": "2026-11-09T18:00:00",
-      "endLocal": "2026-11-09T21:00:00",
-      "venueName": "Private residence",
-      "city": "London",
-      "imageUrl": "photos/events/2004186148722.jpg",
-      "image_src": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1197022770%2F216441982947%2F1%2Foriginal.20261101-151052?auto=format%2Ccompress&q=75&sharp=10&s=8ef38c602238efc036cd0d82a2ff8df5",
-      "status": "started",
-      "source": "eventbrite"
-    },
     {
       "id": "6ae860c1e58b43d0c01926fd",
       "name": "Dog Friendly Sound Healing Session",
@@ -154,6 +140,18 @@
   ],
   "past": [
     {
+      "id": "2004186148722",
+      "name": "Women's Clothes Swap & Social Evening",
+      "description": "Swap the clothes you don't wear for ones you will. A relaxed women-only evening in East London, with finger food and drinks included.",
+      "url": "https://www.eventbrite.co.uk/e/womens-clothes-swap-social-evening-tickets-2004186148722",
+      "startLocal": "2026-11-09T18:00:00",
+      "endLocal": "2026-11-09T21:00:00",
+      "venueName": "Private residence",
+      "city": "London",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1197022770%2F216441982947%2F1%2Foriginal.20261101-151052?auto=format%2Ccompress&q=75&sharp=10&s=8ef38c602238efc036cd0d82a2ff8df5",
+      "status": "completed"
+    },
+    {
       "id": "2004185880921",
       "name": "Dog Friendly Sound Healing Session",
       "description": "Dogs welcome, no dog needed. Children welcome. Gongs and singing bowls. Booking 10:30am to 12:30pm; sound session 11am to 12pm.",
@@ -283,18 +281,6 @@
       "venueName": "GL8 8LP",
       "city": "Tetbury",
       "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1189702427%2F216441982947%2F1%2Foriginal.20260727-143700?auto=format%2Ccompress&q=75&sharp=10&s=59107b1d21853dc342272b49db4dc12f",
-      "status": "completed"
-    },
-    {
-      "id": "1994539074062",
-      "name": "8/8 Lions Gate Portal Day Retreat in The Wonder Wood",
-      "description": "Get ready to recharge and align your energy during the powerful Lions Gate Portal with this chill day retreat.",
-      "url": "https://www.eventbrite.co.uk/e/88-lions-gate-portal-day-retreat-in-the-wonder-wood-tickets-1994539074062",
-      "startLocal": "2026-08-08T14:30:00",
-      "endLocal": "2026-08-08T18:30:00",
-      "venueName": "Crockford Bridge Farm",
-      "city": "Weybridge",
-      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1189196661%2F216441982947%2F1%2Foriginal.20260720-081805?auto=format%2Ccompress&q=75&sharp=10&s=1a5e3485f564a0abc198e0e593dc25f1",
       "status": "completed"
     }
   ]
