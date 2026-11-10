@@ -1,35 +1,20 @@
 {
-  "lastSync": "2026-11-09T18:07:17.865Z",
+  "lastSync": "2026-11-10T00:12:25.383Z",
   "organizationId": null,
   "upcoming": [
     {
-      "id": "6ae85fe9e58b43d0c019244e",
-      "name": "Dog Friendly Sound Healing Session",
-      "description": "",
-      "url": "https://dandelion.events/e/p6jom",
-      "startLocal": "2026-11-09T10:30:00",
-      "endLocal": "2026-11-09T12:30:00",
-      "venueName": "Studio 91",
-      "city": "London",
-      "imageUrl": "photos/events/6ae85fe9e58b43d0c019244e.jpg",
-      "image_src": "https://r2.dandelion.events/2026/11/09/08/56/40/fc2fa9df-89b9-4f36-a6b4-41ec116f5af5/1648be80-0aa5-483f-a7dc-35aaea615822.jpeg",
-      "status": "live",
-      "source": "dandelion"
-    },
-    {
-      "id": "6ae759ba1cabcba69c2cd185",
+      "id": "2004186148722",
       "name": "Women's Clothes Swap & Social Evening",
-      "description": "Bring the clothes you've stopped wearing and swap them for pieces you'll actually love. This is an evening for women to refresh their wardrobes, eat,...",
-      "url": "https://dandelion.events/e/d1a2n",
+      "description": "Swap the clothes you don't wear for ones you will. A relaxed women-only evening in East London, with finger food and drinks included.",
+      "url": "https://www.eventbrite.co.uk/e/womens-clothes-swap-social-evening-tickets-2004186148722",
       "startLocal": "2026-11-09T18:00:00",
       "endLocal": "2026-11-09T21:00:00",
       "venueName": "Private residence",
-      "city": "E14 6BH (full address sent to confirmed guests)",
-      "imageUrl": "photos/events/6ae759ba1cabcba69c2cd185.jpg",
-      "image_src": "https://r2.dandelion.events/2026/11/01/15/24/46/d764511b-d465-494e-86b3-b8007e622009/efde2aa2-2c4c-4bb4-aa2e-ca60e046deec.jpeg",
-      "status": "live",
-      "source": "both",
-      "eventbriteUrl": "https://www.eventbrite.co.uk/e/womens-clothes-swap-social-evening-tickets-2004186148722"
+      "city": "London",
+      "imageUrl": "photos/events/2004186148722.jpg",
+      "image_src": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1197022770%2F216441982947%2F1%2Foriginal.20261101-151052?auto=format%2Ccompress&q=75&sharp=10&s=8ef38c602238efc036cd0d82a2ff8df5",
+      "status": "started",
+      "source": "eventbrite"
     },
     {
       "id": "6ae860c1e58b43d0c01926fd",
