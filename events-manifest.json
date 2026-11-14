@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-11-12T00:13:06.148Z",
+  "lastSync": "2026-11-14T18:04:57.127Z",
   "organizationId": null,
   "upcoming": [
     {
@@ -13,7 +13,7 @@
       "city": "London",
       "imageUrl": "photos/events/6ae7662e834ba220be40fe7c.jpg",
       "image_src": "https://r2.dandelion.events/2026/11/01/16/17/52/a4b0209d-431c-4843-86da-88f45d2dc625/1df632da-e6c5-4b6d-875e-670b5fc2f1b4.jpeg",
-      "status": "live",
+      "status": "started",
       "source": "both",
       "eventbriteUrl": "https://www.eventbrite.co.uk/e/chinese-tea-ceremony-workshop-tickets-2004185873900"
     },
