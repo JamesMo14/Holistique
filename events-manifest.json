@@ -1,22 +1,7 @@
 {
-  "lastSync": "2026-11-14T18:04:57.127Z",
+  "lastSync": "2026-11-15T00:14:22.441Z",
   "organizationId": null,
   "upcoming": [
-    {
-      "id": "6ae7662e834ba220be40fe7c",
-      "name": "Chinese Tea Ceremony Workshop",
-      "description": "Get ready to sip your way through the art of Chinese tea ceremonies in this interactive workshop! 🌿 Chinese Tea Ceremony Experience Step into a...",
-      "url": "https://www.designmynight.com/london/whats-on/classes/chinese-tea-ceremony-workshop-1?t=tickets",
-      "startLocal": "2026-11-14T14:30:00",
-      "endLocal": "2026-11-14T17:30:00",
-      "venueName": "Social Yoga Fish Island",
-      "city": "London",
-      "imageUrl": "photos/events/6ae7662e834ba220be40fe7c.jpg",
-      "image_src": "https://r2.dandelion.events/2026/11/01/16/17/52/a4b0209d-431c-4843-86da-88f45d2dc625/1df632da-e6c5-4b6d-875e-670b5fc2f1b4.jpeg",
-      "status": "started",
-      "source": "both",
-      "eventbriteUrl": "https://www.eventbrite.co.uk/e/chinese-tea-ceremony-workshop-tickets-2004185873900"
-    },
     {
       "id": "6af4bf308b2b817608716928",
       "name": "Dog Friendly Sound Healing Session",
@@ -267,6 +252,18 @@
   ],
   "past": [
     {
+      "id": "2004185873900",
+      "name": "Chinese Tea Ceremony Workshop",
+      "description": "Get ready to sip your way through the art of Chinese tea ceremonies in this interactive workshop!",
+      "url": "https://www.eventbrite.co.uk/e/chinese-tea-ceremony-workshop-tickets-2004185873900",
+      "startLocal": "2026-11-14T14:30:00",
+      "endLocal": "2026-11-14T17:30:00",
+      "venueName": "Social Yoga Fish Island",
+      "city": "London",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1112994503%2F216441982947%2F1%2Foriginal.20250903-142807?auto=format%2Ccompress&q=75&sharp=10&s=bb84a07046e525380ab1ed426a059d91",
+      "status": "ended"
+    },
+    {
       "id": "2004186172794",
       "name": "Dog Friendly Sound Healing Session",
       "description": "Dogs welcome, no dog needed. Children welcome. Gongs and singing bowls. Booking 10:30am to 12:30pm; sound session 11am to 12pm.",
@@ -396,18 +393,6 @@
       "venueName": "St Philip's Church, Earls Court Road",
       "city": "London",
       "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1192887931%2F216441982947%2F1%2Foriginal.20260907-144705?auto=format%2Ccompress&q=75&sharp=10&s=0dc573398d3a3bcd2f54d8549e71ea7b",
-      "status": "completed"
-    },
-    {
-      "id": "1999362279399",
-      "name": "Sunday Run Club",
-      "description": "Kick off your Sunday with a chill run and good vibes—perfect for all levels looking to move and mingle.",
-      "url": "https://www.eventbrite.co.uk/e/sunday-run-club-tickets-1999362279399",
-      "startLocal": "2026-09-06T10:00:00",
-      "endLocal": "2026-09-06T12:00:00",
-      "venueName": "NOUR",
-      "city": "London",
-      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1192348049%2F216441982947%2F1%2Foriginal.20260901-092418?auto=format%2Ccompress&q=75&sharp=10&s=be55f76cfae92127a167268b434e3089",
       "status": "completed"
     }
   ]
