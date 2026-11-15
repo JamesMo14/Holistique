@@ -1,5 +1,5 @@
 {
-  "lastPostNumber": 22,
+  "lastPostNumber": 24,
   "posts": [
     {
       "number": 1,
@@ -176,6 +176,22 @@
       "file": "post-22.html",
       "date": "Oct 22, 2026",
       "category": "Holistic Health"
+    },
+    {
+      "number": 23,
+      "title": "A Slower Cup: Tea, Buckwheat and the Kitchen Habits That Keep Me Steady",
+      "mediumUrl": "https://medium.com/@yvonne.holistique/a-slower-cup-tea-buckwheat-and-the-kitchen-habits-that-keep-me-steady-e9f7592f9d0e?source=rss-517af46e024b------2",
+      "file": "post-23.html",
+      "date": "Nov 11, 2026",
+      "category": "Mindfulness"
+    },
+    {
+      "number": 24,
+      "title": "Who Is Christian Dimarco? The Melbourne Sound Artist Bringing Didgeridoo Journeys to London",
+      "mediumUrl": "https://medium.com/@yvonne.holistique/who-is-christian-dimarco-the-melbourne-sound-artist-bringing-didgeridoo-journeys-to-london-e0967335efe5?source=rss-517af46e024b------2",
+      "file": "post-24.html",
+      "date": "Nov 9, 2026",
+      "category": "London"
     }
   ]
 }
