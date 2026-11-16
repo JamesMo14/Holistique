@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-11-15T06:07:26.605Z",
+  "lastSync": "2026-11-16T12:11:30.186Z",
   "organizationId": null,
   "upcoming": [
     {
@@ -119,7 +119,8 @@
       "imageUrl": "photos/events/6af4c004eddd5670a38dc918.jpg",
       "image_src": "https://r2.dandelion.events/2026/11/11/19/20/37/c8bfaed6-e777-4c1f-8a02-7671b1f29d7b/7a0a6e22-73b7-4e22-b49c-a9de2e8a882b.jpeg",
       "status": "live",
-      "source": "dandelion"
+      "source": "both",
+      "eventbriteUrl": "https://www.eventbrite.co.uk/e/dog-friendly-sound-healing-session-tickets-2004727571131"
     },
     {
       "id": "6af4c025eddd5670a38dc9bd",
@@ -133,7 +134,8 @@
       "imageUrl": "photos/events/6af4c025eddd5670a38dc9bd.jpg",
       "image_src": "https://r2.dandelion.events/2026/11/11/19/21/10/fc93af96-1d8f-412c-8226-f8b947cc70ae/24c4d935-6aca-4c3d-af32-f04d7e06a6a0.jpeg",
       "status": "live",
-      "source": "dandelion"
+      "source": "both",
+      "eventbriteUrl": "https://www.eventbrite.co.uk/e/dog-friendly-sound-healing-session-tickets-2004727603227"
     },
     {
       "id": "6ae04b57ab2f5914d54dc9db",
