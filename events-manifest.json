@@ -1,21 +1,7 @@
 {
-  "lastSync": "2026-11-16T18:05:47.447Z",
+  "lastSync": "2026-11-17T00:12:42.727Z",
   "organizationId": null,
   "upcoming": [
-    {
-      "id": "6af4bf308b2b817608716928",
-      "name": "Dog Friendly Sound Healing Session",
-      "description": "Some mornings you just need to slow down, breathe out and be around good people. And maybe a few good dogs. Come 15 minutes early (10:45am) and join...",
-      "url": "https://dandelion.events/e/a68uq",
-      "startLocal": "2026-11-16T11:00:00",
-      "endLocal": "2026-11-16T12:00:00",
-      "venueName": "Studio 91",
-      "city": "London",
-      "imageUrl": "photos/events/6af4bf308b2b817608716928.jpg",
-      "image_src": "https://r2.dandelion.events/2026/11/11/19/17/06/afa87451-4d6f-4f47-b79e-5b6e7510b9b7/dfce4648-a17a-4aeb-8184-b532e406946e.jpeg",
-      "status": "live",
-      "source": "dandelion"
-    },
     {
       "id": "6af4bfd4eddd5670a38dc877",
       "name": "Dog Friendly Sound Healing Session",
@@ -192,7 +178,8 @@
       "imageUrl": "photos/events/6af4c068eddd5670a38dcb0d.jpg",
       "image_src": "https://r2.dandelion.events/2026/11/11/19/22/18/146c7e88-830b-42a4-bb04-fa88b64511f7/3f74cb7b-95ae-4d93-b57d-1ef805b9ca60.jpeg",
       "status": "live",
-      "source": "dandelion"
+      "source": "both",
+      "eventbriteUrl": "https://www.eventbrite.co.uk/e/dog-friendly-sound-healing-session-tickets-2004923980597"
     },
     {
       "id": "6af4c097eddd5670a38dcbaa",
