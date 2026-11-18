@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-11-17T18:05:45.790Z",
+  "lastSync": "2026-11-18T18:05:18.290Z",
   "organizationId": null,
   "upcoming": [
     {
@@ -14,8 +14,7 @@
       "imageUrl": "photos/events/6af4bfd4eddd5670a38dc877.jpg",
       "image_src": "https://r2.dandelion.events/2026/11/11/19/19/50/5e52ab9e-dc9c-43e7-b701-3ba5c43d539f/2d3a4acf-6906-48cd-bafe-8cf4a5e211be.jpeg",
       "status": "live",
-      "source": "both",
-      "eventbriteUrl": "https://www.eventbrite.co.uk/e/dog-friendly-sound-healing-session-tickets-2004727463810"
+      "source": "dandelion"
     },
     {
       "id": "6ab6e017fb94b07fb29d3ca7",
@@ -240,6 +239,18 @@
   ],
   "past": [
     {
+      "id": "2004727463810",
+      "name": "Dog Friendly Sound Healing Session",
+      "description": "Dogs welcome, no dog needed. Children welcome. Gongs and singing bowls. Sound session 11am to 12 noon.",
+      "url": "https://www.eventbrite.co.uk/e/dog-friendly-sound-healing-session-tickets-2004727463810",
+      "startLocal": "2026-11-18T11:00:00",
+      "endLocal": "2026-11-18T12:00:00",
+      "venueName": "Social Yoga Fish Island",
+      "city": "London",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1197573971%2F216441982947%2F1%2Foriginal.20261109-085110?auto=format%2Ccompress&q=75&sharp=10&s=716cb0b8c5af327e25a6577016424d50",
+      "status": "completed"
+    },
+    {
       "id": "2004727307342",
       "name": "Dog Friendly Sound Healing Session",
       "description": "Dogs welcome, no dog needed. Children welcome. Gongs and singing bowls. Sound session 11am to 12 noon.",
@@ -369,18 +380,6 @@
       "venueName": "St Philip's Church, Earls Court Road",
       "city": "London",
       "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1194430472%2F216441982947%2F1%2Foriginal.20260926-192645?auto=format%2Ccompress&q=75&sharp=10&s=8373da2849c916f3e51a094c546d7f10",
-      "status": "completed"
-    },
-    {
-      "id": "2000253386725",
-      "name": "THE EMBER HOUR  An Autumn Equinox Goddess Gathering",
-      "description": "Celebrate the magic of autumn with a cozy gathering of goddesses, good vibes, and soulful connections.",
-      "url": "https://www.eventbrite.co.uk/e/the-ember-hour-an-autumn-equinox-goddess-gathering-tickets-2000253386725",
-      "startLocal": "2026-09-20T15:30:00",
-      "endLocal": "2026-09-20T19:30:00",
-      "venueName": "Crockford Bridge Farm",
-      "city": "Weybridge",
-      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1193037603%2F216441982947%2F1%2Foriginal.20260909-083846?auto=format%2Ccompress&q=75&sharp=10&s=f2b1ca5422f554b07d232025e9b490bb",
       "status": "completed"
     }
   ]
