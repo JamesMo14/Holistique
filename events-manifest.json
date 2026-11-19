@@ -1,21 +1,7 @@
 {
-  "lastSync": "2026-11-18T18:05:18.290Z",
+  "lastSync": "2026-11-19T00:12:54.117Z",
   "organizationId": null,
   "upcoming": [
-    {
-      "id": "6af4bfd4eddd5670a38dc877",
-      "name": "Dog Friendly Sound Healing Session",
-      "description": "Some mornings you just need to slow down, breathe out and be around good people. And maybe a few good dogs. Come 15 minutes early (10:45am) and join...",
-      "url": "https://dandelion.events/e/j8es9",
-      "startLocal": "2026-11-18T11:00:00",
-      "endLocal": "2026-11-18T12:00:00",
-      "venueName": "Studio 91",
-      "city": "London",
-      "imageUrl": "photos/events/6af4bfd4eddd5670a38dc877.jpg",
-      "image_src": "https://r2.dandelion.events/2026/11/11/19/19/50/5e52ab9e-dc9c-43e7-b701-3ba5c43d539f/2d3a4acf-6906-48cd-bafe-8cf4a5e211be.jpeg",
-      "status": "live",
-      "source": "dandelion"
-    },
     {
       "id": "6ab6e017fb94b07fb29d3ca7",
       "name": "The Sound Within: An Immersive Sound Journey with Christian Dimarco",
