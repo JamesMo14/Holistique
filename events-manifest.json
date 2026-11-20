@@ -1,21 +1,7 @@
 {
-  "lastSync": "2026-11-20T00:12:22.345Z",
+  "lastSync": "2026-11-20T06:08:14.288Z",
   "organizationId": null,
   "upcoming": [
-    {
-      "id": "2003741278102",
-      "name": "The Sound Within: An Immersive Sound Journey with Christian Dimarco",
-      "description": "Sound artist Christian Dimarco, coming all the way from Melbourne, fills a City church with live didgeridoo, flutes and singing bowls.",
-      "url": "https://www.designmynight.com/london/whats-on/sound-bath/the-sound-within-an-immersive-sound-journey-with-christian-dimarco?t=tickets",
-      "startLocal": "2026-11-19T19:00:00",
-      "endLocal": "2026-11-19T21:00:00",
-      "venueName": "St Botolph-without-Bishopsgate",
-      "city": "London",
-      "imageUrl": "photos/events/2003741278102.jpg",
-      "image_src": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1194381362%2F216441982947%2F1%2Foriginal.20260925-184018?auto=format%2Ccompress&q=75&sharp=10&s=d71686d39cc27c8dd398822e5a26a653",
-      "status": "started",
-      "source": "eventbrite"
-    },
     {
       "id": "6ac3a6285115546772ebef58",
       "name": "Holistic Market & Chinese Tea Ceremony – Little Venice",
@@ -224,6 +210,18 @@
   ],
   "past": [
     {
+      "id": "2003741278102",
+      "name": "The Sound Within: An Immersive Sound Journey with Christian Dimarco",
+      "description": "Sound artist Christian Dimarco, coming all the way from Melbourne, fills a City church with live didgeridoo, flutes and singing bowls.",
+      "url": "https://www.eventbrite.co.uk/e/the-sound-within-an-immersive-sound-journey-with-christian-dimarco-tickets-2003741278102",
+      "startLocal": "2026-11-19T19:00:00",
+      "endLocal": "2026-11-19T21:00:00",
+      "venueName": "St Botolph-without-Bishopsgate",
+      "city": "London",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1194381362%2F216441982947%2F1%2Foriginal.20260925-184018?auto=format%2Ccompress&q=75&sharp=10&s=d71686d39cc27c8dd398822e5a26a653",
+      "status": "completed"
+    },
+    {
       "id": "2004727463810",
       "name": "Dog Friendly Sound Healing Session",
       "description": "Dogs welcome, no dog needed. Children welcome. Gongs and singing bowls. Sound session 11am to 12 noon.",
@@ -353,18 +351,6 @@
       "venueName": "Colet House",
       "city": "London",
       "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1193034553%2F216441982947%2F1%2Foriginal.20260909-073006?auto=format%2Ccompress&q=75&sharp=10&s=55c0f2acfa15b10ab4ead9bee7c0ca5c",
-      "status": "completed"
-    },
-    {
-      "id": "2002223791258",
-      "name": "Paws & Sound: Doggy Sound Healing Experience",
-      "description": "Some evenings you just need to slow down, breathe out and be around good people. And good dogs.",
-      "url": "https://www.eventbrite.co.uk/e/paws-sound-doggy-sound-healing-experience-tickets-2002223791258",
-      "startLocal": "2026-10-10T19:00:00",
-      "endLocal": "2026-10-10T21:00:00",
-      "venueName": "St Philip's Church, Earls Court Road",
-      "city": "London",
-      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1194430472%2F216441982947%2F1%2Foriginal.20260926-192645?auto=format%2Ccompress&q=75&sharp=10&s=8373da2849c916f3e51a094c546d7f10",
       "status": "completed"
     }
   ]
