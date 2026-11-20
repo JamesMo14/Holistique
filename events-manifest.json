@@ -1,21 +1,20 @@
 {
-  "lastSync": "2026-11-19T00:12:54.117Z",
+  "lastSync": "2026-11-20T00:12:22.345Z",
   "organizationId": null,
   "upcoming": [
     {
-      "id": "6ab6e017fb94b07fb29d3ca7",
+      "id": "2003741278102",
       "name": "The Sound Within: An Immersive Sound Journey with Christian Dimarco",
-      "description": "Sound artist Christian Dimarco, coming all the way from Melbourne, fills a City church with live didgeridoo, flutes and singing bowls. This summer...",
+      "description": "Sound artist Christian Dimarco, coming all the way from Melbourne, fills a City church with live didgeridoo, flutes and singing bowls.",
       "url": "https://www.designmynight.com/london/whats-on/sound-bath/the-sound-within-an-immersive-sound-journey-with-christian-dimarco?t=tickets",
       "startLocal": "2026-11-19T19:00:00",
       "endLocal": "2026-11-19T21:00:00",
       "venueName": "St Botolph-without-Bishopsgate",
       "city": "London",
-      "imageUrl": "photos/events/6ab6e017fb94b07fb29d3ca7.jpg",
-      "image_src": "https://r2.dandelion.events/2026/10/31/18/36/11/b484079d-a9d8-40b2-b133-3658e136acb4/a6cc291c-8baa-4ceb-b4cb-feceb0de2bfe.jpeg",
-      "status": "live",
-      "source": "both",
-      "eventbriteUrl": "https://www.eventbrite.co.uk/e/the-sound-within-an-immersive-sound-journey-with-christian-dimarco-tickets-2003741278102"
+      "imageUrl": "photos/events/2003741278102.jpg",
+      "image_src": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1194381362%2F216441982947%2F1%2Foriginal.20260925-184018?auto=format%2Ccompress&q=75&sharp=10&s=d71686d39cc27c8dd398822e5a26a653",
+      "status": "started",
+      "source": "eventbrite"
     },
     {
       "id": "6ac3a6285115546772ebef58",
