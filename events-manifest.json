@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-11-21T06:07:31.435Z",
+  "lastSync": "2026-11-21T18:05:03.084Z",
   "organizationId": null,
   "upcoming": [
     {
@@ -33,19 +33,18 @@
       "eventbriteUrl": "https://www.eventbrite.co.uk/e/medicine-music-sunday-sound-bath-with-christian-dimarco-shoreditch-tickets-2002840190926"
     },
     {
-      "id": "6af4c004eddd5670a38dc918",
+      "id": "2004727571131",
       "name": "Dog Friendly Sound Healing Session",
-      "description": "Some mornings you just need to slow down, breathe out and be around good people. And maybe a few good dogs. Come 15 minutes early (10:45am) and join...",
-      "url": "https://dandelion.events/e/r0wpl",
+      "description": "Dogs welcome, no dog needed. Children welcome. Gongs and singing bowls. Sound session 11am to 12 noon.",
+      "url": "https://www.eventbrite.co.uk/e/dog-friendly-sound-healing-session-tickets-2004727571131",
       "startLocal": "2026-11-23T11:00:00",
       "endLocal": "2026-11-23T12:00:00",
-      "venueName": "Studio 91",
+      "venueName": "Social Yoga Fish Island",
       "city": "London",
-      "imageUrl": "photos/events/6af4c004eddd5670a38dc918.jpg",
-      "image_src": "https://r2.dandelion.events/2026/11/11/19/20/37/c8bfaed6-e777-4c1f-8a02-7671b1f29d7b/7a0a6e22-73b7-4e22-b49c-a9de2e8a882b.jpeg",
+      "imageUrl": "photos/events/2004727571131.jpg",
+      "image_src": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1197573971%2F216441982947%2F1%2Foriginal.20261109-085110?auto=format%2Ccompress&q=75&sharp=10&s=716cb0b8c5af327e25a6577016424d50",
       "status": "live",
-      "source": "both",
-      "eventbriteUrl": "https://www.eventbrite.co.uk/e/dog-friendly-sound-healing-session-tickets-2004727571131"
+      "source": "eventbrite"
     },
     {
       "id": "6af4c025eddd5670a38dc9bd",
