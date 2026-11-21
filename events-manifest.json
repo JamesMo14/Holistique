@@ -1,36 +1,34 @@
 {
-  "lastSync": "2026-11-20T06:08:14.288Z",
+  "lastSync": "2026-11-21T00:12:46.365Z",
   "organizationId": null,
   "upcoming": [
     {
-      "id": "6ac3a6285115546772ebef58",
+      "id": "2002836219046",
       "name": "Holistic Market & Chinese Tea Ceremony – Little Venice",
-      "description": "🌿 Holistic Market & Chinese Tea Ceremony 🌿 Join us from 6pm for a calm evening in Little Venice. The tea ceremony space becomes a holistic market,...",
+      "description": "A guided Chinese tea ceremony and a little holistic market, on a Friday evening in Little Venice.",
       "url": "https://www.designmynight.com/london/whats-on/classes/chinese-tea-ceremony-workshop?t=tickets",
       "startLocal": "2026-11-20T18:00:00",
       "endLocal": "2026-11-20T21:00:00",
       "venueName": "The Amadeus",
       "city": "London",
-      "imageUrl": "photos/events/6ac3a6285115546772ebef58.jpg",
-      "image_src": "https://r2.dandelion.events/2026/10/29/14/54/55/97fc333b-6f20-4fa9-96f5-2900eefe5f04/1adef9ee-6723-4d31-80e7-272bf406363d.jpeg",
-      "status": "live",
-      "source": "both",
-      "eventbriteUrl": "https://www.eventbrite.co.uk/e/holistic-market-chinese-tea-ceremony-little-venice-tickets-2002836219046"
+      "imageUrl": "photos/events/2002836219046.jpg",
+      "image_src": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1196857511%2F216441982947%2F1%2Foriginal.20261029-145415?auto=format%2Ccompress&q=75&sharp=10&s=c6550a33b4fdba66ef314151d4828740",
+      "status": "started",
+      "source": "eventbrite"
     },
     {
-      "id": "6ab6e9bffb94b07fb29d441b",
+      "id": "2002314535677",
       "name": "Into Stillness: A Sound Journey with Christian Dimarco",
-      "description": "Lie back in a beautiful chapel in Little Venice and let live didgeridoo, flutes and singing bowls carry you into deep rest. This summer Christian...",
+      "description": "Lie back in a beautiful chapel in Little Venice and let live didgeridoo, flutes and singing bowls carry you into deep rest.",
       "url": "https://www.designmynight.com/london/whats-on/sound-bath/into-stillness-a-sound-journey-with-christian-dimarco?t=tickets",
       "startLocal": "2026-11-20T19:00:00",
       "endLocal": "2026-11-20T21:00:00",
       "venueName": "The Amadeus",
       "city": "London",
-      "imageUrl": "photos/events/6ab6e9bffb94b07fb29d441b.jpg",
-      "image_src": "https://r2.dandelion.events/2026/10/31/18/35/36/4401c5dc-c1e3-4af0-94f4-9bdca2ae72cd/2462f706-e15c-4dbb-b53b-ac4f0562ae0e.jpeg",
-      "status": "live",
-      "source": "both",
-      "eventbriteUrl": "https://www.eventbrite.co.uk/e/into-stillness-a-sound-journey-with-christian-dimarco-tickets-2002314535677"
+      "imageUrl": "photos/events/2002314535677.jpg",
+      "image_src": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1196994051%2F216441982947%2F1%2Foriginal.20261031-181034?auto=format%2Ccompress&q=75&sharp=10&s=c5372b0e6818c0488ec7e446b36b914f",
+      "status": "started",
+      "source": "eventbrite"
     },
     {
       "id": "6ab132d8205f96f0470bda75",
