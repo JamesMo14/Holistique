@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-11-22T12:06:47.213Z",
+  "lastSync": "2026-11-22T18:05:18.370Z",
   "organizationId": null,
   "upcoming": [
     {
@@ -13,7 +13,7 @@
       "city": "London",
       "imageUrl": "photos/events/6ac01fdb0a761b3b5f8e9793.jpg",
       "image_src": "https://r2.dandelion.events/2026/10/31/18/34/38/72a59923-ccab-4dab-bd36-08fe1a40723c/baf3bfe3-c97b-4f8f-9301-73a5cbbb112e.jpeg",
-      "status": "live",
+      "status": "started",
       "source": "both",
       "eventbriteUrl": "https://www.eventbrite.co.uk/e/medicine-music-sunday-sound-bath-with-christian-dimarco-shoreditch-tickets-2002840190926"
     },
@@ -173,7 +173,7 @@
       "venueName": "Colet House",
       "city": "London",
       "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1196993015%2F216441982947%2F1%2Foriginal.20261031-174644?auto=format%2Ccompress&q=75&sharp=10&s=dbce1702eb84e7cea528b9105e292ae5",
-      "status": "ended"
+      "status": "completed"
     },
     {
       "id": "2002314535677",
