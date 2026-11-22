@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-11-22T00:14:07.392Z",
+  "lastSync": "2026-11-22T06:07:31.875Z",
   "organizationId": null,
   "upcoming": [
     {
@@ -13,7 +13,7 @@
       "city": "London",
       "imageUrl": "photos/events/2000006105099.jpg",
       "image_src": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1196993015%2F216441982947%2F1%2Foriginal.20261031-174644?auto=format%2Ccompress&q=75&sharp=10&s=dbce1702eb84e7cea528b9105e292ae5",
-      "status": "live",
+      "status": "started",
       "source": "eventbrite"
     },
     {
