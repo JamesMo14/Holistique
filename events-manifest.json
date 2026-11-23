@@ -1,22 +1,7 @@
 {
-  "lastSync": "2026-11-22T18:05:18.370Z",
+  "lastSync": "2026-11-23T00:14:13.919Z",
   "organizationId": null,
   "upcoming": [
-    {
-      "id": "6ac01fdb0a761b3b5f8e9793",
-      "name": "Medicine Music: Sunday Sound Bath with Christian Dimarco (Shoreditch)",
-      "description": "A Sunday reset in Shoreditch: lie down, breathe, and let Christian Dimarco's live sound get you ready for the week ahead. This summer Christian...",
-      "url": "https://www.designmynight.com/london/whats-on/sound-bath/medicine-music-a-journey-through-sound-with-christian-dimarco?t=tickets",
-      "startLocal": "2026-11-22T16:00:00",
-      "endLocal": "2026-11-22T18:00:00",
-      "venueName": "AndSoul Sanctuary Sauna and Wellness Studio",
-      "city": "London",
-      "imageUrl": "photos/events/6ac01fdb0a761b3b5f8e9793.jpg",
-      "image_src": "https://r2.dandelion.events/2026/10/31/18/34/38/72a59923-ccab-4dab-bd36-08fe1a40723c/baf3bfe3-c97b-4f8f-9301-73a5cbbb112e.jpeg",
-      "status": "started",
-      "source": "both",
-      "eventbriteUrl": "https://www.eventbrite.co.uk/e/medicine-music-sunday-sound-bath-with-christian-dimarco-shoreditch-tickets-2002840190926"
-    },
     {
       "id": "2004727571131",
       "name": "Dog Friendly Sound Healing Session",
@@ -164,6 +149,18 @@
   ],
   "past": [
     {
+      "id": "2002840190926",
+      "name": "Medicine Music: Sunday Sound Bath with Christian Dimarco (Shoreditch)",
+      "description": "A Sunday reset in Shoreditch: lie down, breathe, and let Christian Dimarco's live sound get you ready for the week ahead.",
+      "url": "https://www.eventbrite.co.uk/e/medicine-music-sunday-sound-bath-with-christian-dimarco-shoreditch-tickets-2002840190926",
+      "startLocal": "2026-11-22T16:00:00",
+      "endLocal": "2026-11-22T18:00:00",
+      "venueName": "AndSoul Sanctuary Sauna and Wellness Studio",
+      "city": "London",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1196994229%2F216441982947%2F1%2Foriginal.20261031-181421?auto=format%2Ccompress&q=75&sharp=10&s=6bd869e9eed725a227139c3b3cfe4a07",
+      "status": "ended"
+    },
+    {
       "id": "2000006105099",
       "name": "Sacred Sounds: Overnight Sound Bath with Gongs & Live Music (Colet House)",
       "description": "One night only: sleep inside live sound at Colet House. Gongs, didgeridoo, harp, piano and singing bowls, 9pm until morning.",
@@ -293,18 +290,6 @@
       "venueName": "NOUR",
       "city": "London",
       "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1196179924%2F216441982947%2F1%2Foriginal.20261020-121234?auto=format%2Ccompress&q=75&sharp=10&s=8a01a9a9a4be571c70bb29addd79aa3f",
-      "status": "completed"
-    },
-    {
-      "id": "2002834363496",
-      "name": "Chinese Tea Ceremony Workshop",
-      "description": "Get ready to sip your way through the art of Chinese tea ceremonies in this interactive workshop!",
-      "url": "https://www.eventbrite.co.uk/e/chinese-tea-ceremony-workshop-tickets-2002834363496",
-      "startLocal": "2026-10-25T10:00:00",
-      "endLocal": "2026-10-25T17:00:00",
-      "venueName": "Colet House",
-      "city": "London",
-      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1112994503%2F216441982947%2F1%2Foriginal.20250903-142807?auto=format%2Ccompress&q=75&sharp=10&s=bb84a07046e525380ab1ed426a059d91",
       "status": "completed"
     }
   ]
