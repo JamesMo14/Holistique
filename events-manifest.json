@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-11-23T06:11:54.383Z",
+  "lastSync": "2026-11-23T12:07:34.265Z",
   "organizationId": null,
   "upcoming": [
     {
@@ -73,7 +73,8 @@
       "imageUrl": "photos/events/6af4c047eddd5670a38dca73.jpg",
       "image_src": "https://r2.dandelion.events/2026/11/11/19/21/44/a347dde2-aa01-40db-995a-6667a7c87b09/7e18b0d5-e731-4e8e-acb0-02a81c301406.jpeg",
       "status": "live",
-      "source": "dandelion"
+      "source": "both",
+      "eventbriteUrl": "https://www.eventbrite.co.uk/e/dog-friendly-sound-healing-session-tickets-2004727642344"
     },
     {
       "id": "6af4c068eddd5670a38dcb0d",
@@ -88,7 +89,21 @@
       "image_src": "https://r2.dandelion.events/2026/11/11/19/22/18/146c7e88-830b-42a4-bb04-fa88b64511f7/3f74cb7b-95ae-4d93-b57d-1ef805b9ca60.jpeg",
       "status": "live",
       "source": "both",
-      "eventbriteUrl": "https://www.eventbrite.co.uk/e/dog-friendly-sound-healing-session-tickets-2004923980597"
+      "eventbriteUrl": "https://www.eventbrite.co.uk/e/dog-friendly-sound-healing-session-tickets-2004727665413"
+    },
+    {
+      "id": "2004923980597",
+      "name": "Dog Friendly Sound Healing Session",
+      "description": "Dogs welcome, no dog needed. Children welcome. Gongs and singing bowls. Sound session 11am to 12 noon.",
+      "url": "https://www.eventbrite.co.uk/e/dog-friendly-sound-healing-session-tickets-2004923980597",
+      "startLocal": "2026-12-02T11:00:00",
+      "endLocal": "2026-12-02T12:00:00",
+      "venueName": "Social Yoga Fish Island",
+      "city": "London",
+      "imageUrl": "photos/events/2004923980597.jpg",
+      "image_src": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1197573971%2F216441982947%2F1%2Foriginal.20261109-085110?auto=format%2Ccompress&q=75&sharp=10&s=716cb0b8c5af327e25a6577016424d50",
+      "status": "live",
+      "source": "eventbrite"
     },
     {
       "id": "6af4c097eddd5670a38dcbaa",
