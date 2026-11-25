@@ -1,5 +1,5 @@
 {
-  "synced_at": "2026-11-22T00:49:33.462Z",
+  "synced_at": "2026-11-25T12:38:59.425Z",
   "items": [
     {
       "key": "nurateethcare.com",
@@ -30,7 +30,7 @@
       "title": "For Play Libido Chocolates",
       "code": "VONNY15",
       "url": "https://forplay.co.uk/123",
-      "description": "Discover 3 intimate experiences, featuring exquisite chocolates infused with a thrilling mix of natural adaptogens and play cards designed to spark intimate adventures.",
+      "description": "",
       "thumbnail": "https://ugc.production.linktr.ee/41def03f-6e99-481e-9f7f-52231cbee81a_Shopify---Social-Sharing.webp"
     },
     {
@@ -152,6 +152,14 @@
       "url": "http://soov.uk/YVONNE15",
       "description": "",
       "thumbnail": "https://ugc.production.linktr.ee/4aaad556-3434-4cc4-bfea-4c9df6b7001d_SoovBlue-SquarePNG-ef31251b-4d2f-46e2-b427-6bed4b654a53.webp"
+    },
+    {
+      "key": "shikawellbeing.com",
+      "title": "Shika Wellbeing – 15% off with code VONNY15",
+      "code": null,
+      "url": "https://shikawellbeing.com/?sca_ref=12700171.eKbBF69lLe",
+      "description": "",
+      "thumbnail": "https://ugc.production.linktr.ee/8bf99c2f-1dca-4ef9-bd08-2566da40ffe6_Shika-Wellbeing-Acupressure-mat-and-pillow-420cc42e-db69-4133-acfe-99be3d4d2862.png"
     }
   ],
   "enrichment": {
@@ -280,6 +288,11 @@
       "brand": "Premium Grounding",
       "description": "Premium Grounding — 316L stainless steel grounding sheets engineered to last. 1,000+ verified reviews. 120-night trial. 3-year warranty. Ships internationally.",
       "image": "https://premiumgrounding.com/cdn/shop/files/PG_Logo_IA___RGB_Icon_CoreBlue_bd760f1a-cf47-4347-a2fb-6ddaa2e0d976.png?v=1765859579&width=1200"
+    },
+    "shikawellbeing.com": {
+      "brand": "Shika Wellbeing UK",
+      "description": "Shop acupressure mats & aromatherapy wellness products at Shika Wellbeing UK. 10% off your first purchase & FREE SHIPPING OVER £30! Order now!",
+      "image": "http://shikawellbeing.co.uk/cdn/shop/files/Shika-Wellbeing_Acupressure_mat_and_pillow_420cc42e-db69-4133-acfe-99be3d4d2862.png?v=1727459851"
     },
     "soov.uk": {
       "brand": "soov.uk",
