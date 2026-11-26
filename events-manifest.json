@@ -1,36 +1,7 @@
 {
-  "lastSync": "2026-11-25T18:05:32.148Z",
+  "lastSync": "2026-11-26T00:12:49.423Z",
   "organizationId": null,
   "upcoming": [
-    {
-      "id": "6af4c025eddd5670a38dc9bd",
-      "name": "Dog Friendly Sound Healing Session",
-      "description": "Some mornings you just need to slow down, breathe out and be around good people. And maybe a few good dogs. Come 15 minutes early (10:45am) and join...",
-      "url": "https://dandelion.events/e/j9pnz",
-      "startLocal": "2026-11-25T11:00:00",
-      "endLocal": "2026-11-25T12:00:00",
-      "venueName": "Studio 91",
-      "city": "London",
-      "imageUrl": "photos/events/6af4c025eddd5670a38dc9bd.jpg",
-      "image_src": "https://r2.dandelion.events/2026/11/11/19/21/10/fc93af96-1d8f-412c-8226-f8b947cc70ae/24c4d935-6aca-4c3d-af32-f04d7e06a6a0.jpeg",
-      "status": "live",
-      "source": "dandelion"
-    },
-    {
-      "id": "6ae04b57ab2f5914d54dc9db",
-      "name": "SOLD OUT: Trust the Signal: Free Talk with Aude Firmin",
-      "description": "⚠️ Important: The College of Psychic Studies manages entry for this talk. You must also book your free place on the College's website, or you won't...",
-      "url": "https://dandelion.events/e/g7am4",
-      "startLocal": "2026-11-25T19:00:00",
-      "endLocal": "2026-11-25T20:30:00",
-      "venueName": "The College of Psychic Studies",
-      "city": "London",
-      "imageUrl": "photos/events/6ae04b57ab2f5914d54dc9db.jpg",
-      "image_src": "https://r2.dandelion.events/2026/10/27/06/57/30/47fcb1f7-4a21-4cdd-81b9-d182fa3a5d8e/a37fc149-117b-4e56-8366-8b1d74d8cd9e.jpeg",
-      "status": "live",
-      "source": "both",
-      "eventbriteUrl": "https://www.eventbrite.co.uk/e/sold-out-trust-the-signal-free-talk-with-aude-firmin-tickets-2003954532953"
-    },
     {
       "id": "6ad13756379db2473851818c",
       "name": "Paws & Sound: Dog-Friendly Sound Healing Experience",
@@ -76,6 +47,18 @@
     }
   ],
   "past": [
+    {
+      "id": "2003954532953",
+      "name": "SOLD OUT: Trust the Signal: Free Talk with Aude Firmin",
+      "description": "A free evening talk with psychic medium Aude Firmin on her new book, Trust the Signal, with live Q&A and book signing.",
+      "url": "https://www.eventbrite.co.uk/e/sold-out-trust-the-signal-free-talk-with-aude-firmin-tickets-2003954532953",
+      "startLocal": "2026-11-25T19:00:00",
+      "endLocal": "2026-11-25T20:30:00",
+      "venueName": "The College of Psychic Studies",
+      "city": "London",
+      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1196660503%2F216441982947%2F1%2Foriginal.20261027-064716?auto=format%2Ccompress&q=75&sharp=10&s=fbb9c71ad57d8a43614d65045484d5f9",
+      "status": "ended"
+    },
     {
       "id": "2004727603227",
       "name": "Dog Friendly Sound Healing Session",
@@ -206,18 +189,6 @@
       "venueName": "Social Yoga Fish Island",
       "city": "London",
       "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1197573971%2F216441982947%2F1%2Foriginal.20261109-085110?auto=format%2Ccompress&q=75&sharp=10&s=716cb0b8c5af327e25a6577016424d50",
-      "status": "completed"
-    },
-    {
-      "id": "2004186148722",
-      "name": "Women's Clothes Swap & Social Evening",
-      "description": "Swap the clothes you don't wear for ones you will. A relaxed women-only evening in East London, with finger food and drinks included.",
-      "url": "https://www.eventbrite.co.uk/e/womens-clothes-swap-social-evening-tickets-2004186148722",
-      "startLocal": "2026-11-09T18:00:00",
-      "endLocal": "2026-11-09T21:00:00",
-      "venueName": "Private residence",
-      "city": "London",
-      "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1197022770%2F216441982947%2F1%2Foriginal.20261101-151052?auto=format%2Ccompress&q=75&sharp=10&s=8ef38c602238efc036cd0d82a2ff8df5",
       "status": "completed"
     }
   ]
