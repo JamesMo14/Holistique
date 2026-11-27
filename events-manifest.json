@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-11-26T06:08:36.518Z",
+  "lastSync": "2026-11-27T12:07:38.240Z",
   "organizationId": null,
   "upcoming": [
     {
@@ -42,6 +42,20 @@
       "city": "London",
       "imageUrl": "photos/events/2004727665413.jpg",
       "image_src": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1197573971%2F216441982947%2F1%2Foriginal.20261109-085110?auto=format%2Ccompress&q=75&sharp=10&s=716cb0b8c5af327e25a6577016424d50",
+      "status": "live",
+      "source": "eventbrite"
+    },
+    {
+      "id": "2005527479679",
+      "name": "Running Club at Cafe Nour Walthamstow",
+      "description": "A relaxed, friendly group run around Walthamstow, then 25% off food and drinks at NOUR.",
+      "url": "https://www.eventbrite.co.uk/e/running-club-at-cafe-nour-walthamstow-tickets-2005527479679",
+      "startLocal": "2026-12-06T09:30:00",
+      "endLocal": "2026-12-06T11:00:00",
+      "venueName": "NOUR",
+      "city": "London",
+      "imageUrl": "photos/events/2005527479679.jpg",
+      "image_src": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1196179924%2F216441982947%2F1%2Foriginal.20261020-121234?auto=format%2Ccompress&q=75&sharp=10&s=8a01a9a9a4be571c70bb29addd79aa3f",
       "status": "live",
       "source": "eventbrite"
     }
